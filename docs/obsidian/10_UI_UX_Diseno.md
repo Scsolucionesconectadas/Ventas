@@ -5,9 +5,9 @@
 - Estilo: dashboard comercial premium, claro, sobrio y operativo.
 - Paleta: base clara, tinta SC `#22333f`, azul SC `#0060c0`, cian SC `#00b0e8`, estados secundarios en verde/amarillo/rojo.
 - Componentes: topbar full-width, hero institucional, servicios clicables con modal flotante, portal separado de demos, diagnóstico express, automatizaciones, reporterías, proceso, CTA, datos de contacto, sidebar, tarjetas de rubros, métricas, paneles, formularios, tablas, chips, tabs, toast, chatbot, registros seleccionables, kanban, tareas, grillas de recursos, mini gráficos, bitácoras y acciones de PDF/email.
-- Iconos: Lucide vía CDN para evitar instalar dependencias en esta etapa estática.
-- Imágenes: se usan assets locales genéricos por rubro, sin clientes reales, y assets locales del logo SC.
-- Motion: animaciones CSS, GSAP por CDN, dropdowns, hover states, live pulse, feedback de toast, spotlight, modal de servicios y transiciones entre módulos.
+- Iconos: Lucide `1.41.0` vía CDN para evitar instalar dependencias en esta etapa estática.
+- Imágenes: se usan WebP locales genéricos por rubro, sin clientes reales, y assets locales del logo SC; los JPG se conservan como fuentes.
+- Motion: animaciones CSS, GSAP `3.15.0` por CDN, dropdowns, hover states, live pulse, feedback de toast, spotlight, modal de servicios y transiciones entre módulos.
 - El motion principal usa GSAP y deja un fallback CSS para escenarios sin CDN; el contenido crítico se restaura a visible al finalizar.
 
 ## Criterios aplicados
@@ -30,8 +30,14 @@
 - Los dropdowns usan cierre visual claro, estados focus/hover y menú flotante para acciones de turnos o registros; los selectores GSAP se filtran para no generar warnings cuando falta un bloque en una página.
 - Se respeta `prefers-reduced-motion` para reducir animaciones si el usuario lo configura.
 - La validación mobile controla que las vistas no generen overflow horizontal y que el menú flotante quede dentro del viewport.
+- La matriz responsive de calidad incluye móvil `390x844`, tablet `768x1024`, notebook `1366x768` y monitor grande `1920x1080`.
+- Las pestañas usan roles ARIA, paneles asociados, foco itinerante y navegación con flechas, `Home` y `End`.
+- El modal de servicios recibe el foco al abrir, lo mantiene dentro del diálogo y lo devuelve a la tarjeta al cerrar.
+- La grilla de contacto se apila desde `1040 px` para evitar recortes y mantener el email en una sola línea.
+- `404.html` conserva la identidad visual, ofrece rutas de recuperación claras y respeta `prefers-reduced-motion`.
 
 ## Pendientes de diseño
 
 - Revisar capturas finales antes de usar en presentaciones comerciales reales.
 - Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicación final.
+- Validar la experiencia en un celular físico cuando exista una URL pública de GitHub Pages.

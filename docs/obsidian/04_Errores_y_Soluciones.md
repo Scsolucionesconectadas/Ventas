@@ -1,5 +1,40 @@
 # Errores y Soluciones
 
+## 2026-09-05 - Tablist sin elementos tab semánticos
+
+**Síntoma:**
+Axe marcaba `aria-required-children` como error crítico en la barra de pestañas de las nueve demos.
+
+**Causa:**
+Los contenedores tenían `role="tablist"`, pero sus botones dinámicos no declaraban `role="tab"`, `aria-selected` ni relación con el panel correspondiente.
+
+**Solución aplicada:**
+Se agregaron roles, IDs, `aria-controls`, `aria-labelledby`, selección anunciada, `hidden` en paneles inactivos y navegación con flechas, `Home` y `End`.
+
+**Cómo evitarlo:**
+Cada `tablist` debe contener tabs semánticos y cada tab debe controlar un `tabpanel` identificable.
+
+**Archivos relacionados:**
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+
+## 2026-09-05 - Datos de contacto recortados en tablet
+
+**Síntoma:**
+En `768x1024`, teléfono, email e Instagram quedaban comprimidos y parte del texto se recortaba.
+
+**Causa:**
+La grilla de contacto mantenía tres columnas hasta el breakpoint móvil de `720 px`, aunque el bloque de contenido disponible ya no tenía ancho suficiente.
+
+**Solución aplicada:**
+La grilla pasa a una columna desde `1040 px`, manteniendo el correo completo en una sola línea.
+
+**Cómo evitarlo:**
+Validar texto largo real en los breakpoints intermedios y no limitar las pruebas a escritorio y móvil.
+
+**Archivos relacionados:**
+- `assets/css/base.css`
+
 ## 2026-09-05 - Warnings de GSAP por selectores inexistentes
 
 **Síntoma:**

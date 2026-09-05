@@ -1,5 +1,32 @@
 # Decisiones Técnicas
 
+## 2026-09-05 - Base de calidad para publicación estática
+
+**Decisión:**
+Fijar Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`; servir las imágenes visuales en WebP conservando los JPG como fuentes; agregar `404.html`; y completar la semántica y el manejo de foco de pestañas y modales.
+
+**Motivo:**
+GitHub Pages debe publicar una versión reproducible, rápida y navegable con teclado, sin depender de alias CDN cambiantes ni mostrar rutas rotas con una página genérica.
+
+**Impacto:**
+Reduce en aproximadamente `52,7%` el peso de las once imágenes de presentación cargadas por la web, estabiliza las librerías externas y mejora accesibilidad, navegación y consistencia responsive.
+
+**Alternativas consideradas:**
+- Eliminar los JPG después de convertirlos y perder una fuente simple de regeneración.
+- Agregar una herramienta de build solo para optimizar imágenes.
+- Mantener `@latest` y versiones mayores flotantes en las URLs CDN.
+
+**Archivos relacionados:**
+- `404.html`
+- `assets/css/base.css`
+- `assets/js/app.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `scripts/optimize_images.py`
+- `index.html`
+- `demos/index.html`
+- `rubros/*/index.html`
+
 ## 2026-09-05 - Catálogo separado de demos y PDFs con marca SC
 
 **Decisión:**

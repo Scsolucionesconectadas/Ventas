@@ -247,6 +247,7 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupTabs();
   bindViewControls();
   bindDropdowns();
   bindAppointmentForm();
@@ -261,6 +262,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   refreshIcons();
 });
+
+function setupTabs() {
+  const tabList = $(".view-tabs");
+  if (!tabList) return;
+
+  const tabs = Array.from(tabList.querySelectorAll("[data-view]"));
+  tabs.forEach((tab, index) => {
+    const viewName = tab.dataset.view;
+    const panel = $(`#view-${viewName}`);
+    tab.id = `tab-${viewName}`;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-controls", `view-${viewName}`);
+    tab.setAttribute("aria-selected", String(index === 0));
+    tab.tabIndex = index === 0 ? 0 : -1;
+    if (panel) {
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", tab.id);
+      panel.hidden = index !== 0;
+    }
+  });
+
+  tabList.addEventListener("keydown", (event) => {
+    const currentIndex = tabs.indexOf(event.target);
+    if (currentIndex < 0) return;
+
+    let nextIndex = currentIndex;
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = tabs.length - 1;
+    if (nextIndex === currentIndex && !["Home", "End"].includes(event.key)) return;
+
+    event.preventDefault();
+    tabs[nextIndex].focus();
+    tabs[nextIndex].click();
+  });
+}
 
 function bindViewControls() {
   $$("[data-view]").forEach((control) => {
@@ -417,11 +455,18 @@ function setView(viewName) {
   closeAppointmentMenu();
 
   $$(".view-panel").forEach((panel) => {
-    panel.classList.toggle("active", panel.id === `view-${viewName}`);
+    const isActive = panel.id === `view-${viewName}`;
+    panel.classList.toggle("active", isActive);
+    panel.hidden = !isActive;
   });
 
   $$("[data-view]").forEach((control) => {
-    control.classList.toggle("active", control.dataset.view === viewName);
+    const isActive = control.dataset.view === viewName;
+    control.classList.toggle("active", isActive);
+    if (control.getAttribute("role") === "tab") {
+      control.setAttribute("aria-selected", String(isActive));
+      control.tabIndex = isActive ? 0 : -1;
+    }
   });
 
   $$("details.nav-dropdown").forEach((dropdown) => {

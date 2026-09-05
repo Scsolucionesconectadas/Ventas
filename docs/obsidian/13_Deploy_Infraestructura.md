@@ -4,13 +4,13 @@
 
 La publicación prevista es GitHub Pages simple, sin dominio propio.
 
-- Repositorio: `maicolandresb123/Mockups_Ventas`.
+- Repositorio: `Scsolucionesconectadas/Ventas`.
 - Rama de publicación: `main`.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
-- URL esperada: `https://maicolandresb123.github.io/Mockups_Ventas/`.
+- URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
 - Estado del código remoto: versión funcional publicada en `origin/main`; commit principal `4465090`.
-- Estado local: sincronizado con el repositorio remoto al cerrar esta publicación.
+- Estado local: contiene la Fase 1 de calidad validada, todavía sin commit ni push.
 - Estado de Pages: pendiente de activar en GitHub. La URL pública respondió `404` después del push.
 
 ## Archivos de soporte
@@ -18,6 +18,9 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - `.nojekyll`: evita procesamiento Jekyll y publica assets estáticos tal como están.
 - `robots.txt`: permite indexación del sitio público.
 - `sitemap.xml`: declara landing, catálogo `/demos/` y demos públicas por rubro.
+- `404.html`: página de error con identidad SC y rutas calculadas para local y `/Ventas/`.
+- Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`.
+- Las imágenes públicas usan WebP; los JPG se conservan como fuentes para regeneración.
 
 ## Procedimiento de publicación
 
@@ -39,3 +42,4 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 
 - Activar GitHub Pages desde Settings del repositorio y confirmar visualmente la URL pública después del despliegue.
 - Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.
+- Publicar el commit de la Fase 1 cuando se autorice y repetir la prueba desde un celular físico.

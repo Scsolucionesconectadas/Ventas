@@ -18,10 +18,29 @@ http://127.0.0.1:4173/index.html
 node --check assets/js/app.js
 node --check assets/js/motion.js
 node --check assets/js/medical-demo.js
+node --check assets/js/demo-catalog.js
 node --check assets/js/industry-demo-data.js
 node --check assets/js/industry-demo.js
+node --check assets/js/pdf-report.js
+python -m py_compile scripts/optimize_images.py
 git diff --check
 ```
+
+Validación estructural para las plantillas estáticas con contenido hidratado por JavaScript:
+
+```bash
+npx --yes html-validate@11.14.0 --rule=doctype-style:off --rule=void-style:off --rule=prefer-native-element:off --rule=no-inline-style:off --rule=empty-heading:off --rule=text-content:off index.html 404.html demos/index.html "rubros/*/index.html"
+```
+
+## Optimización de imágenes
+
+Requiere Pillow y conserva los JPG como fuentes:
+
+```bash
+python scripts/optimize_images.py
+```
+
+El script genera WebP con ancho máximo de `1600 px`, calidad `84` y nombres equivalentes a las fuentes.
 
 ## GitHub Pages
 
@@ -43,5 +62,5 @@ Folder: / (root)
 URL prevista:
 
 ```text
-https://maicolandresb123.github.io/Mockups_Ventas/
+https://scsolucionesconectadas.github.io/Ventas/
 ```

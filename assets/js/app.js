@@ -35,7 +35,7 @@ function renderDemoCard(demo, rootPrefix) {
 
   return `
     <article class="industry-card" data-status="${escapeHtml(demo.status)}">
-      <img src="${escapeHtml(rootPrefix + demo.image)}" alt="${escapeHtml(demo.alt)}" />
+      <img src="${escapeHtml(rootPrefix + demo.image)}" alt="${escapeHtml(demo.alt)}" loading="lazy" decoding="async" />
       <div class="industry-card-body">
         <span class="status-pill ${statusClass}">${statusLabel}</span>
         <h3>${escapeHtml(demo.title)}</h3>
@@ -198,10 +198,19 @@ function bindServiceModal() {
   const list = modal.querySelector("[data-service-list]");
   const outcome = modal.querySelector("[data-service-outcome]");
   const closeButtons = modal.querySelectorAll("[data-service-close]");
+  let activeTrigger = null;
+
+  buttons.forEach((button) => {
+    button.setAttribute("aria-controls", modal.id);
+    button.setAttribute("aria-expanded", "false");
+  });
 
   const close = () => {
     modal.hidden = true;
     document.body.classList.remove("modal-open");
+    buttons.forEach((button) => button.setAttribute("aria-expanded", "false"));
+    activeTrigger?.focus();
+    activeTrigger = null;
   };
 
   buttons.forEach((button) => {
@@ -215,10 +224,13 @@ function bindServiceModal() {
       if (list) list.innerHTML = detail.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("");
       if (outcome) outcome.textContent = detail.outcome;
 
+      activeTrigger = button;
+      button.setAttribute("aria-expanded", "true");
       modal.hidden = false;
       document.body.classList.add("modal-open");
       refreshIcons();
       window.SCAnimations?.pulse?.(modal.querySelector(".service-modal-card"));
+      window.requestAnimationFrame(() => modal.querySelector("[data-service-close]")?.focus());
     });
 
     button.addEventListener("keydown", (event) => {
@@ -234,6 +246,24 @@ function bindServiceModal() {
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !modal.hidden) close();
+  });
+
+  modal.addEventListener("keydown", (event) => {
+    if (event.key !== "Tab") return;
+    const focusable = Array.from(
+      modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+    ).filter((element) => !element.hidden);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 }
 

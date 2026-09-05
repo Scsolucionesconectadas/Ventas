@@ -485,7 +485,7 @@ h3 {
   background:
     linear-gradient(90deg, rgba(16, 30, 42, 0.9), rgba(16, 30, 42, 0.6) 44%, rgba(0, 96, 192, 0.22)),
     linear-gradient(180deg, rgba(0, 176, 232, 0.18), transparent 66%),
-    url("../img/landing-hero.jpg") center/cover;
+    url("../img/landing-hero.webp") center/cover;
   color: #ffffff;
 }
 
@@ -1276,7 +1276,7 @@ h3 {
   border-radius: var(--radius);
   background:
     linear-gradient(90deg, rgba(31, 39, 36, 0.9), rgba(31, 39, 36, 0.45)),
-    url("../img/medical-hero.jpg") center/cover;
+    url("../img/medical-hero.webp") center/cover;
   color: #ffffff;
 }
 
@@ -3194,6 +3194,10 @@ th {
 
   .snapshot {
     align-self: auto;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 
   .app-layout {

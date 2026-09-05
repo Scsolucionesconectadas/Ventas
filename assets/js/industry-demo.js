@@ -25,6 +25,7 @@
     hydrateStaticContent();
     ensureReportsPanel();
     renderNavigation();
+    setupTabs();
     bindViewControls();
     bindDropdowns();
     bindForm();
@@ -105,10 +106,49 @@
     tabs.innerHTML = views
       .map(
         (view, index) => `
-          <button class="tab-button ${index === 0 ? "active" : ""}" type="button" data-view="${escapeHtml(view.id)}">${escapeHtml(view.label)}</button>
+          <button
+            class="tab-button ${index === 0 ? "active" : ""}"
+            id="tab-${escapeHtml(view.id)}"
+            type="button"
+            role="tab"
+            data-view="${escapeHtml(view.id)}"
+            aria-controls="view-${escapeHtml(view.id)}"
+            aria-selected="${index === 0 ? "true" : "false"}"
+            tabindex="${index === 0 ? "0" : "-1"}"
+          >${escapeHtml(view.label)}</button>
         `,
       )
       .join("");
+  }
+
+  function setupTabs() {
+    const tabList = $("#demoTabs");
+    if (!tabList) return;
+
+    const tabs = Array.from(tabList.querySelectorAll("[role='tab']"));
+    tabs.forEach((tab, index) => {
+      const panel = $(`#view-${tab.dataset.view}`);
+      if (!panel) return;
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", tab.id);
+      panel.hidden = index !== 0;
+    });
+
+    tabList.addEventListener("keydown", (event) => {
+      const currentIndex = tabs.indexOf(event.target);
+      if (currentIndex < 0) return;
+
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+      if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabs.length - 1;
+      if (nextIndex === currentIndex && !["Home", "End"].includes(event.key)) return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      tabs[nextIndex].click();
+    });
   }
 
   function bindViewControls() {
@@ -709,11 +749,18 @@
 
     closeRecordMenu();
     $$(".view-panel").forEach((panel) => {
-      panel.classList.toggle("active", panel.id === `view-${viewName}`);
+      const isActive = panel.id === `view-${viewName}`;
+      panel.classList.toggle("active", isActive);
+      panel.hidden = !isActive;
     });
 
     $$("[data-view]").forEach((control) => {
-      control.classList.toggle("active", control.dataset.view === viewName);
+      const isActive = control.dataset.view === viewName;
+      control.classList.toggle("active", isActive);
+      if (control.getAttribute("role") === "tab") {
+        control.setAttribute("aria-selected", String(isActive));
+        control.tabIndex = isActive ? 0 : -1;
+      }
     });
 
     $$("details.nav-dropdown").forEach((dropdown) => {
@@ -740,7 +787,7 @@
             </div>
             <span class="tag ok">Grafana demo</span>
           </div>
-          <div class="report-toolbar" aria-label="Filtros de reportería">
+          <div class="report-toolbar" role="group" aria-label="Filtros de reportería">
             <span><i data-lucide="gauge" aria-hidden="true"></i><strong id="reportDashboardName"></strong></span>
             <span><i data-lucide="calendar-days" aria-hidden="true"></i><strong id="reportRange"></strong></span>
             <span><i data-lucide="clock" aria-hidden="true"></i><strong id="reportSchedule"></strong></span>

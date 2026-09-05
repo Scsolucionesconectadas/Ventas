@@ -9,7 +9,7 @@ La idea es tener una web principal profesional, responsive y orientada a ventas,
 URL prevista para GitHub Pages:
 
 ```text
-https://maicolandresb123.github.io/Mockups_Ventas/
+https://scsolucionesconectadas.github.io/Ventas/
 ```
 
 ## Secciones principales
@@ -40,6 +40,7 @@ https://maicolandresb123.github.io/Mockups_Ventas/
 .
 ├── .gitignore
 ├── .nojekyll
+├── 404.html
 ├── demos/
 │   └── index.html
 ├── index.html
@@ -49,23 +50,18 @@ https://maicolandresb123.github.io/Mockups_Ventas/
 │   ├── css/
 │   │   └── base.css
 │   ├── img/
-│   │   ├── education-demo.jpg
-│   │   ├── gastronomy-demo.jpg
-│   │   ├── hospitality-demo.jpg
+│   │   ├── *-demo.jpg
+│   │   ├── *-demo.webp
 │   │   ├── landing-hero.jpg
-│   │   ├── materials-demo.jpg
-│   │   ├── medical-demo.jpg
+│   │   ├── landing-hero.webp
 │   │   ├── medical-hero.jpg
-│   │   ├── real-estate-demo.jpg
-│   │   ├── logistics-demo.jpg
+│   │   ├── medical-hero.webp
 │   │   ├── sc-favicon.png
 │   │   ├── sc-color.png
 │   │   ├── sc-imagotipo.png
 │   │   ├── sc-imagotipo-dark.png
 │   │   ├── sc-symbol.png
-│   │   ├── sc-white.png
-│   │   ├── survey-demo.jpg
-│   │   └── tires-demo.jpg
+│   │   └── sc-white.png
 │   └── js/
 │       ├── app.js
 │       ├── demo-catalog.js
@@ -74,6 +70,9 @@ https://maicolandresb123.github.io/Mockups_Ventas/
 │       ├── medical-demo.js
 │       ├── pdf-report.js
 │       └── motion.js
+├── scripts/
+│   ├── generate_demo_images.py
+│   └── optimize_images.py
 ├── rubros/
 │   ├── agrimensores/
 │   │   └── index.html
@@ -109,6 +108,16 @@ python -m http.server 4173 --bind 127.0.0.1
 
 Luego abrir `http://127.0.0.1:4173/index.html`.
 
+## Calidad y rendimiento
+
+- Las imágenes visibles usan WebP; los JPG se conservan como fuentes para regeneración.
+- `python scripts/optimize_images.py` vuelve a crear los WebP con ancho máximo de `1600 px` y calidad `84`. Requiere Pillow.
+- Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1` están fijados en las URLs CDN.
+- `404.html` mantiene la identidad SC y resuelve correctamente sus enlaces tanto en local como bajo la subruta `/Ventas/` de GitHub Pages.
+- Las pestañas incluyen semántica ARIA, selección anunciada y navegación con flechas, `Home` y `End`.
+- Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
+- La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
+
 ## Publicación en GitHub Pages
 
 Configuración prevista:
@@ -143,5 +152,5 @@ Configuración prevista:
 - Azul SC: `#0060c0`.
 - Cian SC: `#00b0e8`.
 - Estética: SaaS operativo premium con superficies claras, sombras sobrias, microinteracciones y animaciones suaves.
-- Animaciones: GSAP por CDN con fallback CSS y respeto por `prefers-reduced-motion`.
+- Animaciones: GSAP `3.15.0` por CDN con fallback CSS y respeto por `prefers-reduced-motion`.
 - Los servicios de la home abren modales informativos para explicar alcance, entregables y resultado esperado.

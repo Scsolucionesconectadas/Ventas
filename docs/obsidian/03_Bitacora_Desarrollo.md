@@ -1,5 +1,44 @@
 # Bitácora de Desarrollo
 
+## 2026-09-05 - Fase 1 de calidad y publicación estática
+
+**Cambios realizados:**
+- Se revisaron los textos visibles, acentos y codificación UTF-8 de las doce páginas.
+- Se fijaron las versiones CDN de Lucide, GSAP y jsPDF.
+- Se creó `404.html` con identidad SC, navegación local y compatibilidad con la subruta de GitHub Pages.
+- Se convirtieron once imágenes de presentación a WebP y se actualizaron las referencias públicas.
+- Se agregaron roles, estados ARIA y navegación por teclado a las pestañas.
+- Se agregó entrada, contención y restauración de foco al modal de servicios.
+- Se corrigió el recorte de teléfono, email e Instagram en tablet.
+
+**Archivos modificados:**
+- `404.html`
+- `index.html`
+- `demos/index.html`
+- `rubros/*/index.html`
+- `assets/css/base.css`
+- `assets/js/app.js`
+- `assets/js/demo-catalog.js`
+- `assets/js/industry-demo-data.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/img/*.webp`
+- `scripts/optimize_images.py`
+- `README.md`
+
+**Validaciones realizadas:**
+- HTML Validate `11.14.0`: estructura sin errores, desactivando únicamente reglas estilísticas y comprobaciones de contenido que JavaScript hidrata en runtime.
+- Axe Core `4.13.0`: sin infracciones WCAG A/AA en landing, catálogo, nueve demos, todas sus pestañas y 404.
+- Playwright: sin overflow ni texto recortado en `390x844`, `768x1024`, `1366x768` y `1920x1080`.
+- Playwright: enlaces internos, imágenes, dropdowns, modal, foco, menú de tres puntos y acciones contextuales operativos.
+- Playwright: nueve PDFs descargados correctamente, uno por cada demo.
+- Navegador: cero errores y cero advertencias de consola en las doce rutas.
+- Imágenes: reducción total de `2.061.657` a `975.542` bytes (`52,7%`).
+
+**Pendientes detectados:**
+- Hacer commit y push de la Fase 1 cuando el usuario lo autorice.
+- Realizar una última prueba desde un celular físico después de activar GitHub Pages.
+
 ## 2026-09-05 - Mejoras de landing, catálogo de demos y PDFs con marca
 
 **Cambios realizados:**

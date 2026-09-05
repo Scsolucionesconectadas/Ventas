@@ -6,11 +6,11 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, una página separada de catálogo en `demos/index.html` y nueve demos funcionales para presentaciones comerciales: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La estética usa identidad visual SC, logo real, paleta azul/cian/tinta, imágenes locales por rubro, dropdowns, microinteracciones, animaciones CSS y animaciones GSAP por CDN. Todas las demos incluyen reportería demo con tablero tipo Grafana, PDF descargable con encabezado/pie institucional SC mediante jsPDF y preparación de email sin envío real. La landing ya tiene datos públicos de contacto, diagnóstico express interactivo, servicios con modal informativo y preparación para GitHub Pages simple desde `main` y `/`.
+El repositorio tiene una landing principal responsive de SC, una página separada de catálogo en `demos/index.html` y nueve demos funcionales para presentaciones comerciales: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La estética usa identidad visual SC, logo real, paleta azul/cian/tinta, imágenes locales por rubro, dropdowns, microinteracciones, animaciones CSS y GSAP `3.15.0` por CDN. Todas las demos incluyen reportería demo con tablero tipo Grafana, PDF descargable con encabezado/pie institucional SC mediante jsPDF `4.2.1` y preparación de email sin envío real. La Fase 1 de calidad incorporó imágenes WebP, `404.html`, versiones CDN fijas, pestañas accesibles, gestión de foco en modales y validación responsive automatizada en cuatro tamaños. La landing ya tiene datos públicos de contacto, diagnóstico express interactivo, servicios con modal informativo y preparación para GitHub Pages simple desde `main` y `/`.
 
 ## Stack técnico
 
-- Frontend: HTML, CSS, JavaScript sin build, GSAP por CDN y jsPDF por CDN para reportes.
+- Frontend: HTML, CSS, JavaScript sin build, Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1` por CDN.
 - Backend: no aplica en esta etapa.
 - Base de datos: datos ficticios embebidos en JavaScript.
 - Automatización: sección comercial para n8n, Node-RED, APIs, webhooks, bots, dashboards, Grafana, PDFs y emails programados.
@@ -32,7 +32,9 @@ El repositorio tiene una landing principal responsive de SC, una página separad
 - Demo logística y transporte: `rubros/logistica/index.html`.
 - Estilos compartidos: `assets/css/base.css`.
 - Assets de marca SC: `assets/img/sc-imagotipo.png`, `assets/img/sc-symbol.png`, `assets/img/sc-favicon.png`, `assets/img/sc-color.png`, `assets/img/sc-white.png` y `assets/img/sc-imagotipo-dark.png`.
-- Imágenes locales de presentación: `assets/img/*-demo.jpg`, `assets/img/landing-hero.jpg`, `assets/img/medical-hero.jpg`.
+- Imágenes locales de presentación: WebP para uso público y JPG conservados como fuentes en `assets/img/`.
+- Página de error con identidad SC: `404.html`.
+- Optimizador reproducible de imágenes: `scripts/optimize_images.py`.
 - Lógica compartida del hub: `assets/js/app.js`.
 - Catálogo central de demos: `assets/js/demo-catalog.js`.
 - Generador de PDF con marca SC: `assets/js/pdf-report.js`.
@@ -69,3 +71,5 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - Se agregó un diagnóstico express interactivo para recomendar rutas de demo y preparar contacto por WhatsApp.
 - Se separó el catálogo completo de demos en `demos/index.html` y la home quedó como landing institucional con preview.
 - Se agregó jsPDF `4.2.1` por CDN para PDFs demo con encabezado, pie institucional, logos SC y estructura ejecutiva.
+- Se fijaron las versiones CDN, se adoptó WebP para las imágenes visibles y se agregó una página 404 propia.
+- Se incorporó semántica de pestañas, navegación por teclado y gestión de foco en el modal de servicios.
