@@ -1,5 +1,22 @@
 # Errores y Soluciones
 
+## 2026-09-05 - Warnings de GSAP por selectores inexistentes
+
+**Síntoma:**
+La consola del navegador mostraba warnings de GSAP al abrir páginas que no tenían todos los bloques usados por los selectores globales de animación.
+
+**Causa:**
+`motion.js` enviaba selectores completos a `gsap.fromTo()` aunque algunas páginas no incluían elementos como `intro-copy`, `app-title` o `command-bar`.
+
+**Solución aplicada:**
+Se agregó una función auxiliar que transforma cada selector en una lista de elementos y solo ejecuta la animación cuando la lista tiene resultados.
+
+**Cómo evitarlo:**
+Al sumar páginas nuevas, animar colecciones ya resueltas o validar que el selector existe antes de llamar a GSAP.
+
+**Archivos relacionados:**
+- `assets/js/motion.js`
+
 ## 2026-09-05 - Commit bloqueado por trailing whitespace e identidad Git
 
 **Síntoma:**
@@ -151,3 +168,21 @@ Al crear dropdowns con contenido posicionado, asegurar que el estado cerrado ten
 
 **Archivos relacionados:**
 - `assets/css/base.css`
+## 2026-09-05 - Las demos no abren mediante file://
+
+**Síntoma:**
+Al abrir el catálogo como archivo local y seleccionar Gastronomía, Gomerías u otro rubro, el navegador mostraba `ERR_UNEXPECTED (-9)`.
+
+**Causa:**
+Las rutas dinámicas apuntaban a directorios como `rubros/gomerias/`. En navegación HTTP GitHub Pages resuelve su `index.html`, pero algunos navegadores no hacen esa resolución al navegar con el protocolo `file://`.
+
+**Solución aplicada:**
+Se cambiaron todas las rutas del catálogo para apuntar al archivo explícito `rubros/<rubro>/index.html` y se actualizó la versión de caché del catálogo.
+
+**Cómo evitarlo:**
+En enlaces internos que deban funcionar tanto por HTTP como mediante apertura local, usar siempre rutas relativas al archivo `index.html` y no solamente al directorio.
+
+**Archivos relacionados:**
+- `assets/js/demo-catalog.js`
+- `index.html`
+- `demos/index.html`

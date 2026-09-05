@@ -6,11 +6,11 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC y seis demos funcionales para presentaciones comerciales: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía y educación. La estética usa identidad visual SC, logo real, paleta azul/cian/tinta, imágenes locales por rubro, dropdowns, microinteracciones, animaciones CSS y animaciones GSAP por CDN. Todas las demos incluyen reportería demo con tablero tipo Grafana, PDF descargable y preparación de email sin envío real. La landing ya tiene datos públicos de contacto, diagnóstico express interactivo y preparación para GitHub Pages simple desde `main` y `/`.
+El repositorio tiene una landing principal responsive de SC, una página separada de catálogo en `demos/index.html` y nueve demos funcionales para presentaciones comerciales: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La estética usa identidad visual SC, logo real, paleta azul/cian/tinta, imágenes locales por rubro, dropdowns, microinteracciones, animaciones CSS y animaciones GSAP por CDN. Todas las demos incluyen reportería demo con tablero tipo Grafana, PDF descargable con encabezado/pie institucional SC mediante jsPDF y preparación de email sin envío real. La landing ya tiene datos públicos de contacto, diagnóstico express interactivo, servicios con modal informativo y preparación para GitHub Pages simple desde `main` y `/`.
 
 ## Stack técnico
 
-- Frontend: HTML, CSS, JavaScript sin build y GSAP por CDN.
+- Frontend: HTML, CSS, JavaScript sin build, GSAP por CDN y jsPDF por CDN para reportes.
 - Backend: no aplica en esta etapa.
 - Base de datos: datos ficticios embebidos en JavaScript.
 - Automatización: sección comercial para n8n, Node-RED, APIs, webhooks, bots, dashboards, Grafana, PDFs y emails programados.
@@ -19,17 +19,23 @@ El repositorio tiene una landing principal responsive de SC y seis demos funcion
 
 ## Módulos principales
 
-- Landing principal y portal de demos: `index.html`.
+- Landing principal institucional: `index.html`.
+- Catálogo separado de demos: `demos/index.html`.
 - Demo área médica: `rubros/medica/index.html`.
 - Demo hotelería: `rubros/hoteleria/index.html`.
 - Demo inmobiliarias: `rubros/inmobiliarias/index.html`.
 - Demo venta de materiales: `rubros/materiales/index.html`.
 - Demo gastronomía: `rubros/gastronomia/index.html`.
 - Demo educación: `rubros/educacion/index.html`.
+- Demo gomerías: `rubros/gomerias/index.html`.
+- Demo agrimensores: `rubros/agrimensores/index.html`.
+- Demo logística y transporte: `rubros/logistica/index.html`.
 - Estilos compartidos: `assets/css/base.css`.
-- Assets de marca SC: `assets/img/sc-imagotipo.png`, `assets/img/sc-symbol.png`, `assets/img/sc-favicon.png`.
+- Assets de marca SC: `assets/img/sc-imagotipo.png`, `assets/img/sc-symbol.png`, `assets/img/sc-favicon.png`, `assets/img/sc-color.png`, `assets/img/sc-white.png` y `assets/img/sc-imagotipo-dark.png`.
 - Imágenes locales de presentación: `assets/img/*-demo.jpg`, `assets/img/landing-hero.jpg`, `assets/img/medical-hero.jpg`.
 - Lógica compartida del hub: `assets/js/app.js`.
+- Catálogo central de demos: `assets/js/demo-catalog.js`.
+- Generador de PDF con marca SC: `assets/js/pdf-report.js`.
 - Lógica demo médica: `assets/js/medical-demo.js`.
 - Motor común para demos por rubro: `assets/js/industry-demo.js`.
 - Datos ficticios por rubro: `assets/js/industry-demo-data.js`.
@@ -47,6 +53,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 ## Pendientes importantes
 
 - [ ] Activar GitHub Pages en Settings del repositorio y verificar la URL pública.
+- [ ] Hacer commit y push de la iteración actual de mejoras.
 - [ ] Revisar licencias/atribución o reemplazar por imágenes propias/generadas antes de una publicación final.
 
 ## Últimas decisiones importantes
@@ -60,3 +67,5 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - Se definió publicación inicial por GitHub Pages simple, sin dominio propio.
 - Se adoptó el slogan comercial: "Tu operación conectada: sistemas, automatizaciones e inteligencia para crecer sin fricción."
 - Se agregó un diagnóstico express interactivo para recomendar rutas de demo y preparar contacto por WhatsApp.
+- Se separó el catálogo completo de demos en `demos/index.html` y la home quedó como landing institucional con preview.
+- Se agregó jsPDF `4.2.1` por CDN para PDFs demo con encabezado, pie institucional, logos SC y estructura ejecutiva.

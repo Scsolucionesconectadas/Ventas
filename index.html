@@ -19,11 +19,12 @@
     <meta property="og:url" content="https://maicolandresb123.github.io/Mokups_Ventas/" />
     <meta property="og:image" content="https://maicolandresb123.github.io/Mokups_Ventas/assets/img/sc-imagotipo.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20260905-pages" />
+    <link rel="stylesheet" href="assets/css/base.css?v=20260905-ux2" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script defer src="assets/js/app.js?v=20260905-pages"></script>
-    <script defer src="assets/js/motion.js?v=20260905-pages"></script>
+    <script defer src="assets/js/demo-catalog.js?v=20260905-ux3"></script>
+    <script defer src="assets/js/app.js?v=20260905-ux3"></script>
+    <script defer src="assets/js/motion.js?v=20260905-ux2"></script>
   </head>
   <body class="landing-site">
     <div class="site-shell">
@@ -39,7 +40,7 @@
         </a>
         <nav class="topbar-actions" aria-label="Navegación principal">
           <a href="#servicios" class="ghost-link">Servicios</a>
-          <a href="#demos" class="ghost-link">Demos</a>
+          <a href="demos/index.html" class="ghost-link">Demos</a>
           <a href="#automatizaciones" class="ghost-link">Automatizaciones</a>
           <a href="#proceso" class="ghost-link">Proceso</a>
           <details class="nav-dropdown">
@@ -49,7 +50,7 @@
               <i data-lucide="chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="dropdown-menu compact-menu">
-              <a href="#demos">Demos por rubro</a>
+              <a href="demos/index.html">Demos por rubro</a>
               <a href="#diagnostico">Diagnóstico express</a>
               <a href="#automatizaciones">n8n y Node-RED</a>
               <a href="#contacto">Solicitar demo</a>
@@ -79,7 +80,7 @@
                 tableros y reportes que se pueden ver, probar y vender antes de iniciar un proyecto.
               </p>
               <div class="hero-actions">
-                <a href="#demos" class="primary-link large">
+                <a href="demos/index.html" class="primary-link large">
                   <i data-lucide="layout-dashboard" aria-hidden="true"></i>
                   Ver demos por rubro
                 </a>
@@ -118,37 +119,37 @@
           </div>
 
           <div class="service-grid">
-            <article class="service-card">
+            <article class="service-card service-button" data-service="sistemas" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="panel-top" aria-hidden="true"></i></span>
               <h3>Sistemas de gestión</h3>
               <p>Paneles operativos, módulos por área, formularios, usuarios, reportes y trazabilidad.</p>
             </article>
-            <article class="service-card">
+            <article class="service-card service-button" data-service="automatizaciones" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="workflow" aria-hidden="true"></i></span>
               <h3>Automatizaciones</h3>
               <p>Flujos para ahorrar tiempo en tareas repetitivas, avisos, validaciones y seguimiento.</p>
             </article>
-            <article class="service-card">
+            <article class="service-card service-button" data-service="integraciones" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="plug-zap" aria-hidden="true"></i></span>
               <h3>Integraciones</h3>
               <p>Conexión entre APIs, CRMs, ERPs, planillas, formularios, bots, emails y bases de datos.</p>
             </article>
-            <article class="service-card">
+            <article class="service-card service-button" data-service="asistentes" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="message-square-text" aria-hidden="true"></i></span>
               <h3>Asistentes y chatbots</h3>
               <p>Recepción, soporte, consultas frecuentes y derivación inteligente hacia equipos humanos.</p>
             </article>
-            <article class="service-card">
+            <article class="service-card service-button" data-service="dashboards" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="pie-chart" aria-hidden="true"></i></span>
               <h3>Dashboards y Grafana</h3>
               <p>Indicadores claros para ventas, stock, turnos, cobranzas, productividad y operaciones.</p>
             </article>
-            <article class="service-card">
+            <article class="service-card service-button" data-service="reporterias" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="file-text" aria-hidden="true"></i></span>
               <h3>Reporterías ejecutivas</h3>
               <p>PDFs, CSV, emails programados, alertas y resúmenes para dirección o equipos operativos.</p>
             </article>
-            <article class="service-card">
+            <article class="service-card service-button" data-service="demos" tabindex="0" role="button" aria-haspopup="dialog">
               <span class="service-icon"><i data-lucide="presentation" aria-hidden="true"></i></span>
               <h3>Demos comerciales</h3>
               <p>Mockups funcionales por rubro para que el cliente pueda tocar la solución antes de contratar.</p>
@@ -159,7 +160,7 @@
         <section class="section-band proof-section" aria-label="Resumen de impacto">
           <div class="proof-grid">
             <article class="proof-item">
-              <strong data-count="6">6</strong>
+              <strong data-count="9">9</strong>
               <span>rubros navegables</span>
             </article>
             <article class="proof-item">
@@ -171,8 +172,8 @@
               <span>datos ficticios para demos</span>
             </article>
             <article class="proof-item">
-              <strong>1</strong>
-              <span>marca consistente</span>
+              <strong>PDF</strong>
+              <span>reportes con marca SC</span>
             </article>
           </div>
         </section>
@@ -190,7 +191,7 @@
             </div>
           </div>
 
-          <div class="industry-grid" id="industryGrid">
+          <div class="industry-grid" id="industryGrid" data-demo-catalog data-demo-mode="featured" data-demo-limit="3">
             <article class="industry-card" data-status="listo">
               <img
                 src="assets/img/medical-demo.jpg"
@@ -356,6 +357,12 @@
           <div class="empty-state industry-empty" id="industryEmpty" hidden>
             Todas las demos iniciales ya están disponibles. Los próximos rubros se agregarán en futuras iteraciones.
           </div>
+          <div class="section-actions">
+            <a href="demos/index.html" class="primary-link large">
+              <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+              Ver catálogo completo
+            </a>
+          </div>
         </section>
 
         <section class="section-band diagnostic-section" id="diagnostico">
@@ -434,7 +441,7 @@
                   <i data-lucide="send" aria-hidden="true"></i>
                   Pedir esta demo
                 </a>
-                <a href="#demos" class="secondary-link large">
+                <a href="demos/index.html" class="secondary-link large">
                   <i data-lucide="layout-dashboard" aria-hidden="true"></i>
                   Ver rubros
                 </a>
@@ -656,7 +663,7 @@
                   </span>
                 </a>
                 <a class="contact-card" href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">
-                  <i data-lucide="instagram" aria-hidden="true"></i>
+                  <span class="social-glyph" aria-hidden="true">@</span>
                   <span>
                     <strong>Instagram</strong>
                     <small>@sc.soluciones.ar</small>
@@ -672,12 +679,41 @@
         <span>Soluciones Conectadas</span>
         <div class="footer-links">
           <a href="#servicios">Servicios</a>
-          <a href="#demos">Demos</a>
+          <a href="demos/index.html">Demos</a>
           <a href="#automatizaciones">Automatizaciones</a>
           <a href="mailto:contacto.solucionesconectadas@gmail.com">Email</a>
           <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </footer>
+
+      <div class="service-modal-backdrop" data-service-modal hidden>
+        <article class="service-modal-card" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+          <button class="icon-button modal-close" type="button" data-service-close aria-label="Cerrar detalle">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+          <div class="service-modal-head">
+            <span class="service-icon"><i data-lucide="panel-top" data-service-icon aria-hidden="true"></i></span>
+            <div>
+              <p class="eyebrow">Detalle de servicio</p>
+              <h2 id="serviceModalTitle" data-service-title>Sistemas de gestión</h2>
+            </div>
+          </div>
+          <p data-service-copy></p>
+          <ul class="service-modal-list" data-service-list></ul>
+          <div class="service-modal-outcome" data-service-outcome></div>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20consultar%20por%20un%20servicio%20para%20mi%20empresa."
+              class="primary-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i data-lucide="message-circle" aria-hidden="true"></i>
+              Consultar por WhatsApp
+            </a>
+          </div>
+        </article>
+      </div>
     </div>
   </body>
 </html>

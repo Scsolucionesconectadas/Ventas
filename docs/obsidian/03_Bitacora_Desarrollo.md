@@ -1,5 +1,74 @@
 # Bitácora de Desarrollo
 
+## 2026-09-05 - Mejoras de landing, catálogo de demos y PDFs con marca
+
+**Cambios realizados:**
+- Se convirtió el acceso a demos en una página separada `demos/index.html` con catálogo completo de 9 rubros.
+- Se agregaron demos funcionales para gomerías, agrimensores y logística/transporte usando el motor configurable.
+- Se creó `assets/js/demo-catalog.js` para centralizar tarjetas, links, imágenes y módulos de cada rubro.
+- Se agregó `assets/js/pdf-report.js` con jsPDF `4.2.1` por CDN para generar PDFs con encabezado, logo SC, cuerpo ejecutivo, indicadores y pie institucional.
+- Se mejoró la landing con topbar a ancho completo, servicios clicables con modal flotante, KPI corregido, contacto más legible e icono estable de Instagram.
+- Se ajustó el espaciado de formularios y fichas de detalle en demos.
+- Se agregaron logos SC adicionales y tres imágenes generadas localmente para los rubros nuevos.
+- Se limpió el motor de animaciones para evitar warnings de GSAP cuando una página no contiene todos los selectores.
+
+**Archivos modificados:**
+- `README.md`
+- `index.html`
+- `demos/index.html`
+- `sitemap.xml`
+- `assets/css/base.css`
+- `assets/js/app.js`
+- `assets/js/demo-catalog.js`
+- `assets/js/pdf-report.js`
+- `assets/js/industry-demo-data.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/motion.js`
+- `assets/img/sc-color.png`
+- `assets/img/sc-white.png`
+- `assets/img/sc-imagotipo-dark.png`
+- `assets/img/tires-demo.jpg`
+- `assets/img/survey-demo.jpg`
+- `assets/img/logistics-demo.jpg`
+- `rubros/gomerias/index.html`
+- `rubros/agrimensores/index.html`
+- `rubros/logistica/index.html`
+- `rubros/medica/index.html`
+- `rubros/hoteleria/index.html`
+- `rubros/inmobiliarias/index.html`
+- `rubros/materiales/index.html`
+- `rubros/gastronomia/index.html`
+- `rubros/educacion/index.html`
+- `scripts/generate_demo_images.py`
+- `docs/obsidian/00_Contexto_Proyecto.md`
+- `docs/obsidian/02_Decisiones_Tecnicas.md`
+- `docs/obsidian/03_Bitacora_Desarrollo.md`
+- `docs/obsidian/04_Errores_y_Soluciones.md`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/10_UI_UX_Diseno.md`
+- `docs/obsidian/11_Automatizaciones_n8n.md`
+- `docs/obsidian/13_Deploy_Infraestructura.md`
+
+**Validaciones realizadas:**
+- `node --check assets/js/app.js`: sin errores.
+- `node --check assets/js/demo-catalog.js`: sin errores.
+- `node --check assets/js/pdf-report.js`: sin errores.
+- `node --check assets/js/motion.js`: sin errores.
+- `node --check assets/js/medical-demo.js`: sin errores.
+- `node --check assets/js/industry-demo-data.js`: sin errores.
+- `node --check assets/js/industry-demo.js`: sin errores.
+- Servidor local `127.0.0.1:4173`: landing, `/demos/` y las 9 demos respondieron `200`.
+- Playwright desktop/mobile: landing sin overflow, topbar a ancho útil completo, preview de 3 demos, KPI sin "marca consistente", email en una línea e Instagram visible.
+- Playwright: `/demos/` renderizó 9 rubros sin imágenes rotas ni overflow.
+- Playwright: gomerías, agrimensores y logística cargaron con pestañas, registros, imágenes y helper PDF activo.
+- Playwright: generación PDF con jsPDF verificada con `ok: true` y nombre de archivo esperado.
+- Consola del navegador: sin errores ni warnings después de limpiar selectores de GSAP.
+
+**Pendientes detectados:**
+- Hacer commit y push de esta iteración cuando se autorice.
+- Activar GitHub Pages desde Settings del repositorio si todavía no está activo.
+
 ## 2026-09-05 - Preparación de GitHub Pages y contacto público
 
 **Cambios realizados:**
@@ -277,3 +346,42 @@
 **Pendientes detectados:**
 - Definir el siguiente rubro a construir: inmobiliarias, hotelería o venta de materiales.
 - Hacer commit y push cuando se autorice subir los cambios al repositorio remoto.
+## 2026-09-05 - Corrección de navegación local de demos
+
+**Cambios realizados:**
+- Se reemplazaron las rutas dinámicas a carpetas por rutas explícitas a cada `index.html`.
+- Se renovó la versión de caché de los scripts del catálogo en la landing y en la página de demos.
+
+**Archivos modificados:**
+- `assets/js/demo-catalog.js`
+- `index.html`
+- `demos/index.html`
+
+**Validaciones realizadas:**
+- `node --check assets/js/demo-catalog.js`: sin errores.
+- `node --check assets/js/app.js`: sin errores.
+- Verificación de rutas: 9 enlaces explícitos, 9 archivos existentes y 0 rutas faltantes.
+- Playwright: Gomerías y Gastronomía abrieron desde el catálogo con su URL `index.html` correcta.
+- Consola del navegador: 0 errores y 0 advertencias.
+- La navegación automatizada mediante `file://` no se ejecutó porque Playwright bloquea ese protocolo por seguridad; la compatibilidad local quedó cubierta por la validación de rutas explícitas.
+
+**Pendientes detectados:**
+- Ninguno relacionado con esta corrección.
+
+## 2026-09-05 - Simplificación del cierre en detalles de servicios
+
+**Cambios realizados:**
+- Se eliminó el botón inferior "Cerrar" del modal de servicios.
+- Se mantuvo la `X` superior como única acción visual de cierre, además del cierre por fondo y tecla Escape.
+
+**Archivos modificados:**
+- `index.html`
+- `docs/obsidian/10_UI_UX_Diseno.md`
+
+**Validaciones realizadas:**
+- Playwright desktop: el modal conserva una sola acción de cierre y un CTA de WhatsApp.
+- Playwright mobile `390x844`: no existe el botón inferior "Cerrar", el modal cabe dentro del viewport y no genera overflow horizontal.
+- Playwright: la `X` cambia correctamente el modal de visible a cerrado.
+
+**Pendientes detectados:**
+- Ninguno relacionado con este ajuste.

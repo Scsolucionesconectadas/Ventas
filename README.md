@@ -16,7 +16,7 @@ https://maicolandresb123.github.io/Mokups_Ventas/
 
 - Inicio: presentación de Soluciones Conectadas.
 - Servicios: sistemas de gestión, automatizaciones, integraciones, chatbots, dashboards y demos comerciales.
-- Demos por rubro: portal con filtros y acceso a experiencias navegables.
+- Demos por rubro: página separada `demos/index.html` con filtros y acceso a experiencias navegables.
 - Automatizaciones: n8n, Node-RED, APIs, webhooks, bots, dashboards, Grafana, PDFs y emails programados.
 - Diagnóstico express: selector interactivo que recomienda una ruta de demo y prepara contacto por WhatsApp.
 - Proceso: diagnóstico, demo funcional, automatización y evolución.
@@ -30,6 +30,9 @@ https://maicolandresb123.github.io/Mokups_Ventas/
 - Venta de materiales: stock, presupuestos, pedidos, entregas y reportes de margen.
 - Gastronomía: mesas, pedidos, menú digital, caja y reportes de cierre.
 - Educación: alumnos, cursos, asistencia, pagos, comunicaciones y reportes académicos.
+- Gomerías: stock por medida, turnos, servicios, compras sugeridas, caja y reportes.
+- Agrimensores: expedientes, campo, planos, documentación y conectividad ATER simulada.
+- Logística y transporte: viajes, flota, remitos, tracking, alertas de SLA y reportes.
 
 ## Estructura
 
@@ -37,6 +40,8 @@ https://maicolandresb123.github.io/Mokups_Ventas/
 .
 ├── .gitignore
 ├── .nojekyll
+├── demos/
+│   └── index.html
 ├── index.html
 ├── robots.txt
 ├── sitemap.xml
@@ -52,21 +57,35 @@ https://maicolandresb123.github.io/Mokups_Ventas/
 │   │   ├── medical-demo.jpg
 │   │   ├── medical-hero.jpg
 │   │   ├── real-estate-demo.jpg
+│   │   ├── logistics-demo.jpg
 │   │   ├── sc-favicon.png
+│   │   ├── sc-color.png
 │   │   ├── sc-imagotipo.png
-│   │   └── sc-symbol.png
+│   │   ├── sc-imagotipo-dark.png
+│   │   ├── sc-symbol.png
+│   │   ├── sc-white.png
+│   │   ├── survey-demo.jpg
+│   │   └── tires-demo.jpg
 │   └── js/
 │       ├── app.js
+│       ├── demo-catalog.js
 │       ├── industry-demo-data.js
 │       ├── industry-demo.js
 │       ├── medical-demo.js
+│       ├── pdf-report.js
 │       └── motion.js
 ├── rubros/
+│   ├── agrimensores/
+│   │   └── index.html
 │   ├── educacion/
 │   │   └── index.html
 │   ├── gastronomia/
 │   │   └── index.html
+│   ├── gomerias/
+│   │   └── index.html
 │   ├── hoteleria/
+│   │   └── index.html
+│   ├── logistica/
 │   │   └── index.html
 │   ├── inmobiliarias/
 │   │   └── index.html
@@ -115,6 +134,7 @@ Configuración prevista:
 - Cada rubro debe mostrar flujos concretos, no solo una landing.
 - Las pantallas deben poder explicarse en una presentación comercial de 5 a 10 minutos.
 - La reportería simula dashboards tipo Grafana, descarga de PDF y preparación de emails sin enviar correos reales.
+- Los PDFs demo se generan en navegador con jsPDF `4.2.1` por CDN, encabezado de marca, indicadores y pie institucional SC.
 - Las acciones de contacto público abren email, teléfono, Instagram o WhatsApp; las demos no envían mensajes reales por sí mismas.
 
 ## Identidad visual SC
@@ -124,3 +144,4 @@ Configuración prevista:
 - Cian SC: `#00b0e8`.
 - Estética: SaaS operativo premium con superficies claras, sombras sobrias, microinteracciones y animaciones suaves.
 - Animaciones: GSAP por CDN con fallback CSS y respeto por `prefers-reduced-motion`.
+- Los servicios de la home abren modales informativos para explicar alcance, entregables y resultado esperado.

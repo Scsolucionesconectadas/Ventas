@@ -340,6 +340,28 @@ h3 {
   padding-top: 28px;
 }
 
+.demos-page .section-band {
+  padding-right: clamp(18px, 3vw, 34px);
+  padding-left: clamp(18px, 3vw, 34px);
+}
+
+.demos-hero {
+  padding-top: 92px;
+  padding-bottom: 28px;
+}
+
+.demos-hero h1 {
+  max-width: 850px;
+  font-size: clamp(2.2rem, 4.6vw, 4.15rem);
+}
+
+.demos-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
 .section-heading {
   display: flex;
   align-items: end;
@@ -383,6 +405,10 @@ h3 {
   height: 154px;
   object-fit: cover;
   border-bottom: 1px solid var(--line);
+}
+
+.demos-catalog-grid .industry-card img {
+  height: 176px;
 }
 
 .industry-card-body {
@@ -537,6 +563,8 @@ h3 {
 .service-section .section-heading > p {
   max-width: 480px;
   margin: 0;
+  align-self: center;
+  text-align: left;
 }
 
 .service-grid {
@@ -571,6 +599,51 @@ h3 {
   padding: 18px;
 }
 
+.service-button {
+  position: relative;
+  align-content: start;
+  min-height: 170px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.service-button::after {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 176, 232, 0.22);
+  border-radius: 999px;
+  background: rgba(235, 248, 255, 0.86);
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 900;
+  content: "+";
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.service-button:hover::after,
+.service-button:focus-visible::after {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.service-button:focus-visible {
+  border-color: rgba(0, 176, 232, 0.54);
+  box-shadow: 0 0 0 4px rgba(0, 176, 232, 0.14), var(--shadow-soft);
+}
+
+.service-card h3 {
+  padding-right: 38px;
+}
+
 .service-card:hover,
 .automation-card:hover,
 .process-step:hover,
@@ -599,6 +672,104 @@ h3 {
 .process-step p {
   margin: 0;
   color: var(--muted);
+}
+
+.section-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.service-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 27, 36, 0.46);
+  backdrop-filter: blur(14px);
+}
+
+.service-modal-backdrop:not([hidden]) {
+  display: flex;
+}
+
+.service-modal-card {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: min(720px, calc(100vh - 48px));
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(235, 248, 255, 0.96)),
+    #ffffff;
+  box-shadow: 0 30px 90px rgba(0, 24, 44, 0.28);
+  padding: 28px;
+}
+
+.service-modal-card .modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+.service-modal-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 46px;
+}
+
+.service-modal-card > p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.service-modal-list {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-modal-list li {
+  position: relative;
+  padding: 12px 12px 12px 38px;
+  border: 1px solid rgba(34, 51, 63, 0.1);
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.service-modal-list li::before {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 0 0 4px rgba(0, 176, 232, 0.12);
+  content: "";
+}
+
+.service-modal-outcome {
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: rgba(235, 248, 255, 0.82);
+  color: var(--ink);
+  padding: 14px 16px;
+  font-weight: 800;
+}
+
+.modal-open {
+  overflow: hidden;
 }
 
 .proof-section {
@@ -924,7 +1095,7 @@ h3 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.36fr) minmax(0, 0.82fr);
   gap: 10px;
   margin-top: 22px;
 }
@@ -950,6 +1121,17 @@ h3 {
   color: #84e8ff;
 }
 
+.social-glyph {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(132, 232, 255, 0.14);
+  color: #84e8ff;
+  font-weight: 900;
+}
+
 .contact-card strong,
 .contact-card small {
   display: block;
@@ -958,9 +1140,11 @@ h3 {
 .contact-card small {
   max-width: 100%;
   color: rgba(255, 255, 255, 0.78);
-  font-size: 0.79rem;
+  font-size: clamp(0.68rem, 0.72vw, 0.79rem);
   font-weight: 700;
-  overflow-wrap: anywhere;
+  letter-spacing: 0;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 .site-footer {
@@ -1407,12 +1591,12 @@ h3 {
 .field-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 
 .form-field {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .form-field.full {
@@ -1429,17 +1613,21 @@ h3 {
 .form-field select,
 .form-field textarea {
   width: 100%;
-  min-height: 42px;
+  min-height: 46px;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: #ffffff;
   color: var(--ink);
-  padding: 10px 11px;
+  padding: 11px 12px;
 }
 
 .form-field textarea {
-  min-height: 92px;
+  min-height: 108px;
   resize: vertical;
+}
+
+.nested-fields {
+  gap: 14px 16px;
 }
 
 .patient-card {
@@ -1465,12 +1653,13 @@ h3 {
 .patient-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 14px 18px;
 }
 
 .patient-meta div {
   border-top: 1px solid var(--line);
-  padding-top: 9px;
+  min-height: 58px;
+  padding-top: 12px;
 }
 
 .patient-meta span {
@@ -1999,6 +2188,25 @@ tr:last-child td {
   content: "";
 }
 
+.landing-site .topbar {
+  width: 100%;
+  margin: 0;
+  padding: 12px clamp(18px, 4vw, 48px);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94), rgba(235, 247, 255, 0.88)),
+    rgba(245, 249, 252, 0.92);
+  box-shadow: 0 12px 36px rgba(21, 40, 55, 0.1);
+}
+
+.landing-site .topbar::after {
+  right: clamp(18px, 4vw, 48px);
+  left: clamp(18px, 4vw, 48px);
+}
+
+.landing-site .topbar-actions {
+  justify-content: flex-end;
+}
+
 .brand strong {
   color: var(--ink);
 }
@@ -2206,9 +2414,11 @@ tr:last-child td {
 
 .intro-copy,
 .landing-hero-copy,
+.demos-hero,
 .snapshot,
 .industry-card,
 .service-card,
+.service-modal-card,
 .proof-item,
 .automation-copy,
 .automation-flow,
@@ -2229,9 +2439,11 @@ tr:last-child td {
 
 .gsap-ready .intro-copy,
 .gsap-ready .landing-hero-copy,
+.gsap-ready .demos-hero,
 .gsap-ready .snapshot,
 .gsap-ready .industry-card,
 .gsap-ready .service-card,
+.gsap-ready .service-modal-card,
 .gsap-ready .proof-item,
 .gsap-ready .automation-copy,
 .gsap-ready .automation-flow,
@@ -3208,6 +3420,10 @@ th {
 
   .chat-input-row {
     grid-template-columns: 1fr;
+  }
+
+  .contact-card small {
+    font-size: clamp(0.58rem, 2.3vw, 0.72rem);
   }
 }
 

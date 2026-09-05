@@ -1,5 +1,56 @@
 # Decisiones Técnicas
 
+## 2026-09-05 - Catálogo separado de demos y PDFs con marca SC
+
+**Decisión:**
+Separar el catálogo completo de demos en `demos/index.html`, centralizar los datos de tarjetas en `assets/js/demo-catalog.js` y reemplazar los PDFs simples por un generador con jsPDF `4.2.1` por CDN.
+
+**Motivo:**
+La web debe escalar como sitio institucional de SC sin concentrar todo en la home. Los PDFs necesitan verse profesionales en presentaciones, con encabezado, pie institucional, logo, rubro e indicadores organizados.
+
+**Impacto:**
+Afecta navegación, landing, páginas de rubros, scripts compartidos, sitemap, estilos, reportería demo y documentación.
+
+**Alternativas consideradas:**
+- Mantener todas las demos embebidas manualmente en `index.html`.
+- Conservar el generador PDF mínimo hecho a mano sin logos ni estructura visual.
+- Incorporar una librería más grande de tablas PDF antes de validar el diseño comercial.
+
+**Archivos relacionados:**
+- `index.html`
+- `demos/index.html`
+- `assets/js/demo-catalog.js`
+- `assets/js/pdf-report.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/css/base.css`
+
+## 2026-09-05 - Nuevos rubros gomerías, agrimensores y logística
+
+**Decisión:**
+Agregar tres demos nuevas: gomerías para stock/servicios, agrimensores para expedientes y conectividad ATER simulada, y logística/transporte como tercer rubro por su potencial en inventario, rutas, remitos, alertas y coordinación operativa.
+
+**Motivo:**
+Gomerías y agrimensores fueron pedidos explícitamente. Logística/transporte se eligió porque permite mostrar automatización de operaciones, visibilidad de entregas, control de SLA, reportes y alertas, rubros de alto valor para clientes B2B.
+
+**Impacto:**
+El catálogo pasa de 6 a 9 rubros navegables, se agregan páginas nuevas, datos ficticios, imágenes locales generadas y rutas en `sitemap.xml`.
+
+**Alternativas consideradas:**
+- Agregar comercio minorista general.
+- Agregar estudios contables como demo inicial.
+- Dejar logística para una etapa posterior.
+
+**Archivos relacionados:**
+- `assets/js/industry-demo-data.js`
+- `assets/js/demo-catalog.js`
+- `rubros/gomerias/index.html`
+- `rubros/agrimensores/index.html`
+- `rubros/logistica/index.html`
+- `assets/img/tires-demo.jpg`
+- `assets/img/survey-demo.jpg`
+- `assets/img/logistics-demo.jpg`
+
 ## 2026-09-05 - Publicación simple en GitHub Pages y CTA comercial real
 
 **Decisión:**

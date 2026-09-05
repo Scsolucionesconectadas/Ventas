@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demos por rubro | Soluciones Conectadas</title>
+    <meta
+      name="description"
+      content="Catálogo de demos funcionales por rubro de Soluciones Conectadas: sistemas, automatizaciones, reportes, chatbots e integraciones."
+    />
+    <link rel="canonical" href="https://maicolandresb123.github.io/Mokups_Ventas/demos/" />
+    <link rel="icon" href="../assets/img/sc-favicon.png" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260905-ux2" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script defer src="../assets/js/demo-catalog.js?v=20260905-ux3"></script>
+    <script defer src="../assets/js/app.js?v=20260905-ux3"></script>
+    <script defer src="../assets/js/motion.js?v=20260905-ux2"></script>
+  </head>
+  <body class="landing-site demos-page">
+    <div class="site-shell">
+      <header class="topbar" aria-label="Barra principal">
+        <a class="brand" href="../index.html" aria-label="Inicio de Soluciones Conectadas">
+          <span class="brand-logo-frame">
+            <img class="brand-logo" src="../assets/img/sc-symbol.png" alt="Soluciones Conectadas" />
+          </span>
+          <span>
+            <strong>Soluciones Conectadas</strong>
+            <small>Catálogo de demos</small>
+          </span>
+        </a>
+        <nav class="topbar-actions" aria-label="Navegación principal">
+          <a href="../index.html#servicios" class="ghost-link">Servicios</a>
+          <a href="../index.html#automatizaciones" class="ghost-link">Automatizaciones</a>
+          <a href="../index.html#proceso" class="ghost-link">Proceso</a>
+          <a href="../index.html#contacto" class="ghost-link">Contacto</a>
+          <a
+            href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20ver%20una%20demo%20por%20rubro."
+            class="primary-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <i data-lucide="message-circle" aria-hidden="true"></i>
+            Pedir demo
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="section-band demos-hero">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Demos comerciales</p>
+              <h1>Experiencias navegables para mostrar soluciones reales por rubro.</h1>
+            </div>
+            <p>
+              Cada demo combina pantallas operativas, datos ficticios, reportes ejecutivos, automatizaciones,
+              asistentes y argumentos comerciales listos para presentar a clientes.
+            </p>
+          </div>
+          <div class="demos-hero-actions">
+            <a href="../index.html" class="secondary-link">
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+              Volver a la landing
+            </a>
+            <a
+              href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20priorizar%20una%20demo%20nueva."
+              class="primary-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              Priorizar rubro
+            </a>
+          </div>
+        </section>
+
+        <section class="section-band compact">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Rubros disponibles</p>
+              <h2>Catálogo completo de demos SC.</h2>
+            </div>
+            <div class="filter-row" role="group" aria-label="Filtro de demos">
+              <button class="chip-button active" type="button" data-filter="todos">Todos</button>
+              <button class="chip-button" type="button" data-filter="listo">Listos</button>
+              <button class="chip-button" type="button" data-filter="roadmap">Roadmap</button>
+            </div>
+          </div>
+
+          <div class="industry-grid demos-catalog-grid" id="industryGrid" data-demo-catalog data-root-prefix="../"></div>
+          <div class="empty-state industry-empty" id="industryEmpty" hidden>
+            No hay demos en este filtro por ahora. Podemos priorizar un rubro nuevo para la próxima iteración.
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Soluciones Conectadas</span>
+        <div class="footer-links">
+          <a href="../index.html#servicios">Servicios</a>
+          <a href="../index.html#automatizaciones">Automatizaciones</a>
+          <a href="mailto:contacto.solucionesconectadas@gmail.com">Email</a>
+          <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

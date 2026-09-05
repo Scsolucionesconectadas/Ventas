@@ -6,18 +6,20 @@
     <title>Demo Gastronomía | SC Mockups Ventas</title>
     <meta name="description" content="Mockup funcional para restaurantes, bares y delivery." />
     <link rel="icon" href="../../assets/img/sc-favicon.png" />
-    <link rel="stylesheet" href="../../assets/css/base.css?v=20260905-pages" />
+    <link rel="stylesheet" href="../../assets/css/base.css?v=20260905-ux2" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script defer src="../../assets/js/industry-demo-data.js?v=20260905-pages"></script>
-    <script defer src="../../assets/js/industry-demo.js?v=20260905-pages"></script>
-    <script defer src="../../assets/js/motion.js?v=20260905-pages"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.min.js"></script>
+    <script defer src="../../assets/js/pdf-report.js?v=20260905-ux2"></script>
+    <script defer src="../../assets/js/industry-demo-data.js?v=20260905-ux2"></script>
+    <script defer src="../../assets/js/industry-demo.js?v=20260905-ux2"></script>
+    <script defer src="../../assets/js/motion.js?v=20260905-ux2"></script>
   </head>
   <body class="medical-app industry-demo-app" data-demo-slug="gastronomia">
     <div class="app-layout">
       <aside class="sidebar" aria-label="Menú de la demo"><a class="brand" href="../../index.html" aria-label="Volver a la landing"><span class="brand-logo-frame"><img class="brand-logo" src="../../assets/img/sc-symbol.png" alt="Soluciones Conectadas" /></span><span><strong id="demoSidebarLabel">Demo</strong><small>Mockup funcional</small></span></a><p class="side-label">Módulos</p><nav class="side-nav" id="demoNav" aria-label="Módulos de la demo"></nav><div class="sidebar-note" id="demoSidebarNote"></div><details class="sidebar-disclosure"><summary>Argumento comercial<i data-lucide="chevron-down" aria-hidden="true"></i></summary><p id="demoArgument"></p></details></aside>
       <main class="app-main">
-        <header class="app-header"><div class="app-title"><p class="eyebrow" id="demoEyebrow"></p><h1 id="demoHeadline"></h1><p id="demoDescription"></p></div><div class="header-actions"><a href="../../index.html#demos" class="secondary-link"><i data-lucide="arrow-left" aria-hidden="true"></i>Demos</a><button class="primary-link" type="button" data-view="operacion"><i data-lucide="plus" aria-hidden="true"></i><span id="demoPrimaryActionLabel"></span></button><details class="nav-dropdown action-dropdown"><summary><i data-lucide="wand-sparkles" aria-hidden="true"></i>Presentar<i data-lucide="chevron-down" aria-hidden="true"></i></summary><div class="dropdown-menu"><button type="button" data-demo-flow>Iniciar demo guiada</button><button type="button" data-view="operacion">Cargar operación</button><button type="button" data-view="crm">Ver pipeline</button><button type="button" data-view="asistente">Simular asistente</button></div></details></div></header>
+        <header class="app-header"><div class="app-title"><p class="eyebrow" id="demoEyebrow"></p><h1 id="demoHeadline"></h1><p id="demoDescription"></p></div><div class="header-actions"><a href="../../demos/index.html" class="secondary-link"><i data-lucide="arrow-left" aria-hidden="true"></i>Demos</a><button class="primary-link" type="button" data-view="operacion"><i data-lucide="plus" aria-hidden="true"></i><span id="demoPrimaryActionLabel"></span></button><details class="nav-dropdown action-dropdown"><summary><i data-lucide="wand-sparkles" aria-hidden="true"></i>Presentar<i data-lucide="chevron-down" aria-hidden="true"></i></summary><div class="dropdown-menu"><button type="button" data-demo-flow>Iniciar demo guiada</button><button type="button" data-view="operacion">Cargar operación</button><button type="button" data-view="crm">Ver pipeline</button><button type="button" data-view="asistente">Simular asistente</button></div></details></div></header>
         <section class="command-bar" aria-label="Estado de la demo"><div><span class="live-dot"></span>Sistema demo activo</div><div><i data-lucide="shield-check" aria-hidden="true"></i>Datos ficticios</div><div><i data-lucide="zap" aria-hidden="true"></i>Flujo comercial listo</div></section>
         <section class="industry-hero" id="demoHero" aria-label="Resumen comercial de la demo"><div class="industry-hero-content"><p class="eyebrow" id="demoHeroEyebrow"></p><h2 id="demoHeroTitle"></h2><p id="demoHeroDescription"></p><div class="hero-workflow" id="heroWorkflow" aria-label="Flujo resumido"></div></div></section>
         <section class="metrics-grid" id="industryMetrics" aria-label="Métricas operativas"></section><div class="view-tabs" id="demoTabs" role="tablist" aria-label="Vistas de la demo"></div>

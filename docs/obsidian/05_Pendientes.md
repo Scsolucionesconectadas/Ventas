@@ -2,6 +2,7 @@
 
 ## Pendientes activos
 
+- [ ] Hacer commit y push de la iteración actual con catálogo separado, 3 rubros nuevos y PDFs con marca.
 - [ ] Activar GitHub Pages en el repositorio: `Settings > Pages > Deploy from a branch > main > / (root)`.
 - [ ] Verificar que `https://maicolandresb123.github.io/Mokups_Ventas/` deje de responder `404` después de activar Pages.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
@@ -11,6 +12,11 @@
 
 ## Resueltos
 
+- [x] Separar el catálogo completo de demos en `demos/index.html` - 2026-09-05
+- [x] Agregar demos de gomerías, agrimensores y logística/transporte - 2026-09-05
+- [x] Mejorar topbar, servicios clicables, contacto, KPI y espaciado de campos - 2026-09-05
+- [x] Reemplazar PDFs simples por PDFs demo con marca SC mediante jsPDF - 2026-09-05
+- [x] Limpiar warnings de GSAP por selectores inexistentes - 2026-09-05
 - [x] Hacer commit y push a `origin/main` con la landing y demos - 2026-09-05
 - [x] Definir canal de publicación: GitHub Pages simple, sin dominio propio - 2026-09-05
 - [x] Definir datos reales de contacto comercial para la landing pública - 2026-09-05

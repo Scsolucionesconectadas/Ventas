@@ -9,14 +9,15 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://maicolandresb123.github.io/Mokups_Ventas/`.
-- Estado del código: commit `438b3a7` subido a `origin/main`.
+- Estado del código remoto: commit `438b3a7` subido a `origin/main`.
+- Estado local: mejoras de landing, catálogo `/demos/`, 3 rubros nuevos y PDFs con marca pendientes de commit/push.
 - Estado de Pages: pendiente de activar en GitHub. La URL pública respondió `404` después del push.
 
 ## Archivos de soporte
 
 - `.nojekyll`: evita procesamiento Jekyll y publica assets estáticos tal como están.
 - `robots.txt`: permite indexación del sitio público.
-- `sitemap.xml`: declara landing y demos públicas por rubro.
+- `sitemap.xml`: declara landing, catálogo `/demos/` y demos públicas por rubro.
 
 ## Procedimiento de publicación
 
@@ -37,4 +38,5 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 ## Pendientes
 
 - Activar GitHub Pages desde Settings del repositorio y confirmar visualmente la URL pública después del despliegue.
+- Hacer commit y push de la iteración actual antes de esperar que GitHub Pages publique estas mejoras.
 - Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.

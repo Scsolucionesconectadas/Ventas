@@ -838,13 +838,30 @@
     window.SCAnimations?.pulse?.($("#reportEventLog"));
   }
 
-  function downloadReportPdf(reports) {
+  async function downloadReportPdf(reports) {
+    if (window.SCReportPdf?.downloadReport) {
+      const generated = await window.SCReportPdf.downloadReport({
+        title: reports.pdfName,
+        rubro: config.appLabel,
+        dashboard: reports.dashboard,
+        period: reports.range,
+        schedule: reports.schedule,
+        recipient: reports.recipient,
+        panels: reports.panels,
+        fileName: reports.fileName || `${slug}-reporte-demo.pdf`,
+        logoUrl: "../../assets/img/sc-color.png",
+        footerLogoUrl: "../../assets/img/sc-white.png",
+      });
+
+      if (generated) return;
+    }
+
     const lines = [
       reports.pdfName,
       `Rubro: ${config.appLabel}`,
       `Dashboard: ${reports.dashboard}`,
-      `Periodo: ${reports.range}`,
-      `Programacion: ${reports.schedule}`,
+      `Período: ${reports.range}`,
+      `Programación: ${reports.schedule}`,
       `Destinatarios: ${reports.recipient}`,
       "Indicadores:",
       ...reports.panels.map((panel) => `${panel.label}: ${panel.value} - ${panel.detail}`),

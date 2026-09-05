@@ -894,13 +894,30 @@ function addMedicalReportEvent(title, detail) {
   window.SCAnimations?.pulse?.($("#medicalReportLog"));
 }
 
-function downloadMedicalReportPdf() {
+async function downloadMedicalReportPdf() {
+  if (window.SCReportPdf?.downloadReport) {
+    const generated = await window.SCReportPdf.downloadReport({
+      title: medicalReports.pdfName,
+      rubro: "Área médica",
+      dashboard: "SC Salud Operativa",
+      period: "Últimos 30 días",
+      schedule: "Diario 08:00",
+      recipient: medicalReports.recipient,
+      panels: medicalReports.panels,
+      fileName: medicalReports.fileName,
+      logoUrl: "../../assets/img/sc-color.png",
+      footerLogoUrl: "../../assets/img/sc-white.png",
+    });
+
+    if (generated) return;
+  }
+
   const lines = [
     medicalReports.pdfName,
-    "Rubro: Area medica",
+    "Rubro: Área médica",
     "Dashboard: SC Salud Operativa",
-    "Periodo: Ultimos 30 dias",
-    "Programacion: Diario 08:00",
+    "Período: Últimos 30 días",
+    "Programación: Diario 08:00",
     `Destinatarios: ${medicalReports.recipient}`,
     "Indicadores:",
     ...medicalReports.panels.map((panel) => `${panel.label}: ${panel.value} - ${panel.detail}`),
