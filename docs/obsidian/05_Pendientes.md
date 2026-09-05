@@ -2,9 +2,8 @@
 
 ## Pendientes activos
 
-- [ ] Hacer commit y push de la iteración actual con catálogo separado, 3 rubros nuevos y PDFs con marca.
 - [ ] Activar GitHub Pages en el repositorio: `Settings > Pages > Deploy from a branch > main > / (root)`.
-- [ ] Verificar que `https://maicolandresb123.github.io/Mokups_Ventas/` deje de responder `404` después de activar Pages.
+- [ ] Verificar que `https://maicolandresb123.github.io/Mockups_Ventas/` deje de responder `404` después de activar Pages.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
 
 ## En revisión
@@ -12,6 +11,7 @@
 
 ## Resueltos
 
+- [x] Hacer commit y push de la versión con catálogo separado, 3 rubros nuevos, PDFs con marca y mejoras UX - 2026-09-05
 - [x] Separar el catálogo completo de demos en `demos/index.html` - 2026-09-05
 - [x] Agregar demos de gomerías, agrimensores y logística/transporte - 2026-09-05
 - [x] Mejorar topbar, servicios clicables, contacto, KPI y espaciado de campos - 2026-09-05

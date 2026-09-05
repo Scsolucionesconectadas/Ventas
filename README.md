@@ -9,7 +9,7 @@ La idea es tener una web principal profesional, responsive y orientada a ventas,
 URL prevista para GitHub Pages:
 
 ```text
-https://maicolandresb123.github.io/Mokups_Ventas/
+https://maicolandresb123.github.io/Mockups_Ventas/
 ```
 
 ## Secciones principales

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maicolandresb123.github.io/Mokups_Ventas/sitemap.xml
+Sitemap: https://maicolandresb123.github.io/Mockups_Ventas/sitemap.xml

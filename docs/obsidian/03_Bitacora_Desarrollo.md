@@ -385,3 +385,26 @@
 
 **Pendientes detectados:**
 - Ninguno relacionado con este ajuste.
+
+## 2026-09-05 - Publicación de la versión consolidada
+
+**Cambios realizados:**
+- Se publicó en `origin/main` la landing, el catálogo de nueve demos, los tres rubros nuevos, los PDFs con marca y las mejoras UX.
+- Se actualizó el remoto local y las referencias públicas al nuevo nombre del repositorio `Mockups_Ventas` informado por GitHub.
+
+**Archivos modificados:**
+- `README.md`
+- `index.html`
+- `demos/index.html`
+- `robots.txt`
+- `sitemap.xml`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/06_Comandos_Runbook.md`
+- `docs/obsidian/13_Deploy_Infraestructura.md`
+
+**Validaciones realizadas:**
+- Commit funcional `4465090` enviado correctamente a `origin/main`.
+- Las referencias públicas y la documentación se incluyeron en un commit complementario sobre `main`.
+
+**Pendientes detectados:**
+- Activar GitHub Pages y verificar la URL pública.

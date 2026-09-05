@@ -43,5 +43,5 @@ Folder: / (root)
 URL prevista:
 
 ```text
-https://maicolandresb123.github.io/Mokups_Ventas/
+https://maicolandresb123.github.io/Mockups_Ventas/
 ```
