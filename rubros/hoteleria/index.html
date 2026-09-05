@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Hotelería | SC Mockups Ventas</title>
+    <meta name="description" content="Mockup funcional para hoteles, aparts y alojamientos." />
+    <link rel="icon" href="../../assets/img/sc-favicon.png" />
+    <link rel="stylesheet" href="../../assets/css/base.css?v=20260905-pages" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script defer src="../../assets/js/industry-demo-data.js?v=20260905-pages"></script>
+    <script defer src="../../assets/js/industry-demo.js?v=20260905-pages"></script>
+    <script defer src="../../assets/js/motion.js?v=20260905-pages"></script>
+  </head>
+  <body class="medical-app industry-demo-app" data-demo-slug="hoteleria">
+    <div class="app-layout">
+      <aside class="sidebar" aria-label="Menú de la demo">
+        <a class="brand" href="../../index.html" aria-label="Volver a la landing">
+          <span class="brand-logo-frame">
+            <img class="brand-logo" src="../../assets/img/sc-symbol.png" alt="Soluciones Conectadas" />
+          </span>
+          <span>
+            <strong id="demoSidebarLabel">Demo</strong>
+            <small>Mockup funcional</small>
+          </span>
+        </a>
+
+        <p class="side-label">Módulos</p>
+        <nav class="side-nav" id="demoNav" aria-label="Módulos de la demo"></nav>
+
+        <div class="sidebar-note" id="demoSidebarNote"></div>
+        <details class="sidebar-disclosure">
+          <summary>
+            Argumento comercial
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </summary>
+          <p id="demoArgument"></p>
+        </details>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-header">
+          <div class="app-title">
+            <p class="eyebrow" id="demoEyebrow"></p>
+            <h1 id="demoHeadline"></h1>
+            <p id="demoDescription"></p>
+          </div>
+          <div class="header-actions">
+            <a href="../../index.html#demos" class="secondary-link">
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+              Demos
+            </a>
+            <button class="primary-link" type="button" data-view="operacion">
+              <i data-lucide="plus" aria-hidden="true"></i>
+              <span id="demoPrimaryActionLabel"></span>
+            </button>
+            <details class="nav-dropdown action-dropdown">
+              <summary>
+                <i data-lucide="wand-sparkles" aria-hidden="true"></i>
+                Presentar
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </summary>
+              <div class="dropdown-menu">
+                <button type="button" data-demo-flow>Iniciar demo guiada</button>
+                <button type="button" data-view="operacion">Cargar operación</button>
+                <button type="button" data-view="crm">Ver pipeline</button>
+                <button type="button" data-view="asistente">Simular asistente</button>
+              </div>
+            </details>
+          </div>
+        </header>
+
+        <section class="command-bar" aria-label="Estado de la demo">
+          <div><span class="live-dot"></span>Sistema demo activo</div>
+          <div><i data-lucide="shield-check" aria-hidden="true"></i>Datos ficticios</div>
+          <div><i data-lucide="zap" aria-hidden="true"></i>Flujo comercial listo</div>
+        </section>
+
+        <section class="industry-hero" id="demoHero" aria-label="Resumen comercial de la demo">
+          <div class="industry-hero-content">
+            <p class="eyebrow" id="demoHeroEyebrow"></p>
+            <h2 id="demoHeroTitle"></h2>
+            <p id="demoHeroDescription"></p>
+            <div class="hero-workflow" id="heroWorkflow" aria-label="Flujo resumido"></div>
+          </div>
+        </section>
+
+        <section class="metrics-grid" id="industryMetrics" aria-label="Métricas operativas"></section>
+        <div class="view-tabs" id="demoTabs" role="tablist" aria-label="Vistas de la demo"></div>
+
+        <section class="view-panel active" id="view-overview">
+          <div class="dashboard-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="overviewListTitle"></h2>
+                  <p id="overviewListSubtitle"></p>
+                </div>
+                <button class="icon-button" type="button" data-view="operacion" aria-label="Abrir operación">
+                  <i data-lucide="external-link" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="record-list" id="primaryList"></div>
+            </article>
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="detailTitle"></h2>
+                  <p id="detailSubtitle"></p>
+                </div>
+              </div>
+              <div id="selectedRecord"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-operacion">
+          <div class="dashboard-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="formTitle"></h2>
+                  <p id="formSubtitle"></p>
+                </div>
+              </div>
+              <form id="demoQuickForm" class="field-grid">
+                <div id="formFields" class="form-field full field-grid nested-fields"></div>
+                <div class="form-field full">
+                  <button class="submit-button" type="submit">
+                    <i data-lucide="plus-circle" aria-hidden="true"></i>
+                    <span id="demoFormSubmitLabel"></span>
+                  </button>
+                </div>
+              </form>
+            </article>
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="listAfterTitle"></h2>
+                  <p id="listAfterSubtitle"></p>
+                </div>
+              </div>
+              <div class="record-list" id="recordsList"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-crm">
+          <div class="wide-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="pipelineTitle"></h2>
+                  <p id="pipelineSubtitle"></p>
+                </div>
+              </div>
+              <div class="kanban-board" id="pipelineBoard"></div>
+            </article>
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="taskTitle"></h2>
+                  <p id="taskSubtitle"></p>
+                </div>
+              </div>
+              <div class="task-list" id="taskList"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-recursos">
+          <article class="module-panel">
+            <div class="module-head">
+              <div>
+                <h2 id="resourcesTitle"></h2>
+                <p id="resourcesSubtitle"></p>
+              </div>
+            </div>
+            <div class="catalog-grid" id="resourceGrid"></div>
+          </article>
+        </section>
+
+        <section class="view-panel" id="view-asistente">
+          <div class="dashboard-grid">
+            <article class="module-panel chat-box" id="assistantPanel">
+              <div class="module-head">
+                <div>
+                  <h2 id="assistantTitle"></h2>
+                  <p id="assistantSubtitle"></p>
+                </div>
+                <span class="tag ok">Activo</span>
+              </div>
+              <div class="chat-stream" id="industryChatStream" aria-live="polite"></div>
+              <form class="chat-input-row" id="industryChatForm">
+                <input id="industryChatInput" type="text" placeholder="Escribir consulta del cliente" required />
+                <button class="submit-button" type="submit" aria-label="Enviar mensaje">
+                  <i data-lucide="send" aria-hidden="true"></i>
+                  Enviar
+                </button>
+              </form>
+            </article>
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2 id="quickReplyTitle"></h2>
+                  <p id="quickReplySubtitle"></p>
+                </div>
+              </div>
+              <div class="quick-actions" id="industryQuickReplies"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

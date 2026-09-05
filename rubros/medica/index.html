@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Área Médica | SC Mockups Ventas</title>
+    <meta
+      name="description"
+      content="Mockup funcional para clínicas, consultorios y centros médicos."
+    />
+    <link rel="icon" href="../../assets/img/sc-favicon.png" />
+    <link rel="stylesheet" href="../../assets/css/base.css?v=20260905-pages" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script defer src="../../assets/js/medical-demo.js?v=20260905-pages"></script>
+    <script defer src="../../assets/js/motion.js?v=20260905-pages"></script>
+  </head>
+  <body class="medical-app">
+    <div class="app-layout">
+      <aside class="sidebar" aria-label="Menú de la demo médica">
+        <a class="brand" href="../../index.html" aria-label="Volver al hub">
+          <span class="brand-logo-frame">
+            <img class="brand-logo" src="../../assets/img/sc-symbol.png" alt="Soluciones Conectadas" />
+          </span>
+          <span>
+            <strong>Área médica</strong>
+            <small>Mockup funcional</small>
+          </span>
+        </a>
+
+        <p class="side-label">Módulos</p>
+        <nav class="side-nav" aria-label="Módulos médicos">
+          <button class="nav-button active" type="button" data-view="overview">
+            <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+            Panel
+          </button>
+          <button class="nav-button" type="button" data-view="turnos">
+            <i data-lucide="calendar-check" aria-hidden="true"></i>
+            Turnero
+          </button>
+          <button class="nav-button" type="button" data-view="historia">
+            <i data-lucide="folder-heart" aria-hidden="true"></i>
+            Historia clínica
+          </button>
+          <button class="nav-button" type="button" data-view="consultas">
+            <i data-lucide="clipboard-list" aria-hidden="true"></i>
+            Consultas
+          </button>
+          <button class="nav-button" type="button" data-view="obras">
+            <i data-lucide="badge-check" aria-hidden="true"></i>
+            Obras sociales
+          </button>
+          <button class="nav-button" type="button" data-view="reportes">
+            <i data-lucide="bar-chart-3" aria-hidden="true"></i>
+            Reportes
+          </button>
+          <button class="nav-button" type="button" data-view="chatbot">
+            <i data-lucide="message-circle" aria-hidden="true"></i>
+            Chatbot
+          </button>
+        </nav>
+
+        <div class="sidebar-note">
+          Datos 100% ficticios para presentaciones. El flujo muestra cómo SC podría centralizar agenda, pacientes y seguimiento.
+        </div>
+        <details class="sidebar-disclosure">
+          <summary>
+            Argumento comercial
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </summary>
+          <p>La demo muestra cómo pasar de llamadas, planillas y papeles a una operación integrada.</p>
+        </details>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-header">
+          <div class="app-title">
+            <p class="eyebrow">Clínicas, consultorios y centros médicos</p>
+            <h1>Gestión integral de pacientes</h1>
+            <p>
+              Agenda, historia clínica, consultas, obras sociales y chatbot de recepción en una sola experiencia.
+            </p>
+          </div>
+          <div class="header-actions">
+            <a href="../../index.html" class="secondary-link">
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+              Hub
+            </a>
+            <button class="primary-link" type="button" data-view="turnos">
+              <i data-lucide="plus" aria-hidden="true"></i>
+              Nuevo turno
+            </button>
+            <details class="nav-dropdown action-dropdown">
+              <summary>
+                <i data-lucide="wand-sparkles" aria-hidden="true"></i>
+                Presentar
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </summary>
+              <div class="dropdown-menu">
+                <button type="button" data-demo-flow>Iniciar demo guiada</button>
+                <button type="button" data-view="chatbot">Simular chatbot</button>
+                <button type="button" data-view="historia">Ver historia clínica</button>
+                <button type="button" data-view="obras">Validar cobertura</button>
+                <button type="button" data-view="reportes">Ver reportes</button>
+              </div>
+            </details>
+          </div>
+        </header>
+
+        <section class="command-bar" aria-label="Estado de la demo">
+          <div>
+            <span class="live-dot"></span>
+            Sistema demo activo
+          </div>
+          <div>
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            Datos ficticios
+          </div>
+          <div>
+            <i data-lucide="zap" aria-hidden="true"></i>
+            Flujo comercial listo
+          </div>
+        </section>
+
+        <section class="medical-hero" aria-label="Resumen comercial de la demo">
+          <div class="medical-hero-content">
+            <p class="eyebrow">Demo médica SC</p>
+            <h2>Un centro médico puede vender mejor, atender mejor y ordenar sus datos.</h2>
+            <p>
+              La demo permite simular una recepción real: buscar pacientes, asignar turnos,
+              consultar antecedentes, validar cobertura y responder preguntas frecuentes con chatbot.
+            </p>
+            <div class="hero-workflow" aria-label="Flujo resumido">
+              <span><i data-lucide="message-circle" aria-hidden="true"></i> Chat</span>
+              <span><i data-lucide="calendar-check" aria-hidden="true"></i> Turno</span>
+              <span><i data-lucide="folder-heart" aria-hidden="true"></i> Ficha</span>
+              <span><i data-lucide="badge-check" aria-hidden="true"></i> Cobertura</span>
+              <span><i data-lucide="bar-chart-3" aria-hidden="true"></i> Reporte</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics-grid" aria-label="Métricas operativas">
+          <article class="metric-card">
+            <span><i data-lucide="calendar-days" aria-hidden="true"></i> Turnos hoy</span>
+            <strong id="metricAppointments" data-count="18">18</strong>
+            <small>4 nuevos desde recepción</small>
+          </article>
+          <article class="metric-card">
+            <span><i data-lucide="users" aria-hidden="true"></i> Pacientes activos</span>
+            <strong data-count="842">842</strong>
+            <small>Base unificada</small>
+          </article>
+          <article class="metric-card">
+            <span><i data-lucide="message-square" aria-hidden="true"></i> Chats resueltos</span>
+            <strong id="metricChats" data-count="31">31</strong>
+            <small>Sin espera telefónica</small>
+          </article>
+          <article class="metric-card">
+            <span><i data-lucide="file-check-2" aria-hidden="true"></i> Coberturas</span>
+            <strong data-count="12">12</strong>
+            <small>Obras asociadas</small>
+          </article>
+        </section>
+
+        <div class="view-tabs" role="tablist" aria-label="Vistas de la demo">
+          <button class="tab-button active" type="button" data-view="overview">Panel</button>
+          <button class="tab-button" type="button" data-view="turnos">Turnero</button>
+          <button class="tab-button" type="button" data-view="historia">Historia</button>
+          <button class="tab-button" type="button" data-view="consultas">Consultas</button>
+          <button class="tab-button" type="button" data-view="obras">Obras sociales</button>
+          <button class="tab-button" type="button" data-view="reportes">Reportes</button>
+          <button class="tab-button" type="button" data-view="chatbot">Chatbot</button>
+        </div>
+
+        <section class="view-panel active" id="view-overview">
+          <div class="dashboard-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Agenda del día</h2>
+                  <p>Turnos priorizados por horario y estado de admisión.</p>
+                </div>
+                <button class="icon-button" type="button" data-view="turnos" aria-label="Abrir turnero">
+                  <i data-lucide="external-link" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="appointment-list" id="appointmentList"></div>
+            </article>
+
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Paciente en recepción</h2>
+                  <p>Ficha rápida para orientar la atención.</p>
+                </div>
+              </div>
+              <div id="selectedPatient"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-turnos">
+          <div class="dashboard-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Nuevo turno</h2>
+                  <p>El formulario simula la carga de recepción y actualiza la agenda.</p>
+                </div>
+              </div>
+              <form id="appointmentForm" class="field-grid">
+                <div class="form-field">
+                  <label for="appointmentPatient">Paciente</label>
+                  <select id="appointmentPatient" required></select>
+                </div>
+                <div class="form-field">
+                  <label for="appointmentDoctor">Profesional</label>
+                  <select id="appointmentDoctor" required>
+                    <option value="Dra. Valeria Ramos">Dra. Valeria Ramos</option>
+                    <option value="Dr. Mateo Aguirre">Dr. Mateo Aguirre</option>
+                    <option value="Dra. Camila Ortega">Dra. Camila Ortega</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="appointmentDate">Fecha</label>
+                  <input id="appointmentDate" type="date" required />
+                </div>
+                <div class="form-field">
+                  <label for="appointmentTime">Horario</label>
+                  <input id="appointmentTime" type="time" required />
+                </div>
+                <div class="form-field full">
+                  <label for="appointmentReason">Motivo</label>
+                  <textarea id="appointmentReason" required placeholder="Ej.: Control cardiológico, receta o seguimiento"></textarea>
+                </div>
+                <div class="form-field full">
+                  <button class="submit-button" type="submit">
+                    <i data-lucide="calendar-plus" aria-hidden="true"></i>
+                    Confirmar turno
+                  </button>
+                </div>
+              </form>
+            </article>
+
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Turnos cargados</h2>
+                  <p>La lista se actualiza al confirmar una nueva solicitud.</p>
+                </div>
+              </div>
+              <div class="appointment-list" id="appointmentListTurnos"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-historia">
+          <div class="wide-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Historia clínica</h2>
+                  <p>Antecedentes, alergias y eventos relevantes del paciente seleccionado.</p>
+                </div>
+              </div>
+              <div id="historyPatient"></div>
+              <div class="timeline" id="historyTimeline"></div>
+            </article>
+
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Buscar paciente</h2>
+                  <p>Selecciona una ficha para cambiar la historia visible.</p>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="patientSearch">Nombre, DNI u obra social</label>
+                <input id="patientSearch" type="search" placeholder="Buscar paciente" />
+              </div>
+              <div class="patient-list" id="patientList"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-consultas">
+          <article class="module-panel">
+            <div class="module-head">
+              <div>
+                <h2>Historial de consultas</h2>
+                <p>Registro sintético de atenciones, diagnósticos y próximos pasos.</p>
+              </div>
+              <div class="form-field">
+                <label for="consultationFilter">Filtro</label>
+                <select id="consultationFilter">
+                  <option value="todas">Todas</option>
+                  <option value="control">Controles</option>
+                  <option value="urgencia">Urgencias</option>
+                  <option value="telemedicina">Telemedicina</option>
+                </select>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>Tipo</th>
+                    <th>Profesional</th>
+                    <th>Resumen</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="consultationTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <section class="view-panel" id="view-obras">
+          <div class="dashboard-grid">
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Obras sociales asociadas</h2>
+                  <p>Coberturas habilitadas con autorización y condición comercial.</p>
+                </div>
+              </div>
+              <div class="insurance-list" id="insuranceList"></div>
+            </article>
+
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Validación de cobertura</h2>
+                  <p>Simulación de admisión antes de confirmar una práctica.</p>
+                </div>
+              </div>
+              <div class="patient-card">
+                <div class="patient-avatar">OS</div>
+                <div>
+                  <h3>Paciente con cobertura activa</h3>
+                  <p>El sistema cruza obra social, plan, práctica y estado de autorización.</p>
+                </div>
+              </div>
+              <div class="patient-meta">
+                <div>
+                  <span>Plan</span>
+                  <strong>Integral 450</strong>
+                </div>
+                <div>
+                  <span>Autorización</span>
+                  <strong>Requerida para estudios</strong>
+                </div>
+                <div>
+                  <span>Coseguro</span>
+                  <strong>$ 4.800 estimado</strong>
+                </div>
+                <div>
+                  <span>Respuesta</span>
+                  <strong>Aprobación en admisión</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-reportes">
+          <div class="wide-grid report-layout">
+            <article class="module-panel report-dashboard" id="medicalReportDashboard">
+              <div class="module-head">
+                <div>
+                  <h2>Reportería médica</h2>
+                  <p>Tablero tipo Grafana para turnos, admisión, consultas, coberturas y productividad.</p>
+                </div>
+                <span class="tag ok">Grafana demo</span>
+              </div>
+              <div class="report-toolbar" aria-label="Filtros de reportería médica">
+                <span><i data-lucide="gauge" aria-hidden="true"></i><strong>SC Salud Operativa</strong></span>
+                <span><i data-lucide="calendar-days" aria-hidden="true"></i><strong>Últimos 30 días</strong></span>
+                <span><i data-lucide="clock" aria-hidden="true"></i><strong>Diario 08:00</strong></span>
+              </div>
+              <div class="report-grid" id="medicalReportPanels"></div>
+            </article>
+
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>PDF, email y alertas</h2>
+                  <p>Simulación de envíos automáticos para dirección, recepción y administración.</p>
+                </div>
+              </div>
+              <div class="report-recipient">
+                <span>Destinatarios demo</span>
+                <strong>direccion@demo.local</strong>
+              </div>
+              <div class="delivery-stack" id="medicalReportDelivery"></div>
+              <div class="report-actions">
+                <button class="secondary-link" type="button" data-medical-report-action="grafana">
+                  <i data-lucide="bar-chart-3" aria-hidden="true"></i>
+                  Ver dashboard
+                </button>
+                <button class="secondary-link" type="button" data-medical-report-action="pdf">
+                  <i data-lucide="file-down" aria-hidden="true"></i>
+                  Generar PDF
+                </button>
+                <button class="primary-link" type="button" data-medical-report-action="email">
+                  <i data-lucide="mail-check" aria-hidden="true"></i>
+                  Enviar email demo
+                </button>
+              </div>
+              <div class="report-log" id="medicalReportLog" aria-live="polite"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-chatbot">
+          <div class="dashboard-grid">
+            <article class="module-panel chat-box">
+              <div class="module-head">
+                <div>
+                  <h2>Chatbot de recepción</h2>
+                  <p>Responde consultas frecuentes y deriva turnos a recepción.</p>
+                </div>
+                <span class="tag ok">Activo</span>
+              </div>
+              <div class="chat-stream" id="chatStream" aria-live="polite"></div>
+              <form class="chat-input-row" id="chatForm">
+                <input id="chatInput" type="text" placeholder="Escribir consulta del paciente" required />
+                <button class="submit-button" type="submit" aria-label="Enviar mensaje">
+                  <i data-lucide="send" aria-hidden="true"></i>
+                  Enviar
+                </button>
+              </form>
+            </article>
+
+            <article class="module-panel">
+              <div class="module-head">
+                <div>
+                  <h2>Atajos de demostración</h2>
+                  <p>Preguntas útiles para mostrar el flujo en una reunión.</p>
+                </div>
+              </div>
+              <div class="quick-actions">
+                <button class="quick-reply" type="button" data-message="Quiero sacar un turno para cardiología">
+                  <i data-lucide="heart-pulse" aria-hidden="true"></i>
+                  Cardiología
+                </button>
+                <button class="quick-reply" type="button" data-message="Necesito saber si atienden mi obra social">
+                  <i data-lucide="badge-check" aria-hidden="true"></i>
+                  Cobertura
+                </button>
+                <button class="quick-reply" type="button" data-message="Quiero ver mis últimas consultas">
+                  <i data-lucide="clipboard-list" aria-hidden="true"></i>
+                  Consultas
+                </button>
+                <button class="quick-reply" type="button" data-message="Necesito reprogramar un turno">
+                  <i data-lucide="calendar-clock" aria-hidden="true"></i>
+                  Reprogramar
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
