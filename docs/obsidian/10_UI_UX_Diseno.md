@@ -42,9 +42,18 @@
 - El formulario mantiene etiquetas visibles, campos obligatorios, ayudas de contexto, consentimiento y alternativas de contacto.
 - La página de confirmación conserva marca SC y permite volver a demos o continuar por WhatsApp.
 - Axe Core `4.10.3` no detectó infracciones WCAG A/AA en las cinco páginas comerciales auditadas.
+- Las nueve demos incorporan una barra común con estado de demo pública, funciones simuladas y seis herramientas operativas.
+- El modo presentación oculta sidebar, cabecera y controles secundarios, mantiene el contenido a ancho útil y ofrece una salida fija accesible.
+- El recorrido guiado es manual, muestra progreso y resalta el contexto, el flujo, los KPI, los módulos, la operación, los reportes y el asistente según disponibilidad.
+- La búsqueda global indexa módulos y registros ya hidratados, tolera consultas con o sin acentos y conduce a la vista correspondiente.
+- El centro de actividad registra eventos iniciales y acciones informadas por los `toast`, sin simular envíos externos reales.
+- Los estados de carga, éxito, error y vacío incluyen feedback visual, reintento y limpieza de filtros.
+- Los diálogos administran foco, cierran con fondo o `Escape` y devuelven el foco al disparador; en móvil las acciones pasan a iconos con nombre accesible y tooltip.
+- Axe Core `4.10.3` no detectó infracciones serias o críticas en la capa compartida de las nueve demos.
 
 ## Pendientes de diseño
 
 - Revisar capturas finales antes de usar en presentaciones comerciales reales.
 - Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicación final.
 - Validar la experiencia en un celular físico cuando exista una URL pública de GitHub Pages.
+- Profundizar los módulos operativos de las tres demos prioritarias durante la Fase 4.

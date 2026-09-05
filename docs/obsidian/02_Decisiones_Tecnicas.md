@@ -79,6 +79,28 @@ Afecta navegación, landing, páginas de rubros, scripts compartidos, sitemap, e
 - `assets/js/medical-demo.js`
 - `assets/css/base.css`
 
+## 2026-09-05 - Capa compartida para la experiencia de demos
+
+**Decisión:**
+Implementar la Fase 3 en `assets/js/demo-experience.js` y estilos comunes, cargados por las nueve demos después de su motor funcional.
+
+**Motivo:**
+Modo presentación, recorrido, búsqueda, actividad, estados y reinicio son capacidades transversales. Centralizarlas evita duplicación y permite que los próximos rubros las reciban con una sola inclusión.
+
+**Impacto:**
+Todas las demos muestran herramientas consistentes, identifican claramente que usan datos y funciones simuladas y conservan sus módulos específicos sin modificar su fuente de datos.
+
+**Alternativas consideradas:**
+- Copiar la barra y los diálogos en cada HTML.
+- Migrar el sitio estático a un framework antes de validar la experiencia comercial.
+- Mantener el recorrido automático temporizado sin controles manuales.
+
+**Archivos relacionados:**
+- `assets/js/demo-experience.js`
+- `assets/css/base.css`
+- `rubros/*/index.html`
+- `scripts/phase3.spec.js`
+
 ## 2026-09-05 - Nuevos rubros gomerías, agrimensores y logística
 
 **Decisión:**

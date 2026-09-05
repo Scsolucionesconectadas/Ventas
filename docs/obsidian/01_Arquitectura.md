@@ -19,6 +19,7 @@ Sitio estático multipágina sin proceso de build. GitHub Pages sirve HTML, CSS,
 - `rubros/medica/`: lógica propia en `assets/js/medical-demo.js`.
 - Los demás rubros usan `assets/js/industry-demo.js` y `assets/js/industry-demo-data.js`.
 - `assets/js/pdf-report.js` centraliza los PDFs demostrativos con marca SC.
+- `assets/js/demo-experience.js` inyecta la barra común, modales, cajón de actividad, recorrido y modo presentación en las nueve demos.
 
 ## Código compartido
 
@@ -27,6 +28,11 @@ Sitio estático multipágina sin proceso de build. GitHub Pages sirve HTML, CSS,
 - `assets/js/commercial-pages.js`: dropdowns, explorador de automatizaciones y preparación del formulario.
 - `assets/js/motion.js`: animación progresiva con GSAP y fallback respetando reducción de movimiento.
 - `assets/js/demo-catalog.js`: fuente única del catálogo público.
+- `assets/js/demo-experience.js`: capa transversal de experiencia comercial sin alterar los motores de datos de cada rubro.
+
+## Flujo de experiencia en demos
+
+Cada página de `rubros/*/index.html` carga primero su motor de negocio y luego `demo-experience.js`. La capa compartida detecta los módulos disponibles desde `data-view`, construye el índice de búsqueda desde el DOM hidratado y observa el `toast` existente para registrar actividad. Los cambios de sesión viven solo en memoria; “Reiniciar demo” usa `sessionStorage` únicamente para confirmar la recarga y vuelve a los datos ficticios originales.
 
 ## Flujo de contacto
 
@@ -37,4 +43,3 @@ La integración no agrega backend ni secretos al repositorio. El primer envío r
 ## Rutas públicas
 
 Todas las referencias usan rutas relativas para funcionar en la subruta `/Ventas/`. Los metadatos canónicos y el sitemap usan `https://scsolucionesconectadas.github.io/Ventas/`.
-

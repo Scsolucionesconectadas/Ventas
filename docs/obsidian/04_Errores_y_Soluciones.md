@@ -221,3 +221,21 @@ En enlaces internos que deban funcionar tanto por HTTP como mediante apertura lo
 - `assets/js/demo-catalog.js`
 - `index.html`
 - `demos/index.html`
+
+## 2026-09-05 - Playwright temporal no encontraba el runner ni su navegador
+
+**Síntoma:**
+La regresión de Fase 3 falló primero al resolver `playwright/test` y luego buscó un Chromium no descargado.
+
+**Causa:**
+El sitio no instala paquetes y el runner se ejecuta con `npx`; Node no incorpora automáticamente el directorio efímero al `NODE_PATH`. Además, Playwright intentó usar su navegador administrado aunque Edge ya estaba disponible en Windows.
+
+**Solución aplicada:**
+El comando de validación localiza el paquete temporal, define `NODE_PATH` para la ejecución y la prueba usa el canal `msedge` instalado en el equipo.
+
+**Cómo evitarlo:**
+Usar el comando documentado en el runbook o instalar Playwright como dependencia de desarrollo si el proyecto adopta un entorno Node permanente.
+
+**Archivos relacionados:**
+- `scripts/phase3.spec.js`
+- `docs/obsidian/06_Comandos_Runbook.md`

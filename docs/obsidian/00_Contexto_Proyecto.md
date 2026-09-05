@@ -6,7 +6,7 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 2 amplió el diagnóstico para recomendar módulos, rubros y automatizaciones; agregó resultados ilustrativos, preguntas frecuentes, demos relacionadas por servicio y un explorador visual de flujos. El contacto usa un formulario HTML compatible con GitHub Pages mediante FormSubmit, además de WhatsApp, email e Instagram. La estética mantiene identidad SC, imágenes locales, microinteracciones, CSS y GSAP `3.15.0`. Todas las demos incluyen reportería, tablero tipo Grafana, PDF con marca SC mediante jsPDF `4.2.1` y preparación de email sin envío real.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 2, publicada en `origin/main`, amplió el diagnóstico, los resultados ilustrativos, las preguntas frecuentes, las demos relacionadas y el explorador visual de flujos. La Fase 3 está implementada localmente en las nueve demos con modo presentación, recorrido manual, búsqueda global, centro de actividad, estados operativos, reinicio de datos y señalización de funciones simuladas. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. La estética mantiene identidad SC, imágenes locales, microinteracciones, CSS y GSAP `3.15.0`. Todas las demos incluyen reportería, tablero tipo Grafana, PDF con marca SC mediante jsPDF `4.2.1` y preparación de email sin envío real.
 
 ## Stack técnico
 
@@ -44,6 +44,7 @@ El repositorio tiene una landing principal responsive de SC, páginas comerciale
 - Generador de PDF con marca SC: `assets/js/pdf-report.js`.
 - Lógica demo médica: `assets/js/medical-demo.js`.
 - Motor común para demos por rubro: `assets/js/industry-demo.js`.
+- Experiencia comercial común de demos: `assets/js/demo-experience.js`.
 - Datos ficticios por rubro: `assets/js/industry-demo-data.js`.
 - Animaciones compartidas: `assets/js/motion.js`.
 - SEO y publicación estática: `.nojekyll`, `robots.txt` y `sitemap.xml`.
@@ -61,6 +62,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - [ ] Activar GitHub Pages en Settings del repositorio y verificar la URL pública.
 - [ ] Confirmar el primer envío de FormSubmit desde el email de SC.
 - [ ] Revisar licencias/atribución o reemplazar por imágenes propias/generadas antes de una publicación final.
+- [ ] Profundizar las demos médica, inmobiliaria y venta de materiales durante la Fase 4.
 
 ## Últimas decisiones importantes
 
@@ -80,3 +82,5 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - Se adoptó una arquitectura multipágina para servicios, automatizaciones y contacto, manteniendo la home como resumen comercial.
 - Se eligió FormSubmit para recibir consultas desde GitHub Pages sin incorporar backend ni credenciales al repositorio.
 - La Fase 2 comercial multipágina fue autorizada para publicación en `origin/main`.
+- La Fase 3 usa una capa JavaScript y CSS compartida para evitar duplicar controles y comportamiento en cada rubro.
+- El recorrido comercial pasa a ser manual y controlable; las acciones antiguas de “Iniciar demo guiada” abren la nueva experiencia.

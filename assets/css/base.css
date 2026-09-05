@@ -4549,6 +4549,791 @@ th {
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.demo-experience-bar {
+  position: sticky;
+  top: 12px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 58px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(0, 96, 192, 0.16);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 32px rgba(21, 40, 55, 0.1);
+  padding: 8px 10px 8px 14px;
+  backdrop-filter: blur(18px);
+}
+
+.experience-status,
+.experience-actions,
+.experience-tool-button,
+.experience-badge,
+.experience-dialog-heading,
+.experience-search-field,
+.experience-state-heading,
+.experience-state-message,
+.experience-confirm-actions,
+.experience-tour-actions,
+.experience-trust-note {
+  display: flex;
+  align-items: center;
+}
+
+.experience-status {
+  min-width: 0;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.experience-badge {
+  gap: 7px;
+  min-height: 30px;
+  border: 1px solid rgba(34, 51, 63, 0.12);
+  border-radius: 999px;
+  background: #f7fafc;
+  color: #405462;
+  padding: 5px 9px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.experience-badge-live {
+  border-color: rgba(29, 143, 105, 0.22);
+  background: #e9f8f2;
+  color: #136e52;
+}
+
+.experience-badge .lucide,
+.experience-tool-button .lucide,
+.presentation-exit .lucide {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+}
+
+.experience-actions {
+  justify-content: flex-end;
+  gap: 5px;
+  min-width: 0;
+}
+
+.experience-tool-button {
+  position: relative;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: #314552;
+  padding: 8px 9px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.experience-tool-button:hover {
+  border-color: rgba(0, 96, 192, 0.16);
+  background: var(--surface-strong);
+  color: var(--primary-strong);
+  transform: translateY(-1px);
+}
+
+.experience-tool-button[aria-pressed="true"] {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.experience-count {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  display: grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: var(--danger);
+  color: #ffffff;
+  padding: 0 3px;
+  font-size: 0.61rem;
+  line-height: 1;
+}
+
+.experience-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  background: rgba(23, 37, 46, 0.54);
+  padding: 24px;
+  backdrop-filter: blur(7px);
+  animation: experienceFadeIn 180ms ease both;
+}
+
+.experience-overlay[hidden],
+.experience-tour-panel[hidden],
+.presentation-exit[hidden],
+.experience-live[hidden],
+.experience-count[hidden] {
+  display: none;
+}
+
+.experience-dialog {
+  width: min(680px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(11, 29, 41, 0.3);
+  padding: 24px;
+  animation: experienceDialogIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.experience-dialog-head,
+.experience-tour-head,
+.experience-activity-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.experience-dialog-heading {
+  align-items: flex-start;
+  gap: 13px;
+  min-width: 0;
+}
+
+.experience-dialog-icon,
+.experience-confirm-icon,
+.experience-result-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+.experience-dialog-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.experience-dialog-icon .lucide,
+.experience-confirm-icon .lucide {
+  width: 21px;
+  height: 21px;
+}
+
+.experience-dialog h2,
+.experience-tour-panel h2,
+.experience-confirm-dialog h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.experience-dialog-head p,
+.experience-tour-panel > p,
+.experience-confirm-dialog > p:not(.eyebrow),
+.experience-state-heading p,
+.experience-state-message p,
+.experience-search-empty p,
+.experience-activity-item p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.experience-close-button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  color: var(--ink);
+  padding: 0;
+}
+
+.experience-close-button:hover {
+  border-color: rgba(0, 96, 192, 0.3);
+  background: var(--surface-strong);
+  color: var(--primary);
+}
+
+.experience-search-field {
+  gap: 10px;
+  min-height: 50px;
+  margin-top: 22px;
+  border: 1px solid rgba(0, 96, 192, 0.26);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  padding: 0 13px;
+  box-shadow: 0 0 0 3px rgba(0, 176, 232, 0.08);
+}
+
+.experience-search-field .lucide {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.experience-search-field input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.experience-search-results {
+  display: grid;
+  gap: 6px;
+  min-height: 170px;
+  margin-top: 14px;
+}
+
+.experience-search-result {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  min-height: 58px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: #f8fafb;
+  color: var(--ink);
+  padding: 9px 11px;
+  text-align: left;
+}
+
+.experience-search-result:hover,
+.experience-search-result:focus-visible {
+  border-color: rgba(0, 96, 192, 0.22);
+  background: var(--surface-strong);
+}
+
+.experience-search-result > span:nth-child(2) {
+  min-width: 0;
+}
+
+.experience-search-result strong,
+.experience-search-result small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.experience-search-result small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.experience-result-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.experience-result-icon .lucide {
+  width: 17px;
+  height: 17px;
+}
+
+.experience-search-result > .lucide {
+  width: 17px;
+  height: 17px;
+  color: var(--primary);
+}
+
+.experience-search-empty {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 190px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.experience-search-empty .lucide {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  color: #91a3af;
+}
+
+.experience-drawer-overlay {
+  place-items: stretch end;
+  padding: 0;
+}
+
+.experience-drawer {
+  width: min(470px, 100%);
+  max-height: 100vh;
+  height: 100%;
+  border-radius: 0;
+  padding: 24px;
+  animation-name: experienceDrawerIn;
+}
+
+.experience-trust-note {
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--soft-cyan);
+  color: #365566;
+  padding: 11px 12px;
+  font-size: 0.82rem;
+}
+
+.experience-trust-note .lucide {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin-top: 1px;
+}
+
+.experience-activity-list {
+  display: grid;
+  margin-top: 10px;
+}
+
+.experience-activity-item {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0;
+}
+
+.experience-activity-dot {
+  width: 9px;
+  height: 9px;
+  margin-top: 7px;
+  border: 2px solid #ccecff;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px #edf7ff;
+}
+
+.experience-activity-dot.is-success {
+  border-color: #caeee2;
+  background: var(--success);
+  box-shadow: 0 0 0 3px #eef9f5;
+}
+
+.experience-activity-title strong {
+  font-size: 0.88rem;
+}
+
+.experience-activity-title time {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.experience-activity-item p {
+  line-height: 1.45;
+}
+
+.experience-state-switcher {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 22px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.experience-state-switcher button {
+  min-height: 38px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: #f4f7f9;
+  color: #455865;
+  padding: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.experience-state-switcher button[aria-pressed="true"] {
+  border-color: var(--primary);
+  background: var(--surface-strong);
+  color: var(--primary-strong);
+}
+
+.experience-state-preview {
+  min-height: 220px;
+  padding: 30px 4px 4px;
+}
+
+.experience-state-heading,
+.experience-state-message {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.experience-state-heading strong,
+.experience-state-message strong {
+  display: block;
+  color: var(--ink);
+}
+
+.experience-spinner {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border: 3px solid #dcecf5;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: experienceSpin 800ms linear infinite;
+}
+
+.experience-skeleton {
+  display: grid;
+  gap: 11px;
+  margin-top: 24px;
+}
+
+.experience-skeleton span {
+  height: 18px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #edf2f5 25%, #f8fafb 50%, #edf2f5 75%);
+  background-size: 220% 100%;
+  animation: experienceSkeleton 1.2s ease infinite;
+}
+
+.experience-skeleton span:nth-child(2) {
+  width: 78%;
+}
+
+.experience-skeleton span:nth-child(3) {
+  width: 58%;
+}
+
+.experience-state-message .lucide {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  color: var(--primary);
+}
+
+.experience-state-message.is-success .lucide {
+  color: var(--success);
+}
+
+.experience-state-message.is-error .lucide {
+  color: var(--danger);
+}
+
+.experience-state-preview > .secondary-link {
+  margin-top: 22px;
+}
+
+.experience-confirm-dialog {
+  width: min(480px, 100%);
+  text-align: center;
+}
+
+.experience-confirm-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+}
+
+.experience-confirm-dialog .eyebrow {
+  margin-bottom: 7px;
+}
+
+.experience-confirm-actions {
+  justify-content: center;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.experience-tour-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 130;
+  width: min(430px, calc(100% - 40px));
+  border: 1px solid rgba(0, 96, 192, 0.24);
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 0 22px 64px rgba(10, 29, 42, 0.25);
+  padding: 20px;
+  animation: experienceDialogIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.experience-tour-panel .eyebrow {
+  margin-bottom: 4px;
+}
+
+.experience-tour-meter {
+  height: 4px;
+  overflow: hidden;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: #e8eef2;
+}
+
+.experience-tour-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 220ms ease;
+}
+
+.experience-tour-actions {
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.experience-tour-highlight {
+  position: relative;
+  z-index: 35;
+  border-radius: var(--radius);
+  outline: 4px solid rgba(0, 176, 232, 0.72);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 10px rgba(0, 96, 192, 0.1);
+  transition:
+    outline-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.presentation-exit {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 110;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-sm);
+  background: rgba(24, 43, 56, 0.94);
+  color: #ffffff;
+  box-shadow: var(--shadow);
+  padding: 9px 12px;
+  font-weight: 800;
+  backdrop-filter: blur(12px);
+}
+
+.presentation-mode .app-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.presentation-mode .sidebar,
+.presentation-mode .app-header,
+.presentation-mode .command-bar,
+.presentation-mode .demo-experience-bar {
+  display: none;
+}
+
+.presentation-mode .app-main {
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.experience-dialog-open {
+  overflow: hidden;
+}
+
+.experience-live {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 150;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  transform: translateX(-50%);
+  border: 1px solid rgba(29, 143, 105, 0.24);
+  border-radius: var(--radius-sm);
+  background: #163f35;
+  color: #ffffff;
+  box-shadow: var(--shadow);
+  padding: 11px 14px;
+  font-weight: 800;
+}
+
+.experience-spin {
+  animation: experienceSpin 700ms linear infinite;
+}
+
+@keyframes experienceFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes experienceDialogIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes experienceDrawerIn {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes experienceSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes experienceSkeleton {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+@media (max-width: 1180px) {
+  .experience-tool-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .experience-tool-button {
+    width: 40px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .demo-experience-bar {
+    position: static;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .experience-status {
+    justify-content: space-between;
+  }
+
+  .experience-actions {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(38px, 1fr));
+    width: 100%;
+  }
+
+  .experience-tool-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .experience-overlay {
+    align-items: end;
+    padding: 10px;
+  }
+
+  .experience-dialog {
+    max-height: calc(100vh - 20px);
+    padding: 18px;
+  }
+
+  .experience-dialog-heading {
+    gap: 10px;
+  }
+
+  .experience-dialog-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .experience-dialog h2 {
+    font-size: 1.18rem;
+  }
+
+  .experience-drawer-overlay {
+    padding: 0;
+  }
+
+  .experience-drawer {
+    max-height: 100vh;
+  }
+
+  .experience-state-switcher {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-tour-panel {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 17px;
+  }
+
+  .experience-tour-actions .primary-link,
+  .experience-tour-actions .secondary-link {
+    min-width: 0;
+    padding-inline: 10px;
+  }
+
+  .presentation-exit span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .presentation-exit {
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .presentation-mode .app-main {
+    padding: 16px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

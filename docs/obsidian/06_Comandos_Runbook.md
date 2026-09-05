@@ -20,6 +20,7 @@ node --check assets/js/commercial-pages.js
 node --check assets/js/motion.js
 node --check assets/js/medical-demo.js
 node --check assets/js/demo-catalog.js
+node --check assets/js/demo-experience.js
 node --check assets/js/industry-demo-data.js
 node --check assets/js/industry-demo.js
 node --check assets/js/pdf-report.js
@@ -31,6 +32,14 @@ Validación estructural para las plantillas estáticas con contenido hidratado p
 
 ```bash
 npx --yes html-validate@11.14.0 --rule=doctype-style:off --rule=void-style:off --rule=prefer-native-element:off --rule=no-inline-style:off --rule=empty-heading:off --rule=text-content:off index.html 404.html demos/index.html servicios/index.html automatizaciones/index.html contacto/index.html contacto/gracias.html "rubros/*/index.html"
+```
+
+Regresión Playwright de Fase 3 usando Microsoft Edge instalado, sin agregar paquetes al repositorio:
+
+```powershell
+$root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { Test-Path (Join-Path $_.FullName 'node_modules/playwright') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$env:NODE_PATH = Join-Path $root.FullName 'node_modules'
+npx --yes playwright@1.55.0 test scripts/phase3.spec.js --reporter=line --workers=1
 ```
 
 ## Optimización de imágenes

@@ -486,3 +486,33 @@
 
 **Pendientes detectados:**
 - Activar GitHub Pages y verificar la URL pública.
+
+## 2026-09-05 - Fase 3 de experiencia en demos
+
+**Cambios realizados:**
+- Se publicó la Fase 2 en `origin/main` con el commit `5d56b77`.
+- Se agregó una barra compartida a las nueve demos con modo presentación, recorrido manual, búsqueda global, estados, actividad y reinicio.
+- Se interceptó el acceso anterior “Iniciar demo guiada” para abrir el nuevo recorrido controlable.
+- Se incorporaron foco administrado, cierre por `Escape`, trampa de foco en modales y soporte de `prefers-reduced-motion`.
+- Se agregó una prueba de regresión Playwright reutilizable.
+
+**Archivos modificados:**
+- `assets/js/demo-experience.js`
+- `assets/css/base.css`
+- `rubros/*/index.html`
+- `scripts/phase3.spec.js`
+- `README.md`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check assets/js/demo-experience.js`: sin errores.
+- HTML Validate `11.14.0`: todas las páginas sin errores.
+- Playwright: nueve demos con búsqueda, actividad, estados, presentación, recorrido, reinicio cancelable y consola sin errores.
+- Playwright: reinicio real con recarga y confirmación del estado inicial.
+- Responsive `390x844`, `768x1024` y `1366x900`: sin overflow horizontal.
+- Axe Core `4.10.3`: cero infracciones serias o críticas en las nueve demos.
+- Capturas revisadas en escritorio y móvil con contenido visible después de la entrada animada.
+
+**Pendientes detectados:**
+- Profundizar las demos médica, inmobiliaria y venta de materiales en la Fase 4.
+- Probar la URL pública desde un celular físico cuando GitHub Pages esté activo.

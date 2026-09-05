@@ -35,6 +35,18 @@ https://scsolucionesconectadas.github.io/Ventas/
 - Agrimensores: expedientes, campo, planos, documentación y conectividad ATER simulada.
 - Logística y transporte: viajes, flota, remitos, tracking, alertas de SLA y reportes.
 
+## Experiencia compartida de las demos
+
+Las nueve demos incluyen una barra operativa común con:
+
+- Modo presentación sin navegación secundaria.
+- Recorrido guiado manual y controlable paso a paso.
+- Búsqueda global de módulos y registros visibles.
+- Centro de actividad y notificaciones simuladas.
+- Ejemplos de carga, éxito, error y ausencia de resultados.
+- Reinicio de los datos ficticios de la sesión.
+- Identificación permanente de demo pública y funciones simuladas.
+
 ## Estructura
 
 ```text
@@ -74,12 +86,14 @@ https://scsolucionesconectadas.github.io/Ventas/
 │       ├── app.js
 │       ├── commercial-pages.js
 │       ├── demo-catalog.js
+│       ├── demo-experience.js
 │       ├── industry-demo-data.js
 │       ├── industry-demo.js
 │       ├── medical-demo.js
 │       ├── pdf-report.js
 │       └── motion.js
 ├── scripts/
+│   ├── phase3.spec.js
 │   ├── generate_demo_images.py
 │   └── optimize_images.py
 ├── rubros/
@@ -126,6 +140,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 - Las pestañas incluyen semántica ARIA, selección anunciada y navegación con flechas, `Home` y `End`.
 - Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
 - Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
+- La capa compartida de las nueve demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 
 ## Publicación en GitHub Pages
