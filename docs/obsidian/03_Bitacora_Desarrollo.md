@@ -1,5 +1,44 @@
 # Bitácora de Desarrollo
 
+## 2026-09-05 - Fase 2 comercial multipágina
+
+**Cambios realizados:**
+- Se crearon páginas independientes para servicios, automatizaciones y contacto, más una confirmación de envío.
+- Se conectó cada servicio con demos relacionadas y una explicación completa de alcance.
+- Se amplió el diagnóstico de la home con módulos, rubros y automatizaciones recomendadas.
+- Se agregaron resultados ilustrativos con aclaración comercial y seis preguntas frecuentes.
+- Se incorporó un explorador interactivo de flujos para agenda, ventas, stock y reportes.
+- Se agregó un formulario FormSubmit con campos obligatorios, reCAPTCHA activo, honeypot y redirección a una página SC.
+- Se actualizó la navegación del catálogo, el sitemap, el motion y el versionado de assets.
+
+**Archivos modificados:**
+- `index.html`
+- `demos/index.html`
+- `servicios/index.html`
+- `automatizaciones/index.html`
+- `contacto/index.html`
+- `contacto/gracias.html`
+- `assets/css/base.css`
+- `assets/js/app.js`
+- `assets/js/commercial-pages.js`
+- `assets/js/motion.js`
+- `rubros/*/index.html`
+- `sitemap.xml`
+- `README.md`
+
+**Validaciones realizadas:**
+- HTML Validate `11.14.0`: todas las páginas sin errores estructurales.
+- `node --check`: todos los archivos JavaScript sin errores de sintaxis.
+- Axe Core `4.10.3`: cero infracciones WCAG A/AA en landing, servicios, automatizaciones, contacto y catálogo.
+- Playwright: 16 páginas y 15 destinos internos sin errores ni enlaces rotos.
+- Playwright: sin overflow, imágenes rotas ni controles recortados en `390x844`, `768x1024`, `1366x768` y `1920x1080`.
+- Playwright: modal, cinco diagnósticos, seis preguntas frecuentes, cuatro flujos, preselección del formulario y navegación móvil verificados.
+- Navegador: cero errores y cero advertencias actuales de consola.
+
+**Pendientes detectados:**
+- Confirmar la activación del formulario desde el primer email de FormSubmit.
+- Activar GitHub Pages y comprobar la URL pública.
+
 ## 2026-09-05 - Fase 1 de calidad y publicación estática
 
 **Cambios realizados:**

@@ -22,7 +22,7 @@
 
   function runIntroTimeline() {
     const animatedSelector =
-      ".brand, .topbar-actions > *, .header-actions > *, .landing-hero-copy > *, .intro-copy > *, .app-title > *, .command-bar, .snapshot, .medical-hero, .industry-hero, .demos-hero, .service-card, .service-modal-card, .proof-item, .diagnostic-panel, .diagnostic-result, .automation-copy, .automation-flow, .automation-card, .reporting-showcase, .report-card, .delivery-card, .report-log-item, .process-step, .cta-inner, .contact-card, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article";
+      ".brand, .topbar-actions > *, .header-actions > *, .landing-hero-copy > *, .commercial-hero-copy > *, .intro-copy > *, .app-title > *, .command-bar, .snapshot, .medical-hero, .industry-hero, .demos-hero, .commercial-summary, .automation-status-board, .service-card, .service-detail, .service-modal-card, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .automation-copy, .automation-flow, .automation-card, .automation-goals, .automation-planner, .capability-grid article, .governance-grid article, .reporting-showcase, .report-card, .delivery-card, .report-log-item, .process-step, .cta-inner, .commercial-cta, .contact-card, .contact-form-panel, .contact-options, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article, .faq-list details";
     const animatedItems = window.gsap.utils.toArray(animatedSelector);
     const finalizeIntro = () => {
       if (animatedItems.length) {
@@ -60,13 +60,19 @@
       "-=0.5",
     );
     addStep(
-      ".snapshot, .medical-hero, .industry-hero, .automation-flow, .reporting-showcase, .cta-inner",
+      ".commercial-hero-copy > *",
+      { autoAlpha: 0, y: 22 },
+      { autoAlpha: 1, y: 0, stagger: 0.08 },
+      "-=0.5",
+    );
+    addStep(
+      ".snapshot, .medical-hero, .industry-hero, .automation-flow, .reporting-showcase, .cta-inner, .commercial-summary, .automation-status-board, .contact-form-panel, .contact-options",
       { autoAlpha: 0, y: 24, scale: 0.985 },
       { autoAlpha: 1, y: 0, scale: 1 },
       "-=0.4",
     );
     addStep(
-      ".demos-hero, .service-card, .proof-item, .diagnostic-panel, .diagnostic-result, .automation-card, .report-card, .delivery-card, .report-log-item, .process-step, .contact-card, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article",
+      ".demos-hero, .service-card, .service-detail, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .automation-card, .automation-goals, .automation-planner, .capability-grid article, .governance-grid article, .report-card, .delivery-card, .report-log-item, .process-step, .commercial-cta, .contact-card, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article, .faq-list details",
       { autoAlpha: 0, y: 22, scale: 0.98 },
       { autoAlpha: 1, y: 0, scale: 1, stagger: 0.055 },
       "-=0.35",
@@ -134,7 +140,7 @@
 
   function setupSpotlight() {
     const targets = document.querySelectorAll(
-      ".demos-hero, .service-card, .proof-item, .diagnostic-panel, .diagnostic-result, .contact-card, .automation-card, .report-card, .delivery-card, .report-log-item, .process-step, .industry-card, .record-item, .kanban-card, .catalog-card, .task-item, .module-panel, .metric-card, .appointment-item",
+      ".demos-hero, .service-card, .service-detail, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .contact-card, .contact-form-panel, .contact-options, .automation-card, .automation-goals, .automation-planner, .capability-grid article, .governance-grid article, .report-card, .delivery-card, .report-log-item, .process-step, .commercial-cta, .industry-card, .record-item, .kanban-card, .catalog-card, .task-item, .module-panel, .metric-card, .appointment-item, .faq-list details",
     );
 
     targets.forEach((target) => {

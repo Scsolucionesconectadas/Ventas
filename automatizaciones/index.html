@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automatizaciones con n8n y Node-RED | Soluciones Conectadas</title>
+    <meta
+      name="description"
+      content="Automatizaciones empresariales con n8n, Node-RED, APIs y webhooks: validaciones, aprobaciones, reportes, alertas y trazabilidad."
+    />
+    <link rel="canonical" href="https://scsolucionesconectadas.github.io/Ventas/automatizaciones/" />
+    <link rel="icon" href="../assets/img/sc-favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Automatizaciones | Soluciones Conectadas" />
+    <meta property="og:description" content="Flujos medibles que conectan datos, equipos y decisiones." />
+    <meta property="og:url" content="https://scsolucionesconectadas.github.io/Ventas/automatizaciones/" />
+    <meta property="og:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/sc-imagotipo.png" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260905-p2" />
+    <script defer src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script defer src="../assets/js/commercial-pages.js?v=20260905-p2"></script>
+    <script defer src="../assets/js/motion.js?v=20260905-p2"></script>
+  </head>
+  <body class="landing-site commercial-page automations-page">
+    <div class="site-shell">
+      <header class="topbar" aria-label="Barra principal">
+        <a class="brand" href="../index.html" aria-label="Inicio de Soluciones Conectadas">
+          <span class="brand-logo-frame">
+            <img class="brand-logo" src="../assets/img/sc-symbol.png" alt="Soluciones Conectadas" />
+          </span>
+          <span>
+            <strong>Soluciones Conectadas</strong>
+            <small>Automatización e integración</small>
+          </span>
+        </a>
+        <nav class="topbar-actions" aria-label="Navegación principal">
+          <a href="../servicios/index.html" class="ghost-link">Servicios</a>
+          <a href="../demos/index.html" class="ghost-link">Demos</a>
+          <a href="index.html" class="ghost-link" aria-current="page">Automatizaciones</a>
+          <details class="nav-dropdown">
+            <summary>
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              Explorar
+              <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </summary>
+            <div class="dropdown-menu compact-menu">
+              <a href="#simulador">Simular un flujo</a>
+              <a href="#tecnologias">Tecnologías</a>
+              <a href="../demos/index.html">Demos por rubro</a>
+              <a href="../contacto/index.html">Contacto</a>
+            </div>
+          </details>
+          <a href="../contacto/index.html?necesidad=automatizacion" class="primary-link">
+            <i data-lucide="message-circle" aria-hidden="true"></i>
+            Consultar
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="commercial-hero section-band">
+          <div class="commercial-hero-copy">
+            <p class="eyebrow">Automatizaciones SC</p>
+            <h1>Automatizaciones que avanzan con reglas, control y trazabilidad.</h1>
+            <p>
+              Diseñamos flujos para conectar entradas, validaciones, decisiones y reportes. Cada paso queda visible,
+              puede fallar de forma controlada y admite aprobación humana cuando el proceso lo necesita.
+            </p>
+            <div class="hero-actions">
+              <a href="#simulador" class="primary-link large">
+                <i data-lucide="play" aria-hidden="true"></i>
+                Explorar un flujo
+              </a>
+              <a href="../contacto/index.html?necesidad=automatizacion" class="secondary-link large">
+                <i data-lucide="clipboard-list" aria-hidden="true"></i>
+                Analizar mi proceso
+              </a>
+            </div>
+          </div>
+          <aside class="automation-status-board" aria-label="Controles de una automatización">
+            <div><span class="status-dot success"></span><strong>Ejecutado</strong><small>Resultado registrado</small></div>
+            <div><span class="status-dot warning"></span><strong>Pendiente</strong><small>Requiere aprobación</small></div>
+            <div><span class="status-dot retry"></span><strong>Reintentando</strong><small>Error temporal controlado</small></div>
+            <div><span class="status-dot danger"></span><strong>Fallido</strong><small>Alerta y contexto disponibles</small></div>
+          </aside>
+        </section>
+
+        <section class="section-band automation-planner-section" id="simulador">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Explorador de procesos</p>
+              <h2>Elegí un objetivo y mirá cómo se conecta el recorrido.</h2>
+            </div>
+            <p>El flujo es ilustrativo y ayuda a definir disparadores, reglas, responsables y resultado esperado.</p>
+          </div>
+          <div class="automation-planner-layout">
+            <div class="automation-goals" role="group" aria-label="Objetivos de automatización">
+              <button class="active" type="button" data-automation-goal="agenda">
+                <i data-lucide="calendar-check-2" aria-hidden="true"></i><span><strong>Agenda y atención</strong><small>Turnos, reservas y avisos</small></span>
+              </button>
+              <button type="button" data-automation-goal="ventas">
+                <i data-lucide="badge-dollar-sign" aria-hidden="true"></i><span><strong>Ventas y seguimiento</strong><small>Leads, tareas y cotizaciones</small></span>
+              </button>
+              <button type="button" data-automation-goal="stock">
+                <i data-lucide="boxes" aria-hidden="true"></i><span><strong>Stock y logística</strong><small>Compras, alertas y entregas</small></span>
+              </button>
+              <button type="button" data-automation-goal="reportes">
+                <i data-lucide="file-chart-column" aria-hidden="true"></i><span><strong>Reportes y control</strong><small>Dashboard, PDF y email</small></span>
+              </button>
+            </div>
+
+            <article class="automation-planner" data-automation-planner aria-live="polite">
+              <div class="planner-heading">
+                <span class="service-icon"><i data-lucide="calendar-check-2" data-planner-icon aria-hidden="true"></i></span>
+                <div><p class="eyebrow" data-planner-eyebrow>Agenda y atención</p><h3 data-planner-title>De la solicitud al turno confirmado</h3></div>
+              </div>
+              <p data-planner-copy>
+                Un flujo coordinado para recibir solicitudes, validar disponibilidad, confirmar y actuar ante ausencias o cambios.
+              </p>
+              <ol class="planner-steps" data-planner-steps>
+                <li><span>01</span>Formulario o WhatsApp</li>
+                <li><span>02</span>Validación de datos</li>
+                <li><span>03</span>Asignación de agenda</li>
+                <li><span>04</span>Recordatorio</li>
+                <li><span>05</span>Confirmación</li>
+                <li><span>06</span>Tablero y alerta</li>
+              </ol>
+              <div class="hero-actions">
+                <a href="../rubros/medica/index.html" class="secondary-link" data-planner-demo>
+                  <i data-lucide="layout-dashboard" aria-hidden="true"></i><span>Ver demo médica</span>
+                </a>
+                <a
+                  href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20analizar%20una%20automatizaci%C3%B3n%20de%20agenda%20y%20atenci%C3%B3n."
+                  class="primary-link"
+                  target="_blank"
+                  rel="noopener"
+                  data-planner-contact
+                >
+                  <i data-lucide="message-circle" aria-hidden="true"></i>Consultar este flujo
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-band automation-capabilities" id="tecnologias">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Arquitectura práctica</p>
+              <h2>Elegimos las herramientas según el proceso, no por moda.</h2>
+            </div>
+            <p>La solución puede combinar plataformas visuales, servicios propios e integraciones existentes.</p>
+          </div>
+          <div class="capability-grid">
+            <article>
+              <i data-lucide="route" aria-hidden="true"></i>
+              <h3>n8n</h3>
+              <p>Orquestación de aplicaciones, APIs, datos, notificaciones, documentos y tareas programadas.</p>
+              <span>Integraciones y procesos de negocio</span>
+            </article>
+            <article>
+              <i data-lucide="git-branch" aria-hidden="true"></i>
+              <h3>Node-RED</h3>
+              <p>Flujos orientados a eventos, dispositivos, señales y escenarios donde importa reaccionar en tiempo real.</p>
+              <span>Eventos, IoT y operación técnica</span>
+            </article>
+            <article>
+              <i data-lucide="braces" aria-hidden="true"></i>
+              <h3>APIs y webhooks</h3>
+              <p>Conexión directa con sistemas propios o de terceros, con validación, autenticación y manejo de errores.</p>
+              <span>Datos consistentes entre plataformas</span>
+            </article>
+            <article>
+              <i data-lucide="bar-chart-3" aria-hidden="true"></i>
+              <h3>Grafana y reportes</h3>
+              <p>Indicadores operativos, alertas, comparaciones y distribución programada de PDF o CSV.</p>
+              <span>Información lista para decidir</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-band governance-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Control del proceso</p>
+              <h2>Una automatización profesional también explica qué ocurrió.</h2>
+            </div>
+          </div>
+          <div class="governance-grid">
+            <article><i data-lucide="shield-check" aria-hidden="true"></i><h3>Validación</h3><p>Campos, formatos, duplicados, permisos y reglas revisados antes de actuar.</p></article>
+            <article><i data-lucide="user-check" aria-hidden="true"></i><h3>Aprobación humana</h3><p>Decisiones sensibles detenidas hasta que el responsable revise el contexto.</p></article>
+            <article><i data-lucide="rotate-ccw" aria-hidden="true"></i><h3>Reintentos</h3><p>Errores temporales tratados con límites, espera controlada y prevención de duplicados.</p></article>
+            <article><i data-lucide="bell-ring" aria-hidden="true"></i><h3>Alertas</h3><p>Notificaciones útiles con proceso, motivo del fallo y próxima acción recomendada.</p></article>
+            <article><i data-lucide="scroll-text" aria-hidden="true"></i><h3>Bitácora</h3><p>Entradas, resultados, tiempos y responsables disponibles para seguimiento.</p></article>
+            <article><i data-lucide="gauge" aria-hidden="true"></i><h3>Métricas</h3><p>Volumen, éxito, demora, ahorro estimado y puntos que requieren mejora.</p></article>
+          </div>
+        </section>
+
+        <section class="commercial-cta">
+          <div>
+            <p class="eyebrow">Próximo paso</p>
+            <h2>Mapeemos una tarea repetitiva de principio a fin.</h2>
+            <p>Identificamos disparador, validaciones, responsables, sistemas y resultado antes de proponer tecnología.</p>
+          </div>
+          <a href="../contacto/index.html?necesidad=automatizacion" class="primary-link large">
+            <i data-lucide="workflow" aria-hidden="true"></i>
+            Analizar automatización
+          </a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Soluciones Conectadas</span>
+        <div class="footer-links">
+          <a href="../servicios/index.html">Servicios</a>
+          <a href="../demos/index.html">Demos</a>
+          <a href="index.html">Automatizaciones</a>
+          <a href="../contacto/index.html">Contacto</a>
+          <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

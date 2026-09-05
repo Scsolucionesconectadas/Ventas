@@ -35,6 +35,13 @@
 - El modal de servicios recibe el foco al abrir, lo mantiene dentro del diálogo y lo devuelve a la tarjeta al cerrar.
 - La grilla de contacto se apila desde `1040 px` para evitar recortes y mantener el email en una sola línea.
 - `404.html` conserva la identidad visual, ofrece rutas de recuperación claras y respeta `prefers-reduced-motion`.
+- La Fase 2 usa navegación multipágina: la home resume, `servicios/` profundiza capacidades, `automatizaciones/` explica flujos y `contacto/` captura el contexto comercial.
+- Cada servicio ofrece accesos directos a demos relacionadas sin obligar a volver al catálogo.
+- Los resultados posibles usan rangos ilustrativos y una aclaración visible para no presentarlos como promesas automáticas.
+- El explorador de automatizaciones usa botones con `aria-pressed` y actualiza título, recorrido de seis pasos, demo y contacto.
+- El formulario mantiene etiquetas visibles, campos obligatorios, ayudas de contexto, consentimiento y alternativas de contacto.
+- La página de confirmación conserva marca SC y permite volver a demos o continuar por WhatsApp.
+- Axe Core `4.10.3` no detectó infracciones WCAG A/AA en las cinco páginas comerciales auditadas.
 
 ## Pendientes de diseño
 

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto y solicitud de demo | Soluciones Conectadas</title>
+    <meta
+      name="description"
+      content="Contanos qué proceso querés mejorar y Soluciones Conectadas te recomendará una demo, módulos y automatizaciones para tu empresa."
+    />
+    <link rel="canonical" href="https://scsolucionesconectadas.github.io/Ventas/contacto/" />
+    <link rel="icon" href="../assets/img/sc-favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contacto | Soluciones Conectadas" />
+    <meta property="og:description" content="Solicitá una demo funcional o un diagnóstico inicial para tu proceso." />
+    <meta property="og:url" content="https://scsolucionesconectadas.github.io/Ventas/contacto/" />
+    <meta property="og:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/sc-imagotipo.png" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260905-p2" />
+    <script defer src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script defer src="../assets/js/commercial-pages.js?v=20260905-p2"></script>
+    <script defer src="../assets/js/motion.js?v=20260905-p2"></script>
+  </head>
+  <body class="landing-site commercial-page contact-page">
+    <div class="site-shell">
+      <header class="topbar" aria-label="Barra principal">
+        <a class="brand" href="../index.html" aria-label="Inicio de Soluciones Conectadas">
+          <span class="brand-logo-frame">
+            <img class="brand-logo" src="../assets/img/sc-symbol.png" alt="Soluciones Conectadas" />
+          </span>
+          <span>
+            <strong>Soluciones Conectadas</strong>
+            <small>Conversemos sobre tu proceso</small>
+          </span>
+        </a>
+        <nav class="topbar-actions" aria-label="Navegación principal">
+          <a href="../servicios/index.html" class="ghost-link">Servicios</a>
+          <a href="../demos/index.html" class="ghost-link">Demos</a>
+          <a href="../automatizaciones/index.html" class="ghost-link">Automatizaciones</a>
+          <details class="nav-dropdown">
+            <summary>
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              Explorar
+              <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </summary>
+            <div class="dropdown-menu compact-menu">
+              <a href="../index.html#diagnostico">Diagnóstico express</a>
+              <a href="../servicios/index.html">Todos los servicios</a>
+              <a href="../demos/index.html">Demos por rubro</a>
+              <a href="../automatizaciones/index.html">Flujos automáticos</a>
+            </div>
+          </details>
+          <a
+            href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20coordinar%20una%20demo."
+            class="primary-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <i data-lucide="message-circle" aria-hidden="true"></i>
+            WhatsApp
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="commercial-hero section-band contact-hero">
+          <div class="commercial-hero-copy">
+            <p class="eyebrow">Contacto</p>
+            <h1>Contanos qué proceso querés mejorar.</h1>
+            <p>
+              Con el contexto correcto podemos recomendar un rubro, los módulos prioritarios y una automatización
+              inicial para que la conversación empiece sobre algo concreto.
+            </p>
+          </div>
+          <aside class="contact-expectations" aria-label="Próximos pasos">
+            <strong>Qué sigue después de tu consulta</strong>
+            <ol>
+              <li><span>01</span>Revisamos el proceso y el objetivo.</li>
+              <li><span>02</span>Elegimos demos y módulos relacionados.</li>
+              <li><span>03</span>Coordinamos una presentación enfocada.</li>
+            </ol>
+          </aside>
+        </section>
+
+        <section class="section-band contact-workspace" aria-labelledby="contact-form-title">
+          <form
+            class="contact-form-panel"
+            action="https://formsubmit.co/contacto.solucionesconectadas@gmail.com"
+            method="post"
+            data-contact-form
+          >
+            <input type="hidden" name="_subject" value="Nueva consulta desde la web de Soluciones Conectadas" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://scsolucionesconectadas.github.io/Ventas/contacto/gracias.html" />
+            <label class="form-honey" aria-hidden="true">
+              No completar
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <div class="contact-form-heading">
+              <p class="eyebrow">Solicitud comercial</p>
+              <h2 id="contact-form-title">Prepará tu diagnóstico inicial.</h2>
+              <p>Los campos marcados con * son obligatorios.</p>
+            </div>
+
+            <div class="field-grid contact-fields">
+              <div class="form-field">
+                <label for="nombre">Nombre y apellido *</label>
+                <input id="nombre" name="nombre_y_apellido" type="text" autocomplete="name" required maxlength="100" />
+              </div>
+              <div class="form-field">
+                <label for="empresa">Empresa u organización *</label>
+                <input id="empresa" name="empresa" type="text" autocomplete="organization" required maxlength="120" />
+              </div>
+              <div class="form-field">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="160" />
+              </div>
+              <div class="form-field">
+                <label for="telefono">Teléfono o WhatsApp</label>
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" />
+              </div>
+              <div class="form-field">
+                <label for="rubro">Rubro *</label>
+                <select id="rubro" name="rubro" required>
+                  <option value="">Seleccionar rubro</option>
+                  <option value="medica">Área médica</option>
+                  <option value="hoteleria">Hotelería</option>
+                  <option value="inmobiliarias">Inmobiliarias</option>
+                  <option value="materiales">Venta de materiales</option>
+                  <option value="gastronomia">Gastronomía</option>
+                  <option value="educacion">Educación</option>
+                  <option value="gomerias">Gomerías</option>
+                  <option value="agrimensura">Agrimensura</option>
+                  <option value="logistica">Logística y transporte</option>
+                  <option value="otro">Otro rubro</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="necesidad">Necesidad principal *</label>
+                <select id="necesidad" name="necesidad" required>
+                  <option value="">Seleccionar necesidad</option>
+                  <option value="sistema">Sistema de gestión</option>
+                  <option value="automatizacion">Automatización</option>
+                  <option value="integracion">Integración de herramientas</option>
+                  <option value="chatbot">Asistente o chatbot</option>
+                  <option value="dashboard">Dashboard o Grafana</option>
+                  <option value="reporteria">Reportería y documentos</option>
+                  <option value="demo">Demo comercial por rubro</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="mensaje">¿Qué tarea, demora o falta de información querés resolver? *</label>
+                <textarea
+                  id="mensaje"
+                  name="proceso_a_mejorar"
+                  required
+                  minlength="20"
+                  maxlength="1500"
+                  placeholder="Ej.: hoy recibimos pedidos por WhatsApp, los copiamos a una planilla y no podemos ver cuáles siguen pendientes."
+                ></textarea>
+                <small class="field-help">Incluí herramientas actuales, volumen aproximado y resultado esperado si ya los conocés.</small>
+              </div>
+            </div>
+
+            <label class="consent-field">
+              <input type="checkbox" name="autorizacion_de_contacto" value="si" required />
+              <span>Acepto que Soluciones Conectadas use estos datos únicamente para responder esta consulta. *</span>
+            </label>
+
+            <button class="submit-button contact-submit" type="submit">
+              <i data-lucide="send" aria-hidden="true"></i>
+              <span>Enviar consulta</span>
+            </button>
+          </form>
+
+          <aside class="contact-options" aria-label="Canales de contacto alternativos">
+            <div class="contact-options-heading">
+              <p class="eyebrow">Contacto directo</p>
+              <h2>Elegí el canal más cómodo.</h2>
+              <p>También podés escribirnos directamente y compartir el enlace de una demo que te interese.</p>
+            </div>
+            <a
+              href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20coordinar%20una%20demo."
+              target="_blank"
+              rel="noopener"
+            >
+              <i data-lucide="message-circle" aria-hidden="true"></i>
+              <span><strong>WhatsApp</strong><small>+54 9 3442 472233</small></span>
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:contacto.solucionesconectadas@gmail.com?subject=Consulta%20desde%20la%20web%20SC">
+              <i data-lucide="mail" aria-hidden="true"></i>
+              <span><strong>Email</strong><small>contacto.solucionesconectadas@gmail.com</small></span>
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">
+              <i data-lucide="camera" aria-hidden="true"></i>
+              <span><strong>Instagram</strong><small>@sc.soluciones.ar</small></span>
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <div class="contact-trust-note">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <p><strong>Datos bajo control.</strong> No compartimos la información enviada ni la usamos para campañas de terceros.</p>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Soluciones Conectadas</span>
+        <div class="footer-links">
+          <a href="../servicios/index.html">Servicios</a>
+          <a href="../demos/index.html">Demos</a>
+          <a href="../automatizaciones/index.html">Automatizaciones</a>
+          <a href="index.html">Contacto</a>
+          <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

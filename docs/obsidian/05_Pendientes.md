@@ -4,8 +4,8 @@
 
 - [ ] Activar GitHub Pages en el repositorio: `Settings > Pages > Deploy from a branch > main > / (root)`.
 - [ ] Verificar que `https://scsolucionesconectadas.github.io/Ventas/` responda correctamente después de activar Pages.
+- [ ] Confirmar el primer envío de FormSubmit desde `contacto.solucionesconectadas@gmail.com`.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
-- [ ] Hacer commit y push de la Fase 1 de calidad cuando se autorice la publicación de esta iteración.
 - [ ] Probar la versión publicada desde un celular físico después de activar GitHub Pages.
 
 ## En revisión
@@ -13,6 +13,9 @@
 
 ## Resueltos
 
+- [x] Publicar la Fase 1 de calidad en `Scsolucionesconectadas/Ventas` - 2026-09-05
+- [x] Implementar localmente la Fase 2: servicios, automatizaciones, contacto, resultados y preguntas frecuentes - 2026-09-05
+- [x] Autorizar la publicación de la Fase 2 comercial multipágina - 2026-09-05
 - [x] Completar la Fase 1: UTF-8, ortografía, responsive, enlaces, imágenes, dropdowns, PDFs y accesibilidad - 2026-09-05
 - [x] Crear `404.html` con identidad SC - 2026-09-05
 - [x] Fijar versiones CDN y convertir imágenes de presentación a WebP - 2026-09-05

@@ -9,18 +9,20 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: versión funcional publicada en `origin/main`; commit principal `4465090`.
-- Estado local: contiene la Fase 1 de calidad validada, todavía sin commit ni push.
+- Estado del código remoto: Fase 1 publicada en `origin/main`; commit `441e7b3`.
+- Estado local: Fase 2 comercial validada y autorizada para publicación en `origin/main`.
 - Estado de Pages: pendiente de activar en GitHub. La URL pública respondió `404` después del push.
 
 ## Archivos de soporte
 
 - `.nojekyll`: evita procesamiento Jekyll y publica assets estáticos tal como están.
 - `robots.txt`: permite indexación del sitio público.
-- `sitemap.xml`: declara landing, catálogo `/demos/` y demos públicas por rubro.
+- `sitemap.xml`: declara landing, servicios, automatizaciones, contacto, catálogo y demos públicas por rubro.
 - `404.html`: página de error con identidad SC y rutas calculadas para local y `/Ventas/`.
 - Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`.
 - Las imágenes públicas usan WebP; los JPG se conservan como fuentes para regeneración.
+- `contacto/index.html` publica un formulario HTML hacia FormSubmit; no existen credenciales ni secretos en el repositorio.
+- `contacto/gracias.html` queda fuera de indexación y funciona como retorno después del envío.
 
 ## Procedimiento de publicación
 
@@ -42,4 +44,4 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 
 - Activar GitHub Pages desde Settings del repositorio y confirmar visualmente la URL pública después del despliegue.
 - Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.
-- Publicar el commit de la Fase 1 cuando se autorice y repetir la prueba desde un celular físico.
+- Activar FormSubmit desde el primer email recibido y repetir la prueba desde un celular físico.

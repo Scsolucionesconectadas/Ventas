@@ -118,6 +118,12 @@ function bindServiceModal() {
         "Trazabilidad completa para saber quién hizo cada acción y cuándo ocurrió.",
       ],
       outcome: "Resultado esperado: menos planillas sueltas y más control diario.",
+      page: "servicios/index.html#sistemas",
+      demos: [
+        ["Área médica", "rubros/medica/index.html"],
+        ["Inmobiliarias", "rubros/inmobiliarias/index.html"],
+        ["Venta de materiales", "rubros/materiales/index.html"],
+      ],
     },
     automatizaciones: {
       icon: "workflow",
@@ -129,6 +135,12 @@ function bindServiceModal() {
         "Alertas ante errores para que el equipo se entere antes que el cliente.",
       ],
       outcome: "Resultado esperado: procesos que avanzan aunque nadie esté copiando datos manualmente.",
+      page: "servicios/index.html#automatizaciones",
+      demos: [
+        ["Hotelería", "rubros/hoteleria/index.html"],
+        ["Gomerías", "rubros/gomerias/index.html"],
+        ["Logística", "rubros/logistica/index.html"],
+      ],
     },
     integraciones: {
       icon: "plug-zap",
@@ -140,6 +152,12 @@ function bindServiceModal() {
         "Mapeo de datos, normalización y controles para evitar duplicados.",
       ],
       outcome: "Resultado esperado: datos consistentes sin reescribir toda la operación.",
+      page: "servicios/index.html#integraciones",
+      demos: [
+        ["Agrimensores", "rubros/agrimensores/index.html"],
+        ["Educación", "rubros/educacion/index.html"],
+        ["Inmobiliarias", "rubros/inmobiliarias/index.html"],
+      ],
     },
     asistentes: {
       icon: "message-square-text",
@@ -151,6 +169,12 @@ function bindServiceModal() {
         "Opciones para WhatsApp, web, Telegram o canales internos.",
       ],
       outcome: "Resultado esperado: atención más rápida y equipos con menos interrupciones.",
+      page: "servicios/index.html#asistentes",
+      demos: [
+        ["Área médica", "rubros/medica/index.html"],
+        ["Hotelería", "rubros/hoteleria/index.html"],
+        ["Gastronomía", "rubros/gastronomia/index.html"],
+      ],
     },
     dashboards: {
       icon: "pie-chart",
@@ -162,6 +186,12 @@ function bindServiceModal() {
         "Alertas visuales y métricas ejecutivas para reuniones de seguimiento.",
       ],
       outcome: "Resultado esperado: dirección y operación mirando la misma información.",
+      page: "servicios/index.html#dashboards",
+      demos: [
+        ["Logística", "rubros/logistica/index.html"],
+        ["Venta de materiales", "rubros/materiales/index.html"],
+        ["Gomerías", "rubros/gomerias/index.html"],
+      ],
     },
     reporterias: {
       icon: "file-text",
@@ -173,6 +203,12 @@ function bindServiceModal() {
         "Bitácora de generación, envío y fallos para auditoría interna.",
       ],
       outcome: "Resultado esperado: reportes listos sin copiar datos ni armar documentos a mano.",
+      page: "servicios/index.html#reporterias",
+      demos: [
+        ["Área médica", "rubros/medica/index.html"],
+        ["Agrimensores", "rubros/agrimensores/index.html"],
+        ["Educación", "rubros/educacion/index.html"],
+      ],
     },
     demos: {
       icon: "presentation",
@@ -184,6 +220,12 @@ function bindServiceModal() {
         "Base reutilizable para convertir una demo aprobada en sistema real.",
       ],
       outcome: "Resultado esperado: reuniones más concretas y propuestas más fáciles de vender.",
+      page: "servicios/index.html#demos-comerciales",
+      demos: [
+        ["Catálogo completo", "demos/index.html"],
+        ["Inmobiliarias", "rubros/inmobiliarias/index.html"],
+        ["Venta de materiales", "rubros/materiales/index.html"],
+      ],
     },
   };
 
@@ -197,6 +239,8 @@ function bindServiceModal() {
   const copy = modal.querySelector("[data-service-copy]");
   const list = modal.querySelector("[data-service-list]");
   const outcome = modal.querySelector("[data-service-outcome]");
+  const related = modal.querySelector("[data-service-related]");
+  const page = modal.querySelector("[data-service-page]");
   const closeButtons = modal.querySelectorAll("[data-service-close]");
   let activeTrigger = null;
 
@@ -223,6 +267,12 @@ function bindServiceModal() {
       if (copy) copy.textContent = detail.copy;
       if (list) list.innerHTML = detail.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("");
       if (outcome) outcome.textContent = detail.outcome;
+      if (related) {
+        related.innerHTML = detail.demos
+          .map(([label, href]) => `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`)
+          .join("");
+      }
+      if (page) page.href = detail.page;
 
       activeTrigger = button;
       button.setAttribute("aria-expanded", "true");
@@ -278,6 +328,15 @@ function bindDiagnostic() {
         "Recordatorios por WhatsApp o email.",
         "Panel con estados y alertas.",
       ],
+      demos: [
+        ["Área médica", "rubros/medica/index.html"],
+        ["Hotelería", "rubros/hoteleria/index.html"],
+      ],
+      automations: [
+        "Alta desde formulario o WhatsApp.",
+        "Recordatorio y confirmación automática.",
+        "Alerta por ausencia o reprogramación.",
+      ],
       message: "Hola SC, quiero una demo de agenda inteligente para mi empresa.",
     },
     ventas: {
@@ -288,6 +347,15 @@ function bindDiagnostic() {
         "Leads desde WhatsApp, formulario o portal.",
         "Seguimiento comercial con tareas y estados.",
         "Reportes de conversión, margen y tiempos de respuesta.",
+      ],
+      demos: [
+        ["Inmobiliarias", "rubros/inmobiliarias/index.html"],
+        ["Venta de materiales", "rubros/materiales/index.html"],
+      ],
+      automations: [
+        "Captura y clasificación automática de consultas.",
+        "Seguimiento de oportunidades sin actividad.",
+        "Cotización, aprobación y aviso al responsable.",
       ],
       message: "Hola SC, quiero una demo de ventas y CRM para mi empresa.",
     },
@@ -300,6 +368,16 @@ function bindDiagnostic() {
         "Compras sugeridas y recepción de mercadería.",
         "Entregas, responsables y alertas operativas.",
       ],
+      demos: [
+        ["Venta de materiales", "rubros/materiales/index.html"],
+        ["Gomerías", "rubros/gomerias/index.html"],
+        ["Logística", "rubros/logistica/index.html"],
+      ],
+      automations: [
+        "Alerta por stock mínimo o reserva crítica.",
+        "Sugerencia de compra según rotación.",
+        "Aviso de preparación, despacho y entrega.",
+      ],
       message: "Hola SC, quiero una demo de stock y operación.",
     },
     reportes: {
@@ -310,6 +388,16 @@ function bindDiagnostic() {
         "Indicadores por período, rubro y responsable.",
         "PDF ejecutivo generado automáticamente.",
         "Envío por email con bitácora y alertas de fallo.",
+      ],
+      demos: [
+        ["Logística", "rubros/logistica/index.html"],
+        ["Educación", "rubros/educacion/index.html"],
+        ["Agrimensores", "rubros/agrimensores/index.html"],
+      ],
+      automations: [
+        "Consolidación programada de indicadores.",
+        "Generación de PDF y CSV por período.",
+        "Envío por rol con bitácora y alerta de fallo.",
       ],
       message: "Hola SC, quiero una demo de reportería ejecutiva con dashboards y PDF.",
     },
@@ -322,6 +410,16 @@ function bindDiagnostic() {
         "Derivación por tipo de consulta y prioridad.",
         "Historial de conversación y acciones pendientes.",
       ],
+      demos: [
+        ["Área médica", "rubros/medica/index.html"],
+        ["Hotelería", "rubros/hoteleria/index.html"],
+        ["Gastronomía", "rubros/gastronomia/index.html"],
+      ],
+      automations: [
+        "Clasificación por intención y prioridad.",
+        "Derivación con contexto al equipo correcto.",
+        "Seguimiento de consultas sin resolver.",
+      ],
       message: "Hola SC, quiero una demo de atención automática con chatbot.",
     },
   };
@@ -332,9 +430,13 @@ function bindDiagnostic() {
   const title = document.querySelector("[data-diagnostic-title]");
   const copy = document.querySelector("[data-diagnostic-copy]");
   const list = document.querySelector("[data-diagnostic-list]");
+  const demos = document.querySelector("[data-diagnostic-demos]");
+  const automations = document.querySelector("[data-diagnostic-automations]");
   const whatsapp = document.querySelector("#diagnosticWhatsApp");
 
-  if (!buttons.length || !result || !icon || !title || !copy || !list || !whatsapp) return;
+  if (!buttons.length || !result || !icon || !title || !copy || !list || !demos || !automations || !whatsapp) return;
+
+  buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.classList.contains("active"))));
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -343,11 +445,18 @@ function bindDiagnostic() {
 
       buttons.forEach((item) => item.classList.remove("active"));
       button.classList.add("active");
+      buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
 
       icon.setAttribute("data-lucide", selected.icon);
       title.textContent = selected.title;
       copy.textContent = selected.copy;
-      list.innerHTML = selected.bullets.map((bullet) => `<li>${bullet}</li>`).join("");
+      list.innerHTML = selected.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("");
+      demos.innerHTML = selected.demos
+        .map(([label, href]) => `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`)
+        .join("");
+      automations.innerHTML = selected.automations
+        .map((automation) => `<li>${escapeHtml(automation)}</li>`)
+        .join("");
       whatsapp.href = `https://wa.me/5493442472233?text=${encodeURIComponent(selected.message)}`;
 
       refreshIcons();

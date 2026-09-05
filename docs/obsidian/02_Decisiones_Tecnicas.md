@@ -1,5 +1,32 @@
 # Decisiones Técnicas
 
+## 2026-09-05 - Fase 2 multipágina y formulario estático
+
+**Decisión:**
+Separar servicios, automatizaciones y contacto en páginas propias; mantener la home como resumen comercial; y usar FormSubmit para recibir consultas desde GitHub Pages.
+
+**Motivo:**
+La web debe escalar sin concentrar toda la información en una sola página. GitHub Pages sirve contenido estático y el formulario necesita un proveedor externo que funcione con HTML estándar sin exponer credenciales.
+
+**Impacto:**
+Agrega navegación multipágina, demos relacionadas por servicio, diagnóstico ampliado, explorador de automatizaciones, formulario comercial, confirmación propia, sitemap y nueva lógica compartida.
+
+**Alternativas consideradas:**
+- Mantener servicios y automatizaciones únicamente como secciones extensas de la home.
+- Usar solo enlaces `mailto:` y WhatsApp sin formulario estructurado.
+- Incorporar un backend propio antes de validar el flujo comercial.
+
+**Archivos relacionados:**
+- `index.html`
+- `servicios/index.html`
+- `automatizaciones/index.html`
+- `contacto/index.html`
+- `contacto/gracias.html`
+- `assets/js/commercial-pages.js`
+- `assets/js/app.js`
+- `assets/css/base.css`
+- `sitemap.xml`
+
 ## 2026-09-05 - Base de calidad para publicación estática
 
 **Decisión:**

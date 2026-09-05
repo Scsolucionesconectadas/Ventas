@@ -6,12 +6,12 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, una página separada de catálogo en `demos/index.html` y nueve demos funcionales para presentaciones comerciales: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La estética usa identidad visual SC, logo real, paleta azul/cian/tinta, imágenes locales por rubro, dropdowns, microinteracciones, animaciones CSS y GSAP `3.15.0` por CDN. Todas las demos incluyen reportería demo con tablero tipo Grafana, PDF descargable con encabezado/pie institucional SC mediante jsPDF `4.2.1` y preparación de email sin envío real. La Fase 1 de calidad incorporó imágenes WebP, `404.html`, versiones CDN fijas, pestañas accesibles, gestión de foco en modales y validación responsive automatizada en cuatro tamaños. La landing ya tiene datos públicos de contacto, diagnóstico express interactivo, servicios con modal informativo y preparación para GitHub Pages simple desde `main` y `/`.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 2 amplió el diagnóstico para recomendar módulos, rubros y automatizaciones; agregó resultados ilustrativos, preguntas frecuentes, demos relacionadas por servicio y un explorador visual de flujos. El contacto usa un formulario HTML compatible con GitHub Pages mediante FormSubmit, además de WhatsApp, email e Instagram. La estética mantiene identidad SC, imágenes locales, microinteracciones, CSS y GSAP `3.15.0`. Todas las demos incluyen reportería, tablero tipo Grafana, PDF con marca SC mediante jsPDF `4.2.1` y preparación de email sin envío real.
 
 ## Stack técnico
 
 - Frontend: HTML, CSS, JavaScript sin build, Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1` por CDN.
-- Backend: no aplica en esta etapa.
+- Backend: no aplica; el formulario delega el envío a FormSubmit.
 - Base de datos: datos ficticios embebidos en JavaScript.
 - Automatización: sección comercial para n8n, Node-RED, APIs, webhooks, bots, dashboards, Grafana, PDFs y emails programados.
 - Infraestructura: compatible con apertura directa del HTML, servidor estático local o GitHub Pages simple desde `main` y carpeta `/`.
@@ -21,6 +21,9 @@ El repositorio tiene una landing principal responsive de SC, una página separad
 
 - Landing principal institucional: `index.html`.
 - Catálogo separado de demos: `demos/index.html`.
+- Servicios detallados: `servicios/index.html`.
+- Automatizaciones y explorador de flujos: `automatizaciones/index.html`.
+- Contacto y confirmación: `contacto/index.html` y `contacto/gracias.html`.
 - Demo área médica: `rubros/medica/index.html`.
 - Demo hotelería: `rubros/hoteleria/index.html`.
 - Demo inmobiliarias: `rubros/inmobiliarias/index.html`.
@@ -36,6 +39,7 @@ El repositorio tiene una landing principal responsive de SC, una página separad
 - Página de error con identidad SC: `404.html`.
 - Optimizador reproducible de imágenes: `scripts/optimize_images.py`.
 - Lógica compartida del hub: `assets/js/app.js`.
+- Interacciones de páginas comerciales: `assets/js/commercial-pages.js`.
 - Catálogo central de demos: `assets/js/demo-catalog.js`.
 - Generador de PDF con marca SC: `assets/js/pdf-report.js`.
 - Lógica demo médica: `assets/js/medical-demo.js`.
@@ -55,7 +59,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 ## Pendientes importantes
 
 - [ ] Activar GitHub Pages en Settings del repositorio y verificar la URL pública.
-- [ ] Hacer commit y push de la iteración actual de mejoras.
+- [ ] Confirmar el primer envío de FormSubmit desde el email de SC.
 - [ ] Revisar licencias/atribución o reemplazar por imágenes propias/generadas antes de una publicación final.
 
 ## Últimas decisiones importantes
@@ -73,3 +77,6 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - Se agregó jsPDF `4.2.1` por CDN para PDFs demo con encabezado, pie institucional, logos SC y estructura ejecutiva.
 - Se fijaron las versiones CDN, se adoptó WebP para las imágenes visibles y se agregó una página 404 propia.
 - Se incorporó semántica de pestañas, navegación por teclado y gestión de foco en el modal de servicios.
+- Se adoptó una arquitectura multipágina para servicios, automatizaciones y contacto, manteniendo la home como resumen comercial.
+- Se eligió FormSubmit para recibir consultas desde GitHub Pages sin incorporar backend ni credenciales al repositorio.
+- La Fase 2 comercial multipágina fue autorizada para publicación en `origin/main`.

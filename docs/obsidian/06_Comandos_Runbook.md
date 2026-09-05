@@ -16,6 +16,7 @@ http://127.0.0.1:4173/index.html
 
 ```bash
 node --check assets/js/app.js
+node --check assets/js/commercial-pages.js
 node --check assets/js/motion.js
 node --check assets/js/medical-demo.js
 node --check assets/js/demo-catalog.js
@@ -29,7 +30,7 @@ git diff --check
 Validación estructural para las plantillas estáticas con contenido hidratado por JavaScript:
 
 ```bash
-npx --yes html-validate@11.14.0 --rule=doctype-style:off --rule=void-style:off --rule=prefer-native-element:off --rule=no-inline-style:off --rule=empty-heading:off --rule=text-content:off index.html 404.html demos/index.html "rubros/*/index.html"
+npx --yes html-validate@11.14.0 --rule=doctype-style:off --rule=void-style:off --rule=prefer-native-element:off --rule=no-inline-style:off --rule=empty-heading:off --rule=text-content:off index.html 404.html demos/index.html servicios/index.html automatizaciones/index.html contacto/index.html contacto/gracias.html "rubros/*/index.html"
 ```
 
 ## Optimización de imágenes
@@ -64,3 +65,13 @@ URL prevista:
 ```text
 https://scsolucionesconectadas.github.io/Ventas/
 ```
+
+## Activación de FormSubmit
+
+1. Publicar la página `contacto/index.html`.
+2. Completar un primer envío real desde la web pública.
+3. Abrir el email de activación recibido en `contacto.solucionesconectadas@gmail.com`.
+4. Confirmar el formulario y repetir un envío de prueba.
+5. Verificar recepción, reCAPTCHA y redirección a `contacto/gracias.html`.
+
+No desactivar reCAPTCHA ni quitar el campo `_honey` durante la publicación.

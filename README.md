@@ -17,10 +17,11 @@ https://scsolucionesconectadas.github.io/Ventas/
 - Inicio: presentación de Soluciones Conectadas.
 - Servicios: sistemas de gestión, automatizaciones, integraciones, chatbots, dashboards y demos comerciales.
 - Demos por rubro: página separada `demos/index.html` con filtros y acceso a experiencias navegables.
-- Automatizaciones: n8n, Node-RED, APIs, webhooks, bots, dashboards, Grafana, PDFs y emails programados.
-- Diagnóstico express: selector interactivo que recomienda una ruta de demo y prepara contacto por WhatsApp.
+- Servicios detallados: página separada `servicios/index.html` con entregables y demos relacionadas.
+- Automatizaciones: página separada `automatizaciones/index.html` con n8n, Node-RED, APIs, webhooks, controles y explorador interactivo de flujos.
+- Diagnóstico express: selector interactivo que recomienda módulos, rubros, automatizaciones y prepara contacto por WhatsApp.
 - Proceso: diagnóstico, demo funcional, automatización y evolución.
-- Contacto comercial: WhatsApp, teléfono, email e Instagram públicos de SC.
+- Contacto comercial: página `contacto/index.html` con formulario estático, WhatsApp, teléfono, email e Instagram públicos de SC.
 
 ## Rubros iniciales
 
@@ -43,6 +44,13 @@ https://scsolucionesconectadas.github.io/Ventas/
 ├── 404.html
 ├── demos/
 │   └── index.html
+├── servicios/
+│   └── index.html
+├── automatizaciones/
+│   └── index.html
+├── contacto/
+│   ├── gracias.html
+│   └── index.html
 ├── index.html
 ├── robots.txt
 ├── sitemap.xml
@@ -64,6 +72,7 @@ https://scsolucionesconectadas.github.io/Ventas/
 │   │   └── sc-white.png
 │   └── js/
 │       ├── app.js
+│       ├── commercial-pages.js
 │       ├── demo-catalog.js
 │       ├── industry-demo-data.js
 │       ├── industry-demo.js
@@ -116,6 +125,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 - `404.html` mantiene la identidad SC y resuelve correctamente sus enlaces tanto en local como bajo la subruta `/Ventas/` de GitHub Pages.
 - Las pestañas incluyen semántica ARIA, selección anunciada y navegación con flechas, `Home` y `End`.
 - Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
+- Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 
 ## Publicación en GitHub Pages
@@ -128,6 +138,16 @@ Configuración prevista:
 - Dominio: GitHub Pages por defecto, sin dominio propio.
 - Archivo raíz: `index.html`.
 - `.nojekyll`: incluido para publicar los assets estáticos sin procesamiento de Jekyll.
+
+## Formulario de contacto
+
+El formulario estático usa FormSubmit y envía consultas a `contacto.solucionesconectadas@gmail.com` sin requerir backend propio.
+
+- Destino: `https://formsubmit.co/contacto.solucionesconectadas@gmail.com`.
+- Protección: reCAPTCHA activo y campo honeypot `_honey`.
+- Confirmación: `contacto/gracias.html`.
+- Activación inicial: el primer envío real genera un email de confirmación de FormSubmit que debe aceptarse desde la casilla de SC.
+- Durante las pruebas automáticas no se envía el formulario ni se genera correo real.
 
 ## Contacto público
 
@@ -144,7 +164,8 @@ Configuración prevista:
 - Las pantallas deben poder explicarse en una presentación comercial de 5 a 10 minutos.
 - La reportería simula dashboards tipo Grafana, descarga de PDF y preparación de emails sin enviar correos reales.
 - Los PDFs demo se generan en navegador con jsPDF `4.2.1` por CDN, encabezado de marca, indicadores y pie institucional SC.
-- Las acciones de contacto público abren email, teléfono, Instagram o WhatsApp; las demos no envían mensajes reales por sí mismas.
+- Las acciones de contacto público abren email, teléfono, Instagram o WhatsApp; el formulario de contacto envía datos solamente después de activar FormSubmit.
+- Las demos no envían mensajes, reportes ni emails reales por sí mismas.
 
 ## Identidad visual SC
 
