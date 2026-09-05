@@ -9,6 +9,8 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://maicolandresb123.github.io/Mokups_Ventas/`.
+- Estado del código: commit `438b3a7` subido a `origin/main`.
+- Estado de Pages: pendiente de activar en GitHub. La URL pública respondió `404` después del push.
 
 ## Archivos de soporte
 
@@ -24,11 +26,15 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 4. En GitHub, configurar Pages con `Deploy from a branch`, rama `main` y carpeta `/`.
 5. Verificar la URL pública una vez que finalice el workflow de Pages.
 
+## Nota de permisos
+
+La terminal local no tiene GitHub CLI autenticado (`gh auth status` indica que no hay sesión). Por eso no se pudo activar Pages por API desde la terminal. La activación requiere un usuario con permisos de administrador o mantenedor del repositorio.
+
 ## Rollback
 
 Si una publicación falla, revertir o corregir el último commit y volver a hacer push a `main`. GitHub Pages publicará nuevamente la versión vigente de la rama configurada.
 
 ## Pendientes
 
-- Confirmar visualmente la URL pública después del despliegue.
+- Activar GitHub Pages desde Settings del repositorio y confirmar visualmente la URL pública después del despliegue.
 - Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.

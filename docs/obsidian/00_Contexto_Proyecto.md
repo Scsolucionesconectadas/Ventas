@@ -46,7 +46,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 
 ## Pendientes importantes
 
-- [ ] Hacer commit, push y verificar la URL pública de GitHub Pages.
+- [ ] Activar GitHub Pages en Settings del repositorio y verificar la URL pública.
 - [ ] Revisar licencias/atribución o reemplazar por imágenes propias/generadas antes de una publicación final.
 
 ## Últimas decisiones importantes

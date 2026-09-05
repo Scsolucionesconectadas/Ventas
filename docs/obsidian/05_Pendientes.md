@@ -2,14 +2,16 @@
 
 ## Pendientes activos
 
-- [ ] Hacer commit, push y verificar la URL pública de GitHub Pages.
+- [ ] Activar GitHub Pages en el repositorio: `Settings > Pages > Deploy from a branch > main > / (root)`.
+- [ ] Verificar que `https://maicolandresb123.github.io/Mokups_Ventas/` deje de responder `404` después de activar Pages.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
 
 ## En revisión
-- [ ] Confirmar que GitHub Pages quedó configurado con rama `main` y carpeta `/`.
+- [ ] Revisar el workflow automático de Pages cuando GitHub lo dispare después de activar la configuración.
 
 ## Resueltos
 
+- [x] Hacer commit y push a `origin/main` con la landing y demos - 2026-09-05
 - [x] Definir canal de publicación: GitHub Pages simple, sin dominio propio - 2026-09-05
 - [x] Definir datos reales de contacto comercial para la landing pública - 2026-09-05
 - [x] Agregar preparación estática para GitHub Pages con `.nojekyll`, `robots.txt` y `sitemap.xml` - 2026-09-05

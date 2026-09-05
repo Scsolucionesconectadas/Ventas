@@ -47,8 +47,9 @@
 - Playwright MCP desktop/mobile: landing sin overflow, imágenes locales cargadas, CTA visible, diagnóstico interactivo correcto y demo educación con reportes.
 
 **Pendientes detectados:**
-- Hacer commit, push y verificar la URL pública de GitHub Pages.
-- Confirmar configuración Pages en GitHub si el repositorio todavía no la tiene activa.
+- Se hizo commit y push a `origin/main` con hash `438b3a7`.
+- `gh auth status` indicó que GitHub CLI no está autenticado, por lo que no se pudo activar Pages por API desde la terminal.
+- La URL `https://maicolandresb123.github.io/Mokups_Ventas/` respondió `404` después del push; falta activar Pages en Settings del repositorio.
 
 ## 2026-09-04 - Mejoras de reportería e imágenes locales
 
