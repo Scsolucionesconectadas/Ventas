@@ -59,3 +59,12 @@ La integración no agrega backend ni secretos al repositorio. El primer envío r
 ## Rutas públicas
 
 Todas las referencias usan rutas relativas para funcionar en la subruta `/Ventas/`. Los metadatos canónicos y el sitemap usan `https://scsolucionesconectadas.github.io/Ventas/`.
+
+## Publicación y SEO de Fase 6
+
+- Las catorce páginas indexables definen en HTML título, descripción, canonical, Open Graph, Twitter Card, tema e imagen representativa.
+- `index.html` agrega JSON-LD con un grafo `Organization` y `WebSite`; solo declara datos públicos verificables de SC.
+- `sitemap.xml` enumera las mismas catorce URL y registra `lastmod`; `presentacion/`, `404.html` y `contacto/gracias.html` quedan fuera del índice.
+- `assets/js/analytics.js` lee opcionalmente `data-cloudflare-token` desde su propia etiqueta. Sin token publica el estado `SCAnalytics.enabled=false` y no carga recursos externos.
+- `presentacion/index.html` es una página interna con `noindex`, ocho diapositivas, notas, hash navegable, teclado, gestos táctiles, pantalla completa e impresión mediante CSS.
+- `scripts/phase6.spec.js` controla la correspondencia entre páginas, canonical, imágenes sociales, sitemap, analítica, datos estructurados y presentación.

@@ -5,14 +5,18 @@
 - [ ] Confirmar el primer envío de FormSubmit desde `contacto.solucionesconectadas@gmail.com`.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
 - [ ] Probar la versión publicada desde un celular físico después de activar GitHub Pages.
-- [ ] Revisar y autorizar la publicación de la Fase 5 en `origin/main`.
+- [ ] Revisar y autorizar la publicación de la Fase 6 en `origin/main`.
+- [ ] Crear la propiedad de Cloudflare Web Analytics y agregar su token público si se desea activar la medición.
 
 ## En revisión
 
-- [ ] Revisar la Fase 5 local antes de autorizar su publicación.
+- [ ] Revisar la presentación comercial y el SEO de Fase 6 antes de autorizar su publicación.
 
 ## Resueltos
 
+- [x] Publicar la Fase 5 en `origin/main`, commit `aafbb94`, y verificarla en GitHub Pages - 2026-09-06
+- [x] Implementar Fase 6 local con SEO, datos estructurados, sitemap, analítica opcional, presentación y guion comercial - 2026-09-06
+- [x] Validar Fase 6 y regresiones de Fases 3/4/5 con 45 pruebas Playwright - 2026-09-06
 - [x] Activar GitHub Pages y verificar respuesta HTTP 200 en `https://scsolucionesconectadas.github.io/Ventas/` - 2026-09-06
 - [x] Publicar la Fase 4 en `origin/main`, commit `e643a5d` - 2026-09-06
 - [x] Implementar el centro visual de automatizaciones de Fase 5 en las nueve demos - 2026-09-06

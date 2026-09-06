@@ -284,10 +284,10 @@ En enlaces internos que deban funcionar tanto por HTTP como mediante apertura lo
 La regresión de Fase 3 falló primero al resolver `playwright/test` y luego buscó un Chromium no descargado.
 
 **Causa:**
-El sitio no instala paquetes y el runner se ejecuta con `npx`; Node no incorpora automáticamente el directorio efímero al `NODE_PATH`. Además, Playwright intentó usar su navegador administrado aunque Edge ya estaba disponible en Windows.
+El sitio no instala paquetes y el runner se ejecuta con `npx`; Node no incorpora automáticamente el directorio efímero al `NODE_PATH`. Si la caché contiene varias versiones, elegir solo la carpeta más reciente también puede mezclar el runner con un módulo incompatible. Además, Playwright intentó usar su navegador administrado aunque Edge ya estaba disponible en Windows.
 
 **Solución aplicada:**
-El comando de validación localiza el paquete temporal, define `NODE_PATH` para la ejecución y la prueba usa el canal `msedge` instalado en el equipo.
+El comando de validación localiza el paquete temporal de la misma versión `1.55.0`, define `NODE_PATH` para la ejecución y la prueba usa el canal `msedge` instalado en el equipo.
 
 **Cómo evitarlo:**
 Usar el comando documentado en el runbook o instalar Playwright como dependencia de desarrollo si el proyecto adopta un entorno Node permanente.
@@ -295,3 +295,40 @@ Usar el comando documentado en el runbook o instalar Playwright como dependencia
 **Archivos relacionados:**
 - `scripts/phase3.spec.js`
 - `docs/obsidian/06_Comandos_Runbook.md`
+
+## 2026-09-06 - El motor compartido reemplazaba los títulos SEO
+
+**Síntoma:**
+El HTML de cada rubro tenía un título nuevo, pero el navegador mostraba nuevamente el texto antiguo “SC Mockups Ventas” después de cargar la demo.
+
+**Causa:**
+`assets/js/industry-demo.js` asignaba `document.title` durante la inicialización y reemplazaba la etiqueta estática específica de cada página.
+
+**Solución aplicada:**
+Se eliminó la sobrescritura dinámica. Cada demo conserva ahora el título definido en su HTML, disponible también para buscadores sin JavaScript.
+
+**Cómo evitarlo:**
+Tratar título, descripción y canonical como contenido propio del documento y cubrir su valor final con una prueba de navegador.
+
+**Archivos relacionados:**
+- `assets/js/industry-demo.js`
+- `rubros/*/index.html`
+- `scripts/phase6.spec.js`
+
+## 2026-09-06 - Contenido transparente con movimiento reducido
+
+**Síntoma:**
+La última diapositiva podía verse lavada o casi vacía en móvil al navegar rápidamente con `prefers-reduced-motion` activo.
+
+**Causa:**
+La regla accesible desactivaba la animación, pero algunos estilos de inicio conservaban `opacity` y `transform` antes de llegar al estado final.
+
+**Solución aplicada:**
+El modo de movimiento reducido fija explícitamente `opacity: 1` y `transform: none` en el contenido activo. La prueba móvil verifica el estado visible antes de capturar.
+
+**Cómo evitarlo:**
+Cuando una animación usa estado inicial persistente, la variante reducida debe restaurar también sus propiedades finales y no limitarse a `animation: none`.
+
+**Archivos relacionados:**
+- `assets/css/presentation.css`
+- `scripts/phase6.spec.js`

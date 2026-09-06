@@ -351,3 +351,50 @@ Las acciones "Abrir ficha", "Enviar recordatorio" y "Marcar admisión" quedan si
 **Archivos relacionados:**
 - `assets/js/medical-demo.js`
 - `assets/css/base.css`
+
+## 2026-09-06 - SEO estático por página y presentación interna
+
+**Decisión:**
+Definir metadatos completos directamente en cada HTML indexable y crear una presentación comercial propia en `presentacion/`, excluida del índice público.
+
+**Motivo:**
+GitHub Pages no tiene renderizado del lado del servidor. Los títulos, descripciones, canonical, vistas sociales y datos estructurados deben estar disponibles desde el documento inicial, mientras que el material interno de reuniones no necesita competir en resultados de búsqueda.
+
+**Impacto:**
+Las catorce páginas públicas tienen identidad SEO individual; la home agrega `Organization` y `WebSite`; el equipo dispone de una presentación responsive, imprimible y con guion por diapositiva.
+
+**Alternativas consideradas:**
+- Inyectar metadatos con JavaScript.
+- Publicar una presentación indexable dentro de la navegación principal.
+- Incorporar un framework con generación estática.
+
+**Archivos relacionados:**
+- `index.html`
+- `demos/index.html`
+- `servicios/index.html`
+- `automatizaciones/index.html`
+- `contacto/index.html`
+- `rubros/*/index.html`
+- `presentacion/index.html`
+- `sitemap.xml`
+
+## 2026-09-06 - Analítica opcional sin seguimiento por defecto
+
+**Decisión:**
+Preparar Cloudflare Web Analytics mediante un cargador local que solo agrega el beacon cuando existe un token público configurado.
+
+**Motivo:**
+Permite incorporar métricas agregadas en una fase posterior sin declarar una integración inexistente, sin almacenar secretos y sin hacer solicitudes de seguimiento antes de una decisión explícita.
+
+**Impacto:**
+`assets/js/analytics.js` se carga en las catorce páginas indexables. En el estado actual no envía datos y expone un indicador verificable para las pruebas.
+
+**Alternativas consideradas:**
+- Google Analytics.
+- Un contador propio con backend.
+- Activar un proveedor sin contar todavía con el token del sitio.
+
+**Archivos relacionados:**
+- `assets/js/analytics.js`
+- `scripts/phase6.spec.js`
+- `docs/obsidian/07_Integraciones.md`

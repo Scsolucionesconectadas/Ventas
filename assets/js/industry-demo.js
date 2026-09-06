@@ -37,7 +37,6 @@
   });
 
   function hydrateStaticContent() {
-    document.title = `${config.pageTitle} | SC Mockups Ventas`;
     $("#demoSidebarLabel").textContent = config.appLabel;
     $("#demoSidebarNote").textContent = config.sidebarNote;
     $("#demoArgument").textContent = config.argument;

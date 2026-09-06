@@ -6,7 +6,7 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 4 está publicada en `origin/main` con el commit `e643a5d` e incorpora catorce módulos avanzados en área médica, inmobiliarias y venta de materiales. La Fase 5 está implementada y validada localmente en las nueve demos: centro visual de automatización, motores n8n/Node-RED simulados, éxito y falla controlada, reintento, aprobación humana, panel tipo Grafana, programación de reportes, email demo, PDF e historial. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 5 está publicada en `origin/main` con el commit `aafbb94` e incorpora a las nueve demos un centro visual de automatización, motores n8n/Node-RED simulados, éxito y falla controlada, reintento, aprobación humana, panel tipo Grafana, programación de reportes, email demo, PDF e historial. La Fase 6 está implementada y validada localmente con SEO completo, sitemap actualizado, analítica opcional y una presentación comercial responsive de ocho diapositivas. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
 
 ## Stack técnico
 
@@ -47,7 +47,10 @@ El repositorio tiene una landing principal responsive de SC, páginas comerciale
 - Experiencia comercial común de demos: `assets/js/demo-experience.js`.
 - Gestión avanzada de demos prioritarias: `assets/js/priority-demo.js`.
 - Centro compartido de automatizaciones: `assets/js/workflow-demo.js`.
-- Regresiones de experiencia, demos prioritarias y automatizaciones: `scripts/phase3.spec.js`, `scripts/phase4.spec.js` y `scripts/phase5.spec.js`.
+- Cargador opcional de analítica: `assets/js/analytics.js`.
+- Presentación comercial: `presentacion/index.html`, `assets/css/presentation.css` y `assets/js/presentation.js`.
+- Guion de reuniones: `docs/GUIA_PRESENTACION_COMERCIAL.md`.
+- Regresiones de experiencia, demos prioritarias, automatizaciones y publicación: `scripts/phase3.spec.js`, `scripts/phase4.spec.js`, `scripts/phase5.spec.js` y `scripts/phase6.spec.js`.
 - Datos ficticios por rubro: `assets/js/industry-demo-data.js`.
 - Animaciones compartidas: `assets/js/motion.js`.
 - SEO y publicación estática: `.nojekyll`, `robots.txt` y `sitemap.xml`.
@@ -65,7 +68,8 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - [ ] Confirmar el primer envío de FormSubmit desde el email de SC.
 - [ ] Revisar licencias/atribución o reemplazar por imágenes propias/generadas antes de una publicación final.
 - [ ] Probar la versión publicada desde un celular físico.
-- [ ] Revisar y autorizar la publicación de la Fase 5 en `origin/main`.
+- [ ] Revisar y autorizar la publicación de la Fase 6 en `origin/main`.
+- [ ] Crear la propiedad de Cloudflare Web Analytics y agregar su token público si se decide activar la medición.
 
 ## Últimas decisiones importantes
 
@@ -91,3 +95,6 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - En móvil, los accesos avanzados se concentran en las pestañas para evitar duplicar una navegación lateral extensa.
 - La Fase 5 usa un único módulo configurable para las nueve demos y representa n8n, Node-RED y Grafana sin afirmar conexiones reales.
 - Todo flujo simulado se detiene antes de la entrega hasta recibir aprobación humana y registra intentos, salida y destinatario ficticio.
+- La Fase 6 usa metadatos estáticos por página para que el contenido sea visible sin depender de JavaScript.
+- Cloudflare Web Analytics queda preparado pero desactivado por defecto; sin token no carga el beacon ni realiza solicitudes.
+- La presentación comercial es interna, tiene `noindex` y se puede navegar, mostrar a pantalla completa o imprimir como PDF.

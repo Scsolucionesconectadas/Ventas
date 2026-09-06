@@ -9,15 +9,17 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: Fase 4 publicada en `origin/main`; commit `e643a5d`.
-- Estado local: Fase 5 implementada y validada en las nueve demos; pendiente de revisión y autorización para publicar.
-- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/` respondió HTTP `200` el 2026-09-06 con la Fase 4 publicada.
+- Estado del código remoto: Fase 5 publicada en `origin/main`; commit `aafbb94`.
+- Estado local: Fase 6 implementada y validada; pendiente de revisión y autorización para publicar.
+- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/` respondió HTTP `200` el 2026-09-06 con la Fase 5 publicada.
 
 ## Archivos de soporte
 
 - `.nojekyll`: evita procesamiento Jekyll y publica assets estáticos tal como están.
 - `robots.txt`: permite indexación del sitio público.
 - `sitemap.xml`: declara landing, servicios, automatizaciones, contacto, catálogo y demos públicas por rubro.
+- `presentacion/index.html`: material comercial interno con `noindex`; no forma parte del sitemap.
+- `assets/js/analytics.js`: cargador opcional de Cloudflare Web Analytics, inactivo mientras no exista token.
 - `404.html`: página de error con identidad SC y rutas calculadas para local y `/Ventas/`.
 - Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`.
 - Las imágenes públicas usan WebP; los JPG se conservan como fuentes para regeneración.
@@ -44,3 +46,5 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 
 - Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.
 - Activar FormSubmit desde el primer email recibido y repetir la prueba desde un celular físico.
+- Revisar y autorizar la publicación de Fase 6.
+- Activar Cloudflare Web Analytics únicamente después de crear la propiedad y obtener el token público del sitio.

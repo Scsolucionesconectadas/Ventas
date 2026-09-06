@@ -64,10 +64,15 @@
 - En móvil, el flujo se transforma en una secuencia vertical, métricas y formularios conservan ancho útil, y la tabla usa scroll interno sin desbordar el documento.
 - La vista previa de email administra foco, cierra con `Escape` o fondo y aclara que no se realiza ningún envío real.
 - Axe Core `4.10.3` no detectó infracciones serias o críticas en Automatizaciones de las nueve demos.
+- La Fase 6 agrega una presentación comercial de ocho pantallas con imagen real en portada, jerarquía de alto contraste, controles por iconos, notas del expositor y progreso estable.
+- La presentación admite flechas, `Home`, `End`, barra espaciadora, gestos táctiles, pantalla completa e impresión horizontal a PDF.
+- En móvil, cada diapositiva permite altura natural, las grillas pasan a una columna y el email ajusta su texto sin desbordar la tarjeta.
+- En movimiento reducido, el contenido activo fija opacidad y posición finales para evitar pantallas transparentes al navegar.
+- Un modo compacto por altura garantiza que las ocho diapositivas entren completas en notebooks `1366x768` sin reducir el tamaño tipográfico de forma fluida.
+- La presentación usa `noindex` porque es material interno de apoyo y no una página comercial de entrada.
 
 ## Pendientes de diseño
 
 - Revisar capturas finales antes de usar en presentaciones comerciales reales.
 - Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicación final.
-- Validar la experiencia en un celular físico cuando exista una URL pública de GitHub Pages.
-- Revisar las Fases 4 y 5 publicadas desde un celular físico después de activar GitHub Pages.
+- Validar la experiencia completa, incluida la presentación, desde un celular físico después de publicar Fase 6.

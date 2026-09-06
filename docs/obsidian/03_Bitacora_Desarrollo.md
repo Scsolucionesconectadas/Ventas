@@ -583,3 +583,45 @@
 **Pendientes detectados:**
 - Profundizar las demos médica, inmobiliaria y venta de materiales en la Fase 4.
 - Probar la URL pública desde un celular físico cuando GitHub Pages esté activo.
+
+## 2026-09-06 - Publicación de Fase 5 e implementación de Fase 6
+
+**Cambios realizados:**
+- Se publicó Fase 5 en `origin/main` con el commit `aafbb94` y se verificó la propagación en GitHub Pages.
+- Se completaron metadatos SEO únicos, Open Graph, Twitter Card, canonical y tema para catorce páginas indexables.
+- Se agregó JSON-LD `Organization` y `WebSite` a la portada y fechas `lastmod` al sitemap.
+- Se preparó Cloudflare Web Analytics sin token y sin tráfico por defecto.
+- Se creó una presentación comercial responsive de ocho diapositivas con notas, teclado, gestos, pantalla completa e impresión.
+- Se creó una guía de reunión con diagnóstico, recorrido y selección de demos.
+- Se evitó que el motor compartido sobrescribiera los títulos SEO de las demos.
+- Se corrigió la visibilidad de diapositivas al usar movimiento reducido y el ícono visual de Instagram.
+
+**Archivos modificados:**
+- `index.html`
+- `demos/index.html`
+- `servicios/index.html`
+- `automatizaciones/index.html`
+- `contacto/index.html`
+- `rubros/*/index.html`
+- `assets/js/industry-demo.js`
+- `assets/js/analytics.js`
+- `presentacion/index.html`
+- `assets/css/presentation.css`
+- `assets/js/presentation.js`
+- `sitemap.xml`
+- `scripts/phase6.spec.js`
+- `docs/GUIA_PRESENTACION_COMERCIAL.md`
+- `README.md`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check` sobre los scripts nuevos: sin errores.
+- HTML Validate `11.14.0`: todas las páginas, incluida la presentación, sin errores.
+- Playwright Fase 6: `7/7` pruebas aprobadas sobre SEO, JSON-LD, sitemap, analítica, presentación, impresión, responsive y accesibilidad.
+- Regresión Playwright de Fases 3, 4 y 5: `38/38` pruebas aprobadas.
+- Capturas de presentación en `1440x900` y `390x844` revisadas visualmente; las ocho diapositivas también se validaron en `1366x768`.
+
+**Pendientes detectados:**
+- Revisar y autorizar la publicación de Fase 6.
+- Activar Cloudflare Web Analytics solo si se crea una propiedad y se obtiene su token público.
+- Realizar una prueba final desde un celular físico después de publicar.

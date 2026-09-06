@@ -57,6 +57,15 @@ Las nueve demos incorporan un centro visual de automatización con dos procesos 
 
 La misma vista incluye indicadores filtrables tipo Grafana, comparación por período, programación diaria/semanal/mensual, vista previa editable de email, descarga de PDF con marca SC e historial de ejecuciones. Todo funciona con datos ficticios en el navegador: no conecta servicios externos ni realiza envíos reales.
 
+## Publicación y presentación de Fase 6
+
+- Las catorce páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
+- La portada declara datos estructurados `Organization` y `WebSite` con información pública de SC.
+- `sitemap.xml` incluye fecha de última modificación y `robots.txt` referencia su URL pública.
+- `assets/js/analytics.js` deja preparada Cloudflare Web Analytics, desactivada hasta incorporar un token público del sitio.
+- `presentacion/index.html` contiene una presentación comercial de ocho diapositivas con notas del expositor, navegación por teclado, pantalla completa y salida imprimible a PDF.
+- `docs/GUIA_PRESENTACION_COMERCIAL.md` aporta preguntas de diagnóstico, recorrido sugerido y rutas de demo por necesidad.
+
 ## Estructura
 
 ```text
@@ -73,12 +82,15 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 ├── contacto/
 │   ├── gracias.html
 │   └── index.html
+├── presentacion/
+│   └── index.html
 ├── index.html
 ├── robots.txt
 ├── sitemap.xml
 ├── assets/
 │   ├── css/
-│   │   └── base.css
+│   │   ├── base.css
+│   │   └── presentation.css
 │   ├── img/
 │   │   ├── *-demo.jpg
 │   │   ├── *-demo.webp
@@ -93,6 +105,7 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 │   │   ├── sc-symbol.png
 │   │   └── sc-white.png
 │   └── js/
+│       ├── analytics.js
 │       ├── app.js
 │       ├── commercial-pages.js
 │       ├── demo-catalog.js
@@ -102,12 +115,14 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 │       ├── medical-demo.js
 │       ├── pdf-report.js
 │       ├── priority-demo.js
+│       ├── presentation.js
 │       ├── workflow-demo.js
 │       └── motion.js
 ├── scripts/
 │   ├── phase3.spec.js
 │   ├── phase4.spec.js
 │   ├── phase5.spec.js
+│   ├── phase6.spec.js
 │   ├── generate_demo_images.py
 │   └── optimize_images.py
 ├── rubros/
@@ -130,6 +145,7 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 │   └── medica/
 │       └── index.html
 └── docs/
+    ├── GUIA_PRESENTACION_COMERCIAL.md
     └── obsidian/
 ```
 
@@ -157,6 +173,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 - La capa compartida de las nueve demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
 - Las tres demos prioritarias cuentan con regresión Playwright de navegación profunda, altas ficticias, estados, búsqueda, PDF, email simulado, teclado, responsive y accesibilidad.
 - Las nueve demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
+- La Fase 6 cuenta con regresión Playwright para SEO, datos estructurados, sitemap, analítica inactiva, presentación, impresión, responsive y accesibilidad.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 
 ## Publicación en GitHub Pages
@@ -169,6 +186,13 @@ Configuración prevista:
 - Dominio: GitHub Pages por defecto, sin dominio propio.
 - Archivo raíz: `index.html`.
 - `.nojekyll`: incluido para publicar los assets estáticos sin procesamiento de Jekyll.
+- Estado remoto: Fase 5 publicada en `origin/main` con el commit `aafbb94`.
+
+## Analítica respetuosa de la privacidad
+
+El cargador de Cloudflare Web Analytics está incluido en las páginas públicas, pero no realiza solicitudes mientras no tenga el atributo `data-cloudflare-token`. Para activarlo, obtener el token público del sitio en Cloudflare y agregarlo al script `analytics.js` de cada página indexable. No guardar credenciales privadas en el HTML.
+
+La Fase 6 verifica automáticamente que, sin token, `window.SCAnalytics.enabled` sea `false` y no se contacte el dominio de Cloudflare.
 
 ## Formulario de contacto
 

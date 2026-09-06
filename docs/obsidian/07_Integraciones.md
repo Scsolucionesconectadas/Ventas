@@ -34,3 +34,15 @@ Los CTAs usan enlaces `wa.me` hacia el número público de SC con mensajes preco
 ## Email e Instagram
 
 Se publican enlaces directos `mailto:` e Instagram como canales alternativos. No existe automatización de campañas ni acceso a cuentas desde el sitio.
+
+## Cloudflare Web Analytics
+
+**Finalidad:** obtener métricas agregadas de navegación con una integración compatible con el sitio estático.
+
+**Estado:** preparado, no activado. Las páginas cargan `assets/js/analytics.js` sin `data-cloudflare-token`, por lo que no se inserta el beacon ni se envían solicitudes.
+
+**Configuración requerida:** token público del sitio generado por Cloudflare Web Analytics. No requiere exponer una clave privada.
+
+**Activación:** agregar el atributo `data-cloudflare-token` a la etiqueta de `analytics.js` en cada página indexable y repetir la validación de Fase 6.
+
+**Límites:** la disponibilidad, retención y tratamiento de métricas dependen de Cloudflare. Revisar sus condiciones vigentes antes de activar la medición.
