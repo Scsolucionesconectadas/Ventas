@@ -1,5 +1,29 @@
 # Decisiones Técnicas
 
+## 2026-09-06 - Extensión compartida para las demos prioritarias
+
+**Decisión:**
+Implementar la Fase 4 en `assets/js/priority-demo.js`, cargado solo por área médica, inmobiliarias y venta de materiales, y reutilizar el motor de PDF y la experiencia transversal existentes.
+
+**Motivo:**
+Los tres rubros necesitan mayor profundidad comercial sin duplicar catorce módulos en archivos separados ni migrar el sitio estático a un framework. La extensión por configuración mantiene cada demo navegable y permite continuar escalando con bajo acoplamiento.
+
+**Impacto:**
+Se agregan facturación, autorizaciones, profesionales, documentos y seguimiento médico; contratos, reservas, cobranzas y propietarios; compras, proveedores, listas de precios, cuentas corrientes y logística/margen. Cada vista incluye KPI, registros, prioridades, altas ficticias, estados, PDF y email simulado.
+
+**Alternativas consideradas:**
+- Duplicar cada módulo directamente en los tres HTML.
+- Ampliar `industry-demo.js` para todos los rubros aunque seis no requieren estos módulos.
+- Migrar las demos a React antes de validar comercialmente la profundidad.
+
+**Archivos relacionados:**
+- `assets/js/priority-demo.js`
+- `assets/css/base.css`
+- `rubros/medica/index.html`
+- `rubros/inmobiliarias/index.html`
+- `rubros/materiales/index.html`
+- `scripts/phase4.spec.js`
+
 ## 2026-09-05 - Fase 2 multipágina y formulario estático
 
 **Decisión:**

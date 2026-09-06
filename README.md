@@ -25,10 +25,10 @@ https://scsolucionesconectadas.github.io/Ventas/
 
 ## Rubros iniciales
 
-- Área médica: turnero, chatbot, historia clínica, consultas, obras sociales y reportes.
+- Área médica: turnero, chatbot, historia clínica, consultas, obras sociales, facturación, autorizaciones, profesionales, documentos, seguimiento y reportes.
 - Hotelería: reservas, habitaciones, huéspedes, operaciones internas y reportes de ocupación.
-- Inmobiliarias: propiedades, leads, visitas, operaciones y reportes de conversión.
-- Venta de materiales: stock, presupuestos, pedidos, entregas y reportes de margen.
+- Inmobiliarias: propiedades, leads, visitas, contratos, reservas, cobranzas, portal del propietario y reportes de conversión.
+- Venta de materiales: stock, presupuestos, compras, proveedores, listas de precios, cuentas corrientes, logística, entregas y márgenes.
 - Gastronomía: mesas, pedidos, menú digital, caja y reportes de cierre.
 - Educación: alumnos, cursos, asistencia, pagos, comunicaciones y reportes académicos.
 - Gomerías: stock por medida, turnos, servicios, compras sugeridas, caja y reportes.
@@ -46,6 +46,10 @@ Las nueve demos incluyen una barra operativa común con:
 - Ejemplos de carga, éxito, error y ausencia de resultados.
 - Reinicio de los datos ficticios de la sesión.
 - Identificación permanente de demo pública y funciones simuladas.
+
+## Demos prioritarias de Fase 4
+
+Área médica, inmobiliarias y venta de materiales agregan una capa de gestión avanzada con módulos navegables, KPI específicos, tablas operativas, prioridades y automatizaciones sugeridas. Cada módulo permite crear registros ficticios, actualizar estados, preparar un email sin envío real y descargar un PDF ejecutivo con marca SC.
 
 ## Estructura
 
@@ -91,9 +95,11 @@ Las nueve demos incluyen una barra operativa común con:
 │       ├── industry-demo.js
 │       ├── medical-demo.js
 │       ├── pdf-report.js
+│       ├── priority-demo.js
 │       └── motion.js
 ├── scripts/
 │   ├── phase3.spec.js
+│   ├── phase4.spec.js
 │   ├── generate_demo_images.py
 │   └── optimize_images.py
 ├── rubros/
@@ -141,6 +147,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 - Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
 - Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
 - La capa compartida de las nueve demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
+- Las tres demos prioritarias cuentan con regresión Playwright de navegación profunda, altas ficticias, estados, búsqueda, PDF, email simulado, teclado, responsive y accesibilidad.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 
 ## Publicación en GitHub Pages

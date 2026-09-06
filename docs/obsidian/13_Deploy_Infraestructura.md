@@ -9,8 +9,8 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: Fase 2 publicada en `origin/main`; commit `5d56b77`.
-- Estado local: Fase 3 de experiencia compartida implementada, validada y autorizada para publicación en `origin/main`.
+- Estado del código remoto: Fase 3 publicada en `origin/main`; commit `23fa1ff`.
+- Estado local: Fase 4 implementada y validada en área médica, inmobiliarias y venta de materiales; pendiente de revisión y autorización para publicar.
 - Estado de Pages: pendiente de activar en GitHub. La URL pública respondió `404` después del push.
 
 ## Archivos de soporte

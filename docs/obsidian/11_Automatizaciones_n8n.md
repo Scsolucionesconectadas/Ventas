@@ -24,6 +24,18 @@ La landing incluye una sección comercial para explicar capacidades de automatiz
 - Validar campos obligatorios antes de enviar datos a APIs, bots, sistemas externos o generación de documentos.
 - Mantener intervención humana para acciones sensibles, aprobaciones, pagos, trámites oficiales o cambios de estado críticos.
 
+## Fase 4 - simulaciones prioritarias
+
+Los catorce módulos avanzados muestran una recomendación de automatización contextual y una vista previa editable del email resultante. La demo no ejecuta n8n, Node-RED, APIs ni envíos reales; los destinatarios usan `@demo.local`.
+
+Flujo futuro de referencia:
+
+`Disparador → Validación → Acción → Aprobación humana → PDF/email → Bitácora`
+
+- Área médica: conciliación, autorizaciones, credenciales profesionales, documentos y seguimiento posterior a consultas.
+- Inmobiliarias: vencimientos contractuales, reservas, cobranzas, liquidaciones y avisos a propietarios.
+- Venta de materiales: compras sugeridas, comparación de proveedores, actualización de precios, cobranzas y planificación de despachos.
+
 ## Pendientes
 
 - Definir si los workflows reales se implementarán con n8n, Node-RED o backend propio según criticidad.

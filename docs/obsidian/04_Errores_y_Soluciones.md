@@ -1,5 +1,40 @@
 # Errores y Soluciones
 
+## 2026-09-06 - Capturas y auditoría ejecutadas durante transiciones
+
+**Síntoma:**
+Las primeras capturas de Fase 4 mostraban hero vacíos y paneles atenuados; Axe informaba contraste insuficiente en textos que ya usaban colores conformes.
+
+**Causa:**
+Playwright capturaba y auditaba mientras GSAP todavía aplicaba opacidad parcial a los elementos de entrada.
+
+**Solución aplicada:**
+Las pruebas esperan que hero y paneles alcancen opacidad `1` antes de ejecutar Axe o guardar capturas.
+
+**Cómo evitarlo:**
+En pruebas visuales o de contraste, esperar una propiedad observable del estado final de la animación en lugar de usar pausas temporizadas.
+
+**Archivos relacionados:**
+- `scripts/phase4.spec.js`
+- `assets/js/motion.js`
+
+## 2026-09-06 - Edge se cerraba después de una descarga PDF
+
+**Síntoma:**
+Microsoft Edge se cerró de forma intermitente al crear el siguiente contexto de Playwright después de probar un PDF.
+
+**Causa:**
+El test terminaba al recibir el evento `download`, sin esperar a que el navegador completara y cerrara la descarga.
+
+**Solución aplicada:**
+Después de validar el nombre del archivo se espera `download.path()` antes de finalizar el caso.
+
+**Cómo evitarlo:**
+Toda prueba de descarga debe esperar la finalización efectiva del archivo, no solo la emisión del evento inicial.
+
+**Archivos relacionados:**
+- `scripts/phase4.spec.js`
+
 ## 2026-09-05 - Tablist sin elementos tab semánticos
 
 **Síntoma:**

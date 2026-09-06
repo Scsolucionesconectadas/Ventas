@@ -4,7 +4,7 @@
 
 - Estilo: dashboard comercial premium, claro, sobrio y operativo.
 - Paleta: base clara, tinta SC `#22333f`, azul SC `#0060c0`, cian SC `#00b0e8`, estados secundarios en verde/amarillo/rojo.
-- Componentes: topbar full-width, hero institucional, servicios clicables con modal flotante, portal separado de demos, diagnóstico express, automatizaciones, reporterías, proceso, CTA, datos de contacto, sidebar, tarjetas de rubros, métricas, paneles, formularios, tablas, chips, tabs, toast, chatbot, registros seleccionables, kanban, tareas, grillas de recursos, mini gráficos, bitácoras y acciones de PDF/email.
+- Componentes: topbar full-width, hero institucional, servicios clicables con modal flotante, portal separado de demos, diagnóstico express, automatizaciones, reporterías, proceso, CTA, datos de contacto, sidebar, tarjetas de rubros, métricas, paneles, formularios, tablas, chips, tabs, toast, chatbot, registros seleccionables, kanban, tareas, grillas de recursos, mini gráficos, bitácoras, colas de prioridad y acciones de PDF/email.
 - Iconos: Lucide `1.41.0` vía CDN para evitar instalar dependencias en esta etapa estática.
 - Imágenes: se usan WebP locales genéricos por rubro, sin clientes reales, y assets locales del logo SC; los JPG se conservan como fuentes.
 - Motion: animaciones CSS, GSAP `3.15.0` por CDN, dropdowns, hover states, live pulse, feedback de toast, spotlight, modal de servicios y transiciones entre módulos.
@@ -50,10 +50,16 @@
 - Los estados de carga, éxito, error y vacío incluyen feedback visual, reintento y limpieza de filtros.
 - Los diálogos administran foco, cierran con fondo o `Escape` y devuelven el foco al disparador; en móvil las acciones pasan a iconos con nombre accesible y tooltip.
 - Axe Core `4.10.3` no detectó infracciones serias o críticas en la capa compartida de las nueve demos.
+- La Fase 4 agrega catorce vistas avanzadas con jerarquía compacta: encabezado, cuatro KPI, comandos, tabla principal y prioridades laterales.
+- Las altas ficticias y vistas previas de email usan un modal compartido con foco inicial, cierre por fondo o `Escape` y retorno al disparador.
+- Las tablas mantienen ancho estable y scroll interno en móvil, evitando que el documento completo genere desborde horizontal.
+- Los accesos avanzados aparecen en sidebar y pestañas en escritorio; en móvil se oculta la duplicación lateral y se conserva la navegación por pestañas.
+- La pestaña activa conserva texto blanco también en `hover`, y los KPI e insignias usan contrastes verificados con Axe.
+- Las capturas visuales esperan la finalización de GSAP para representar el estado estable de la interfaz.
 
 ## Pendientes de diseño
 
 - Revisar capturas finales antes de usar en presentaciones comerciales reales.
 - Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicación final.
 - Validar la experiencia en un celular físico cuando exista una URL pública de GitHub Pages.
-- Profundizar los módulos operativos de las tres demos prioritarias durante la Fase 4.
+- Revisar la Fase 4 publicada desde un celular físico después de activar GitHub Pages.

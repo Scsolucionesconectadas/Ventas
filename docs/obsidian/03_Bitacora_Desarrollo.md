@@ -1,5 +1,38 @@
 # Bitácora de Desarrollo
 
+## 2026-09-06 - Publicación de Fase 3 e implementación de Fase 4
+
+**Cambios realizados:**
+- Se publicó la Fase 3 en `origin/main` con el commit `23fa1ff`.
+- Se agregaron catorce módulos avanzados para área médica, inmobiliarias y venta de materiales mediante una extensión compartida.
+- Cada módulo incorpora cuatro KPI, tabla operativa, cola de prioridades, automatización sugerida, alta ficticia y actualización de estado.
+- Se reutilizó el generador SC para descargar PDFs y se agregó una vista previa de email que no realiza envíos reales.
+- Se conectaron los módulos con navegación lateral, pestañas, búsqueda global, teclado y actividad reciente.
+- En móvil se eliminó la duplicación de accesos avanzados en la barra lateral, manteniéndolos en las pestañas.
+- Se reforzó el contraste de KPI, insignias y pestañas activas, y se respetó `prefers-reduced-motion`.
+
+**Archivos modificados:**
+- `assets/js/priority-demo.js`
+- `assets/css/base.css`
+- `rubros/medica/index.html`
+- `rubros/inmobiliarias/index.html`
+- `rubros/materiales/index.html`
+- `scripts/phase4.spec.js`
+- `README.md`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: extensión y pruebas sin errores de sintaxis.
+- HTML Validate `11.14.0`: todas las páginas sin errores estructurales.
+- Playwright Fase 4: 7 de 7 pruebas aprobadas sobre navegación, altas, estados, PDF, email, búsqueda, teclado y móvil.
+- Playwright Fase 3: 14 de 14 pruebas de regresión aprobadas sobre las nueve demos.
+- Axe Core `4.10.3`: cero infracciones serias o críticas en los módulos prioritarios.
+- Capturas de área médica, materiales e inmobiliarias revisadas después de finalizar las animaciones, sin solapamientos ni desborde.
+
+**Pendientes detectados:**
+- Revisar y autorizar la publicación de la Fase 4.
+- Activar GitHub Pages y probar la URL pública desde un celular físico.
+
 ## 2026-09-05 - Fase 2 comercial multipágina
 
 **Cambios realizados:**

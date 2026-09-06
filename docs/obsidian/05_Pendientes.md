@@ -7,13 +7,16 @@
 - [ ] Confirmar el primer envío de FormSubmit desde `contacto.solucionesconectadas@gmail.com`.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
 - [ ] Probar la versión publicada desde un celular físico después de activar GitHub Pages.
-- [ ] Profundizar las demos médica, inmobiliaria y venta de materiales durante la Fase 4.
+- [ ] Revisar y autorizar la publicación de la Fase 4 en `origin/main`.
 
 ## En revisión
 - [ ] Revisar el workflow automático de Pages cuando GitHub lo dispare después de activar la configuración.
 
 ## Resueltos
 
+- [x] Publicar la Fase 3 en `origin/main`, commit `23fa1ff` - 2026-09-06
+- [x] Profundizar las demos médica, inmobiliaria y venta de materiales con catorce módulos de Fase 4 - 2026-09-06
+- [x] Validar Fase 4 con Playwright, Axe, responsive, PDFs y capturas visuales - 2026-09-06
 - [x] Publicar la Fase 2 comercial en `origin/main`, commit `5d56b77` - 2026-09-05
 - [x] Implementar la Fase 3 en las nueve demos: presentación, recorrido, búsqueda, actividad, estados y reinicio - 2026-09-05
 - [x] Autorizar commit y push de la Fase 3 de experiencia compartida - 2026-09-05
