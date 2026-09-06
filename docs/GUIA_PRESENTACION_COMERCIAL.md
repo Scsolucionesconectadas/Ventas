@@ -43,6 +43,9 @@ Esta guía acompaña la presentación interna disponible en `presentacion/index.
 | Stock por medida y servicios | Gomerías | Neumáticos, turnos, servicios, compras sugeridas y caja |
 | Expedientes y trabajo de campo | Agrimensura | Expedientes, relevamientos, planos, documentación y seguimiento |
 | Viajes, flota y cumplimiento | Logística | Viajes, remitos, seguimiento, alertas de SLA y reportes |
+| Órdenes, repuestos y posventa | Talleres y servicios técnicos | Turnos, diagnósticos, órdenes, aprobaciones, repuestos y seguimiento |
+| Vencimientos y documentación | Estudios contables | Agenda fiscal, legajos, presentaciones, honorarios y alertas |
+| Avances, certificados y costos | Constructoras y obras | Partes, mediciones, contratistas, compras, incidencias y evidencias |
 
 ## Cierre recomendado
 

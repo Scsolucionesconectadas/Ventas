@@ -20,6 +20,9 @@ const pages = [
     "gomerias",
     "agrimensores",
     "logistica",
+    "talleres",
+    "estudios-contables",
+    "constructoras",
   ].map((slug) => ({ route: `/rubros/${slug}/`, canonical: `${publicBase}/rubros/${slug}/` })),
 ];
 

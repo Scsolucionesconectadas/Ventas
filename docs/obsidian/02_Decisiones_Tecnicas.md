@@ -1,5 +1,30 @@
 # Decisiones Técnicas
 
+## 2026-09-06 - Tres rubros nuevos sobre el motor compartido
+
+**Decisión:**
+Agregar Talleres y Servicios Técnicos, Estudios Contables, y Constructoras y Obras como demos estáticas configurables, reutilizando `industry-demo.js`, `workflow-demo.js`, `demo-experience.js` y `pdf-report.js`.
+
+**Motivo:**
+Los tres sectores permiten mostrar operaciones con alta carga documental, aprobaciones y seguimiento. La estructura compartida mantiene consistencia, bajo costo de mantenimiento y compatibilidad con GitHub Pages.
+
+**Impacto:**
+El catálogo pasa de 9 a 12 demos y el sitemap de 14 a 17 páginas indexables. Cada rubro agrega cinco vistas de negocio, reportes, asistente y dos workflows. Las referencias funcionales de Estudios Contables se basan en agenda, comprobantes, declaraciones, pagos y saldos publicados por ARCA; Constructoras contempla medición, certificado, curva de avance y evidencia solicitada en trámites oficiales. Toda integración sigue siendo ficticia.
+
+**Alternativas consideradas:**
+- Crear páginas independientes con lógica duplicada.
+- Migrar el catálogo a un framework antes de validar los nuevos sectores.
+- Conectar organismos externos desde una demo pública sin backend ni autenticación.
+
+**Archivos relacionados:**
+- `assets/js/demo-catalog.js`
+- `assets/js/industry-demo-data.js`
+- `assets/js/workflow-demo.js`
+- `rubros/talleres/index.html`
+- `rubros/estudios-contables/index.html`
+- `rubros/constructoras/index.html`
+- `scripts/phase7.spec.js`
+
 ## 2026-09-06 - Simulador compartido de automatizaciones para las nueve demos
 
 **Decisión:**

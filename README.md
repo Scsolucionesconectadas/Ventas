@@ -34,10 +34,13 @@ https://scsolucionesconectadas.github.io/Ventas/
 - Gomerías: stock por medida, turnos, servicios, compras sugeridas, caja y reportes.
 - Agrimensores: expedientes, campo, planos, documentación y conectividad ATER simulada.
 - Logística y transporte: viajes, flota, remitos, tracking, alertas de SLA y reportes.
+- Talleres y servicios técnicos: turnos, órdenes de trabajo, diagnósticos, repuestos, aprobaciones y seguimiento posventa.
+- Estudios contables: agenda fiscal, clientes, documentación, presentaciones, honorarios y alertas.
+- Constructoras y obras: proyectos, avances, mediciones, certificados, contratistas, compras e incidencias.
 
 ## Experiencia compartida de las demos
 
-Las nueve demos incluyen una barra operativa común con:
+Las doce demos incluyen una barra operativa común con:
 
 - Modo presentación sin navegación secundaria.
 - Recorrido guiado manual y controlable paso a paso.
@@ -53,13 +56,13 @@ Las nueve demos incluyen una barra operativa común con:
 
 ## Automatizaciones de Fase 5
 
-Las nueve demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
+Las doce demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
 
 La misma vista incluye indicadores filtrables tipo Grafana, comparación por período, programación diaria/semanal/mensual, vista previa editable de email, descarga de PDF con marca SC e historial de ejecuciones. Todo funciona con datos ficticios en el navegador: no conecta servicios externos ni realiza envíos reales.
 
 ## Publicación y presentación de Fase 6
 
-- Las catorce páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
+- Las diecisiete páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
 - La portada declara datos estructurados `Organization` y `WebSite` con información pública de SC.
 - `sitemap.xml` incluye fecha de última modificación y `robots.txt` referencia su URL pública.
 - `assets/js/analytics.js` deja preparada Cloudflare Web Analytics, desactivada hasta incorporar un token público del sitio.
@@ -138,6 +141,12 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 │   │   └── index.html
 │   ├── logistica/
 │   │   └── index.html
+│   ├── talleres/
+│   │   └── index.html
+│   ├── estudios-contables/
+│   │   └── index.html
+│   ├── constructoras/
+│   │   └── index.html
 │   ├── inmobiliarias/
 │   │   └── index.html
 │   ├── materiales/
@@ -163,16 +172,16 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 
 ## Calidad y rendimiento
 
-- Las imágenes visibles usan WebP; los JPG se conservan como fuentes para regeneración.
+- Las imágenes visibles usan WebP; los activos generados de los rubros nuevos reducen su peso de 6,6 MB a menos de 450 KB en conjunto.
 - `python scripts/optimize_images.py` vuelve a crear los WebP con ancho máximo de `1600 px` y calidad `84`. Requiere Pillow.
 - Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1` están fijados en las URLs CDN.
 - `404.html` mantiene la identidad SC y resuelve correctamente sus enlaces tanto en local como bajo la subruta `/Ventas/` de GitHub Pages.
 - Las pestañas incluyen semántica ARIA, selección anunciada y navegación con flechas, `Home` y `End`.
 - Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
 - Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
-- La capa compartida de las nueve demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
+- La capa compartida de las doce demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
 - Las tres demos prioritarias cuentan con regresión Playwright de navegación profunda, altas ficticias, estados, búsqueda, PDF, email simulado, teclado, responsive y accesibilidad.
-- Las nueve demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
+- Las doce demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
 - La Fase 6 cuenta con regresión Playwright para SEO, datos estructurados, sitemap, analítica inactiva, presentación, impresión, responsive y accesibilidad.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 

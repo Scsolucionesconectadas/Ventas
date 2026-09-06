@@ -11,6 +11,9 @@ const demos = [
   "gomerias",
   "agrimensores",
   "logistica",
+  "talleres",
+  "estudios-contables",
+  "constructoras",
 ];
 
 test.use({ channel: "msedge" });

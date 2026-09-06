@@ -625,3 +625,42 @@
 - Revisar y autorizar la publicación de Fase 6.
 - Activar Cloudflare Web Analytics solo si se crea una propiedad y se obtiene su token público.
 - Realizar una prueba final desde un celular físico después de publicar.
+
+## 2026-09-06 - Publicación de Fase 6 y nuevos rubros de Fase 7
+
+**Cambios realizados:**
+- Se publicó Fase 6 en `origin/main` con el commit `1fb549b` y se verificó la presentación en GitHub Pages.
+- Se amplió el catálogo de 9 a 12 rubros con Talleres y Servicios Técnicos, Estudios Contables, y Constructoras y Obras.
+- Cada demo nueva incorpora panel, operación, pipeline, recursos, asistente, reportes y automatizaciones n8n/Node-RED simuladas.
+- Se agregaron accesos desde Servicios, Contacto, presentación comercial y guía de reuniones.
+- Se extendieron SEO, Open Graph, Twitter Card y `sitemap.xml` hasta 17 páginas indexables.
+- Se generaron tres fotografías propias sin marcas ni datos reales y se convirtieron a WebP, reduciendo el peso conjunto de 6,6 MB a unos 433 KB.
+
+**Archivos modificados:**
+- `assets/js/demo-catalog.js`
+- `assets/js/industry-demo-data.js`
+- `assets/js/workflow-demo.js`
+- `rubros/talleres/index.html`
+- `rubros/estudios-contables/index.html`
+- `rubros/constructoras/index.html`
+- `assets/img/workshop-demo.webp`
+- `assets/img/accounting-demo.webp`
+- `assets/img/construction-demo.webp`
+- `scripts/phase3.spec.js`
+- `scripts/phase5.spec.js`
+- `scripts/phase6.spec.js`
+- `scripts/phase7.spec.js`
+- páginas comerciales, sitemap, README y memoria Obsidian.
+
+**Validaciones realizadas:**
+- `node --check`: scripts de datos, catálogo, workflows y pruebas sin errores.
+- HTML Validate `11.14.0`: todas las páginas sin errores.
+- Playwright Fases 3 a 7: `60/60` pruebas aprobadas.
+- Playwright Fase 7 final: `9/9` pruebas aprobadas después de optimizar las imágenes.
+- Axe Core `4.10.3`: sin infracciones serias o críticas en los tres rubros nuevos.
+- Capturas revisadas en catálogo `1440x1000` y hero móvil `390x844`.
+
+**Pendientes detectados:**
+- Revisar y autorizar la publicación de Fase 7.
+- Probar la versión publicada desde un celular físico.
+- Confirmar el primer envío de FormSubmit.

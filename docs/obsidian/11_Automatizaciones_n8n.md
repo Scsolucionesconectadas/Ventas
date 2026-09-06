@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-La landing incluye una sección comercial para explicar capacidades de automatización e integración. La Fase 5 agrega a las nueve demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
+La landing incluye una sección comercial para explicar capacidades de automatización e integración. La Fase 5, ampliada en Fase 7, agrega a las doce demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
 
 ## Capacidades presentadas
 
@@ -15,6 +15,9 @@ La landing incluye una sección comercial para explicar capacidades de automatiz
 - Emails programados con adjuntos y bitácora de ejecución.
 - Alertas ante vencimientos, stock crítico, ausentismo, leads sin respuesta o desvíos operativos.
 - Casos nuevos para presentar automatización: gomerías con reposición de stock, agrimensores con conectividad ATER simulada y logística con alertas de SLA, remitos y tracking.
+- Talleres: turno, diagnóstico, orden de trabajo, reserva de repuestos, aprobación de presupuesto e historial del vehículo.
+- Estudios contables: agenda de vencimientos, solicitud documental, presentación, acuse, honorarios y legajo.
+- Constructoras: medición, certificado, curva de avance, compra, incidencia, evidencia y bitácora de obra.
 
 ## Criterios de diseño para workflows futuros
 

@@ -54,7 +54,7 @@ $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
 npx --yes playwright@1.55.0 test scripts/phase4.spec.js --reporter=line --workers=1
 ```
 
-Regresión Playwright de Fase 5 para las nueve demos:
+Regresión Playwright de Fase 5 para las doce demos:
 
 ```powershell
 $root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
@@ -70,12 +70,20 @@ $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
 npx --yes playwright@1.55.0 test scripts/phase6.spec.js --reporter=line --workers=1
 ```
 
+Regresión Playwright de Fase 7 para Talleres, Estudios Contables y Constructoras:
+
+```powershell
+$root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$env:NODE_PATH = Join-Path $root.FullName 'node_modules'
+npx --yes playwright@1.55.0 test scripts/phase7.spec.js --reporter=line --workers=1
+```
+
 Regresión unificada antes de publicar:
 
 ```powershell
 $root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
-npx --yes playwright@1.55.0 test scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js scripts/phase6.spec.js --reporter=line --workers=1
+npx --yes playwright@1.55.0 test scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js scripts/phase6.spec.js scripts/phase7.spec.js --reporter=line --workers=1
 ```
 
 Las pruebas de PDF esperan `download.path()` y las auditorías visuales esperan opacidad final `1` para no medir una transición incompleta.
@@ -127,7 +135,7 @@ No desactivar reCAPTCHA ni quitar el campo `_honey` durante la publicación.
 
 1. Crear el sitio en Cloudflare Web Analytics.
 2. Copiar el token público entregado por Cloudflare.
-3. Agregar el atributo `data-cloudflare-token` y usar como valor el token público entregado por Cloudflare en las catorce páginas indexables.
+3. Agregar el atributo `data-cloudflare-token` y usar como valor el token público entregado por Cloudflare en las diecisiete páginas indexables.
 4. Ejecutar `scripts/phase6.spec.js` adaptando la expectativa de analítica a estado activo.
 5. Publicar y confirmar en Network que carga `static.cloudflareinsights.com/beacon.min.js` una sola vez.
 

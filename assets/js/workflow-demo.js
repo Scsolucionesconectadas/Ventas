@@ -666,6 +666,18 @@
         createFlow("Tracking y alerta de SLA", "Viaje despachado", "Ruta, carga y ventana horaria", "Actualizar tracking y alertas", "Tráfico aprueba desvío", "Cumplimiento de entregas", "Evento asociado al viaje"),
         createFlow("Mantenimiento preventivo", "Kilometraje objetivo alcanzado", "Unidad, taller y disponibilidad", "Crear orden de mantenimiento", "Flota aprueba inmovilización", "Estado y costo de flota", "Servicio registrado"),
       ]),
+      talleres: createDemo("Talleres y servicios técnicos", "servicio.taller@demo.local", [154, 96, 52, 5], [
+        createFlow("Turno, diagnóstico y orden de trabajo", "Turno confirmado", "Cliente, vehículo y disponibilidad", "Crear orden y asignar técnico", "Asesor aprueba adicionales", "PDF de servicio y tiempos", "Historial del vehículo actualizado"),
+        createFlow("Repuesto y aprobación de presupuesto", "Diagnóstico completado", "Stock, costo y proveedor", "Preparar presupuesto y reserva", "Cliente aprueba reparación", "Margen y fecha prometida", "Aprobación asociada a la orden"),
+      ]),
+      "estudios-contables": createDemo("Estudios contables", "agenda.contable@demo.local", [236, 97, 68, 4], [
+        createFlow("Vencimiento y solicitud documental", "Obligación próxima a vencer", "Cliente, período y documentación", "Preparar pedido y recordatorio", "Responsable valida excepción", "Agenda fiscal y pendientes", "Seguimiento registrado en el legajo"),
+        createFlow("Presentación y control de honorarios", "Tarea profesional completada", "Declaración, acuse y cuenta corriente", "Preparar entrega al cliente", "Profesional aprueba presentación", "PDF ejecutivo y estado de cuenta", "Comprobante archivado"),
+      ]),
+      constructoras: createDemo("Constructoras y obras", "direccion.obras@demo.local", [132, 94, 76, 7], [
+        createFlow("Medición y certificado de avance", "Medición de obra cargada", "Partidas, cantidades y evidencia", "Preparar certificado y curva", "Dirección aprueba avance", "PDF de certificado y desvíos", "Versión asociada al proyecto"),
+        createFlow("Compra e incidencia de obra", "Incidencia o faltante informado", "Prioridad, presupuesto y contratista", "Crear solicitud y plan de acción", "Jefatura aprueba adjudicación", "Costo, plazo y evidencia fotográfica", "Bitácora de obra actualizada"),
+      ]),
     };
     return configs[demoSlug];
   }

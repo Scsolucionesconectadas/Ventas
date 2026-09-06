@@ -3,17 +3,20 @@
 ## Pendientes activos
 
 - [ ] Confirmar el primer envío de FormSubmit desde `contacto.solucionesconectadas@gmail.com`.
-- [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
 - [ ] Probar la versión publicada desde un celular físico después de activar GitHub Pages.
-- [ ] Revisar y autorizar la publicación de la Fase 6 en `origin/main`.
+- [ ] Revisar y autorizar la publicación de la Fase 7 de nuevos rubros en `origin/main`.
 - [ ] Crear la propiedad de Cloudflare Web Analytics y agregar su token público si se desea activar la medición.
 
 ## En revisión
 
-- [ ] Revisar la presentación comercial y el SEO de Fase 6 antes de autorizar su publicación.
+- [ ] Revisar Talleres, Estudios Contables y Constructoras en una reunión comercial de prueba.
 
 ## Resueltos
 
+- [x] Publicar la Fase 6 en `origin/main`, commit `1fb549b`, y verificar la presentación en GitHub Pages - 2026-09-06
+- [x] Implementar Talleres, Estudios Contables y Constructoras con módulos, reportes, asistentes y workflows - 2026-09-06
+- [x] Generar y optimizar tres imágenes propias para los rubros de Fase 7 - 2026-09-06
+- [x] Validar Fases 3 a 7 con 60 pruebas Playwright y HTML Validate - 2026-09-06
 - [x] Publicar la Fase 5 en `origin/main`, commit `aafbb94`, y verificarla en GitHub Pages - 2026-09-06
 - [x] Implementar Fase 6 local con SEO, datos estructurados, sitemap, analítica opcional, presentación y guion comercial - 2026-09-06
 - [x] Validar Fase 6 y regresiones de Fases 3/4/5 con 45 pruebas Playwright - 2026-09-06

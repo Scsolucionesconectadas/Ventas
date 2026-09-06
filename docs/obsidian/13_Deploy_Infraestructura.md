@@ -9,9 +9,9 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: Fase 5 publicada en `origin/main`; commit `aafbb94`.
-- Estado local: Fase 6 implementada y validada; pendiente de revisión y autorización para publicar.
-- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/` respondió HTTP `200` el 2026-09-06 con la Fase 5 publicada.
+- Estado del código remoto: Fase 6 publicada en `origin/main`; commit `1fb549b`.
+- Estado local: Fase 7 de nuevos rubros implementada y validada; pendiente de revisión y autorización para publicar.
+- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/presentacion/` respondió HTTP `200` el 2026-09-06 con la Fase 6 publicada.
 
 ## Archivos de soporte
 
@@ -22,7 +22,7 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - `assets/js/analytics.js`: cargador opcional de Cloudflare Web Analytics, inactivo mientras no exista token.
 - `404.html`: página de error con identidad SC y rutas calculadas para local y `/Ventas/`.
 - Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`.
-- Las imágenes públicas usan WebP; los JPG se conservan como fuentes para regeneración.
+- Las imágenes públicas usan WebP; Fase 7 incorpora tres activos generados optimizados a unos 433 KB en conjunto.
 - `contacto/index.html` publica un formulario HTML hacia FormSubmit; no existen credenciales ni secretos en el repositorio.
 - `contacto/gracias.html` queda fuera de indexación y funciona como retorno después del envío.
 
@@ -44,7 +44,6 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 
 ## Pendientes
 
-- Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.
 - Activar FormSubmit desde el primer email recibido y repetir la prueba desde un celular físico.
-- Revisar y autorizar la publicación de Fase 6.
+- Revisar y autorizar la publicación de Fase 7.
 - Activar Cloudflare Web Analytics únicamente después de crear la propiedad y obtener el token público del sitio.

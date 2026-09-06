@@ -19,9 +19,10 @@ Sitio estático multipágina sin proceso de build. GitHub Pages sirve HTML, CSS,
 - `rubros/medica/`: lógica propia en `assets/js/medical-demo.js`.
 - Los demás rubros usan `assets/js/industry-demo.js` y `assets/js/industry-demo-data.js`.
 - `assets/js/pdf-report.js` centraliza los PDFs demostrativos con marca SC.
-- `assets/js/demo-experience.js` inyecta la barra común, modales, cajón de actividad, recorrido y modo presentación en las nueve demos.
+- `assets/js/demo-experience.js` inyecta la barra común, modales, cajón de actividad, recorrido y modo presentación en las doce demos.
 - `assets/js/priority-demo.js` extiende únicamente área médica, inmobiliarias y venta de materiales con módulos operativos avanzados definidos por configuración.
-- `assets/js/workflow-demo.js` agrega a las nueve demos el simulador de procesos, observabilidad y reportería de Fase 5.
+- `assets/js/workflow-demo.js` agrega a las doce demos el simulador de procesos, observabilidad y reportería de Fase 5.
+- `rubros/talleres/`, `rubros/estudios-contables/` y `rubros/constructoras/` reutilizan el motor común y declaran metadatos SEO estáticos propios.
 
 ## Código compartido
 
@@ -62,9 +63,13 @@ Todas las referencias usan rutas relativas para funcionar en la subruta `/Ventas
 
 ## Publicación y SEO de Fase 6
 
-- Las catorce páginas indexables definen en HTML título, descripción, canonical, Open Graph, Twitter Card, tema e imagen representativa.
+- Las diecisiete páginas indexables definen en HTML título, descripción, canonical, Open Graph, Twitter Card, tema e imagen representativa.
 - `index.html` agrega JSON-LD con un grafo `Organization` y `WebSite`; solo declara datos públicos verificables de SC.
-- `sitemap.xml` enumera las mismas catorce URL y registra `lastmod`; `presentacion/`, `404.html` y `contacto/gracias.html` quedan fuera del índice.
+- `sitemap.xml` enumera las mismas diecisiete URL y registra `lastmod`; `presentacion/`, `404.html` y `contacto/gracias.html` quedan fuera del índice.
 - `assets/js/analytics.js` lee opcionalmente `data-cloudflare-token` desde su propia etiqueta. Sin token publica el estado `SCAnalytics.enabled=false` y no carga recursos externos.
 - `presentacion/index.html` es una página interna con `noindex`, ocho diapositivas, notas, hash navegable, teclado, gestos táctiles, pantalla completa e impresión mediante CSS.
 - `scripts/phase6.spec.js` controla la correspondencia entre páginas, canonical, imágenes sociales, sitemap, analítica, datos estructurados y presentación.
+
+## Extensión de rubros de Fase 7
+
+Los nuevos rubros se incorporan como configuración en `assets/js/industry-demo-data.js`, catálogo en `assets/js/demo-catalog.js` y workflows en `assets/js/workflow-demo.js`. Cada página carga las mismas capas de experiencia, reportería y motion que los rubros existentes. `scripts/phase7.spec.js` valida catálogo, módulos, altas, chatbot, PDF, workflows, responsive y accesibilidad.
