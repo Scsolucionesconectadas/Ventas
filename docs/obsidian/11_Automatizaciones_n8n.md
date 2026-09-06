@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-La landing incluye una sección comercial para explicar capacidades de automatización e integración. Las demos simulan reporterías con Grafana, PDF con encabezado/pie institucional SC, CSV, emails programados y bitácora, pero no hay workflows reales implementados todavía dentro del repositorio.
+La landing incluye una sección comercial para explicar capacidades de automatización e integración. La Fase 5 agrega a las nueve demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
 
 ## Capacidades presentadas
 
@@ -36,8 +36,24 @@ Flujo futuro de referencia:
 - Inmobiliarias: vencimientos contractuales, reservas, cobranzas, liquidaciones y avisos a propietarios.
 - Venta de materiales: compras sugeridas, comparación de proveedores, actualización de precios, cobranzas y planificación de despachos.
 
+## Fase 5 - centro de automatización
+
+Cada rubro presenta dos workflows configurados en `assets/js/workflow-demo.js` y sigue el recorrido:
+
+`Disparador → Validación → Acción → Aprobación humana → Reporte → Bitácora`
+
+- Motores visuales: n8n para orquestación de aplicaciones y Node-RED para eventos y operación técnica.
+- Escenarios: ejecución controlada o falla temporal con reintento visible.
+- Seguridad operativa: el flujo se detiene antes de la entrega hasta recibir aprobación humana.
+- Observabilidad: período de 7, 30 o 90 días, proceso, comparación y cuatro métricas dinámicas.
+- Entrega: programación diaria, semanal o mensual; PDF local y email editable sin envío.
+- Evidencia: historial con hora, proceso, estado, intento, salida y destinatario ficticio.
+
+La implementación reproduce conceptos de ejecución y observabilidad, pero no importa ni ejecuta definiciones reales de n8n o Node-RED y no incrusta Grafana.
+
 ## Pendientes
 
 - Definir si los workflows reales se implementarán con n8n, Node-RED o backend propio según criticidad.
 - Agregar capturas o diagramas propios de flujos n8n y Node-RED.
 - Documentar variables y credenciales cuando exista una integración real, sin guardar secretos.
+- Definir persistencia, autenticación e idempotencia antes de conectar cualquier flujo de demo a sistemas reales.

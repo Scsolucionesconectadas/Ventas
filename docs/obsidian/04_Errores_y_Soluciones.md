@@ -1,5 +1,26 @@
 # Errores y Soluciones
 
+## 2026-09-06 - Pestaña dinámica ausente en la navegación con End
+
+**Síntoma:**
+Después de abrir Automatizaciones, `Home` regresaba a la primera pestaña, pero `End` terminaba en Asistente en lugar de volver a Automatizaciones.
+
+**Causa:**
+Los motores médico y genérico capturaban la lista de pestañas antes de que Fase 5 inyectara la nueva vista.
+
+**Solución aplicada:**
+La navegación consulta las pestañas disponibles en cada pulsación y conserva foco, selección ARIA y panel activo. También se corrigió el identificador visible al reintentar y el ancho del botón de programación.
+
+**Cómo evitarlo:**
+Los componentes que acepten extensiones dinámicas deben resolver sus elementos al momento de interactuar, no únicamente durante la inicialización.
+
+**Archivos relacionados:**
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/workflow-demo.js`
+- `assets/css/base.css`
+- `scripts/phase5.spec.js`
+
 ## 2026-09-06 - Capturas y auditoría ejecutadas durante transiciones
 
 **Síntoma:**

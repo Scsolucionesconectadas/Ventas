@@ -51,6 +51,12 @@ Las nueve demos incluyen una barra operativa común con:
 
 Área médica, inmobiliarias y venta de materiales agregan una capa de gestión avanzada con módulos navegables, KPI específicos, tablas operativas, prioridades y automatizaciones sugeridas. Cada módulo permite crear registros ficticios, actualizar estados, preparar un email sin envío real y descargar un PDF ejecutivo con marca SC.
 
+## Automatizaciones de Fase 5
+
+Las nueve demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
+
+La misma vista incluye indicadores filtrables tipo Grafana, comparación por período, programación diaria/semanal/mensual, vista previa editable de email, descarga de PDF con marca SC e historial de ejecuciones. Todo funciona con datos ficticios en el navegador: no conecta servicios externos ni realiza envíos reales.
+
 ## Estructura
 
 ```text
@@ -96,10 +102,12 @@ Las nueve demos incluyen una barra operativa común con:
 │       ├── medical-demo.js
 │       ├── pdf-report.js
 │       ├── priority-demo.js
+│       ├── workflow-demo.js
 │       └── motion.js
 ├── scripts/
 │   ├── phase3.spec.js
 │   ├── phase4.spec.js
+│   ├── phase5.spec.js
 │   ├── generate_demo_images.py
 │   └── optimize_images.py
 ├── rubros/
@@ -148,6 +156,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 - Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
 - La capa compartida de las nueve demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
 - Las tres demos prioritarias cuentan con regresión Playwright de navegación profunda, altas ficticias, estados, búsqueda, PDF, email simulado, teclado, responsive y accesibilidad.
+- Las nueve demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 
 ## Publicación en GitHub Pages

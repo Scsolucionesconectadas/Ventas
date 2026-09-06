@@ -1,5 +1,27 @@
 # Decisiones Técnicas
 
+## 2026-09-06 - Simulador compartido de automatizaciones para las nueve demos
+
+**Decisión:**
+Implementar la Fase 5 en `assets/js/workflow-demo.js` como extensión estática configurable por rubro, sin agregar dependencias ni conexiones externas.
+
+**Motivo:**
+Las presentaciones necesitan mostrar ejecución, fallos, reintentos, aprobación, métricas y entregables de forma consistente. Un módulo compartido evita duplicar comportamiento y conserva compatibilidad con GitHub Pages.
+
+**Impacto:**
+Las nueve demos agregan dos procesos propios, representación n8n/Node-RED, panel tipo Grafana, programación, email demo, PDF e historial. Todo permanece en memoria y usa datos ficticios `@demo.local`.
+
+**Alternativas consideradas:**
+- Crear una implementación distinta dentro de cada rubro.
+- Incorporar instancias reales de n8n, Node-RED o Grafana en una publicación estática.
+- Migrar a un framework antes de validar la experiencia comercial.
+
+**Archivos relacionados:**
+- `assets/js/workflow-demo.js`
+- `assets/css/base.css`
+- `rubros/*/index.html`
+- `scripts/phase5.spec.js`
+
 ## 2026-09-06 - Extensión compartida para las demos prioritarias
 
 **Decisión:**

@@ -1,5 +1,39 @@
 # Bitácora de Desarrollo
 
+## 2026-09-06 - Publicación de Fase 4 e implementación de Fase 5
+
+**Cambios realizados:**
+- Se publicó la Fase 4 en `origin/main` con el commit `e643a5d`.
+- Se agregó a las nueve demos un centro de automatización con dos procesos específicos por rubro.
+- Se implementaron escenarios de éxito y falla temporal, reintento, aprobación humana, seis estados de ejecución e historial.
+- Se incorporaron selector n8n/Node-RED, panel tipo Grafana, períodos comparables y métricas dinámicas.
+- Se agregó programación diaria, semanal o mensual, vista previa editable de email y PDF con marca SC sin envío real.
+- Se corrigió la navegación de pestañas dinámicas con flechas, `Home` y `End`.
+- Se ajustó la grilla de programación para evitar recortes y se reforzó el estado visual de controles deshabilitados.
+
+**Archivos modificados:**
+- `assets/js/workflow-demo.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/css/base.css`
+- `rubros/*/index.html`
+- `scripts/phase5.spec.js`
+- `README.md`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: JavaScript de Fase 5 y prueba sin errores.
+- `git diff --check`: sin errores de whitespace.
+- Playwright: suite unificada de Fases 3, 4 y 5 con `38/38` pruebas aprobadas.
+- Axe Core `4.10.3`: cero infracciones serias o críticas en la vista nueva de las nueve demos.
+- Responsive `390x844` y escritorio `1440x1000`: sin overflow horizontal.
+- PDF, email simulado, programación, falla, reintento y aprobación verificados en Microsoft Edge.
+- Capturas de Fase 5 revisadas visualmente en escritorio y móvil.
+
+**Pendientes detectados:**
+- Revisar y autorizar la publicación de la Fase 5 en `origin/main`.
+- Validar la versión pública desde un celular físico cuando GitHub Pages esté activo.
+
 ## 2026-09-06 - Publicación de Fase 3 e implementación de Fase 4
 
 **Cambios realizados:**

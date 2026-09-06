@@ -6,7 +6,7 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 3 está publicada en `origin/main` con el commit `23fa1ff` e incorpora modo presentación, recorrido manual, búsqueda global, centro de actividad, estados operativos, reinicio de datos y señalización de funciones simuladas. La Fase 4 está implementada localmente en las demos médica, inmobiliaria y venta de materiales con catorce módulos avanzados, KPI, tablas, prioridades, altas ficticias, actualización de estados, PDF y vista previa de email. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. La estética mantiene identidad SC, imágenes locales, microinteracciones, CSS y GSAP `3.15.0`. Todas las demos incluyen reportería, tablero tipo Grafana, PDF con marca SC mediante jsPDF `4.2.1` y preparación de email sin envío real.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y nueve demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores y logística/transporte. La Fase 4 está publicada en `origin/main` con el commit `e643a5d` e incorpora catorce módulos avanzados en área médica, inmobiliarias y venta de materiales. La Fase 5 está implementada y validada localmente en las nueve demos: centro visual de automatización, motores n8n/Node-RED simulados, éxito y falla controlada, reintento, aprobación humana, panel tipo Grafana, programación de reportes, email demo, PDF e historial. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
 
 ## Stack técnico
 
@@ -46,7 +46,8 @@ El repositorio tiene una landing principal responsive de SC, páginas comerciale
 - Motor común para demos por rubro: `assets/js/industry-demo.js`.
 - Experiencia comercial común de demos: `assets/js/demo-experience.js`.
 - Gestión avanzada de demos prioritarias: `assets/js/priority-demo.js`.
-- Regresiones de experiencia y demos prioritarias: `scripts/phase3.spec.js` y `scripts/phase4.spec.js`.
+- Centro compartido de automatizaciones: `assets/js/workflow-demo.js`.
+- Regresiones de experiencia, demos prioritarias y automatizaciones: `scripts/phase3.spec.js`, `scripts/phase4.spec.js` y `scripts/phase5.spec.js`.
 - Datos ficticios por rubro: `assets/js/industry-demo-data.js`.
 - Animaciones compartidas: `assets/js/motion.js`.
 - SEO y publicación estática: `.nojekyll`, `robots.txt` y `sitemap.xml`.
@@ -61,10 +62,10 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 
 ## Pendientes importantes
 
-- [ ] Activar GitHub Pages en Settings del repositorio y verificar la URL pública.
 - [ ] Confirmar el primer envío de FormSubmit desde el email de SC.
 - [ ] Revisar licencias/atribución o reemplazar por imágenes propias/generadas antes de una publicación final.
-- [ ] Revisar y autorizar la publicación de la Fase 4 en `origin/main`.
+- [ ] Probar la versión publicada desde un celular físico.
+- [ ] Revisar y autorizar la publicación de la Fase 5 en `origin/main`.
 
 ## Últimas decisiones importantes
 
@@ -88,3 +89,5 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - El recorrido comercial pasa a ser manual y controlable; las acciones antiguas de “Iniciar demo guiada” abren la nueva experiencia.
 - La Fase 4 se implementa como una extensión compartida cargada solo por las tres demos prioritarias, sin duplicar sus motores principales ni afectar los otros rubros.
 - En móvil, los accesos avanzados se concentran en las pestañas para evitar duplicar una navegación lateral extensa.
+- La Fase 5 usa un único módulo configurable para las nueve demos y representa n8n, Node-RED y Grafana sin afirmar conexiones reales.
+- Todo flujo simulado se detiene antes de la entrega hasta recibir aprobación humana y registra intentos, salida y destinatario ficticio.

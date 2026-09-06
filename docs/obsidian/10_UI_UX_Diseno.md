@@ -56,10 +56,18 @@
 - Los accesos avanzados aparecen en sidebar y pestañas en escritorio; en móvil se oculta la duplicación lateral y se conserva la navegación por pestañas.
 - La pestaña activa conserva texto blanco también en `hover`, y los KPI e insignias usan contrastes verificados con Axe.
 - Las capturas visuales esperan la finalización de GSAP para representar el estado estable de la interfaz.
+- La Fase 5 agrega una vista Automatizaciones común con encabezado compacto, control segmentado n8n/Node-RED, selectores de proceso y escenario, y un flujo estable de seis nodos.
+- Los estados pendiente, ejecutando, esperando aprobación, fallido, reintentando y ejecutado combinan texto, color e iconografía; no dependen solo del color.
+- La aprobación humana permanece como acción explícita antes de generar reporte y bitácora, y los controles bloqueados tienen una apariencia deshabilitada clara.
+- El panel tipo Grafana permite filtrar período y proceso, comparar con el período anterior y mantiene métricas y gráfico sin cambios de layout.
+- La programación usa controles nativos para frecuencia, hora, destinatario y PDF; el CTA ocupa una fila completa para evitar recortes en paneles angostos.
+- En móvil, el flujo se transforma en una secuencia vertical, métricas y formularios conservan ancho útil, y la tabla usa scroll interno sin desbordar el documento.
+- La vista previa de email administra foco, cierra con `Escape` o fondo y aclara que no se realiza ningún envío real.
+- Axe Core `4.10.3` no detectó infracciones serias o críticas en Automatizaciones de las nueve demos.
 
 ## Pendientes de diseño
 
 - Revisar capturas finales antes de usar en presentaciones comerciales reales.
 - Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicación final.
 - Validar la experiencia en un celular físico cuando exista una URL pública de GitHub Pages.
-- Revisar la Fase 4 publicada desde un celular físico después de activar GitHub Pages.
+- Revisar las Fases 4 y 5 publicadas desde un celular físico después de activar GitHub Pages.

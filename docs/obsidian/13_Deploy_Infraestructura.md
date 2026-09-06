@@ -9,9 +9,9 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: Fase 3 publicada en `origin/main`; commit `23fa1ff`.
-- Estado local: Fase 4 implementada y validada en área médica, inmobiliarias y venta de materiales; pendiente de revisión y autorización para publicar.
-- Estado de Pages: pendiente de activar en GitHub. La URL pública respondió `404` después del push.
+- Estado del código remoto: Fase 4 publicada en `origin/main`; commit `e643a5d`.
+- Estado local: Fase 5 implementada y validada en las nueve demos; pendiente de revisión y autorización para publicar.
+- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/` respondió HTTP `200` el 2026-09-06 con la Fase 4 publicada.
 
 ## Archivos de soporte
 
@@ -34,7 +34,7 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 
 ## Nota de permisos
 
-La terminal local no tiene GitHub CLI autenticado (`gh auth status` indica que no hay sesión). Por eso no se pudo activar Pages por API desde la terminal. La activación requiere un usuario con permisos de administrador o mantenedor del repositorio.
+La terminal local no tiene GitHub CLI autenticado (`gh auth status` indica que no hay sesión). La publicación de código se realiza mediante el remoto Git configurado; los cambios de Settings requieren un usuario con permisos sobre el repositorio.
 
 ## Rollback
 
@@ -42,6 +42,5 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 
 ## Pendientes
 
-- Activar GitHub Pages desde Settings del repositorio y confirmar visualmente la URL pública después del despliegue.
 - Revisar licencias/atribución o reemplazar imágenes por assets propios antes de una campaña formal.
 - Activar FormSubmit desde el primer email recibido y repetir la prueba desde un celular físico.

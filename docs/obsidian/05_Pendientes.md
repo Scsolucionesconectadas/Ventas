@@ -2,18 +2,21 @@
 
 ## Pendientes activos
 
-- [ ] Activar GitHub Pages en el repositorio: `Settings > Pages > Deploy from a branch > main > / (root)`.
-- [ ] Verificar que `https://scsolucionesconectadas.github.io/Ventas/` responda correctamente después de activar Pages.
 - [ ] Confirmar el primer envío de FormSubmit desde `contacto.solucionesconectadas@gmail.com`.
 - [ ] Revisar licencias/atribución o crear set de imágenes propias/generadas antes de publicar formalmente.
 - [ ] Probar la versión publicada desde un celular físico después de activar GitHub Pages.
-- [ ] Revisar y autorizar la publicación de la Fase 4 en `origin/main`.
+- [ ] Revisar y autorizar la publicación de la Fase 5 en `origin/main`.
 
 ## En revisión
-- [ ] Revisar el workflow automático de Pages cuando GitHub lo dispare después de activar la configuración.
+
+- [ ] Revisar la Fase 5 local antes de autorizar su publicación.
 
 ## Resueltos
 
+- [x] Activar GitHub Pages y verificar respuesta HTTP 200 en `https://scsolucionesconectadas.github.io/Ventas/` - 2026-09-06
+- [x] Publicar la Fase 4 en `origin/main`, commit `e643a5d` - 2026-09-06
+- [x] Implementar el centro visual de automatizaciones de Fase 5 en las nueve demos - 2026-09-06
+- [x] Validar Fase 5 y regresiones de Fases 3/4 con 38 pruebas Playwright - 2026-09-06
 - [x] Publicar la Fase 3 en `origin/main`, commit `23fa1ff` - 2026-09-06
 - [x] Profundizar las demos médica, inmobiliaria y venta de materiales con catorce módulos de Fase 4 - 2026-09-06
 - [x] Validar Fase 4 con Playwright, Axe, responsive, PDFs y capturas visuales - 2026-09-06

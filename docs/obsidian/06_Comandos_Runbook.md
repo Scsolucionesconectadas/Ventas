@@ -22,6 +22,7 @@ node --check assets/js/medical-demo.js
 node --check assets/js/demo-catalog.js
 node --check assets/js/demo-experience.js
 node --check assets/js/priority-demo.js
+node --check assets/js/workflow-demo.js
 node --check assets/js/industry-demo-data.js
 node --check assets/js/industry-demo.js
 node --check assets/js/pdf-report.js
@@ -49,6 +50,20 @@ Regresión Playwright de Fase 4 para área médica, inmobiliarias y venta de mat
 $root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { Test-Path (Join-Path $_.FullName 'node_modules/playwright') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
 npx --yes playwright@1.55.0 test scripts/phase4.spec.js --reporter=line --workers=1
+```
+
+Regresión Playwright de Fase 5 para las nueve demos:
+
+```powershell
+$root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { Test-Path (Join-Path $_.FullName 'node_modules/playwright') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$env:NODE_PATH = Join-Path $root.FullName 'node_modules'
+npx --yes playwright@1.55.0 test scripts/phase5.spec.js --reporter=line --workers=1
+```
+
+Regresión unificada antes de publicar:
+
+```powershell
+npx --yes playwright@1.55.0 test scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js --reporter=line --workers=1
 ```
 
 Las pruebas de PDF esperan `download.path()` y las auditorías visuales esperan opacidad final `1` para no medir una transición incompleta.

@@ -284,19 +284,20 @@ function setupTabs() {
   });
 
   tabList.addEventListener("keydown", (event) => {
-    const currentIndex = tabs.indexOf(event.target);
+    const availableTabs = Array.from(tabList.querySelectorAll("[role='tab']"));
+    const currentIndex = availableTabs.indexOf(event.target);
     if (currentIndex < 0) return;
 
     let nextIndex = currentIndex;
-    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
-    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % availableTabs.length;
+    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + availableTabs.length) % availableTabs.length;
     if (event.key === "Home") nextIndex = 0;
-    if (event.key === "End") nextIndex = tabs.length - 1;
+    if (event.key === "End") nextIndex = availableTabs.length - 1;
     if (nextIndex === currentIndex && !["Home", "End"].includes(event.key)) return;
 
     event.preventDefault();
-    tabs[nextIndex].focus();
-    tabs[nextIndex].click();
+    availableTabs[nextIndex].focus();
+    availableTabs[nextIndex].click();
   });
 }
 
