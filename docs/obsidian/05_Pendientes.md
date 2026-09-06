@@ -4,7 +4,6 @@
 
 - [ ] Confirmar el primer envío de FormSubmit desde `contacto.solucionesconectadas@gmail.com`.
 - [ ] Probar la versión publicada desde un celular físico después de activar GitHub Pages.
-- [ ] Revisar y autorizar la publicación de la Fase 7 de nuevos rubros en `origin/main`.
 - [ ] Crear la propiedad de Cloudflare Web Analytics y agregar su token público si se desea activar la medición.
 
 ## En revisión
@@ -13,6 +12,7 @@
 
 ## Resueltos
 
+- [x] Publicar la Fase 7 en `origin/main`, commit `0993734`, y verificarla en GitHub Pages - 2026-09-06
 - [x] Publicar la Fase 6 en `origin/main`, commit `1fb549b`, y verificar la presentación en GitHub Pages - 2026-09-06
 - [x] Implementar Talleres, Estudios Contables y Constructoras con módulos, reportes, asistentes y workflows - 2026-09-06
 - [x] Generar y optimizar tres imágenes propias para los rubros de Fase 7 - 2026-09-06

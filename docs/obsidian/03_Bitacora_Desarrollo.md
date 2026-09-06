@@ -664,3 +664,24 @@
 - Revisar y autorizar la publicación de Fase 7.
 - Probar la versión publicada desde un celular físico.
 - Confirmar el primer envío de FormSubmit.
+
+## 2026-09-06 - Publicación de Fase 7
+
+**Cambios realizados:**
+- Se publicó Fase 7 en `origin/main` con el commit `0993734`.
+- Se verificó la propagación de GitHub Pages sobre la ruta pública de Talleres con respuesta HTTP `200` y contenido actualizado.
+
+**Archivos modificados:**
+- `docs/obsidian/00_Contexto_Proyecto.md`
+- `docs/obsidian/03_Bitacora_Desarrollo.md`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/13_Deploy_Infraestructura.md`
+
+**Validaciones realizadas:**
+- `git push origin main`: correcto.
+- `git ls-remote origin refs/heads/main`: commit `0993734` confirmado antes del cierre documental.
+- GitHub Pages: Talleres respondió HTTP `200` con la Fase 7.
+
+**Pendientes detectados:**
+- Probar la versión publicada desde un celular físico.
+- Confirmar el primer envío de FormSubmit.

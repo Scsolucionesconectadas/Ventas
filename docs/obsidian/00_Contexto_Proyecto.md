@@ -6,7 +6,7 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y doce demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores, logística/transporte, talleres y servicios técnicos, estudios contables, y constructoras/obras. La Fase 6 está publicada en `origin/main` con el commit `1fb549b` e incorpora SEO completo, sitemap, analítica opcional y una presentación comercial responsive de ocho diapositivas. La Fase 7 de nuevos rubros está implementada y validada localmente con datos ficticios, reportes, asistentes y automatizaciones propias. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y doce demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores, logística/transporte, talleres y servicios técnicos, estudios contables, y constructoras/obras. La Fase 7 está publicada en `origin/main` con el commit `0993734` e incorpora los tres rubros nuevos sobre la base de SEO, sitemap, analítica opcional y presentación comercial de Fase 6. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
 
 ## Stack técnico
 
@@ -70,7 +70,6 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 
 - [ ] Confirmar el primer envío de FormSubmit desde el email de SC.
 - [ ] Probar la versión publicada desde un celular físico.
-- [ ] Revisar y autorizar la publicación de la Fase 7 en `origin/main`.
 - [ ] Crear la propiedad de Cloudflare Web Analytics y agregar su token público si se decide activar la medición.
 
 ## Últimas decisiones importantes

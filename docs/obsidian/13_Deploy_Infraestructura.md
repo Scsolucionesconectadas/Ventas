@@ -9,9 +9,9 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: Fase 6 publicada en `origin/main`; commit `1fb549b`.
-- Estado local: Fase 7 de nuevos rubros implementada y validada; pendiente de revisión y autorización para publicar.
-- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/presentacion/` respondió HTTP `200` el 2026-09-06 con la Fase 6 publicada.
+- Estado del código remoto: Fase 7 publicada en `origin/main`; commit `0993734`.
+- Estado local: sin cambios funcionales pendientes; la documentación registra el cierre de publicación.
+- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/rubros/talleres/` respondió HTTP `200` el 2026-09-06 con la Fase 7 publicada.
 
 ## Archivos de soporte
 
@@ -45,5 +45,4 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 ## Pendientes
 
 - Activar FormSubmit desde el primer email recibido y repetir la prueba desde un celular físico.
-- Revisar y autorizar la publicación de Fase 7.
 - Activar Cloudflare Web Analytics únicamente después de crear la propiedad y obtener el token público del sitio.
