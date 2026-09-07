@@ -351,8 +351,20 @@ h3 {
 }
 
 .demos-hero h1 {
-  max-width: 850px;
-  font-size: clamp(2.2rem, 4.6vw, 4.15rem);
+  max-width: none;
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.demos-hero .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(340px, 0.85fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.demos-hero .section-heading > p {
+  max-width: 480px;
+  margin: 0;
 }
 
 .demos-hero-actions {
@@ -388,6 +400,8 @@ h3 {
 }
 
 .industry-card {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -412,7 +426,9 @@ h3 {
 }
 
 .industry-card-body {
-  display: grid;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   gap: 10px;
   padding: 16px;
 }
@@ -605,6 +621,10 @@ h3 {
   min-height: 170px;
   text-align: left;
   cursor: pointer;
+}
+
+.service-button p {
+  padding-right: 52px;
 }
 
 .service-button::after {
@@ -2614,6 +2634,7 @@ tr:last-child td {
 .feature-disclosure {
   display: grid;
   gap: 8px;
+  margin-top: auto;
 }
 
 .feature-disclosure summary {
@@ -2991,6 +3012,14 @@ tr:last-child td {
   background: linear-gradient(90deg, rgba(0, 96, 192, 0.1), rgba(0, 176, 232, 0.12));
   color: var(--primary);
   transform: translateX(2px);
+}
+
+.floating-row-menu button:disabled {
+  background: rgba(34, 51, 63, 0.05);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
 }
 
 .spotlight-surface {
@@ -3922,6 +3951,10 @@ th {
   align-content: start;
 }
 
+.conditional-contact-field[hidden] {
+  display: none;
+}
+
 .contact-fields .form-field input,
 .contact-fields .form-field select,
 .contact-fields .form-field textarea {
@@ -4117,6 +4150,15 @@ th {
 }
 
 @media (max-width: 1040px) {
+  .demos-hero .section-heading {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .demos-hero .section-heading > p {
+    max-width: 680px;
+  }
+
   .commercial-hero {
     grid-template-columns: 1fr;
   }
@@ -5364,22 +5406,6 @@ th {
   color: var(--muted);
 }
 
-.priority-phase-badge {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 34px;
-  border: 1px solid rgba(42, 99, 201, 0.2);
-  border-radius: var(--radius-sm);
-  background: #eef6ff;
-  color: #173f80;
-  padding: 7px 10px;
-  font-size: 0.76rem;
-  font-weight: 900;
-}
-
-.priority-phase-badge svg,
 .priority-toolbar svg,
 .priority-automation-note svg,
 .priority-simulation-note svg {

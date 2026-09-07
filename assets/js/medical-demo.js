@@ -70,7 +70,7 @@ const patients = [
       {
         date: "2026-08-12",
         title: "Traumatología",
-        detail: "Dolor lumbar. Se indica kinesiología y control en 30 días.",
+        detail: "Molestia lumbar. Se indica kinesiología y control en 30 días.",
       },
       {
         date: "2026-05-07",
@@ -127,7 +127,7 @@ const appointments = [
     doctor: "Dra. Camila Ortega",
     specialty: "Traumatología",
     status: "Pendiente",
-    reason: "Dolor lumbar",
+    reason: "Molestia lumbar",
   },
   {
     id: "t-004",
@@ -178,7 +178,7 @@ const consultations = [
     patientId: "p-003",
     type: "urgencia",
     doctor: "Guardia médica",
-    summary: "Dolor agudo. Se indica reposo y control traumatológico.",
+    summary: "Cuadro agudo. Se indica reposo y control traumatológico.",
     status: "Derivada",
   },
 ];
@@ -532,6 +532,7 @@ function openAppointmentMenu(anchor, appointmentId) {
   if (!appointment) return;
 
   const patient = getPatient(appointment.patientId);
+  const canAdmit = !["Admitido", "En sala"].includes(appointment.status);
   const currentMenu = $(".floating-row-menu");
 
   if (currentMenu && state.activeAppointmentMenu === appointmentId) {
@@ -560,10 +561,12 @@ function openAppointmentMenu(anchor, appointmentId) {
       <i data-lucide="bell-ring" aria-hidden="true"></i>
       Enviar recordatorio
     </button>
-    <button type="button" role="menuitem" data-floating-action="admision">
-      <i data-lucide="badge-check" aria-hidden="true"></i>
-      Marcar admisión
-    </button>
+    ${canAdmit ? `
+      <button type="button" role="menuitem" data-floating-action="admision">
+        <i data-lucide="badge-check" aria-hidden="true"></i>
+        Marcar admisión
+      </button>
+    ` : ""}
   `;
 
   document.body.appendChild(menu);
@@ -612,6 +615,7 @@ function handleAppointmentAction(action, appointment) {
   }
 
   if (action === "admision") {
+    if (["Admitido", "En sala"].includes(appointment.status)) return;
     appointment.status = "Admitido";
     renderAll();
     showToast(`Admisión demo marcada para ${patient.name}.`);
@@ -921,11 +925,7 @@ function handleMedicalReportAction(action) {
   if (action === "email") {
     addMedicalReportEvent("Email preparado", `Reporte enviado en modo demo a ${medicalReports.recipient}.`);
     showToast("Email demo preparado con PDF y CSV adjuntos. No se envió correo real.");
-    return;
   }
-
-  addMedicalReportEvent("Dashboard revisado", "Se abrió la vista SC Salud Operativa con filtros aplicados.");
-  showToast("Dashboard Grafana demo actualizado con el período seleccionado.");
 }
 
 function addMedicalReportEvent(title, detail) {
@@ -951,7 +951,7 @@ async function downloadMedicalReportPdf() {
       recipient: medicalReports.recipient,
       panels: medicalReports.panels,
       fileName: medicalReports.fileName,
-      logoUrl: "../../assets/img/sc-color.png",
+      logoUrl: "../../assets/img/sc-symbol.png",
       footerLogoUrl: "../../assets/img/sc-white.png",
     });
 

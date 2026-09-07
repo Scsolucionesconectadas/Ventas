@@ -192,17 +192,19 @@
     if (!form) return;
 
     renderFormFields();
+    bindFormDependencies(form);
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const data = new FormData(form);
+      const initialStage = config.pipelineStages[0];
       const record = {
         id: `${slug}-${Date.now()}`,
         title: String(data.get("title") || "Registro demo").trim(),
         subtitle: String(data.get("subtitle") || config.formTitle).trim(),
         meta: String(data.get("meta") || "Carga demo").trim(),
-        status: "Nuevo",
-        stage: config.pipelineStages[0],
+        status: initialStage,
+        stage: initialStage,
         initials: getInitials(String(data.get("title") || config.appLabel)),
         amount: String(data.get("amount") || "A definir").trim(),
         notes: String(data.get("notes") || "Registro creado desde la demo.").trim(),
@@ -217,6 +219,7 @@
       records.unshift(record);
       state.selectedRecordId = record.id;
       form.reset();
+      syncFormDependencies(form);
       renderAll();
       setView("operacion");
       showToast(`Registro demo creado desde ${config.formTitle.toLowerCase()}.`);
@@ -539,6 +542,28 @@
       .join("");
   }
 
+  function bindFormDependencies(form) {
+    (config.formDependencies || []).forEach((dependency) => {
+      const source = form.elements.namedItem(dependency.source);
+      if (!(source instanceof HTMLSelectElement)) return;
+      source.addEventListener("change", () => syncFormDependency(form, dependency));
+    });
+    syncFormDependencies(form);
+  }
+
+  function syncFormDependencies(form) {
+    (config.formDependencies || []).forEach((dependency) => syncFormDependency(form, dependency));
+  }
+
+  function syncFormDependency(form, dependency) {
+    const source = form.elements.namedItem(dependency.source);
+    const target = form.elements.namedItem(dependency.target);
+    if (!(source instanceof HTMLSelectElement) || !(target instanceof HTMLInputElement)) return;
+
+    const nextValue = dependency.values?.[source.value];
+    if (typeof nextValue === "string") target.value = nextValue;
+  }
+
   function renderChatIntro() {
     const stream = $("#industryChatStream");
     if (!stream || state.chatReady) return;
@@ -600,6 +625,7 @@
   function openRecordMenu(anchor, recordId) {
     const record = records.find((item) => item.id === recordId);
     if (!record) return;
+    const progress = getRecordProgress(record);
 
     const currentMenu = $(".floating-row-menu");
     if (currentMenu && state.activeRecordMenu === recordId) {
@@ -628,10 +654,12 @@
         <i data-lucide="bell-ring" aria-hidden="true"></i>
         Enviar aviso
       </button>
-      <button type="button" role="menuitem" data-floating-action="avance">
-        <i data-lucide="badge-check" aria-hidden="true"></i>
-        Marcar avance
-      </button>
+      ${progress.nextStage ? `
+        <button type="button" role="menuitem" data-floating-action="avance">
+          <i data-lucide="badge-check" aria-hidden="true"></i>
+          Pasar a ${escapeHtml(progress.nextStage)}
+        </button>
+      ` : ""}
     `;
 
     document.body.appendChild(menu);
@@ -659,10 +687,12 @@
     }
 
     if (action === "avance") {
-      record.status = config.advanceStatus;
-      record.stage = config.advanceStage;
+      const progress = getRecordProgress(record);
+      if (!progress.nextStage) return;
+      record.status = progress.nextStage;
+      record.stage = progress.nextStage;
       renderAll();
-      showToast(`Avance marcado para ${record.title}.`);
+      showToast(`${record.title} pasó a ${progress.nextStage}.`);
       return;
     }
 
@@ -807,13 +837,9 @@
           </div>
           <div class="delivery-stack" id="reportDelivery"></div>
           <div class="report-actions">
-            <button class="secondary-link" type="button" data-report-action="grafana">
-              <i data-lucide="bar-chart-3" aria-hidden="true"></i>
-              Ver dashboard
-            </button>
             <button class="secondary-link" type="button" data-report-action="pdf">
               <i data-lucide="file-down" aria-hidden="true"></i>
-              Generar PDF
+              Ver PDF
             </button>
             <button class="primary-link" type="button" data-report-action="email">
               <i data-lucide="mail-check" aria-hidden="true"></i>
@@ -866,11 +892,7 @@
     if (action === "email") {
       addReportEvent("Email preparado", `Reporte enviado en modo demo a ${reports.recipient}.`);
       showToast("Email demo preparado con PDF y CSV adjuntos. No se envió correo real.");
-      return;
     }
-
-    addReportEvent("Dashboard revisado", `Se abrió la vista ${reports.dashboard} con filtros aplicados.`);
-    showToast("Dashboard Grafana demo actualizado con el período seleccionado.");
   }
 
   function addReportEvent(title, detail) {
@@ -896,7 +918,7 @@
         recipient: reports.recipient,
         panels: reports.panels,
         fileName: reports.fileName || `${slug}-reporte-demo.pdf`,
-        logoUrl: "../../assets/img/sc-color.png",
+        logoUrl: "../../assets/img/sc-symbol.png",
         footerLogoUrl: "../../assets/img/sc-white.png",
       });
 
@@ -1013,11 +1035,18 @@
     return records.find((record) => record.id === state.selectedRecordId) || records[0];
   }
 
+  function getRecordProgress(record) {
+    const currentIndex = config.pipelineStages.findIndex((stage) => normalizeText(stage) === normalizeText(record.stage));
+    return {
+      nextStage: currentIndex >= 0 ? config.pipelineStages[currentIndex + 1] || null : config.pipelineStages[0] || null,
+    };
+  }
+
   function getStatusClass(status) {
     const value = normalizeText(status);
     if (value.includes("urgente") || value.includes("critico") || value.includes("bajo") || value.includes("vencido")) return "urgent";
     if (value.includes("pendiente") || value.includes("nuevo") || value.includes("revision") || value.includes("cotizado")) return "waiting";
-    if (value.includes("confirm") || value.includes("activo") || value.includes("aprobado") || value.includes("listo") || value.includes("ocupada") || value.includes("publicado") || value.includes("cursando") || value.includes("programado") || value.includes("diario") || value.includes("demo") || value.includes("simulado")) return "ok";
+    if (value.includes("confirm") || value.includes("activo") || value.includes("aprobado") || value.includes("listo") || value.includes("ocupada") || value.includes("publicado") || value.includes("cursando") || value.includes("programado") || value.includes("diario") || value.includes("demo") || value.includes("simulado") || value.includes("finaliz") || value.includes("cerrado") || value.includes("entregad") || value.includes("cobrad") || value.includes("facturad") || value.includes("presentad")) return "ok";
     return "";
   }
 

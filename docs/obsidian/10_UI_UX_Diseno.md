@@ -21,7 +21,7 @@
 - La barra superior de la landing se ajustó a ancho completo con look tecnológico, glass ligero, sombra sobria y navegación responsive.
 - El bloque de contacto usa un indicador visual estable para Instagram y fuerza el email a una sola línea con tamaño adaptable.
 - En mobile, la navegación de la landing se reduce a "Explorar" y "Pedir demo" para evitar una cabecera demasiado alta.
-- El diagnóstico express permite seleccionar dolores frecuentes y actualiza recomendación, módulos sugeridos y enlace de WhatsApp.
+- El diagnóstico express permite seleccionar ineficiencias frecuentes y actualiza recomendación, módulos sugeridos y enlace de WhatsApp.
 - Los textos usan datos ficticios y no contienen información sensible.
 - Los rubros nuevos usan un layout común configurable con panel, operación, CRM, recursos y asistente.
 - Todas las demos incorporan vista "Reportes" con paneles tipo Grafana, métricas por rubro, generación de PDF demo con encabezado/pie institucional SC, email demo y bitácora de eventos.
@@ -73,6 +73,19 @@
 - Los nuevos rubros conservan cinco vistas de negocio más Reportes y Automatizaciones, con textos y estados específicos para evitar una apariencia genérica.
 - Las fotografías nuevas mantienen encuadre horizontal, luz clara y diversidad visual; su conversión WebP reduce el peso conjunto de 6,6 MB a unos 433 KB.
 - Las capturas de Fase 7 verifican el catálogo a `1440x1000` y el hero de Constructoras a `390x844` sin recortes ni desbordes.
+- Las tarjetas de servicios reservan `52px` a la derecha del texto para que el botón `+` mantenga al menos `10px` de aire visual en desktop, tablet y móvil.
+- El resumen de impacto prioriza información comercial verificable: doce demos sectoriales, siete o más módulos por experiencia, dos procesos automáticos por rubro y una visión integral de gestión, automatización y reportes.
+- El indicador de reducción manual usa la redacción inequívoca “Hasta 60% menos” y conserva la aclaración visible de que se trata de un rango ilustrativo sujeto a diagnóstico.
+- El hero del catálogo distribuye título y descripción en columnas proporcionadas; en tablet y móvil vuelve a una sola columna sin desborde.
+- Las tarjetas del catálogo usan columna flexible para mantener “Ver módulos” y “Abrir demo” alineados aunque títulos y descripciones ocupen distinta cantidad de líneas.
+- Gomerías, Agrimensores y Logística usan fotografías horizontales con personas trabajando en el rubro, coherentes con las demos incorporadas en Fase 7.
+- El estado futuro se comunica como “En planificación”; “Roadmap” queda reservado como concepto interno de evolución, no como etiqueta comercial.
+- En la agenda médica, un turno admitido o en sala omite la acción de admisión para no ofrecer una transición imposible.
+- La plantilla PDF conserva la proporción de los logos, evita el cruce entre título y fecha y superpone una marca “DEMO” diagonal y translúcida; los reportes ofrecen “Ver PDF” sin una acción redundante de dashboard.
+- Los menús operativos muestran únicamente la transición siguiente de cada rubro y eliminan esa acción al alcanzar el estado terminal; detalle y avisos continúan disponibles.
+- Los módulos avanzados no muestran etiquetas internas de fase y también omiten acciones para estados terminales equivalentes como cerrado, finalizado, entregado, pagado o presentado.
+- Inmobiliarias actualiza el presupuesto orientativo al cambiar compra, alquiler o inversión sin alterar la disposición del formulario.
+- Los campos de aclaración de Contacto aparecen solo para “Otro rubro” y “Otra necesidad”, reciben foco, pasan a ser obligatorios y vuelven a quedar deshabilitados al ocultarse.
 
 ## Pendientes de diseño
 

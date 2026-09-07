@@ -685,3 +685,100 @@
 **Pendientes detectados:**
 - Probar la versión publicada desde un celular físico.
 - Confirmar el primer envío de FormSubmit.
+
+## 2026-09-07 - Ajuste comercial y espaciado de servicios en la portada
+
+**Cambios realizados:**
+- Se reservó espacio lateral en las tarjetas de servicios para impedir que el botón `+` se superponga con el texto.
+- Se reemplazaron indicadores internos o poco atractivos por datos comerciales sobre demos, módulos, procesos automáticos y alcance integral.
+- Se reformuló la reducción de carga manual como “Hasta 60% menos” para evitar que el rango se interprete como un aumento.
+- Se agregó una regresión geométrica que comprueba separación y ausencia de desborde en desktop, tablet y móvil.
+
+**Archivos modificados:**
+- `index.html`
+- `assets/css/base.css`
+- `scripts/phase6.spec.js`
+- `docs/obsidian/00_Contexto_Proyecto.md`
+- `docs/obsidian/03_Bitacora_Desarrollo.md`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/10_UI_UX_Diseno.md`
+
+**Validaciones realizadas:**
+- `node --check scripts/phase6.spec.js`: sin errores.
+- HTML Validate `11.14.0`: todas las páginas sin errores.
+- Playwright Fase 6: `8/8` pruebas aprobadas.
+- Regresión Playwright de Fases 3 a 7: `61/61` pruebas aprobadas.
+- Separación texto/acción y overflow validados en `1366x768`, `768x1024` y `390x844`.
+- Capturas de servicios revisadas en desktop y móvil.
+
+**Pendientes detectados:**
+- Revisar la redacción comercial en una presentación real y ajustar los mensajes según las preguntas más frecuentes de los clientes.
+
+## 2026-09-07 - Catálogo, admisiones y PDFs comerciales
+
+**Cambios realizados:**
+- Se reemplazó “Roadmap” por “En planificación” y se adoptó un lenguaje centrado en ineficiencias o situaciones operativas.
+- Se equilibró el hero de Demos y se alinearon verticalmente “Ver módulos” y “Abrir demo” en cada fila.
+- Se generaron y optimizaron fotografías con personas para Gomerías, Agrimensores y Logística.
+- La demo médica bloquea una segunda admisión y presenta “Admisión completada” como acción deshabilitada.
+- Se eliminó “Ver dashboard” de los reportes y se normalizó “Ver PDF” en todas las demos.
+- La plantilla PDF recorta transparencias del logo, conserva proporciones, separa título y fecha y coloca una marca “DEMO” diagonal sobre el contenido.
+
+**Archivos modificados:**
+- `demos/index.html`
+- `index.html`
+- `assets/css/base.css`
+- `assets/js/app.js`
+- `assets/js/demo-catalog.js`
+- `assets/js/industry-demo-data.js`
+- `assets/js/medical-demo.js`
+- `assets/js/industry-demo.js`
+- `assets/js/pdf-report.js`
+- `rubros/*/index.html`
+- `assets/img/tires-team-demo.webp`
+- `assets/img/survey-team-demo.webp`
+- `assets/img/logistics-team-demo.webp`
+- `scripts/phase3.spec.js`
+- `scripts/phase6.spec.js`
+
+**Validaciones realizadas:**
+- `node --check`, `py_compile` y `git diff --check`: sin errores.
+- HTML Validate `11.14.0`: todas las páginas sin errores.
+- Playwright Fases 3 a 7: `64/64` pruebas aprobadas.
+- PDF médico descargado y revisado visualmente en Edge: una página, logo proporcionado, fecha sin cruce y marca de agua visible.
+- Catálogo revisado en `1440x900` y hero en `390x844`, sin desborde horizontal.
+
+**Pendientes detectados:**
+- Probar la versión publicada desde un celular físico cuando se autorice la próxima publicación.
+
+## 2026-09-07 - Estados terminales y formularios dependientes
+
+**Cambios realizados:**
+- Se reemplazaron los avances fijos por secuencias cronológicas específicas para las once demos configurables.
+- Se oculta la acción de avance al llegar al estado final en registros, admisiones médicas y módulos avanzados.
+- Talleres finaliza en “Listo para entregar”, Estudios Contables en “Cerrado” y Constructoras en “Finalizado”.
+- Inmobiliarias propone `ARS 500.000` para alquiler comercial y `USD 80.000` para compra de vivienda.
+- Contacto muestra campos obligatorios de aclaración al seleccionar “Otro rubro” u “Otra necesidad”.
+- Se eliminó la insignia comercial “Módulo Fase 4” de las vistas avanzadas.
+
+**Archivos modificados:**
+- `assets/js/industry-demo-data.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/priority-demo.js`
+- `assets/js/commercial-pages.js`
+- `assets/css/base.css`
+- `contacto/index.html`
+- HTML públicos con actualización de caché.
+- `scripts/phase3.spec.js`
+- `scripts/phase4.spec.js`
+- `scripts/phase6.spec.js`
+
+**Validaciones realizadas:**
+- `node --check` y `git diff --check`: sin errores.
+- HTML Validate `11.14.0`: todas las páginas públicas sin errores.
+- Playwright completo: `67/67` pruebas aprobadas.
+- Inspección visual de presupuesto inmobiliario, campos condicionales y menú terminal de Talleres.
+
+**Pendientes detectados:**
+- Probar estos flujos en la versión publicada desde un celular físico cuando se autorice el próximo push.

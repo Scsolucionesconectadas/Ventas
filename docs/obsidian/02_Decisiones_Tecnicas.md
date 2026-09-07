@@ -423,3 +423,73 @@ Permite incorporar métricas agregadas en una fase posterior sin declarar una in
 - `assets/js/analytics.js`
 - `scripts/phase6.spec.js`
 - `docs/obsidian/07_Integraciones.md`
+
+## 2026-09-07 - Plantilla PDF única y descarga directa
+
+**Decisión:**
+Mantener un único generador jsPDF para todos los rubros, ajustar cada logo dentro de una caja conservando su relación de aspecto, ubicar la fecha debajo del título y dibujar la marca de agua “DEMO” al final con opacidad reducida. La acción visible queda como “Ver PDF” y se elimina “Ver dashboard”.
+
+**Motivo:**
+La plantilla anterior deformaba logos con lienzos transparentes grandes, podía superponer título y fecha y mostraba una acción de dashboard que no aportaba una vista adicional.
+
+**Impacto:**
+Los doce rubros descargan documentos visualmente consistentes y el usuario dispone de una única acción de reporte comprobable.
+
+**Alternativas consideradas:**
+- Mantener dimensiones fijas para todos los logos.
+- Crear una plantilla PDF distinta por rubro.
+- Conservar una acción de dashboard sin una vista diferenciada.
+
+**Archivos relacionados:**
+- `assets/js/pdf-report.js`
+- `assets/js/medical-demo.js`
+- `assets/js/industry-demo.js`
+- `assets/js/priority-demo.js`
+- `assets/js/workflow-demo.js`
+- `rubros/*/index.html`
+
+## 2026-09-07 - Secuencias de estados por rubro y acciones terminales
+
+**Decisión:**
+Definir en la configuración de cada demo una secuencia cronológica de estados y calcular la próxima transición desde esa secuencia. Cuando el registro ya está en el último estado, la acción de avance se omite del menú. El mismo criterio se aplica a admisiones médicas y tablas de módulos avanzados.
+
+**Motivo:**
+Evita transiciones repetidas o incoherentes y hace que Talleres, Estudios Contables, Constructoras y el resto de los rubros representen circuitos operativos comprensibles durante una presentación.
+
+**Impacto:**
+Las once demos configurables usan un único mecanismo de progresión, la agenda médica no vuelve a ofrecer admisión para turnos admitidos o en sala y los módulos avanzados ocultan acciones una vez alcanzado un estado terminal.
+
+**Alternativas consideradas:**
+- Mantener un estado siguiente fijo por rubro.
+- Dejar la acción visible pero deshabilitada.
+- Resolver cada demo con lógica independiente.
+
+**Archivos relacionados:**
+- `assets/js/industry-demo-data.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/priority-demo.js`
+- `scripts/phase3.spec.js`
+- `scripts/phase4.spec.js`
+
+## 2026-09-07 - Campos comerciales dependientes sin backend
+
+**Decisión:**
+Resolver en el navegador los valores y campos que dependen de una selección: el presupuesto inmobiliario cambia según el tipo de interés y el formulario comercial habilita aclaraciones obligatorias para “Otro rubro” y “Otra necesidad”.
+
+**Motivo:**
+GitHub Pages no dispone de backend propio y estas dependencias mejoran la calidad del dato antes de enviar el formulario a FormSubmit.
+
+**Impacto:**
+Alquiler comercial propone `ARS 500.000`, compra de vivienda `USD 80.000` y lote o inversión `USD 35.000`. Las aclaraciones condicionales permanecen deshabilitadas cuando no corresponden y se incluyen en el envío solo cuando están visibles.
+
+**Alternativas consideradas:**
+- Mostrar todos los campos permanentemente.
+- Dejar el presupuesto sin valor orientativo.
+- Incorporar una dependencia externa para formularios dinámicos.
+
+**Archivos relacionados:**
+- `contacto/index.html`
+- `assets/js/commercial-pages.js`
+- `assets/js/industry-demo.js`
+- `assets/js/industry-demo-data.js`

@@ -332,3 +332,23 @@ Cuando una animación usa estado inicial persistente, la variante reducida debe 
 **Archivos relacionados:**
 - `assets/css/presentation.css`
 - `scripts/phase6.spec.js`
+
+## 2026-09-07 - Versionado de caché eliminó nombres de assets
+
+**Síntoma:**
+Varias páginas solicitaban rutas incompletas como `assets/css/?v=20260907-ui1` y `assets/js/?v=20260907-ui1`, por lo que cargaban sin estilos o sin comportamiento.
+
+**Causa:**
+Una interpolación de PowerShell interpretó el signo `?` como parte del nombre de variable al construir las URLs y descartó el nombre del archivo.
+
+**Solución aplicada:**
+Se recuperaron mecánicamente los nombres originales desde `HEAD`, conservando las modificaciones locales y el nuevo sufijo de versión. Luego se verificó que no quedaran referencias incompletas.
+
+**Cómo evitarlo:**
+Al concatenar variables con `?` en PowerShell, delimitar el nombre como `${target}` o usar una expresión de formato y validar las URLs generadas antes de escribir archivos.
+
+**Archivos relacionados:**
+- `index.html`
+- `demos/index.html`
+- `rubros/*/index.html`
+- páginas comerciales HTML

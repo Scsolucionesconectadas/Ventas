@@ -531,7 +531,7 @@
         schedule: document.querySelector("[data-workflow-schedule-summary]").textContent.trim(),
         recipient: document.querySelector("#workflowRecipient").value,
         fileName: `sc-${slug}-workflow-demo.pdf`,
-        logoUrl: "../../assets/img/sc-imagotipo.png",
+        logoUrl: "../../assets/img/sc-symbol.png",
         footerLogoUrl: "../../assets/img/sc-white.png",
         panels: [
           { label: "Estado", value: "Ejecutado", detail: `Intento ${state.attempt}`, series: [32, 48, 67, 78, 92] },

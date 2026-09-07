@@ -16,7 +16,21 @@ const demos = [
   "constructoras",
 ];
 
-test.use({ channel: "msedge" });
+const industryProgressions = {
+  hoteleria: ["Nueva", "Confirmada", "En estadía", "Finalizada"],
+  inmobiliarias: ["Nuevo", "Contactado", "Visita agendada", "Reserva confirmada"],
+  materiales: ["Nuevo", "Cotizado", "Aprobado", "Entregado"],
+  gastronomia: ["Nuevo", "En cocina", "En despacho", "Cobrado"],
+  educacion: ["Consulta", "Inscripción confirmada", "Cursando", "Finalizado"],
+  gomerias: ["Consulta", "Turno confirmado", "En taller", "Entregado"],
+  agrimensores: ["Ingreso", "Trabajo de campo", "Plano en preparación", "Presentado"],
+  logistica: ["Planificado", "En ruta", "Entregado", "Facturado"],
+  talleres: ["Consulta recibida", "Presupuesto preparado", "En reparación", "Listo para entregar"],
+  "estudios-contables": ["Documentación pendiente", "Documentación recibida", "En preparación", "Presentado", "Cerrado"],
+  constructoras: ["Planificado", "En ejecución", "En certificación", "Finalizado"],
+};
+
+test.use({ channel: "msedge", acceptDownloads: true });
 
 test.describe("Fase 3 - experiencia compartida", () => {
   for (const slug of demos) {
@@ -42,6 +56,8 @@ test.describe("Fase 3 - experiencia compartida", () => {
       await expect(searchDialog.locator("[data-search-view]").first()).toBeVisible();
       await searchDialog.locator("[data-search-view]").first().click();
       await expect(page.locator("#view-reportes")).toBeVisible();
+      await expect(page.getByRole("button", { name: "Ver PDF", exact: true })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Ver dashboard", exact: true })).toHaveCount(0);
 
       await page.getByRole("button", { name: /Actividad/ }).click();
       await expect(page.getByRole("dialog", { name: "Actividad reciente" })).toBeVisible();
@@ -115,6 +131,75 @@ test.describe("Fase 3 - experiencia compartida", () => {
     await page.locator(".action-dropdown > summary").click();
     await page.getByRole("button", { name: "Iniciar demo guiada" }).click();
     await expect(page.getByRole("dialog", { name: "Contexto del negocio" })).toBeVisible();
+  });
+
+  test("área médica: la admisión desaparece cuando el turno ya fue admitido", async ({ page }) => {
+    await page.goto(`${baseUrl}/rubros/medica/index.html`, { waitUntil: "networkidle" });
+
+    for (const patient of ["Lucía Peralta", "Marco Bustos"]) {
+      const completedAppointment = page.locator(".appointment-item").filter({ hasText: patient }).first();
+      await completedAppointment.getByRole("button", { name: "Acciones del turno" }).click();
+      await expect(page.getByRole("menuitem", { name: "Marcar admisión" })).toHaveCount(0);
+      await page.keyboard.press("Escape");
+    }
+
+    const pendingAppointment = page.locator(".appointment-item").filter({ hasText: "Sofía Montenegro" }).first();
+    await pendingAppointment.getByRole("button", { name: "Acciones del turno" }).click();
+    await page.getByRole("menuitem", { name: "Marcar admisión" }).click();
+    await expect(pendingAppointment.locator(".tag")).toHaveText("Admitido");
+    await pendingAppointment.getByRole("button", { name: "Acciones del turno" }).click();
+    await expect(page.getByRole("menuitem", { name: "Marcar admisión" })).toHaveCount(0);
+  });
+
+  test("los rubros avanzan en orden y ocultan la acción al completar el circuito", async ({ page }) => {
+    test.setTimeout(120000);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize({ width: 1366, height: 900 });
+
+    for (const [slug, expectedStages] of Object.entries(industryProgressions)) {
+      await page.goto(`${baseUrl}/rubros/${slug}/index.html`, { waitUntil: "networkidle" });
+      expect(await page.evaluate(() => window.SCIndustryDemos[document.body.dataset.demoSlug].pipelineStages)).toEqual(expectedStages);
+
+      const firstRecord = page.locator("#primaryList .record-item").first();
+      const title = await firstRecord.locator(".record-main strong").textContent();
+      const currentStatus = (await firstRecord.locator(".tag").textContent()).trim();
+      const currentIndex = expectedStages.indexOf(currentStatus);
+      expect(currentIndex, `${slug}: estado inicial válido`).toBeGreaterThanOrEqual(0);
+
+      for (const nextStage of expectedStages.slice(currentIndex + 1)) {
+        const record = page.locator("#primaryList .record-item").filter({ hasText: title }).first();
+        await record.getByRole("button", { name: "Acciones del registro" }).click();
+        await page.getByRole("menuitem", { name: `Pasar a ${nextStage}`, exact: true }).click();
+        await expect(record.locator(".tag")).toHaveText(nextStage);
+      }
+
+      const completedRecord = page.locator("#primaryList .record-item").filter({ hasText: title }).first();
+      await completedRecord.getByRole("button", { name: "Acciones del registro" }).click();
+      await expect(page.locator("[data-floating-action='avance']")).toHaveCount(0);
+      await page.keyboard.press("Escape");
+    }
+  });
+
+  test("inmobiliarias ajusta el presupuesto según el tipo de interés", async ({ page }) => {
+    await page.goto(`${baseUrl}/rubros/inmobiliarias/index.html`, { waitUntil: "networkidle" });
+    await page.getByRole("tab", { name: "Visitas" }).click();
+
+    await page.locator("#subtitle").selectOption("Alquiler comercial");
+    await expect(page.locator("#amount")).toHaveValue("ARS 500.000");
+    await page.locator("#subtitle").selectOption("Compra de vivienda");
+    await expect(page.locator("#amount")).toHaveValue("USD 80.000");
+    await page.locator("#subtitle").selectOption("Lote o inversión");
+    await expect(page.locator("#amount")).toHaveValue("USD 35.000");
+  });
+
+  test("área médica: el reporte usa la plantilla PDF compartida", async ({ page }) => {
+    await page.goto(`${baseUrl}/rubros/medica/index.html`, { waitUntil: "networkidle" });
+    await page.getByRole("tab", { name: "Reportes" }).click();
+    const downloadPromise = page.waitForEvent("download");
+    await page.getByRole("button", { name: "Ver PDF", exact: true }).click();
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe("sc-medica-reporte-demo.pdf");
+    await download.saveAs("test-results/sc-medica-reporte-demo.pdf");
   });
 
   test("capturas visuales de referencia", async ({ page }) => {

@@ -98,5 +98,10 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - Todo flujo simulado se detiene antes de la entrega hasta recibir aprobación humana y registra intentos, salida y destinatario ficticio.
 - La Fase 6 usa metadatos estáticos por página para que el contenido sea visible sin depender de JavaScript.
 - Cloudflare Web Analytics queda preparado pero desactivado por defecto; sin token no carga el beacon ni realiza solicitudes.
+- La portada comunica alcance comercial con demos, módulos, procesos automáticos y una visión integral, y reserva un área estable para la acción de cada tarjeta de servicio.
 - La presentación comercial es interna, tiene `noindex` y se puede navegar, mostrar a pantalla completa o imprimir como PDF.
 - La Fase 7 mantiene el motor compartido y suma Talleres, Estudios Contables y Constructoras sin incorporar backend ni dependencias de producción.
+- El catálogo reemplaza el término técnico “Roadmap” por “En planificación”, alinea las acciones de las tarjetas y usa fotografías con personas para Gomerías, Agrimensores y Logística.
+- Los reportes descargables usan una plantilla PDF compartida con logos proporcionados, fecha separada del título y marca de agua “DEMO” superpuesta y translúcida.
+- Los estados operativos avanzan mediante secuencias propias de cada rubro y, al alcanzar el estado final, la acción de avance deja de mostrarse.
+- Los formularios ajustan información dependiente cuando corresponde: Inmobiliarias propone el presupuesto según compra o alquiler y Contacto solicita aclaraciones al elegir “Otro rubro” u “Otra necesidad”.

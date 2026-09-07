@@ -80,7 +80,6 @@
           <h2>${escapeHtml(view.title)}</h2>
           <p>${escapeHtml(view.description)}</p>
         </div>
-        <span class="priority-phase-badge"><i data-lucide="layers-3" aria-hidden="true"></i>Módulo Fase 4</span>
       </header>
 
       <section class="priority-kpi-grid" aria-label="Indicadores de ${escapeHtml(view.label)}">
@@ -164,19 +163,22 @@
     const actionLabel = row.actionLabel || view.table.actionLabel;
     const nextStatus = row.nextStatus || view.table.nextStatus;
     const message = row.message || `${row.cells[0]} actualizado correctamente.`;
+    const isComplete = isTerminalRowStatus(row.status, nextStatus);
     return `
       <tr data-priority-record>
         ${row.cells.map((cell, index) => `<td>${index === 0 ? `<strong>${escapeHtml(cell)}</strong>` : escapeHtml(cell)}</td>`).join("")}
         <td><span class="tag ${statusClass(row.status)}" data-priority-status>${escapeHtml(row.status)}</span></td>
         <td>
-          <button
-            class="priority-row-action"
-            type="button"
-            data-priority-row-action
-            data-priority-next-status="${escapeHtml(nextStatus)}"
-            data-priority-message="${escapeHtml(message)}"
-            aria-label="${escapeHtml(actionLabel)}: ${escapeHtml(row.cells[0])}"
-          >${escapeHtml(actionLabel)}</button>
+          ${isComplete ? '<span class="sr-only">Sin acciones pendientes</span>' : `
+            <button
+              class="priority-row-action"
+              type="button"
+              data-priority-row-action
+              data-priority-next-status="${escapeHtml(nextStatus)}"
+              data-priority-message="${escapeHtml(message)}"
+              aria-label="${escapeHtml(actionLabel)}: ${escapeHtml(row.cells[0])}"
+            >${escapeHtml(actionLabel)}</button>
+          `}
         </td>
       </tr>
     `;
@@ -402,8 +404,10 @@
     if (!tag) return;
     tag.textContent = button.dataset.priorityNextStatus;
     tag.className = `tag ${statusClass(button.dataset.priorityNextStatus)}`;
-    button.disabled = true;
-    button.textContent = "Completado";
+    button.replaceWith(Object.assign(document.createElement("span"), {
+      className: "sr-only",
+      textContent: "Sin acciones pendientes",
+    }));
     showToast(button.dataset.priorityMessage);
   }
 
@@ -424,7 +428,7 @@
         schedule: "Bajo demanda",
         recipient: demo.recipient,
         fileName: `sc-${slug}-${view.id}-demo.pdf`,
-        logoUrl: "../../assets/img/sc-imagotipo.png",
+        logoUrl: "../../assets/img/sc-symbol.png",
         footerLogoUrl: "../../assets/img/sc-white.png",
         panels: view.metrics.map((metric, index) => ({
           label: metric.label,
@@ -461,6 +465,12 @@
     if (/aprob|activo|vigente|pagado|firmado|entregado|completado|validado|disponible|enviado|confirmado|al dia/.test(normalized)) return "ok";
     if (/venc|rechaz|bloque|demorado|critico|atrasado/.test(normalized)) return "urgent";
     return "waiting";
+  }
+
+  function isTerminalRowStatus(status, nextStatus) {
+    const normalized = normalize(status);
+    return normalized === normalize(nextStatus)
+      || ["aprobado", "al dia", "cerrado", "completado", "entregado", "finalizado", "firmado", "pagado", "presentado"].includes(normalized);
   }
 
   function normalize(value) {

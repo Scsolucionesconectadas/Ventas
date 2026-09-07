@@ -27,7 +27,7 @@ test.describe("Fase 4 - demos prioritarias", () => {
       for (const viewId of demo.views) {
         await page.locator(`.side-nav [data-priority-view="${viewId}"]`).click();
         await expect(page.locator(`#view-${viewId}`)).toBeVisible();
-        await expect(page.locator(`#view-${viewId} .priority-phase-badge`)).toContainText("Módulo Fase 4");
+        await expect(page.locator(`#view-${viewId}`)).not.toContainText("Módulo Fase 4");
       }
 
       const firstView = demo.views[0];
@@ -35,6 +35,7 @@ test.describe("Fase 4 - demos prioritarias", () => {
       const panel = page.locator(`#view-${firstView}`);
       const tableRows = panel.locator("[data-priority-record]");
       const initialRows = await tableRows.count();
+      await expect(tableRows.nth(1).locator("[data-priority-row-action]")).toHaveCount(0);
 
       await panel.locator("[data-priority-new]").click();
       const recordModal = page.locator("[data-priority-modal]:not([hidden])");
@@ -52,7 +53,7 @@ test.describe("Fase 4 - demos prioritarias", () => {
       const rowAction = firstRow.locator("[data-priority-row-action]");
       const nextStatus = await rowAction.getAttribute("data-priority-next-status");
       await rowAction.click();
-      await expect(rowAction).toBeDisabled();
+      await expect(firstRow.locator("[data-priority-row-action]")).toHaveCount(0);
       await expect(firstRow.locator("[data-priority-status]")).toHaveText(nextStatus);
 
       await panel.locator("[data-priority-email]").click();

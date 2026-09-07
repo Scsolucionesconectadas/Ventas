@@ -12,6 +12,9 @@
 
 ## Resueltos
 
+- [x] Ordenar los estados de todas las demos, ocultar acciones terminales, ajustar presupuestos inmobiliarios y agregar aclaraciones condicionales al contacto - 2026-09-07
+- [x] Mejorar lenguaje, composición del catálogo, fotografías por rubro, alineación de controles, admisión médica y plantilla PDF compartida - 2026-09-07
+- [x] Separar el botón `+` del texto y mejorar los indicadores comerciales y de reducción de tareas de la portada - 2026-09-07
 - [x] Publicar la Fase 7 en `origin/main`, commit `0993734`, y verificarla en GitHub Pages - 2026-09-06
 - [x] Publicar la Fase 6 en `origin/main`, commit `1fb549b`, y verificar la presentación en GitHub Pages - 2026-09-06
 - [x] Implementar Talleres, Estudios Contables y Constructoras con módulos, reportes, asistentes y workflows - 2026-09-06

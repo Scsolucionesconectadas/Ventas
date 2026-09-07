@@ -25,8 +25,8 @@
         putOnlyUsedFonts: true,
         compress: true,
       });
-      const logo = await toDataUrl(options.logoUrl);
-      const footerLogo = await toDataUrl(options.footerLogoUrl);
+      const logo = await loadImageAsset(options.logoUrl);
+      const footerLogo = await loadImageAsset(options.footerLogoUrl);
       const page = {
         width: doc.internal.pageSize.getWidth(),
         height: doc.internal.pageSize.getHeight(),
@@ -35,13 +35,21 @@
       };
       const contentWidth = page.width - page.margin * 2;
 
+      doc.setProperties({
+        title: options.title || "Reporte ejecutivo SC",
+        subject: `Documento demo de ${options.rubro || "Soluciones Conectadas"}`,
+        author: brand.name,
+        creator: brand.name,
+      });
+
       drawChrome(doc, page, options, logo, footerLogo);
 
-      let y = 120;
+      let y = 116;
       y = drawTitle(doc, page, options, y);
       y = drawMeta(doc, page, options, y + 10, contentWidth);
       y = drawKpis(doc, page, options.panels || [], y + 16, contentWidth);
       y = drawSummary(doc, page, options, y + 18, contentWidth);
+      drawWatermark(doc, page);
 
       const fileName = options.fileName || "sc-reporte-demo.pdf";
       doc.save(fileName);
@@ -61,7 +69,7 @@
     doc.line(page.margin, 86, page.width - page.margin, 86);
 
     if (logo) {
-      doc.addImage(logo, "PNG", page.margin, 24, 128, 46, undefined, "FAST");
+      drawFittedImage(doc, logo, page.margin, 24, 92, 38);
     } else {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(24);
@@ -78,18 +86,13 @@
     doc.setTextColor(...brand.muted);
     doc.text(brand.subtitle, page.width - page.margin, 57, { align: "right" });
 
-    doc.setTextColor(225, 235, 242);
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(28);
-    doc.text("DOCUMENTO DEMO", page.width - 18, 545, { angle: 90, align: "center" });
-
     doc.setFillColor(...brand.ink);
     doc.rect(0, page.footerTop, page.width, page.height - page.footerTop, "F");
     doc.setFillColor(...brand.accent);
     doc.rect(0, page.footerTop, page.width, 4, "F");
 
     if (footerLogo) {
-      doc.addImage(footerLogo, "PNG", page.margin, page.footerTop + 22, 50, 36, undefined, "FAST");
+      drawFittedImage(doc, footerLogo, page.margin, page.footerTop + 22, 48, 28);
     }
 
     doc.setFont("helvetica", "bold");
@@ -110,20 +113,22 @@
 
   function drawTitle(doc, page, options, y) {
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(20);
+    doc.setFontSize(19);
     doc.setTextColor(...brand.ink);
-    doc.text(options.title || "Reporte ejecutivo", page.margin, y);
+    const titleLines = doc.splitTextToSize(options.title || "Reporte ejecutivo", page.width - page.margin * 2);
+    doc.text(titleLines, page.margin, y);
+    const titleBottom = y + (titleLines.length - 1) * 22;
 
     doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
+    doc.setFontSize(9);
     doc.setTextColor(...brand.muted);
     const generatedAt = new Intl.DateTimeFormat("es-AR", {
       dateStyle: "medium",
       timeStyle: "short",
     }).format(new Date());
-    doc.text(`Generado: ${generatedAt}`, page.width - page.margin, y, { align: "right" });
+    doc.text(`Generado: ${generatedAt}`, page.width - page.margin, titleBottom + 18, { align: "right" });
 
-    return y + 28;
+    return titleBottom + 28;
   }
 
   function drawMeta(doc, page, options, y, contentWidth) {
@@ -225,6 +230,23 @@
     return y + 108;
   }
 
+  function drawWatermark(doc, page) {
+    doc.saveGraphicsState();
+    if (typeof doc.GState === "function" && typeof doc.setGState === "function") {
+      doc.setGState(new doc.GState({ opacity: 0.1 }));
+      doc.setTextColor(100, 116, 130);
+    } else {
+      doc.setTextColor(226, 232, 237);
+    }
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(94);
+    doc.text("DEMO", page.width / 2, page.height / 2 + 28, {
+      align: "center",
+      angle: 35,
+    });
+    doc.restoreGraphicsState();
+  }
+
   function drawSparkline(doc, x, y, width, height, series) {
     const max = Math.max(...series);
     const min = Math.min(...series);
@@ -255,19 +277,71 @@
     return y + lines.length * lineHeight;
   }
 
-  async function toDataUrl(url) {
+  function drawFittedImage(doc, asset, x, y, maxWidth, maxHeight) {
+    if (!asset?.dataUrl || !asset.width || !asset.height) return;
+
+    const scale = Math.min(maxWidth / asset.width, maxHeight / asset.height);
+    const width = asset.width * scale;
+    const height = asset.height * scale;
+    const offsetY = (maxHeight - height) / 2;
+    doc.addImage(asset.dataUrl, "PNG", x, y + offsetY, width, height, undefined, "FAST");
+  }
+
+  async function loadImageAsset(url) {
     if (!url) return null;
 
     try {
       const response = await fetch(url);
       if (!response.ok) return null;
       const blob = await response.blob();
-      return await new Promise((resolve, reject) => {
+      const dataUrl = await new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => resolve(reader.result);
         reader.onerror = reject;
         reader.readAsDataURL(blob);
       });
+      const image = await new Promise((resolve, reject) => {
+        const element = new Image();
+        element.onload = () => resolve(element);
+        element.onerror = reject;
+        element.src = dataUrl;
+      });
+      const canvas = document.createElement("canvas");
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+      context.drawImage(image, 0, 0);
+      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      let left = canvas.width;
+      let top = canvas.height;
+      let right = -1;
+      let bottom = -1;
+
+      for (let py = 0; py < canvas.height; py += 1) {
+        for (let px = 0; px < canvas.width; px += 1) {
+          const alpha = pixels[(py * canvas.width + px) * 4 + 3];
+          if (alpha <= 8) continue;
+          left = Math.min(left, px);
+          top = Math.min(top, py);
+          right = Math.max(right, px);
+          bottom = Math.max(bottom, py);
+        }
+      }
+
+      if (right < left || bottom < top) return null;
+
+      const width = right - left + 1;
+      const height = bottom - top + 1;
+      const cropped = document.createElement("canvas");
+      cropped.width = width;
+      cropped.height = height;
+      cropped.getContext("2d").drawImage(canvas, left, top, width, height, 0, 0, width, height);
+
+      return {
+        dataUrl: cropped.toDataURL("image/png"),
+        width,
+        height,
+      };
     } catch (error) {
       return null;
     }

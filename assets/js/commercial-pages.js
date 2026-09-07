@@ -132,6 +132,9 @@ function bindContactForm() {
   if (necesidad && params.get("necesidad")) necesidad.value = params.get("necesidad");
   if (message && params.get("mensaje")) message.value = params.get("mensaje").slice(0, 1500);
 
+  bindConditionalContactField(rubro, form.querySelector("#rubro-otro-field"), form.elements.namedItem("rubro_especifico"), "otro");
+  bindConditionalContactField(necesidad, form.querySelector("#necesidad-otra-field"), form.elements.namedItem("necesidad_especifica"), "otra");
+
   form.addEventListener("submit", () => {
     const submit = form.querySelector('button[type="submit"]');
     if (!submit) return;
@@ -139,6 +142,24 @@ function bindContactForm() {
     submit.setAttribute("aria-busy", "true");
     submit.querySelector("span").textContent = "Enviando consulta...";
   });
+}
+
+function bindConditionalContactField(select, container, input, expectedValue) {
+  if (!(select instanceof HTMLSelectElement) || !(container instanceof HTMLElement) || !(input instanceof HTMLInputElement)) return;
+
+  const sync = (shouldFocus = false) => {
+    const isVisible = select.value === expectedValue;
+    container.hidden = !isVisible;
+    input.disabled = !isVisible;
+    input.required = isVisible;
+    select.setAttribute("aria-expanded", String(isVisible));
+
+    if (!isVisible) input.value = "";
+    if (isVisible && shouldFocus) input.focus();
+  };
+
+  select.addEventListener("change", () => sync(true));
+  sync();
 }
 
 function escapeCommercialHtml(value) {

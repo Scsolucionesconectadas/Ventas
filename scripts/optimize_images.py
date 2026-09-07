@@ -16,6 +16,9 @@ SOURCE_NAMES = (
     "tires-demo.jpg",
     "survey-demo.jpg",
     "logistics-demo.jpg",
+    "tires-team-demo.jpg",
+    "survey-team-demo.jpg",
+    "logistics-team-demo.jpg",
 )
 MAX_WIDTH = 1600
 WEBP_QUALITY = 84

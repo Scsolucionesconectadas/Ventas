@@ -27,7 +27,7 @@ function renderDemoCatalogs() {
 }
 
 function renderDemoCard(demo, rootPrefix) {
-  const statusLabel = demo.status === "listo" ? "Demo lista" : "Roadmap";
+  const statusLabel = demo.status === "listo" ? "Demo lista" : "En planificación";
   const statusClass = demo.status === "listo" ? "ready" : "roadmap";
   const modules = (demo.modules || [])
     .map((module) => `<li>${escapeHtml(module)}</li>`)

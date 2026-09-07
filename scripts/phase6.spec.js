@@ -91,6 +91,149 @@ test.describe("Fase 6 - publicación y presentación comercial", () => {
     expect(website.inLanguage).toBe("es-AR");
   });
 
+  test("la portada presenta indicadores comerciales y separa el texto de las acciones", async ({ page }) => {
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+
+    const proofItems = page.locator(".proof-item");
+    await expect(proofItems).toHaveCount(4);
+    await expect(proofItems.nth(0).locator("strong")).toHaveText("12");
+    await expect(proofItems.nth(0).locator("span")).toHaveText("demos sectoriales");
+    await expect(proofItems.nth(1)).toContainText("7+");
+    await expect(proofItems.nth(1)).toContainText("módulos por experiencia");
+    await expect(proofItems.nth(2)).toContainText("2");
+    await expect(proofItems.nth(2)).toContainText("procesos automáticos por rubro");
+    await expect(proofItems.nth(3)).toContainText("360°");
+    await expect(proofItems.nth(3)).toContainText("gestión, automatización y reportes");
+    await expect(page.locator(".outcome-item").nth(2)).toContainText("Hasta 60% menos");
+    await expect(page.locator(".outcome-item").nth(2)).toContainText("Tareas manuales repetitivas");
+
+    const viewports = [
+      { name: "desktop", width: 1366, height: 768 },
+      { name: "tablet", width: 768, height: 1024 },
+      { name: "mobile", width: 390, height: 844 },
+    ];
+
+    for (const viewport of viewports) {
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+      await expect(page.locator(".service-button").first()).toHaveCSS("opacity", "1");
+
+      const serviceLayout = await page.locator(".service-button").evaluateAll((cards) =>
+        cards.map((card) => {
+          const cardRect = card.getBoundingClientRect();
+          const action = getComputedStyle(card, "::after");
+          const actionRect = {
+            left: cardRect.right - parseFloat(action.right) - parseFloat(action.width),
+            top: cardRect.bottom - parseFloat(action.bottom) - parseFloat(action.height),
+            right: cardRect.right - parseFloat(action.right),
+            bottom: cardRect.bottom - parseFloat(action.bottom),
+          };
+          const paragraph = card.querySelector("p");
+          const range = document.createRange();
+          range.selectNodeContents(paragraph);
+          const textRects = Array.from(range.getClientRects());
+          const overlapsAction = textRects.some(
+            (rect) =>
+              rect.right + 10 > actionRect.left &&
+              rect.left - 10 < actionRect.right &&
+              rect.bottom + 10 > actionRect.top &&
+              rect.top - 10 < actionRect.bottom,
+          );
+
+          return { overlapsAction, text: paragraph.textContent.trim() };
+        }),
+      );
+      const horizontalOverflow = await page.evaluate(
+        () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+      );
+
+      expect(serviceLayout.filter((item) => item.overlapsAction), viewport.name).toEqual([]);
+      expect(horizontalOverflow, viewport.name).toBeFalsy();
+
+      if (viewport.name !== "tablet") {
+        await page.locator("#servicios").screenshot({
+          path: `test-results/landing-services-${viewport.name}.png`,
+        });
+      }
+    }
+  });
+
+  test("el catálogo usa lenguaje claro, fotos por rubro y controles alineados", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto(`${baseUrl}/demos/`, { waitUntil: "networkidle" });
+
+    await expect(page.getByRole("heading", { name: "Demos navegables para presentar soluciones reales en cada rubro." })).toBeVisible();
+    await expect(page.getByRole("button", { name: "En planificación" })).toBeVisible();
+    await expect(page.getByText("Roadmap", { exact: true })).toHaveCount(0);
+
+    const expectedImages = {
+      Gomerías: "tires-team-demo.webp",
+      Agrimensores: "survey-team-demo.webp",
+      "Logística y transporte": "logistics-team-demo.webp",
+    };
+    for (const [title, fileName] of Object.entries(expectedImages)) {
+      const card = page.locator(".industry-card").filter({ has: page.getByRole("heading", { name: title }) });
+      await expect(card.locator("img")).toHaveAttribute("src", new RegExp(fileName));
+      expect(await card.locator("img").evaluate((image) => image.complete && image.naturalWidth === 1600)).toBeTruthy();
+    }
+
+    const layout = await page.evaluate(() => {
+      const heading = document.querySelector(".demos-hero .section-heading");
+      const title = heading.querySelector("h1").getBoundingClientRect();
+      const copy = heading.querySelector(":scope > p").getBoundingClientRect();
+      const rows = new Map();
+      document.querySelectorAll(".demos-catalog-grid .industry-card").forEach((card) => {
+        const row = Math.round(card.getBoundingClientRect().top);
+        const disclosureTop = card.querySelector(".feature-disclosure").getBoundingClientRect().top;
+        rows.set(row, [...(rows.get(row) || []), disclosureTop]);
+      });
+      return {
+        titleIsWider: title.width > copy.width,
+        alignedRows: [...rows.values()].every((tops) => Math.max(...tops) - Math.min(...tops) <= 1),
+        overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+      };
+    });
+
+    expect(layout.titleIsWider).toBeTruthy();
+    expect(layout.alignedRows).toBeTruthy();
+    expect(layout.overflow).toBeFalsy();
+    await page.locator(".demos-catalog-grid").screenshot({ path: "test-results/catalog-aligned-with-photos.png" });
+  });
+
+  test("contacto solicita una aclaración para otro rubro u otra necesidad", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${baseUrl}/contacto/`, { waitUntil: "networkidle" });
+
+    const rubroField = page.locator("#rubro-otro-field");
+    const rubroInput = page.locator("#rubro-otro");
+    await expect(rubroField).toBeHidden();
+    await page.locator("#rubro").selectOption("otro");
+    await expect(rubroField).toBeVisible();
+    await expect(rubroInput).toBeEnabled();
+    await expect(rubroInput).toHaveAttribute("required", "");
+    await expect(rubroInput).toBeFocused();
+    await rubroInput.fill("Distribuidora regional");
+
+    const necesidadField = page.locator("#necesidad-otra-field");
+    const necesidadInput = page.locator("#necesidad-otra");
+    await expect(necesidadField).toBeHidden();
+    await page.locator("#necesidad").selectOption("otra");
+    await expect(necesidadField).toBeVisible();
+    await expect(necesidadInput).toBeEnabled();
+    await expect(necesidadInput).toHaveAttribute("required", "");
+    await expect(necesidadInput).toBeFocused();
+    await expect(necesidadField.locator(".field-help")).toContainText("campo siguiente");
+
+    await page.locator("#rubro").selectOption("medica");
+    await expect(rubroField).toBeHidden();
+    await expect(rubroInput).toBeDisabled();
+    await expect(rubroInput).toHaveValue("");
+
+    const horizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
+    expect(horizontalOverflow).toBeFalsy();
+  });
+
   test("sitemap y robots cubren todas las páginas públicas", async () => {
     const sitemap = fs.readFileSync(path.join(__dirname, "..", "sitemap.xml"), "utf8");
     const robots = fs.readFileSync(path.join(__dirname, "..", "robots.txt"), "utf8");
