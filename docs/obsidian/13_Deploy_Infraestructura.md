@@ -9,9 +9,9 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: Fase 7 publicada en `origin/main`; commit `0993734`.
-- Estado local: sin cambios funcionales pendientes; la documentación registra el cierre de publicación.
-- Estado de Pages: activo; `https://scsolucionesconectadas.github.io/Ventas/rubros/talleres/` respondió HTTP `200` el 2026-09-06 con la Fase 7 publicada.
+- Estado del código remoto: mejoras comerciales y operativas publicadas en `origin/main`; commit `5414d39`.
+- Estado local: sin cambios funcionales pendientes; la documentación registra la publicación del 2026-09-08.
+- Estado de Pages: activo; portada y Contacto respondieron HTTP `200` el 2026-09-08. La portada entregó assets `20260907-ui2` y Contacto incluyó el campo condicional `necesidad_especifica`.
 
 ## Archivos de soporte
 

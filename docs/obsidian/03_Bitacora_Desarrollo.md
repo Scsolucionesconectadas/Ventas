@@ -720,7 +720,7 @@
 - Se reemplazó “Roadmap” por “En planificación” y se adoptó un lenguaje centrado en ineficiencias o situaciones operativas.
 - Se equilibró el hero de Demos y se alinearon verticalmente “Ver módulos” y “Abrir demo” en cada fila.
 - Se generaron y optimizaron fotografías con personas para Gomerías, Agrimensores y Logística.
-- La demo médica bloquea una segunda admisión y presenta “Admisión completada” como acción deshabilitada.
+- La demo médica bloquea una segunda admisión y omite la acción cuando el turno ya fue admitido.
 - Se eliminó “Ver dashboard” de los reportes y se normalizó “Ver PDF” en todas las demos.
 - La plantilla PDF recorta transparencias del logo, conserva proporciones, separa título y fecha y coloca una marca “DEMO” diagonal sobre el contenido.
 
@@ -782,3 +782,23 @@
 
 **Pendientes detectados:**
 - Probar estos flujos en la versión publicada desde un celular físico cuando se autorice el próximo push.
+
+## 2026-09-08 - Publicación de mejoras comerciales y operativas
+
+**Cambios realizados:**
+- Se publicó en `origin/main` el commit `5414d39` con todas las mejoras visuales, PDFs, imágenes, secuencias de estados y formularios realizadas en la tanda anterior.
+- Se verificó que GitHub Pages sirva la versión de assets `20260907-ui2` y el nuevo campo condicional `necesidad_especifica`.
+
+**Archivos modificados:**
+- `docs/obsidian/03_Bitacora_Desarrollo.md`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/13_Deploy_Infraestructura.md`
+
+**Validaciones realizadas:**
+- `git ls-remote origin refs/heads/main`: commit `5414d39` confirmado.
+- Portada pública: HTTP `200` y marcador de versión `20260907-ui2` presente.
+- Contacto público: HTTP `200` y campo `necesidad_especifica` presente.
+
+**Pendientes detectados:**
+- Probar la experiencia publicada desde un celular físico.
+- Confirmar el primer envío real de FormSubmit.
