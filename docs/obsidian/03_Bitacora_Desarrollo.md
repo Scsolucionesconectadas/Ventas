@@ -802,3 +802,59 @@
 **Pendientes detectados:**
 - Probar la experiencia publicada desde un celular físico.
 - Confirmar el primer envío real de FormSubmit.
+
+## 2026-09-08 - Evaluación de Uiverse y plan de mejora visual
+
+**Cambios realizados:**
+- Se evaluó Uiverse como fuente de botones, tarjetas, formularios, inputs, loaders, switches y tooltips.
+- Se definió usarlo como referencia selectiva, sin dependencia remota y adaptando cada patrón a la identidad SC.
+- Se creó un plan de seis etapas con prioridades, criterios de adopción, accesibilidad, pruebas y estimación inicial.
+
+**Archivos modificados:**
+- `docs/obsidian/14_Plan_Mejoras_UIverse.md`
+- `docs/obsidian/00_Contexto_Proyecto.md`
+- `docs/obsidian/03_Bitacora_Desarrollo.md`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/10_UI_UX_Diseno.md`
+
+**Validaciones realizadas:**
+- Se revisaron el catálogo oficial, las categorías principales y fichas individuales de Uiverse.
+- Se confirmó la licencia MIT declarada por Uiverse para los elementos publicados.
+- La inspección visual automatizada directa fue bloqueada por Cloudflare; no afecta el acceso manual ni la evaluación documental.
+
+**Pendientes detectados:**
+- Seleccionar entre 8 y 12 componentes concretos y preparar el laboratorio visual interno.
+
+## 2026-09-08 - Primera tanda de mejoras visuales inspiradas en Uiverse
+
+**Cambios realizados:**
+- Se creó una capa compartida de validación inline en español, estados de botones y tooltips para páginas estáticas y formularios generados dinámicamente.
+- Se aplicaron estados de carga y confirmación en Contacto, nuevos turnos, altas por rubro, módulos avanzados, emails simulados y programación de automatizaciones.
+- Se rediseñaron el checkbox de consentimiento y el comparador de período como controles claros con foco visible.
+- Se reforzaron el foco de tarjetas de demos, el acento de KPI y la presentación de skeletons sin incorporar animación continua.
+- Las 19 páginas basadas en el sistema visual SC cargan el módulo local y usan la versión de caché `20260908-ui1`.
+- El usuario autorizó publicar esta entrega en `origin/main`.
+
+**Archivos modificados:**
+- `assets/css/base.css`
+- `assets/js/ui-enhancements.js`
+- `assets/js/commercial-pages.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/priority-demo.js`
+- `assets/js/workflow-demo.js`
+- `index.html`, páginas comerciales y `rubros/*/index.html`
+- `scripts/ui-enhancements.spec.js`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: todos los JavaScript modificados y la nueva prueba sin errores.
+- HTML Validate `11.14.0`: las 20 páginas HTML pasaron sin errores estructurales.
+- Playwright: regresión unificada con `73/73` pruebas aprobadas en Microsoft Edge.
+- Axe Core `4.10.3`: sin infracciones serias o críticas con el formulario comercial en estado de error.
+- Revisión visual de Contacto en `1440x1000` y `390x844`, sin desborde horizontal ni superposición incoherente.
+- `git diff --check`: sin errores de whitespace.
+
+**Pendientes detectados:**
+- Crear un laboratorio visual no indexable para explorar variantes futuras sin afectar producción.
+- Revisar esta entrega desde un celular físico después de su publicación en GitHub Pages.

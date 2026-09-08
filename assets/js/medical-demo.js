@@ -341,15 +341,18 @@ function bindAppointmentForm() {
   const form = $("#appointmentForm");
   if (!form) return;
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    const submitButton = form.querySelector('button[type="submit"]');
+    window.SCUI?.setButtonState(submitButton, "loading", "Confirmando turno...");
     const patientId = $("#appointmentPatient").value;
     const patient = getPatient(patientId);
     const doctor = $("#appointmentDoctor").value;
     const date = $("#appointmentDate").value;
     const time = $("#appointmentTime").value;
     const reason = $("#appointmentReason").value.trim();
+    await (window.SCUI?.wait(260) || Promise.resolve());
 
     appointments.push({
       id: `t-${Date.now()}`,
@@ -368,6 +371,7 @@ function bindAppointmentForm() {
     renderAll();
     setView("turnos");
     showToast(`Turno confirmado para ${patient.name} a las ${time}.`);
+    window.SCUI?.completeButton(submitButton, "Turno confirmado");
   });
 }
 

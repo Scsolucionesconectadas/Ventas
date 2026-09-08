@@ -86,6 +86,18 @@
 - Los módulos avanzados no muestran etiquetas internas de fase y también omiten acciones para estados terminales equivalentes como cerrado, finalizado, entregado, pagado o presentado.
 - Inmobiliarias actualiza el presupuesto orientativo al cambiar compra, alquiler o inversión sin alterar la disposición del formulario.
 - Los campos de aclaración de Contacto aparecen solo para “Otro rubro” y “Otra necesidad”, reciben foco, pasan a ser obligatorios y vuelven a quedar deshabilitados al ocultarse.
+- La capa `ui-enhancements.js` agrega validación inline en español y relaciones `aria-describedby` a formularios estáticos y dinámicos sin duplicar lógica por rubro.
+- Los botones de envío y alta muestran estados estables de carga y confirmación sin cambiar su ancho; el feedback se aplica en Contacto, turnos, altas, módulos avanzados y programación de automatizaciones.
+- El checkbox de consentimiento y el switch de comparación usan controles propios con foco visible, tamaño estable y semántica nativa.
+- Los botones que muestran solo iconos reciben tooltips derivados de su nombre accesible y funcionan con hover o foco de teclado.
+- Las tarjetas de demos refuerzan su estado de foco, los KPI usan un acento sutil y los skeletons conservan movimiento reducido.
+
+## Referencias externas evaluadas
+
+- [Uiverse](https://uiverse.io/) se conserva como referencia para botones, tarjetas, inputs, formularios, loaders, switches y tooltips.
+- La primera tanda se implementó con patrones propios inspirados en sus categorías; no se copió un componente completo ni se cargó código remoto.
+- La selección debe priorizar HTML/CSS, accesibilidad, movimiento reducido, bajo peso y compatibilidad con GitHub Pages.
+- El plan detallado está en [[14_Plan_Mejoras_UIverse]].
 
 ## Pendientes de diseño
 

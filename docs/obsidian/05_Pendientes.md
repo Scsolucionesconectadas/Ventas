@@ -9,9 +9,11 @@
 ## En revisión
 
 - [ ] Revisar Talleres, Estudios Contables y Constructoras en una reunión comercial de prueba.
+- [ ] Crear un laboratorio visual interno no indexable para comparar futuras variantes antes de llevarlas a producción.
 
 ## Resueltos
 
+- [x] Implementar una primera tanda de ocho patrones visuales inspirados en Uiverse y validarlos con 73 pruebas - 2026-09-08
 - [x] Publicar en `origin/main` el commit `5414d39` y verificar portada y contacto en GitHub Pages - 2026-09-08
 - [x] Ordenar los estados de todas las demos, ocultar acciones terminales, ajustar presupuestos inmobiliarios y agregar aclaraciones condicionales al contacto - 2026-09-07
 - [x] Mejorar lenguaje, composición del catálogo, fotografías por rubro, alineación de controles, admisión médica y plantilla PDF compartida - 2026-09-07

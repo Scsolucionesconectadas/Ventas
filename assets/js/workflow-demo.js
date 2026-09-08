@@ -266,14 +266,25 @@
     if (event.target.matches("[data-workflow-period], [data-workflow-compare]")) updateDashboard();
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     if (event.target.matches("[data-workflow-schedule-form]")) {
       event.preventDefault();
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      window.SCUI?.setButtonState(submitButton, "loading", "Guardando programación...");
+      await (window.SCUI?.wait(220) || Promise.resolve());
       saveSchedule(event.target);
+      window.SCUI?.completeButton(submitButton, "Programación guardada");
     }
     if (event.target.matches("[data-workflow-email-form]")) {
       event.preventDefault();
       const recipient = String(new FormData(event.target).get("recipient"));
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      if (window.SCUI) {
+        window.SCUI.setButtonState(submitButton, "loading", "Preparando email...");
+        await window.SCUI.wait(220);
+        window.SCUI.setButtonState(submitButton, "success", "Email preparado");
+        await window.SCUI.wait(320);
+      }
       closeModal();
       appendHistory("Preparado", "Email demo", recipient, state.attempt);
       showToast(`Email demo preparado para ${recipient}. No se realizó ningún envío real.`);

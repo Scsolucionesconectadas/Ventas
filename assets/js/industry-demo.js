@@ -194,9 +194,12 @@
     renderFormFields();
     bindFormDependencies(form);
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(form);
+      const submitButton = form.querySelector('button[type="submit"]');
+      window.SCUI?.setButtonState(submitButton, "loading", "Guardando registro...");
+      await (window.SCUI?.wait(260) || Promise.resolve());
       const initialStage = config.pipelineStages[0];
       const record = {
         id: `${slug}-${Date.now()}`,
@@ -223,6 +226,7 @@
       renderAll();
       setView("operacion");
       showToast(`Registro demo creado desde ${config.formTitle.toLowerCase()}.`);
+      window.SCUI?.completeButton(submitButton, "Registro creado");
     });
   }
 

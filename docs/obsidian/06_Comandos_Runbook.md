@@ -28,6 +28,7 @@ node --check assets/js/presentation.js
 node --check assets/js/industry-demo-data.js
 node --check assets/js/industry-demo.js
 node --check assets/js/pdf-report.js
+node --check assets/js/ui-enhancements.js
 python -m py_compile scripts/optimize_images.py
 git diff --check
 ```
@@ -83,7 +84,7 @@ Regresión unificada antes de publicar:
 ```powershell
 $root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
-npx --yes playwright@1.55.0 test scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js scripts/phase6.spec.js scripts/phase7.spec.js --reporter=line --workers=1
+npx --yes playwright@1.55.0 test scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js scripts/phase6.spec.js scripts/phase7.spec.js scripts/ui-enhancements.spec.js --reporter=line --workers=1
 ```
 
 Las pruebas de PDF esperan `download.path()` y las auditorías visuales esperan opacidad final `1` para no medir una transición incompleta.

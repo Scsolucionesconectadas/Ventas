@@ -1,5 +1,33 @@
 # Decisiones Técnicas
 
+## 2026-09-08 - Capa de interfaz compartida sin dependencia de Uiverse
+
+**Decisión:**
+Implementar los patrones seleccionados como una capa propia en `base.css` y `ui-enhancements.js`, cargada por las 19 páginas que usan el sistema visual SC. Uiverse se mantiene como referencia de categorías, sin importar código remoto ni sumar una librería.
+
+**Motivo:**
+El sitio debe conservar identidad, accesibilidad y compatibilidad con GitHub Pages. Una capa local permite compartir validación, tooltips y estados de botones entre páginas estáticas y contenido generado dinámicamente.
+
+**Impacto:**
+Contacto y formularios de demos muestran errores en español, estados de carga y confirmación; los botones de icono reciben tooltips; el consentimiento y el comparador usan controles visuales claros; tarjetas, KPI y skeletons reciben microinteracciones sobrias. No cambia el stack ni se agregan solicitudes externas.
+
+**Alternativas consideradas:**
+- Copiar componentes completos de autores individuales de Uiverse.
+- Cargar una biblioteca de componentes o CSS desde un CDN.
+- Mantener patrones distintos en cada formulario y demo.
+
+**Archivos relacionados:**
+- `assets/css/base.css`
+- `assets/js/ui-enhancements.js`
+- `assets/js/commercial-pages.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/priority-demo.js`
+- `assets/js/workflow-demo.js`
+- `scripts/ui-enhancements.spec.js`
+- `index.html`
+- `rubros/*/index.html`
+
 ## 2026-09-06 - Tres rubros nuevos sobre el motor compartido
 
 **Decisión:**

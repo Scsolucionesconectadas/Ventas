@@ -6,7 +6,7 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y doce demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores, logística/transporte, talleres y servicios técnicos, estudios contables, y constructoras/obras. La Fase 7 está publicada en `origin/main` con el commit `0993734` e incorpora los tres rubros nuevos sobre la base de SEO, sitemap, analítica opcional y presentación comercial de Fase 6. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y doce demos funcionales para presentaciones: área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores, logística/transporte, talleres y servicios técnicos, estudios contables, y constructoras/obras. Esta versión incorpora una primera tanda visual inspirada en patrones de Uiverse: validación inline, estados de botones, checkbox propio, tooltips, switch, foco de tarjetas y ajustes de KPI y skeletons. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
 
 ## Stack técnico
 
@@ -43,6 +43,7 @@ El repositorio tiene una landing principal responsive de SC, páginas comerciale
 - Optimizador reproducible de imágenes: `scripts/optimize_images.py`.
 - Lógica compartida del hub: `assets/js/app.js`.
 - Interacciones de páginas comerciales: `assets/js/commercial-pages.js`.
+- Estados visuales, tooltips y validación compartida: `assets/js/ui-enhancements.js`.
 - Catálogo central de demos: `assets/js/demo-catalog.js`.
 - Generador de PDF con marca SC: `assets/js/pdf-report.js`.
 - Lógica demo médica: `assets/js/medical-demo.js`.
@@ -53,7 +54,7 @@ El repositorio tiene una landing principal responsive de SC, páginas comerciale
 - Cargador opcional de analítica: `assets/js/analytics.js`.
 - Presentación comercial: `presentacion/index.html`, `assets/css/presentation.css` y `assets/js/presentation.js`.
 - Guion de reuniones: `docs/GUIA_PRESENTACION_COMERCIAL.md`.
-- Regresiones de experiencia, demos prioritarias, automatizaciones, publicación y rubros nuevos: `scripts/phase3.spec.js`, `scripts/phase4.spec.js`, `scripts/phase5.spec.js`, `scripts/phase6.spec.js` y `scripts/phase7.spec.js`.
+- Regresiones de experiencia, demos prioritarias, automatizaciones, publicación, rubros nuevos e interfaz compartida: `scripts/phase3.spec.js`, `scripts/phase4.spec.js`, `scripts/phase5.spec.js`, `scripts/phase6.spec.js`, `scripts/phase7.spec.js` y `scripts/ui-enhancements.spec.js`.
 - Datos ficticios por rubro: `assets/js/industry-demo-data.js`.
 - Animaciones compartidas: `assets/js/motion.js`.
 - SEO y publicación estática: `.nojekyll`, `robots.txt` y `sitemap.xml`.
@@ -105,3 +106,5 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - Los reportes descargables usan una plantilla PDF compartida con logos proporcionados, fecha separada del título y marca de agua “DEMO” superpuesta y translúcida.
 - Los estados operativos avanzan mediante secuencias propias de cada rubro y, al alcanzar el estado final, la acción de avance deja de mostrarse.
 - Los formularios ajustan información dependiente cuando corresponde: Inmobiliarias propone el presupuesto según compra o alquiler y Contacto solicita aclaraciones al elegir “Otro rubro” u “Otra necesidad”.
+- Uiverse queda registrado como referencia selectiva para componentes HTML/CSS; el plan y los criterios de adopción están en [[14_Plan_Mejoras_UIverse]].
+- La primera tanda inspirada en Uiverse se implementa como CSS y JavaScript local, sin copiar componentes completos ni agregar dependencias de ejecución.

@@ -138,6 +138,11 @@ function bindContactForm() {
   form.addEventListener("submit", () => {
     const submit = form.querySelector('button[type="submit"]');
     if (!submit) return;
+    if (window.SCUI) {
+      window.SCUI.setButtonState(submit, "loading", "Enviando consulta...");
+      window.SCUI.setFormStatus(form, "success", "Datos validados. Estamos preparando el envío.");
+      return;
+    }
     submit.disabled = true;
     submit.setAttribute("aria-busy", "true");
     submit.querySelector("span").textContent = "Enviando consulta...";
@@ -154,7 +159,10 @@ function bindConditionalContactField(select, container, input, expectedValue) {
     input.required = isVisible;
     select.setAttribute("aria-expanded", String(isVisible));
 
-    if (!isVisible) input.value = "";
+    if (!isVisible) {
+      input.value = "";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    }
     if (isVisible && shouldFocus) input.focus();
   };
 

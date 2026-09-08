@@ -9,9 +9,9 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Carpeta de publicación: `/`.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
-- Estado del código remoto: mejoras comerciales y operativas publicadas en `origin/main`; commit `5414d39`.
-- Estado local: sin cambios funcionales pendientes; la documentación registra la publicación del 2026-09-08.
-- Estado de Pages: activo; portada y Contacto respondieron HTTP `200` el 2026-09-08. La portada entregó assets `20260907-ui2` y Contacto incluyó el campo condicional `necesidad_especifica`.
+- Entrega anterior confirmada en `origin/main`: commit `5414d39`.
+- Entrega visual actual: validada con `73/73` pruebas y autorizada para publicación en `main`; usa la versión de assets `20260908-ui1`.
+- Estado de Pages: activo; portada y Contacto respondieron HTTP `200` el 2026-09-08.
 
 ## Archivos de soporte
 
@@ -20,6 +20,7 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - `sitemap.xml`: declara landing, servicios, automatizaciones, contacto, catálogo y demos públicas por rubro.
 - `presentacion/index.html`: material comercial interno con `noindex`; no forma parte del sitemap.
 - `assets/js/analytics.js`: cargador opcional de Cloudflare Web Analytics, inactivo mientras no exista token.
+- `assets/js/ui-enhancements.js`: validación, tooltips y estados visuales compartidos, sin dependencia remota.
 - `404.html`: página de error con identidad SC y rutas calculadas para local y `/Ventas/`.
 - Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`.
 - Las imágenes públicas usan WebP; Fase 7 incorpora tres activos generados optimizados a unos 433 KB en conjunto.

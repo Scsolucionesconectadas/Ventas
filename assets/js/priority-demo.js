@@ -260,15 +260,29 @@
     tabs[nextIndex].click();
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     if (event.target.matches("[data-priority-record-form]")) {
       event.preventDefault();
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      if (window.SCUI) {
+        window.SCUI.setButtonState(submitButton, "loading", "Guardando registro...");
+        await window.SCUI.wait(220);
+        window.SCUI.setButtonState(submitButton, "success", "Registro creado");
+        await window.SCUI.wait(320);
+      }
       addRecord(event.target);
     }
 
     if (event.target.matches("[data-priority-email-form]")) {
       event.preventDefault();
       const data = new FormData(event.target);
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      if (window.SCUI) {
+        window.SCUI.setButtonState(submitButton, "loading", "Preparando email...");
+        await window.SCUI.wait(220);
+        window.SCUI.setButtonState(submitButton, "success", "Email preparado");
+        await window.SCUI.wait(320);
+      }
       closeModal();
       showToast(`Email demo preparado para ${String(data.get("recipient"))}. No se realizó ningún envío real.`);
     }
