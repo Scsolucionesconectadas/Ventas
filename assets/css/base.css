@@ -719,8 +719,10 @@ h3 {
 .service-modal-card {
   position: relative;
   width: min(680px, 100%);
+  min-width: 0;
   max-height: min(720px, calc(100vh - 48px));
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: var(--radius);
   background:
@@ -728,6 +730,10 @@ h3 {
     #ffffff;
   box-shadow: 0 30px 90px rgba(0, 24, 44, 0.28);
   padding: 28px;
+}
+
+.service-modal-card > * {
+  max-width: 100%;
 }
 
 .service-modal-card .modal-close {

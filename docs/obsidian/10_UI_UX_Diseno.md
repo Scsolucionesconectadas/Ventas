@@ -90,6 +90,7 @@
 - Los botones de envío y alta muestran estados estables de carga y confirmación sin cambiar su ancho; el feedback se aplica en Contacto, turnos, altas, módulos avanzados y programación de automatizaciones.
 - El checkbox de consentimiento y el switch de comparación usan controles propios con foco visible, tamaño estable y semántica nativa.
 - Los botones que muestran solo iconos reciben tooltips derivados de su nombre accesible y funcionan con hover o foco de teclado.
+- El modal de servicios permite desplazamiento vertical cuando la altura lo requiere, bloquea el desborde horizontal y mantiene la X de cierre con nombre accesible sin un tooltip visual redundante.
 - Las tarjetas de demos refuerzan su estado de foco, los KPI usan un acento sutil y los skeletons conservan movimiento reducido.
 
 ## Referencias externas evaluadas

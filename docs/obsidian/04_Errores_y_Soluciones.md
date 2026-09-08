@@ -352,3 +352,22 @@ Al concatenar variables con `?` en PowerShell, delimitar el nombre como `${targe
 - `demos/index.html`
 - `rubros/*/index.html`
 - páginas comerciales HTML
+
+## 2026-09-08 - Barra horizontal en el modal de servicios
+
+**Síntoma:**
+Al abrir un detalle de servicio aparecía una barra de desplazamiento horizontal en la parte inferior y la tarjeta parecía más angosta que su contenido.
+
+**Causa:**
+El modal usaba `overflow: auto` en ambos ejes. El tooltip absoluto incorporado al botón de cierre extendía el área desplazable hacia la derecha, aunque el contenido principal sí respetaba el ancho disponible.
+
+**Solución aplicada:**
+Se configuró `overflow-x: hidden` y `overflow-y: auto`, se limitaron los hijos directos al ancho del modal y se excluyó `.modal-close` de los tooltips visuales. La X conserva su `aria-label` y continúa siendo accesible.
+
+**Cómo evitarlo:**
+Probar los elementos posicionados de forma absoluta dentro de contenedores desplazables y cubrir los modales en escritorio y móvil con una validación de desborde.
+
+**Archivos relacionados:**
+- `assets/css/base.css`
+- `assets/js/ui-enhancements.js`
+- `scripts/ui-enhancements.spec.js`

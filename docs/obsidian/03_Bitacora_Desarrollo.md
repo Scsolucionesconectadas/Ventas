@@ -858,3 +858,25 @@
 **Pendientes detectados:**
 - Crear un laboratorio visual no indexable para explorar variantes futuras sin afectar producción.
 - Revisar esta entrega desde un celular físico después de su publicación en GitHub Pages.
+
+## 2026-09-08 - Corrección del desborde horizontal en detalles de servicios
+
+**Cambios realizados:**
+- Se eliminó la barra horizontal del modal de detalle separando el desplazamiento vertical del desborde lateral.
+- Se excluyó el botón de cierre del tooltip visual compartido, manteniendo su nombre accesible para lectores de pantalla.
+- Se agregó una regresión que abre los siete servicios en escritorio y el detalle de Asistentes en móvil.
+- Las 19 páginas que consumen los estilos compartidos usan la versión de caché `20260908-ui2`.
+
+**Archivos modificados:**
+- `assets/css/base.css`
+- `assets/js/ui-enhancements.js`
+- `index.html`, páginas comerciales y `rubros/*/index.html`
+- `scripts/ui-enhancements.spec.js`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- Playwright: el modal no presenta desplazamiento horizontal en `1280x800` ni excede el viewport en `390x844`.
+- Inspección visual: contenido, botones y cierre conservan su ancho y alineación.
+
+**Pendientes detectados:**
+- Verificar la corrección desde un celular físico cuando GitHub Pages complete la nueva publicación.

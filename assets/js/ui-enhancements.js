@@ -4,7 +4,7 @@
   const enhancedForms = new WeakSet();
   const buttonSnapshots = new WeakMap();
   const tooltipSelector = [
-    ".icon-button[aria-label]",
+    ".icon-button[aria-label]:not(.modal-close)",
     ".row-menu-button[aria-label]",
     ".experience-close-button[aria-label]",
     ".presentation-top-actions button[aria-label]",

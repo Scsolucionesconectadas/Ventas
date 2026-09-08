@@ -10,7 +10,8 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - Entrada del sitio: `index.html`.
 - URL esperada: `https://scsolucionesconectadas.github.io/Ventas/`.
 - Entrega anterior confirmada en `origin/main`: commit `5414d39`.
-- Entrega visual actual: validada con `73/73` pruebas y autorizada para publicación en `main`; usa la versión de assets `20260908-ui1`.
+- Entrega visual publicada: commit `5dc1bfc`, validada con `73/73` pruebas y versión de assets `20260908-ui1`.
+- Entrega visual actual: modal de servicios sin desborde horizontal y versión de assets `20260908-ui2`.
 - Estado de Pages: activo; portada y Contacto respondieron HTTP `200` el 2026-09-08.
 
 ## Archivos de soporte

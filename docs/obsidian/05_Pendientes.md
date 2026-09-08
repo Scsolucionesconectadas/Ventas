@@ -13,6 +13,7 @@
 
 ## Resueltos
 
+- [x] Eliminar la barra horizontal de los detalles de servicios y validar el modal en escritorio y móvil - 2026-09-08
 - [x] Implementar una primera tanda de ocho patrones visuales inspirados en Uiverse y validarlos con 73 pruebas - 2026-09-08
 - [x] Publicar en `origin/main` el commit `5414d39` y verificar portada y contacto en GitHub Pages - 2026-09-08
 - [x] Ordenar los estados de todas las demos, ocultar acciones terminales, ajustar presupuestos inmobiliarios y agregar aclaraciones condicionales al contacto - 2026-09-07

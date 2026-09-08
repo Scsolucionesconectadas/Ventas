@@ -95,6 +95,39 @@ test.describe("Mejoras de interfaz compartidas", () => {
     await expect(rowAction).toHaveAttribute("data-ui-tooltip", "Acciones del turno");
   });
 
+  test("los detalles de servicios no generan una barra horizontal", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto(`${baseUrl}/index.html`, { waitUntil: "networkidle" });
+    const services = page.locator("[data-service]");
+    const modal = page.locator(".service-modal-card");
+    const close = page.locator("[data-service-close]");
+
+    for (let index = 0; index < await services.count(); index += 1) {
+      await services.nth(index).click();
+      await expect(modal).toBeVisible();
+      await expect(modal).toHaveCSS("overflow-x", "hidden");
+      await expect(close).not.toHaveAttribute("data-ui-tooltip", /.+/);
+      const horizontalOverflow = await modal.evaluate((element) => element.scrollWidth - element.clientWidth);
+      expect(horizontalOverflow).toBeLessThanOrEqual(1);
+      if (index === 3) await page.screenshot({ path: "test-results/service-modal-desktop.png" });
+      await close.click();
+    }
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${baseUrl}/index.html`, { waitUntil: "networkidle" });
+    await page.locator("[data-service='asistentes']").click();
+    await expect(modal).toBeVisible();
+    const bounds = await modal.evaluate((element) => {
+      const rect = element.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, viewport: document.documentElement.clientWidth };
+    });
+    expect(bounds.left).toBeGreaterThanOrEqual(0);
+    expect(bounds.right).toBeLessThanOrEqual(bounds.viewport);
+    const mobileOverflow = await modal.evaluate((element) => element.scrollWidth - element.clientWidth);
+    expect(mobileOverflow).toBeLessThanOrEqual(1);
+    await page.screenshot({ path: "test-results/service-modal-mobile.png" });
+  });
+
   test("la programación de automatizaciones valida y confirma sin saltos", async ({ page }) => {
     await page.goto(`${baseUrl}/rubros/logistica/index.html`, { waitUntil: "networkidle" });
     await page.getByRole("tab", { name: "Automatizaciones" }).click();
