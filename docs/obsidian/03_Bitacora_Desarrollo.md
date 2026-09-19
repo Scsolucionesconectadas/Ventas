@@ -1,5 +1,90 @@
 # Bitácora de Desarrollo
 
+## 2026-09-19 - Cierre visual y preparación de publicación
+
+**Cambios realizados:**
+- Se eliminó de la portada la banda “Presentación comercial” que duplicaba el logo, los accesos de contacto y el CTA de WhatsApp.
+- El footer compartido queda como cierre único de Inicio y conserva navegación, WhatsApp, email e Instagram.
+- Se preparó la versión completa del sitio para commit y publicación en `origin/main`.
+
+**Archivos modificados:**
+- `index.html`
+- `README.md`
+- `docs/obsidian/00_Contexto_Proyecto.md`
+- `docs/obsidian/02_Decisiones_Tecnicas.md`
+- `docs/obsidian/03_Bitacora_Desarrollo.md`
+- `docs/obsidian/05_Pendientes.md`
+- `docs/obsidian/10_UI_UX_Diseno.md`
+
+**Validaciones realizadas:**
+- HTML Validate `11.14.0` con las reglas del proyecto: todas las plantillas aprobadas.
+- Regresión comercial de Fase 9: 10 de 10 pruebas aprobadas, incluida la ausencia de la banda retirada y el cierre responsive del footer.
+- Regresión Playwright unificada: 97 de 97 pruebas aprobadas en escritorio y móvil.
+- `node --check` sobre la regresión modificada: sin errores.
+
+**Pendientes detectados:**
+- Confirmar la versión publicada en GitHub Pages después del push.
+
+## 2026-09-13 - Footer comercial compartido
+
+**Cambios realizados:**
+- Se reemplazó el pie mínimo de las seis páginas comerciales por un footer completo con identidad SC, descripción, navegación, señales de datos ficticios y catorce demos.
+- Se incorporaron accesos directos a WhatsApp, email e Instagram, una grilla visual sutil y dos acentos animados propios de la marca.
+- El layout pasa de tres zonas en escritorio a una columna en móvil, mantiene el CTA a ancho completo y respeta `prefers-reduced-motion`.
+- El revelado progresivo usa la capa GSAP existente y la regresión espera el estado visual estable antes de generar capturas.
+
+**Archivos modificados:**
+- `index.html`
+- `servicios/index.html`
+- `demos/index.html`
+- `automatizaciones/index.html`
+- `nosotros/index.html`
+- `contacto/index.html`
+- `assets/css/base.css`
+- `assets/js/motion.js`
+- `scripts/phase9.spec.js`
+- `README.md`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check` sobre `motion.js` y `phase9.spec.js`: sin errores.
+- HTML Validate `11.14.0` con las reglas del proyecto: todas las plantillas aprobadas.
+- Regresión específica del footer: 1 de 1 prueba aprobada en las seis rutas, escritorio y móvil.
+- Regresión Playwright unificada: 97 de 97 pruebas aprobadas.
+- Capturas `site-footer-desktop.png` y `site-footer-mobile.png` revisadas sin recortes ni desborde horizontal.
+
+**Pendientes detectados:**
+- Revisar el footer desde un celular físico luego de publicar la próxima versión.
+
+## 2026-09-13 - Centro de análisis interactivo en las catorce demos
+
+**Cambios realizados:**
+- Se agregó selección de métricas, períodos de 7, 30 y 90 días, comparación y lectura ejecutiva a todos los reportes.
+- Se incorporó Chart.js `4.5.1` bajo demanda con visualización animada, nombre accesible y desactivación de movimiento cuando el sistema lo solicita.
+- Se redactaron recomendaciones operativas específicas para los catorce rubros.
+- Se agregó una vista simplificada que conserva métricas, resumen y mini gráficos si el CDN falla o demora más de ocho segundos.
+- Se extendió GSAP con una transición breve para cambios de datos sin alterar dimensiones del tablero.
+
+**Archivos modificados:**
+- `assets/css/base.css`
+- `assets/js/reporting-experience.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/motion.js`
+- `rubros/*/index.html`
+- `scripts/reporting-experience.spec.js`
+- `README.md`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check` sobre los cuatro scripts modificados: sin errores.
+- `git diff --check`: sin errores de espacios; solo avisos de conversión LF/CRLF.
+- Playwright específico: 4 pruebas aprobadas sobre las catorce demos, Chart.js, fallback, responsive móvil y Axe sin infracciones serias o críticas.
+- Regresión Playwright unificada: 96 de 96 pruebas aprobadas en Fases 3 a 10, reportería interactiva y mejoras compartidas.
+
+**Pendientes detectados:**
+- Ejecutar la regresión unificada y revisar la experiencia desde un celular físico después de publicar.
+
 ## 2026-09-06 - Publicación de Fase 4 e implementación de Fase 5
 
 **Cambios realizados:**
@@ -880,3 +965,169 @@
 
 **Pendientes detectados:**
 - Verificar la corrección desde un celular físico cuando GitHub Pages complete la nueva publicación.
+
+## 2026-09-12 - Fase 8 orientada a problemas de negocio
+
+**Cambios realizados:**
+- Se rediseñó el catálogo con un hero fotográfico, cuatro rutas por necesidad, resultados visibles y filtros operativos.
+- Se agregaron las demos Gestión PyME y Turnos y agenda con datos, formularios, etapas cronológicas, reportes, asistentes y dos workflows cada una.
+- Gastronomía incorporó una vista funcional para disponibilidad, explicación de mesa compatible, horarios alternativos, lista de espera y estados terminales.
+- Se añadió una capa opcional de recomendaciones operativas explicables para Gestión PyME, Turnos y Gastronomía.
+- Se actualizaron SEO, sitemap, cantidad de demos, versiones de caché y pruebas de regresión.
+- Se generaron dos imágenes ficticias sin marcas ni datos reales y se optimizaron a WebP de `1600 px`.
+
+**Archivos modificados:**
+- `index.html`, `demos/index.html`, `rubros/gastronomia/index.html`
+- `rubros/gestion-pyme/index.html`, `rubros/turnos/index.html`
+- `assets/js/demo-catalog.js`, `assets/js/app.js`, `assets/js/industry-demo-data.js`, `assets/js/industry-demo.js`
+- `assets/js/gastronomy-reservations.js`, `assets/js/workflow-demo.js`
+- `assets/css/base.css`, `sitemap.xml`, `README.md`
+- `scripts/phase3.spec.js`, `scripts/phase5.spec.js`, `scripts/phase6.spec.js`, `scripts/phase7.spec.js`, `scripts/phase8.spec.js`
+
+**Validaciones realizadas:**
+- `node --check`: seis archivos JavaScript modificados sin errores.
+- HTML Validate `11.14.0`: 22 páginas HTML sin errores estructurales.
+- Playwright Fase 8: 5 de 5 pruebas aprobadas en Edge, con Axe Core y responsive.
+- Regresión unificada: 82 pruebas aprobadas y una medición heredada de imagen diferida corregida; su repetición aislada quedó aprobada.
+- Capturas visuales en escritorio y móvil sin desborde horizontal.
+
+**Pendientes detectados:**
+- Realizar revisión comercial y decidir el momento del commit y push de Fase 8.
+- Probar la versión publicada desde un celular físico.
+
+## 2026-09-12 - Fase 9 de identidad comercial y laboratorio n8n
+
+**Cambios realizados:**
+- Se compararon en modo lectura las páginas Inicio, Servicios, Proyectos, Nosotros y Contacto del proyecto estático de Click y se adaptaron sus principios de jerarquía, fotografía y motion a la identidad SC.
+- Se creó `nosotros/index.html` con método, criterios de trabajo, escenarios de aplicación y contacto.
+- Servicios, Automatizaciones y Contacto incorporaron portadas fotográficas de alto contraste y navegación consistente con Inicio y Demos.
+- Se reemplazó el explorador pasivo por un laboratorio estilo n8n con tres procesos, seis nodos inspeccionables, payload ficticio, aprobación humana, error temporal, reintento y bitácora.
+- Se agregaron variables de acento por familia de rubro para las catorce demos y se acortó la animación inicial para no mantener contenido invisible.
+- Se actualizó SEO, sitemap, versión de caché, regresiones y documentación técnica.
+
+**Archivos modificados:**
+- `index.html`, `servicios/index.html`, `demos/index.html`, `automatizaciones/index.html`, `contacto/index.html`
+- `nosotros/index.html`, `sitemap.xml`
+- `assets/css/base.css`, `assets/js/motion.js`, `assets/js/n8n-lab.js`
+- `scripts/phase6.spec.js`, `scripts/phase9.spec.js`
+- `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: nueve archivos JavaScript y pruebas sin errores de sintaxis.
+- HTML Validate `11.14.0`: 23 páginas HTML sin errores estructurales.
+- Playwright Fase 9: 5 de 5 pruebas aprobadas en Edge, incluyendo navegación, responsive, aprobación, error, reintento, las catorce demos y accesibilidad.
+- Playwright Fase 6 focalizado: SEO de las veinte páginas, indicadores de portada y sitemap aprobados.
+- Regresión unificada Fases 3 a 9: 88 de 88 pruebas aprobadas en Edge, sin regresiones en formularios, estados, PDFs, automatizaciones ni responsive.
+- Revisión visual de Nosotros, Contacto móvil, laboratorio n8n completado y Gestión PyME.
+
+**Pendientes detectados:**
+- Revisar la nueva dirección visual y el laboratorio en una reunión comercial.
+- Probar la versión publicada desde un celular físico.
+## 2026-09-13 - Fase 10 de navegación comercial
+
+**Cambios realizados:**
+- Se reemplazó la barra de botones y el desplegable Explorar por cinco accesos directos y un único CTA de contacto.
+- Se creó `site-navigation.js` para menú móvil, cierre con `Escape`, clic exterior, selección de enlace y estado visual al desplazarse.
+- Se corrigió la compresión del CTA “Contar mi proceso” y se eliminó el desborde invisible generado por pseudoelementos del botón hamburguesa.
+- Se mantuvieron GSAP y Lucide; la revisión de Click no derivó en nuevas dependencias de ejecución.
+- Se estabilizó el contraste del texto técnico de los motores n8n y Node-RED en las catorce demos.
+- Se actualizó la versión de caché compartida a `20260913-p10`.
+
+**Archivos modificados:**
+- `assets/css/base.css`, `assets/js/site-navigation.js`
+- `index.html`, `servicios/index.html`, `demos/index.html`, `automatizaciones/index.html`, `nosotros/index.html`, `contacto/index.html`
+- `scripts/phase9.spec.js`
+- `README.md`, `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: navegación y prueba de Fase 9 sin errores de sintaxis.
+- HTML Validate `11.14.0`: 23 páginas HTML sin errores estructurales.
+- Playwright Fase 9: 6 de 6 pruebas aprobadas.
+- Regresión unificada Fases 3 a 9: 89 de 89 pruebas aprobadas en Edge.
+- Axe Core: navegación comercial y automatizaciones sin infracciones serias o críticas.
+- Revisión visual en `1440x940` y `390x844`, con CTA completo y menú móvil sin desborde.
+
+**Pendientes detectados:**
+- Revisar la nueva barra desde un celular físico después de publicarla.
+
+## 2026-09-13 - Ampliación del laboratorio de automatizaciones
+
+**Cambios realizados:**
+- Se corrigió el recorte de “Ejecutar workflow” mediante acciones de ancho completo y un control de restablecimiento con texto visible.
+- Se agregaron workflows de cobranzas, reservas gastronómicas y reportes a los recorridos existentes de agenda, ventas y stock.
+- Cada flujo incorporó una salida comercial propia con métricas, identificadores, datos operativos y mensajes de bitácora específicos.
+- El resultado cambia entre vista previa, procesamiento, aprobación pendiente, error controlado, reintento y generación final.
+- Se reforzó que los datos y las acciones externas son ficticios.
+
+**Archivos modificados:**
+- `automatizaciones/index.html`
+- `assets/js/n8n-lab.js`
+- `assets/css/base.css`
+- `scripts/phase9.spec.js`
+- `README.md`, `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: laboratorio y prueba de Fase 9 sin errores de sintaxis.
+- HTML Validate `11.14.0`: 23 páginas HTML sin errores estructurales.
+- Playwright Fase 9: 7 de 7 pruebas aprobadas, incluidos seis resultados, CTA completo, error, reintento, aprobación, responsive y accesibilidad.
+- Regresión unificada Fases 3 a 9: 90 de 90 pruebas aprobadas en Edge.
+- Revisión visual en `1440x1000` y `390x844`, sin recortes ni desborde horizontal.
+
+**Pendientes detectados:**
+- Validar la versión publicada desde un celular físico cuando se autorice el push.
+
+## 2026-09-13 - Perfil profesional en Nosotros
+
+**Cambios realizados:**
+- Se revisó en modo lectura `http://localhost:3001/nosotros/` y se trasladaron a SC su jerarquía humana, el relato personal y la progresión entre perfil, método y criterios.
+- Se optimizó la fotografía profesional entregada por el usuario a WebP de `900x1125` y 29 KB sin alterar el retrato.
+- Se agregó una sección con fotografía, presentación en primera persona, tres criterios de trabajo y una declaración sobre la elección de tecnología.
+- Se incorporaron transiciones mediante el motor de motion existente y estilos responsive propios de SC.
+- Se actualizó la versión de caché compartida a `20260913-p13`.
+
+**Archivos modificados:**
+- `nosotros/index.html`
+- `assets/img/sc-profile.webp`
+- `assets/css/base.css`, `assets/js/motion.js`
+- `scripts/phase9.spec.js`
+- `README.md`, `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: motion y prueba de Fase 9 sin errores de sintaxis.
+- HTML Validate `11.14.0`: 23 páginas HTML sin errores estructurales.
+- Playwright Fase 9: 7 de 7 pruebas aprobadas con imagen, responsive y accesibilidad.
+- Regresión unificada Fases 3 a 9: 90 de 90 pruebas aprobadas en Edge.
+- Capturas revisadas en `1440x1000` y `390x844`, sin desborde horizontal ni errores de consola.
+
+**Pendientes detectados:**
+- Reemplazar la identificación genérica por nombre y título profesional cuando sean confirmados.
+- Validar la versión publicada desde un celular físico cuando se autorice el push.
+
+## 2026-09-13 - Servicios demostrables y resumen de Contacto
+
+**Cambios realizados:**
+- Se revisaron en modo lectura las páginas Servicios y Contacto de Click en `localhost:3001` y se adaptaron sus principios de recorrido, evidencia y brief a la identidad SC.
+- Servicios pasó de siete tarjetas repetitivas a cinco recorridos que conservan todas las capacidades y muestran pantallas reales del repositorio.
+- Se generaron cinco capturas WebP optimizadas de gestión, automatización, asistente, reportería y selección de demos.
+- Contacto incorporó un resumen en vivo con progreso de campos obligatorios sin cambiar la acción de FormSubmit.
+- Se corrigió la lectura del parámetro `mensaje` para completar el campo `proceso_a_mejorar` correcto.
+- Se actualizó la versión de caché compartida a `20260913-p13`.
+
+**Archivos modificados:**
+- `servicios/index.html`, `contacto/index.html`
+- `assets/css/base.css`
+- `assets/js/commercial-pages.js`, `assets/js/motion.js`
+- `assets/img/service-*-preview.webp`
+- `scripts/phase9.spec.js`
+- `README.md`, `docs/obsidian/*.md`
+
+**Validaciones realizadas:**
+- `node --check`: scripts comerciales y motion sin errores de sintaxis.
+- HTML Validate `11.14.0`: 23 páginas HTML sin errores estructurales.
+- Playwright Fase 9: 9 de 9 pruebas aprobadas, incluidas imágenes, resumen, responsive y Axe en las cuatro páginas renovadas.
+- Regresión unificada Fases 3 a 9: 92 de 92 pruebas aprobadas en Edge.
+- Revisión visual y de consola en `390`, `768` y `1440 px`, sin desborde horizontal ni errores de página.
+
+**Pendientes detectados:**
+- Confirmar el primer envío real de FormSubmit desde la casilla de SC.
+- Validar la versión publicada desde un celular físico cuando se autorice el push.

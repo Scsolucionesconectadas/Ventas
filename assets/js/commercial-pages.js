@@ -126,7 +126,7 @@ function bindContactForm() {
   const params = new URLSearchParams(window.location.search);
   const rubro = form.elements.namedItem("rubro");
   const necesidad = form.elements.namedItem("necesidad");
-  const message = form.elements.namedItem("mensaje");
+  const message = form.elements.namedItem("proceso_a_mejorar");
 
   if (rubro && params.get("rubro")) rubro.value = params.get("rubro");
   if (necesidad && params.get("necesidad")) necesidad.value = params.get("necesidad");
@@ -134,6 +134,7 @@ function bindContactForm() {
 
   bindConditionalContactField(rubro, form.querySelector("#rubro-otro-field"), form.elements.namedItem("rubro_especifico"), "otro");
   bindConditionalContactField(necesidad, form.querySelector("#necesidad-otra-field"), form.elements.namedItem("necesidad_especifica"), "otra");
+  bindContactPreview(form);
 
   form.addEventListener("submit", () => {
     const submit = form.querySelector('button[type="submit"]');
@@ -147,6 +148,67 @@ function bindContactForm() {
     submit.setAttribute("aria-busy", "true");
     submit.querySelector("span").textContent = "Enviando consulta...";
   });
+}
+
+function bindContactPreview(form) {
+  const preview = {
+    name: document.querySelector("[data-contact-preview-name]"),
+    company: document.querySelector("[data-contact-preview-company]"),
+    sector: document.querySelector("[data-contact-preview-sector]"),
+    need: document.querySelector("[data-contact-preview-need]"),
+    message: document.querySelector("[data-contact-preview-message]"),
+    progress: document.querySelector("[data-contact-preview-progress]"),
+  };
+  if (!preview.progress) return;
+
+  const controls = {
+    name: form.elements.namedItem("nombre_y_apellido"),
+    company: form.elements.namedItem("empresa"),
+    sector: form.elements.namedItem("rubro"),
+    customSector: form.elements.namedItem("rubro_especifico"),
+    need: form.elements.namedItem("necesidad"),
+    customNeed: form.elements.namedItem("necesidad_especifica"),
+    message: form.elements.namedItem("proceso_a_mejorar"),
+  };
+
+  const inputValue = (control) => (control && "value" in control ? control.value.trim() : "");
+  const selectedLabel = (select, fallback) => {
+    if (!(select instanceof HTMLSelectElement) || !select.value) return fallback;
+    return select.selectedOptions[0]?.textContent?.trim() || fallback;
+  };
+
+  const render = () => {
+    const customSector = inputValue(controls.customSector);
+    const customNeed = inputValue(controls.customNeed);
+    const sector = controls.sector?.value === "otro" && customSector
+      ? customSector
+      : selectedLabel(controls.sector, "Sin seleccionar");
+    const need = controls.need?.value === "otra" && customNeed
+      ? customNeed
+      : selectedLabel(controls.need, "Sin seleccionar");
+
+    if (preview.name) preview.name.textContent = inputValue(controls.name) || "Sin completar";
+    if (preview.company) preview.company.textContent = inputValue(controls.company) || "Sin completar";
+    if (preview.sector) preview.sector.textContent = sector;
+    if (preview.need) preview.need.textContent = need;
+    if (preview.message) {
+      preview.message.textContent = inputValue(controls.message) || "Contanos qué tarea se demora, se repite o no se puede ver con claridad.";
+    }
+
+    const requiredControls = Array.from(form.querySelectorAll("input[required], select[required], textarea[required]"))
+      .filter((control) => !control.disabled && control.type !== "hidden");
+    const completed = requiredControls.filter((control) => {
+      if (control instanceof HTMLInputElement && control.type === "checkbox") return control.checked;
+      return inputValue(control) !== "" && control.validity.valid;
+    }).length;
+
+    preview.progress.textContent = `${completed} de ${requiredControls.length} datos listos`;
+    preview.progress.classList.toggle("is-ready", completed === requiredControls.length);
+  };
+
+  form.addEventListener("input", render);
+  form.addEventListener("change", render);
+  render();
 }
 
 function bindConditionalContactField(select, container, input, expectedValue) {

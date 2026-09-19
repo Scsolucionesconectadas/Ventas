@@ -262,6 +262,7 @@
     renderPipeline();
     renderTasks();
     renderResources();
+    renderInsights();
     renderReports();
     renderChatIntro();
     renderQuickReplies();
@@ -436,6 +437,54 @@
       .join("");
   }
 
+  function renderInsights() {
+    const overview = $("#view-overview");
+    const insights = Array.isArray(config.insights) ? config.insights : [];
+    let section = $("#operationalInsights");
+
+    if (!overview || !insights.length) {
+      section?.remove();
+      return;
+    }
+
+    if (!section) {
+      section = document.createElement("section");
+      section.id = "operationalInsights";
+      section.className = "operational-intelligence";
+      section.setAttribute("aria-labelledby", "operationalInsightsTitle");
+      overview.appendChild(section);
+    }
+
+    section.innerHTML = `
+      <div class="operational-intelligence-head">
+        <div>
+          <p class="eyebrow">Inteligencia operativa</p>
+          <h2 id="operationalInsightsTitle">Qué conviene atender ahora</h2>
+        </div>
+        <span class="explainable-badge"><i data-lucide="scan-search" aria-hidden="true"></i>Reglas demo explicables</span>
+      </div>
+      <div class="operational-insight-grid">
+        ${insights.map((insight) => `
+          <article class="operational-insight ${escapeHtml(insight.tone || "info")}">
+            <div class="operational-insight-title">
+              <span><i data-lucide="${escapeHtml(insight.icon || "lightbulb")}" aria-hidden="true"></i></span>
+              <div>
+                <small>${escapeHtml(insight.priority || "Sugerencia")}</small>
+                <strong>${escapeHtml(insight.title)}</strong>
+              </div>
+            </div>
+            <p>${escapeHtml(insight.evidence)}</p>
+            <button class="insight-action" type="button" data-view="${escapeHtml(insight.view || "operacion")}">
+              ${escapeHtml(insight.action || "Revisar")}
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+        `).join("")}
+      </div>
+      <p class="operational-intelligence-note">Las sugerencias se calculan con datos ficticios y muestran siempre la razón de la recomendación.</p>
+    `;
+  }
+
   function renderReports() {
     const reports = config.reports;
     if (!reports || !$("#view-reportes")) return;
@@ -449,8 +498,16 @@
 
     $("#reportPanels").innerHTML = reports.panels
       .map(
-        (panel) => `
-          <article class="report-card">
+        (panel, index) => `
+          <article
+            class="report-card"
+            data-report-metric="${index}"
+            data-report-label="${escapeHtml(panel.label)}"
+            data-report-value="${escapeHtml(panel.value)}"
+            data-report-trend="${escapeHtml(panel.trend)}"
+            data-report-detail="${escapeHtml(panel.detail)}"
+            data-report-series="${escapeHtml(panel.series.join(","))}"
+          >
             <div class="report-card-head">
               <span><i data-lucide="${escapeHtml(panel.icon)}" aria-hidden="true"></i> ${escapeHtml(panel.label)}</span>
               <small>${escapeHtml(panel.trend)}</small>
@@ -489,6 +546,8 @@
         handleReportAction(button.dataset.reportAction);
       });
     });
+
+    document.dispatchEvent(new CustomEvent("sc:reports-rendered", { detail: { slug } }));
   }
 
   function renderReportLog() {

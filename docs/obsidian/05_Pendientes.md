@@ -8,11 +8,28 @@
 
 ## En revisión
 
+- [ ] Confirmar el nombre y título profesional que acompañarán la fotografía en Nosotros.
+- [ ] Revisar la nueva página Nosotros y el laboratorio n8n en una reunión comercial antes de publicar Fase 9.
+- [ ] Revisar Gestión PyME, Turnos y reservas gastronómicas en una reunión comercial antes de publicar Fase 8.
 - [ ] Revisar Talleres, Estudios Contables y Constructoras en una reunión comercial de prueba.
 - [ ] Crear un laboratorio visual interno no indexable para comparar futuras variantes antes de llevarlas a producción.
 
 ## Resueltos
 
+- [x] Eliminar la banda comercial redundante de la portada y dejar el footer como cierre único - 2026-09-19
+- [x] Unificar el footer de las seis páginas comerciales con identidad SC, navegación y contacto responsive - 2026-09-13
+- [x] Convertir la reportería de las catorce demos en una experiencia interactiva con Chart.js, comparación, recomendaciones y fallback - 2026-09-13
+- [x] Reorganizar Servicios con evidencia real y agregar un resumen local previo al envío en Contacto - 2026-09-13
+- [x] Incorporar el perfil profesional provisto y adaptar la jerarquía de Nosotros de Click a la identidad SC - 2026-09-13
+- [x] Corregir el CTA del laboratorio, ampliar a seis workflows y mostrar resultados operativos por proceso - 2026-09-13
+- [x] Unificar la barra comercial, corregir el CTA cortado y validar el menú móvil con 89 pruebas - 2026-09-13
+- [x] Unificar la estética comercial de Inicio, Servicios, Demos, Automatizaciones, Nosotros y Contacto - 2026-09-12
+- [x] Crear un laboratorio estilo n8n con nodos inspeccionables, aprobación, error, reintento y bitácora - 2026-09-12
+- [x] Aplicar acentos por rubro y una secuencia de animación no bloqueante a las 14 demos - 2026-09-12
+- [x] Reorganizar el catálogo por problemas concretos y ampliar el total a 14 demos - 2026-09-12
+- [x] Crear Gestión PyME y Turnos con operación, reportes, workflows y recomendaciones explicables - 2026-09-12
+- [x] Profundizar Gastronomía con disponibilidad de mesas, alternativas, lista de espera y estados terminales - 2026-09-12
+- [x] Validar Fase 8 con HTML Validate, Playwright, Axe y capturas responsive - 2026-09-12
 - [x] Eliminar la barra horizontal de los detalles de servicios y validar el modal en escritorio y móvil - 2026-09-08
 - [x] Implementar una primera tanda de ocho patrones visuales inspirados en Uiverse y validarlos con 73 pruebas - 2026-09-08
 - [x] Publicar en `origin/main` el commit `5414d39` y verificar portada y contacto en GitHub Pages - 2026-09-08

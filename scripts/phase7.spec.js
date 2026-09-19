@@ -10,16 +10,17 @@ const demos = [
 test.use({ channel: "msedge", acceptDownloads: true, reducedMotion: "reduce" });
 
 test.describe("Fase 7 - nuevos rubros", () => {
-  test("el catálogo presenta doce demos y los nuevos accesos son válidos", async ({ page }) => {
+  test("el catálogo presenta catorce demos y los accesos son válidos", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(`${baseUrl}/demos/`, { waitUntil: "networkidle" });
 
-    await expect(page.locator(".industry-card")).toHaveCount(12);
+    await expect(page.locator(".industry-card")).toHaveCount(14);
     for (const demo of demos) {
       const card = page.locator(`.industry-card:has(a[href='../rubros/${demo.slug}/index.html'])`);
       await expect(card).toBeVisible();
+      await card.scrollIntoViewIfNeeded();
       await expect(card.locator("img")).toHaveAttribute("src", `../assets/img/${demo.image}`);
-      expect(await card.locator("img").evaluate((image) => image.complete && image.naturalWidth >= 1200)).toBeTruthy();
+      await expect.poll(() => card.locator("img").evaluate((image) => image.complete && image.naturalWidth >= 1200)).toBeTruthy();
     }
 
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);

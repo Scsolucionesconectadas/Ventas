@@ -18,18 +18,21 @@ https://scsolucionesconectadas.github.io/Ventas/
 - Servicios: sistemas de gestión, automatizaciones, integraciones, chatbots, dashboards y demos comerciales.
 - Demos por rubro: página separada `demos/index.html` con filtros y acceso a experiencias navegables.
 - Servicios detallados: página separada `servicios/index.html` con entregables y demos relacionadas.
-- Automatizaciones: página separada `automatizaciones/index.html` con n8n, Node-RED, APIs, webhooks, controles y explorador interactivo de flujos.
+- Automatizaciones: página separada `automatizaciones/index.html` con laboratorio estilo n8n, Node-RED, APIs, webhooks, aprobación, reintentos e inspector de nodos.
+- Nosotros: página `nosotros/index.html` con método SC, criterios de trabajo y escenarios donde una solución conectada aporta valor.
 - Diagnóstico express: selector interactivo que recomienda módulos, rubros, automatizaciones y prepara contacto por WhatsApp.
 - Proceso: diagnóstico, demo funcional, automatización y evolución.
 - Contacto comercial: página `contacto/index.html` con formulario estático, WhatsApp, teléfono, email e Instagram públicos de SC.
 
 ## Rubros iniciales
 
+- Gestión PyME: ventas, caja, gastos, cobranzas, clientes, productos, stock liviano y prioridades explicables.
+- Turnos y agenda: disponibilidad, profesionales, servicios, confirmaciones, recordatorios y lista de espera.
 - Área médica: turnero, chatbot, historia clínica, consultas, obras sociales, facturación, autorizaciones, profesionales, documentos, seguimiento y reportes.
 - Hotelería: reservas, habitaciones, huéspedes, operaciones internas y reportes de ocupación.
 - Inmobiliarias: propiedades, leads, visitas, contratos, reservas, cobranzas, portal del propietario y reportes de conversión.
 - Venta de materiales: stock, presupuestos, compras, proveedores, listas de precios, cuentas corrientes, logística, entregas y márgenes.
-- Gastronomía: mesas, pedidos, menú digital, caja y reportes de cierre.
+- Gastronomía: disponibilidad de mesas, reservas, lista de espera, pedidos, menú digital, caja y reportes de cierre.
 - Educación: alumnos, cursos, asistencia, pagos, comunicaciones y reportes académicos.
 - Gomerías: stock por medida, turnos, servicios, compras sugeridas, caja y reportes.
 - Agrimensores: expedientes, campo, planos, documentación y conectividad ATER simulada.
@@ -40,7 +43,7 @@ https://scsolucionesconectadas.github.io/Ventas/
 
 ## Experiencia compartida de las demos
 
-Las doce demos incluyen una barra operativa común con:
+Las catorce demos incluyen una barra operativa común con:
 
 - Modo presentación sin navegación secundaria.
 - Recorrido guiado manual y controlable paso a paso.
@@ -50,24 +53,45 @@ Las doce demos incluyen una barra operativa común con:
 - Reinicio de los datos ficticios de la sesión.
 - Identificación permanente de demo pública y funciones simuladas.
 
+## Reportería interactiva
+
+Cada demo incorpora un centro de análisis común con cuatro métricas propias del rubro, selección de períodos de 7, 30 y 90 días, comparación con el período anterior y una recomendación operativa contextual. Chart.js `4.5.1` se carga bajo demanda al entrar en la reportería; si el CDN no responde, los valores, la lectura ejecutiva y los mini gráficos CSS continúan disponibles.
+
+Los gráficos actualizan su nombre accesible, respetan `prefers-reduced-motion` y no consultan datos reales. Toda la información visible es ficticia y vive únicamente en el navegador.
+
 ## Demos prioritarias de Fase 4
 
 Área médica, inmobiliarias y venta de materiales agregan una capa de gestión avanzada con módulos navegables, KPI específicos, tablas operativas, prioridades y automatizaciones sugeridas. Cada módulo permite crear registros ficticios, actualizar estados, preparar un email sin envío real y descargar un PDF ejecutivo con marca SC.
 
 ## Automatizaciones de Fase 5
 
-Las doce demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
+Las catorce demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
 
 La misma vista incluye indicadores filtrables tipo Grafana, comparación por período, programación diaria/semanal/mensual, vista previa editable de email, descarga de PDF con marca SC e historial de ejecuciones. Todo funciona con datos ficticios en el navegador: no conecta servicios externos ni realiza envíos reales.
 
 ## Publicación y presentación de Fase 6
 
-- Las diecisiete páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
+- Las diecinueve páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
 - La portada declara datos estructurados `Organization` y `WebSite` con información pública de SC.
 - `sitemap.xml` incluye fecha de última modificación y `robots.txt` referencia su URL pública.
 - `assets/js/analytics.js` deja preparada Cloudflare Web Analytics, desactivada hasta incorporar un token público del sitio.
 - `presentacion/index.html` contiene una presentación comercial de ocho diapositivas con notas del expositor, navegación por teclado, pantalla completa y salida imprimible a PDF.
 - `docs/GUIA_PRESENTACION_COMERCIAL.md` aporta preguntas de diagnóstico, recorrido sugerido y rutas de demo por necesidad.
+
+## Soluciones orientadas a problemas de Fase 8
+
+- El catálogo comienza por situaciones concretas de gestión, turnos, reservas gastronómicas y stock, y luego permite explorar las 14 demos por tipo de operación.
+
+## Identidad comercial y laboratorio de Fase 9
+
+- Inicio, Servicios, Demos, Automatizaciones, Nosotros y Contacto comparten navegación, fotografía humana, contraste alto y animaciones breves.
+- Las seis páginas comparten un footer SC con marca, navegación completa, datos ficticios, acceso a WhatsApp, email e Instagram; se reorganiza en una columna sin desbordes en móvil.
+- La portada termina directamente en ese footer compartido; se eliminó la banda comercial repetida que mostraba por segunda vez logo, WhatsApp y datos de contacto.
+- El laboratorio comercial ejecuta seis workflows ficticios para agenda, ventas, stock, cobranzas, reservas y reportes; permite inspeccionar nodos, anticipar el resultado, aprobar un paso, provocar un error temporal y reintentar sin conexiones reales.
+- Las catorce demos mantienen la misma arquitectura pero reciben acentos visuales por familia de rubro.
+- Gestión PyME y Turnos y agenda cubren necesidades transversales que no estaban representadas por una industria específica.
+- Gastronomía amplía su alcance sin duplicar demo: busca mesas por capacidad y sector, propone alternativas, administra lista de espera y detiene el avance al finalizar.
+- Las tres experiencias incorporan prioridades explicables: cada recomendación muestra la evidencia ficticia que la origina y enlaza con la vista donde se resuelve.
 
 ## Estructura
 
@@ -117,6 +141,7 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 │       ├── industry-demo.js
 │       ├── medical-demo.js
 │       ├── pdf-report.js
+│       ├── reporting-experience.js
 │       ├── priority-demo.js
 │       ├── presentation.js
 │       ├── workflow-demo.js
@@ -174,15 +199,21 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 
 - Las imágenes visibles usan WebP; los activos generados de los rubros nuevos reducen su peso de 6,6 MB a menos de 450 KB en conjunto.
 - `python scripts/optimize_images.py` vuelve a crear los WebP con ancho máximo de `1600 px` y calidad `84`. Requiere Pillow.
-- Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1` están fijados en las URLs CDN.
+- Lucide `1.41.0`, GSAP `3.15.0`, Chart.js `4.5.1` y jsPDF `4.2.1` están fijados en las URLs CDN.
 - `404.html` mantiene la identidad SC y resuelve correctamente sus enlaces tanto en local como bajo la subruta `/Ventas/` de GitHub Pages.
 - Las pestañas incluyen semántica ARIA, selección anunciada y navegación con flechas, `Home` y `End`.
 - Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
 - Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
-- La capa compartida de las doce demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
+- La capa compartida de las catorce demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
 - Las tres demos prioritarias cuentan con regresión Playwright de navegación profunda, altas ficticias, estados, búsqueda, PDF, email simulado, teclado, responsive y accesibilidad.
-- Las doce demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
+- Las catorce demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
 - La Fase 6 cuenta con regresión Playwright para SEO, datos estructurados, sitemap, analítica inactiva, presentación, impresión, responsive y accesibilidad.
+- La Fase 8 valida el catálogo por problemas, las demos de gestión y turnos, la reserva gastronómica, los estados terminales, el responsive y la accesibilidad.
+- La Fase 9 valida la identidad comercial, la ruta Nosotros, ambos escenarios del laboratorio n8n y los acentos de las catorce demos.
+- La Fase 10 valida la barra comercial compartida, el menú móvil, el cierre con `Escape`, el CTA sin recortes y la ausencia de desbordes.
+- La ampliación del laboratorio valida seis procesos, resultados específicos por flujo y estados de vista previa, procesamiento, aprobación, error y finalización.
+- La reportería interactiva cuenta con una regresión propia sobre las catorce demos, actualización de métricas, comparación, fallback, responsive y accesibilidad.
+- La regresión unificada actual ejecuta 97 pruebas Playwright sin fallas.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 
 ## Publicación en GitHub Pages
@@ -239,3 +270,24 @@ El formulario estático usa FormSubmit y envía consultas a `contacto.soluciones
 - Estética: SaaS operativo premium con superficies claras, sombras sobrias, microinteracciones y animaciones suaves.
 - Animaciones: GSAP `3.15.0` por CDN con fallback CSS y respeto por `prefers-reduced-motion`.
 - Los servicios de la home abren modales informativos para explicar alcance, entregables y resultado esperado.
+
+## Navegación comercial de Fase 10
+
+- Inicio, Servicios, Demos, Automatizaciones, Nosotros y Contacto comparten una barra oscura translúcida con navegación directa y un único CTA.
+- En tablet y móvil, la navegación se transforma en un menú accesible que cierra al elegir un enlace, hacer clic afuera o presionar `Escape`.
+- `assets/js/site-navigation.js` controla únicamente estado, foco y respuesta al scroll; la presentación permanece en CSS local.
+- La revisión del stack de Click confirmó GSAP, Lenis, Lucide, Swiper, Tailwind, shadcn y Base UI. SC conserva GSAP y Lucide, y no agrega dependencias que requieran migrar el sitio estático a React o incorporar un proceso de build.
+
+## Perfil humano en Nosotros
+
+- `nosotros/index.html` incorpora una presentación personal inspirada en la jerarquía de la página Nosotros de Click, adaptada a la identidad operativa de SC.
+- `assets/img/sc-profile.webp` deriva de la fotografía profesional provista por el responsable de SC; solo fue redimensionada y convertida a WebP, sin generación ni modificación del retrato.
+- La sección explica procesos claros, tecnología aplicable y trabajo cercano sin publicar un nombre o título profesional no confirmado.
+
+## Recorridos comerciales de Servicios y Contacto
+
+- `servicios/index.html` reúne las siete capacidades originales en cinco recorridos comprensibles: gestión, automatización e integración, atención, datos y reportes, y demos con diagnóstico.
+- Cada recorrido muestra una captura WebP obtenida de una demo real del repositorio, el problema que atiende, el resultado esperado y accesos relacionados.
+- `contacto/index.html` mantiene el envío mediante FormSubmit y agrega un resumen local que refleja nombre, organización, rubro, necesidad y situación antes de confirmar el formulario.
+- El resumen no persiste ni transmite información por separado; solo lee los controles ya presentes en el navegador.
+- La versión de caché compartida de las demos es `20260913-p14`; las páginas comerciales usan `20260913-p15`.

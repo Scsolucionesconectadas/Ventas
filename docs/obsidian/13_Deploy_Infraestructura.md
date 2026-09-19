@@ -23,8 +23,10 @@ La publicación prevista es GitHub Pages simple, sin dominio propio.
 - `assets/js/analytics.js`: cargador opcional de Cloudflare Web Analytics, inactivo mientras no exista token.
 - `assets/js/ui-enhancements.js`: validación, tooltips y estados visuales compartidos, sin dependencia remota.
 - `404.html`: página de error con identidad SC y rutas calculadas para local y `/Ventas/`.
-- Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0` y jsPDF `4.2.1`.
-- Las imágenes públicas usan WebP; Fase 7 incorpora tres activos generados optimizados a unos 433 KB en conjunto.
+- Las dependencias CDN están fijadas en Lucide `1.41.0`, GSAP `3.15.0`, Chart.js `4.5.1` y jsPDF `4.2.1`.
+- Chart.js se carga bajo demanda al visualizar reportería; una falla o demora de ocho segundos activa la vista simplificada sin bloquear la demo.
+- Las imágenes públicas usan WebP; Fase 8 incorpora dos activos ficticios adicionales para Gestión PyME y Turnos, optimizados a menos de 150 KB cada uno.
+- La versión de caché compartida de Fase 8 es `20260912-p8` para evitar mezclar CSS y JavaScript anteriores al ampliar el catálogo.
 - `contacto/index.html` publica un formulario HTML hacia FormSubmit; no existen credenciales ni secretos en el repositorio.
 - `contacto/gracias.html` queda fuera de indexación y funciona como retorno después del envío.
 
@@ -46,5 +48,6 @@ Si una publicación falla, revertir o corregir el último commit y volver a hace
 
 ## Pendientes
 
+- Hacer commit y push de Fase 8 solo después de la revisión comercial solicitada.
 - Activar FormSubmit desde el primer email recibido y repetir la prueba desde un celular físico.
 - Activar Cloudflare Web Analytics únicamente después de crear la propiedad y obtener el token público del sitio.

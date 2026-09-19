@@ -10,7 +10,10 @@ const pages = [
   { route: "/servicios/", canonical: `${publicBase}/servicios/` },
   { route: "/automatizaciones/", canonical: `${publicBase}/automatizaciones/` },
   { route: "/contacto/", canonical: `${publicBase}/contacto/` },
+  { route: "/nosotros/", canonical: `${publicBase}/nosotros/` },
   ...[
+    "gestion-pyme",
+    "turnos",
     "medica",
     "hoteleria",
     "inmobiliarias",
@@ -97,8 +100,8 @@ test.describe("Fase 6 - publicación y presentación comercial", () => {
 
     const proofItems = page.locator(".proof-item");
     await expect(proofItems).toHaveCount(4);
-    await expect(proofItems.nth(0).locator("strong")).toHaveText("12");
-    await expect(proofItems.nth(0).locator("span")).toHaveText("demos sectoriales");
+    await expect(proofItems.nth(0).locator("strong")).toHaveText("14");
+    await expect(proofItems.nth(0).locator("span")).toHaveText("demos navegables");
     await expect(proofItems.nth(1)).toContainText("7+");
     await expect(proofItems.nth(1)).toContainText("módulos por experiencia");
     await expect(proofItems.nth(2)).toContainText("2");
@@ -163,8 +166,8 @@ test.describe("Fase 6 - publicación y presentación comercial", () => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(`${baseUrl}/demos/`, { waitUntil: "networkidle" });
 
-    await expect(page.getByRole("heading", { name: "Demos navegables para presentar soluciones reales en cada rubro." })).toBeVisible();
-    await expect(page.getByRole("button", { name: "En planificación" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Elegí el problema. Probá cómo resolverlo." })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Turnos y reservas" })).toBeVisible();
     await expect(page.getByText("Roadmap", { exact: true })).toHaveCount(0);
 
     const expectedImages = {
@@ -174,14 +177,15 @@ test.describe("Fase 6 - publicación y presentación comercial", () => {
     };
     for (const [title, fileName] of Object.entries(expectedImages)) {
       const card = page.locator(".industry-card").filter({ has: page.getByRole("heading", { name: title }) });
+      await card.scrollIntoViewIfNeeded();
       await expect(card.locator("img")).toHaveAttribute("src", new RegExp(fileName));
-      expect(await card.locator("img").evaluate((image) => image.complete && image.naturalWidth === 1600)).toBeTruthy();
+      await expect.poll(() => card.locator("img").evaluate((image) => image.complete && image.naturalWidth === 1600)).toBeTruthy();
     }
 
     const layout = await page.evaluate(() => {
-      const heading = document.querySelector(".demos-hero .section-heading");
+      const heading = document.querySelector(".demos-solution-hero-inner");
       const title = heading.querySelector("h1").getBoundingClientRect();
-      const copy = heading.querySelector(":scope > p").getBoundingClientRect();
+      const copy = heading.querySelectorAll(":scope > p")[1].getBoundingClientRect();
       const rows = new Map();
       document.querySelectorAll(".demos-catalog-grid .industry-card").forEach((card) => {
         const row = Math.round(card.getBoundingClientRect().top);
@@ -242,7 +246,7 @@ test.describe("Fase 6 - publicación y presentación comercial", () => {
 
     expect(urls).toEqual(pages.map((item) => item.canonical));
     expect(lastModified).toHaveLength(pages.length);
-    expect(lastModified.every((date) => date === "2026-09-06")).toBeTruthy();
+    expect(lastModified.every((date) => date === "2026-09-12")).toBeTruthy();
     expect(robots).toContain(`Sitemap: ${publicBase}/sitemap.xml`);
     expect(sitemap).not.toContain("presentacion");
   });

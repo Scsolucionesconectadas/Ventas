@@ -5,6 +5,7 @@
     panelIn,
     menuIn,
     pulse,
+    dataSwap,
     refresh: setupSpotlight,
   };
 
@@ -17,12 +18,13 @@
 
     document.documentElement.classList.add("gsap-ready");
     runIntroTimeline();
+    setupScrollReveals();
     animateCounters();
   });
 
   function runIntroTimeline() {
     const animatedSelector =
-      ".brand, .topbar-actions > *, .header-actions > *, .landing-hero-copy > *, .commercial-hero-copy > *, .intro-copy > *, .app-title > *, .command-bar, .snapshot, .medical-hero, .industry-hero, .demos-hero, .commercial-summary, .automation-status-board, .service-card, .service-detail, .service-modal-card, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .automation-copy, .automation-flow, .automation-card, .automation-goals, .automation-planner, .capability-grid article, .governance-grid article, .reporting-showcase, .report-card, .delivery-card, .report-log-item, .process-step, .cta-inner, .commercial-cta, .contact-card, .contact-form-panel, .contact-options, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article, .faq-list details";
+      ".brand, .topbar-actions > *, .header-actions > *, .landing-hero-copy > *, .commercial-hero-copy > *, .intro-copy > *, .app-title > *, .command-bar, .snapshot, .medical-hero, .industry-hero, .demos-hero, .commercial-summary, .automation-status-board, .hero-method-board, .n8n-lab, .reporting-showcase, .cta-inner";
     const animatedItems = window.gsap.utils.toArray(animatedSelector);
     const finalizeIntro = () => {
       if (animatedItems.length) {
@@ -66,19 +68,12 @@
       "-=0.5",
     );
     addStep(
-      ".snapshot, .medical-hero, .industry-hero, .automation-flow, .reporting-showcase, .cta-inner, .commercial-summary, .automation-status-board, .contact-form-panel, .contact-options",
+      ".snapshot, .medical-hero, .industry-hero, .automation-flow, .reporting-showcase, .cta-inner, .commercial-summary, .automation-status-board, .hero-method-board, .n8n-lab, .contact-form-panel, .contact-live-brief, .contact-options",
       { autoAlpha: 0, y: 24, scale: 0.985 },
       { autoAlpha: 1, y: 0, scale: 1 },
       "-=0.4",
     );
-    addStep(
-      ".demos-hero, .service-card, .service-detail, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .automation-card, .automation-goals, .automation-planner, .capability-grid article, .governance-grid article, .report-card, .delivery-card, .report-log-item, .process-step, .commercial-cta, .contact-card, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article, .faq-list details",
-      { autoAlpha: 0, y: 22, scale: 0.98 },
-      { autoAlpha: 1, y: 0, scale: 1, stagger: 0.055 },
-      "-=0.35",
-    );
-
-    window.setTimeout(finalizeIntro, 2400);
+    window.setTimeout(finalizeIntro, 1600);
 
     function addStep(selector, fromVars, toVars, position) {
       const targets = window.gsap.utils.toArray(selector);
@@ -87,6 +82,31 @@
       }
       return timeline;
     }
+  }
+
+  function setupScrollReveals() {
+    if (!("IntersectionObserver" in window)) return;
+
+    const targets = window.gsap.utils.toArray(
+      ".service-card, .service-detail, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .automation-card, .about-profile-portrait, .about-profile-pillars article, .about-profile-statement, .about-method-card, .about-principles-grid article, .about-fit-list span, .capability-grid article, .governance-grid article, .report-card, .delivery-card, .process-step, .commercial-cta, .contact-card, .contact-form-panel, .contact-live-brief, .contact-options, .site-footer-brand, .site-footer-column, .site-footer-contact-panel, .site-footer-bottom, .industry-card, .record-item, .kanban-column, .catalog-card, .task-item, .metric-card, .module-panel, .method-grid article, .faq-list details",
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          window.gsap.fromTo(
+            entry.target,
+            { autoAlpha: 0, y: 18 },
+            { autoAlpha: 1, y: 0, duration: 0.48, ease: "power2.out", clearProps: "opacity,visibility,transform" },
+          );
+        });
+      },
+      { rootMargin: "0px 0px -7% 0px", threshold: 0.08 },
+    );
+
+    targets.forEach((target) => observer.observe(target));
   }
 
   function animateCounters() {
@@ -138,9 +158,21 @@
     );
   }
 
+  function dataSwap(container) {
+    if (!container || !window.gsap || prefersReducedMotion) return;
+    const targets = container.querySelectorAll("[data-report-chart-frame], [data-report-summary], [data-report-insight]");
+    if (!targets.length) return;
+
+    window.gsap.fromTo(
+      targets,
+      { autoAlpha: 0.7, y: 7 },
+      { autoAlpha: 1, y: 0, duration: 0.32, ease: "power2.out", stagger: 0.045, clearProps: "opacity,visibility,transform" },
+    );
+  }
+
   function setupSpotlight() {
     const targets = document.querySelectorAll(
-      ".demos-hero, .service-card, .service-detail, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .contact-card, .contact-form-panel, .contact-options, .automation-card, .automation-goals, .automation-planner, .capability-grid article, .governance-grid article, .report-card, .delivery-card, .report-log-item, .process-step, .commercial-cta, .industry-card, .record-item, .kanban-card, .catalog-card, .task-item, .module-panel, .metric-card, .appointment-item, .faq-list details",
+      ".demos-hero, .service-card, .service-detail, .proof-item, .outcome-item, .diagnostic-panel, .diagnostic-result, .contact-card, .contact-form-panel, .contact-live-brief, .contact-options, .automation-card, .automation-goals, .automation-planner, .n8n-lab, .hero-method-board, .about-profile-portrait, .about-profile-pillars article, .about-profile-statement, .about-method-card, .about-principles-grid article, .about-fit-list span, .capability-grid article, .governance-grid article, .report-analysis, .report-card, .delivery-card, .report-log-item, .process-step, .commercial-cta, .industry-card, .record-item, .kanban-card, .catalog-card, .task-item, .module-panel, .metric-card, .appointment-item, .faq-list details",
     );
 
     targets.forEach((target) => {

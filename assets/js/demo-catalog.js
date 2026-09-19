@@ -1,5 +1,31 @@
 window.SCDemoCatalog = [
   {
+    slug: "gestion-pyme",
+    status: "listo",
+    title: "Gestión PyME",
+    description: "Ventas, caja, gastos, cobranzas, clientes y stock liviano en un único sistema.",
+    image: "assets/img/small-business-management-demo.webp",
+    alt: "Responsables de un pequeño negocio revisando su gestión diaria",
+    href: "rubros/gestion-pyme/index.html",
+    modules: ["Ventas y movimientos", "Caja y cobranzas", "Alertas y reportes"],
+    groups: ["gestion", "operacion"],
+    outcome: "Saber qué pasó hoy, qué falta cobrar y dónde actuar primero.",
+    spotlight: true,
+  },
+  {
+    slug: "turnos",
+    status: "listo",
+    title: "Turnos y agenda",
+    description: "Disponibilidad, profesionales, servicios, confirmaciones, recordatorios y lista de espera.",
+    image: "assets/img/appointments-demo.webp",
+    alt: "Profesional y clienta confirmando un turno desde una tablet",
+    href: "rubros/turnos/index.html",
+    modules: ["Agenda inteligente", "Clientes y servicios", "Recordatorios y ausencias"],
+    groups: ["agenda", "gestion", "profesionales"],
+    outcome: "Evitar superposiciones, reducir ausencias y ocupar mejor la agenda.",
+    spotlight: true,
+  },
+  {
     slug: "medica",
     status: "listo",
     title: "Área médica",
@@ -8,6 +34,8 @@ window.SCDemoCatalog = [
     alt: "Profesional de salud revisando información médica",
     href: "rubros/medica/index.html",
     modules: ["Agenda y admisión", "Historia clínica", "Reportes PDF y chatbot"],
+    groups: ["agenda", "gestion", "profesionales"],
+    outcome: "Agilizar la recepción y mantener cada atención trazada.",
     featured: true,
   },
   {
@@ -19,6 +47,8 @@ window.SCDemoCatalog = [
     alt: "Recepción de hotel con tablero operativo",
     href: "rubros/hoteleria/index.html",
     modules: ["Motor de reservas", "Housekeeping", "Reportes de ocupación"],
+    groups: ["agenda", "gestion", "operacion"],
+    outcome: "Coordinar disponibilidad, arribos y preparación de habitaciones.",
     featured: true,
   },
   {
@@ -30,6 +60,8 @@ window.SCDemoCatalog = [
     alt: "Llaves y contrato de propiedad",
     href: "rubros/inmobiliarias/index.html",
     modules: ["Pipeline comercial", "Agenda de visitas", "Reportes de conversión"],
+    groups: ["gestion", "agenda", "profesionales"],
+    outcome: "Convertir consultas dispersas en seguimientos y operaciones visibles.",
     featured: true,
   },
   {
@@ -41,6 +73,8 @@ window.SCDemoCatalog = [
     alt: "Materiales de construcción en obra",
     href: "rubros/materiales/index.html",
     modules: ["Stock y alertas", "Presupuestos rápidos", "Reportes de margen"],
+    groups: ["gestion", "operacion"],
+    outcome: "Vender con stock confirmado y cuidar margen y entregas.",
   },
   {
     slug: "gastronomia",
@@ -50,7 +84,10 @@ window.SCDemoCatalog = [
     image: "assets/img/gastronomy-demo.webp",
     alt: "Mesa de restaurante con platos preparados",
     href: "rubros/gastronomia/index.html",
-    modules: ["Salón y comandas", "Menú digital", "Reportes de caja"],
+    modules: ["Reservas y lista de espera", "Salón y comandas", "Caja y menú digital"],
+    groups: ["agenda", "gestion", "operacion"],
+    outcome: "Tomar reservas y pedidos sin perder capacidad, tiempos ni caja.",
+    spotlight: true,
   },
   {
     slug: "educacion",
@@ -61,6 +98,8 @@ window.SCDemoCatalog = [
     alt: "Aula de capacitación con estudiantes adultos",
     href: "rubros/educacion/index.html",
     modules: ["Inscripciones", "Asistencia y pagos", "Reportes académicos"],
+    groups: ["agenda", "gestion", "profesionales"],
+    outcome: "Ordenar inscripciones, asistencia y pagos por alumno.",
   },
   {
     slug: "gomerias",
@@ -71,6 +110,8 @@ window.SCDemoCatalog = [
     alt: "Profesionales de una gomería revisando un neumático y una orden de servicio",
     href: "rubros/gomerias/index.html",
     modules: ["Stock por medida", "Servicios y turnos", "Reposición automática"],
+    groups: ["agenda", "gestion", "operacion"],
+    outcome: "Reservar turnos con stock disponible y anticipar reposiciones.",
   },
   {
     slug: "agrimensores",
@@ -81,6 +122,8 @@ window.SCDemoCatalog = [
     alt: "Profesionales de agrimensura realizando una medición de campo",
     href: "rubros/agrimensores/index.html",
     modules: ["Expedientes", "Campo y planos", "ATER y reportes"],
+    groups: ["gestion", "profesionales"],
+    outcome: "Mantener expedientes, documentos y avances técnicos en contexto.",
   },
   {
     slug: "logistica",
@@ -91,6 +134,8 @@ window.SCDemoCatalog = [
     alt: "Coordinadora logística y transportista revisando una entrega",
     href: "rubros/logistica/index.html",
     modules: ["Rutas y viajes", "Flota y entregas", "Alertas de SLA"],
+    groups: ["gestion", "operacion"],
+    outcome: "Detectar desvíos antes de incumplir una entrega.",
   },
   {
     slug: "talleres",
@@ -101,6 +146,8 @@ window.SCDemoCatalog = [
     alt: "Equipo de taller revisando una orden de servicio junto a un vehículo",
     href: "rubros/talleres/index.html",
     modules: ["Órdenes de trabajo", "Repuestos y presupuestos", "Historial del vehículo"],
+    groups: ["agenda", "gestion", "operacion", "profesionales"],
+    outcome: "Dar seguimiento real desde el turno hasta la entrega del trabajo.",
     featured: true,
   },
   {
@@ -112,6 +159,8 @@ window.SCDemoCatalog = [
     alt: "Profesionales contables revisando documentación y métricas",
     href: "rubros/estudios-contables/index.html",
     modules: ["Agenda fiscal", "Documentación y tareas", "Honorarios y reportes"],
+    groups: ["gestion", "profesionales"],
+    outcome: "Llegar a cada vencimiento con documentos y responsables claros.",
   },
   {
     slug: "constructoras",
@@ -122,6 +171,8 @@ window.SCDemoCatalog = [
     alt: "Equipo de obra revisando avances y planos en una construcción",
     href: "rubros/constructoras/index.html",
     modules: ["Avance de obra", "Certificados y contratistas", "Compras e incidencias"],
+    groups: ["gestion", "operacion", "profesionales"],
+    outcome: "Comparar avance, costo y desvíos antes de decidir.",
     featured: true,
   },
 ];

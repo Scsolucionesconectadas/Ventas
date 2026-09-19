@@ -16,7 +16,9 @@ function renderDemoCatalogs() {
     const rootPrefix = catalog.dataset.rootPrefix || "";
     const mode = catalog.dataset.demoMode || "all";
     const limit = Number(catalog.dataset.demoLimit) || 0;
-    let visibleDemos = mode === "featured" ? demos.filter((demo) => demo.featured) : demos;
+    let visibleDemos = demos;
+    if (mode === "featured") visibleDemos = demos.filter((demo) => demo.featured);
+    if (mode === "spotlight") visibleDemos = demos.filter((demo) => demo.spotlight);
 
     if (limit > 0) {
       visibleDemos = visibleDemos.slice(0, limit);
@@ -34,12 +36,13 @@ function renderDemoCard(demo, rootPrefix) {
     .join("");
 
   return `
-    <article class="industry-card" data-status="${escapeHtml(demo.status)}">
+    <article class="industry-card" data-status="${escapeHtml(demo.status)}" data-groups="${escapeHtml((demo.groups || []).join(" "))}">
       <img src="${escapeHtml(rootPrefix + demo.image)}" alt="${escapeHtml(demo.alt)}" loading="lazy" decoding="async" />
       <div class="industry-card-body">
         <span class="status-pill ${statusClass}">${statusLabel}</span>
         <h3>${escapeHtml(demo.title)}</h3>
         <p>${escapeHtml(demo.description)}</p>
+        ${demo.outcome ? `<p class="industry-card-outcome"><i data-lucide="circle-check" aria-hidden="true"></i><span>${escapeHtml(demo.outcome)}</span></p>` : ""}
         <details class="feature-disclosure">
           <summary>
             Ver módulos
@@ -69,7 +72,8 @@ function bindIndustryFilters() {
       button.classList.add("active");
 
       industryCards.forEach((card) => {
-        const shouldShow = filter === "todos" || card.dataset.status === filter;
+        const groups = (card.dataset.groups || "").split(" ");
+        const shouldShow = filter === "todos" || groups.includes(filter);
         card.hidden = !shouldShow;
       });
 
@@ -120,9 +124,9 @@ function bindServiceModal() {
       outcome: "Resultado esperado: menos planillas sueltas y más control diario.",
       page: "servicios/index.html#sistemas",
       demos: [
+        ["Gestión PyME", "rubros/gestion-pyme/index.html"],
+        ["Turnos y agenda", "rubros/turnos/index.html"],
         ["Área médica", "rubros/medica/index.html"],
-        ["Inmobiliarias", "rubros/inmobiliarias/index.html"],
-        ["Venta de materiales", "rubros/materiales/index.html"],
       ],
     },
     automatizaciones: {
@@ -329,8 +333,9 @@ function bindDiagnostic() {
         "Panel con estados y alertas.",
       ],
       demos: [
+        ["Turnos y agenda", "rubros/turnos/index.html"],
         ["Área médica", "rubros/medica/index.html"],
-        ["Hotelería", "rubros/hoteleria/index.html"],
+        ["Gastronomía", "rubros/gastronomia/index.html"],
       ],
       automations: [
         "Alta desde formulario o WhatsApp.",
@@ -338,6 +343,26 @@ function bindDiagnostic() {
         "Alerta por ausencia o reprogramación.",
       ],
       message: "Hola SC, quiero una demo de agenda inteligente para mi empresa.",
+    },
+    reservas: {
+      icon: "utensils",
+      title: "Demo de reservas y pedidos gastronómicos",
+      copy: "Conviene mostrar una experiencia que valide capacidad, sugiera horarios alternativos y conecte la reserva con salón, cocina, caja o retiro.",
+      bullets: [
+        "Disponibilidad por horario, cantidad de personas y sector.",
+        "Confirmación, lista de espera y recordatorio automático.",
+        "Pedidos anticipados, comandas y tiempos de preparación.",
+      ],
+      demos: [
+        ["Gastronomía", "rubros/gastronomia/index.html#reservas"],
+        ["Hotelería", "rubros/hoteleria/index.html"],
+      ],
+      automations: [
+        "Confirmación y recordatorio antes de la reserva.",
+        "Alternativas automáticas cuando no hay capacidad.",
+        "Aviso a recepción, salón o cocina según el pedido.",
+      ],
+      message: "Hola SC, quiero una demo de reservas y pedidos para gastronomía.",
     },
     ventas: {
       icon: "badge-dollar-sign",

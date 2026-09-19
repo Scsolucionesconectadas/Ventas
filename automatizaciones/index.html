@@ -23,13 +23,15 @@
     <meta name="twitter:title" content="Automatizaciones con n8n y Node-RED | Soluciones Conectadas" />
     <meta name="twitter:description" content="Flujos con validaciones, aprobaciones, reintentos, alertas y reportería." />
     <meta name="twitter:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/landing-hero.webp" />
-    <link rel="stylesheet" href="../assets/css/base.css?v=20260908-ui2" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260913-p15" />
     <script defer src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-    <script defer src="../assets/js/commercial-pages.js?v=20260908-ui2"></script>
-    <script defer src="../assets/js/motion.js?v=20260905-p2"></script>
-    <script defer src="../assets/js/analytics.js?v=20260906-p6"></script>
-    <script defer src="../assets/js/ui-enhancements.js?v=20260908-ui2"></script>
+    <script defer src="../assets/js/site-navigation.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/commercial-pages.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/n8n-lab.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/motion.js?v=20260913-p15"></script>
+    <script defer src="../assets/js/analytics.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/ui-enhancements.js?v=20260913-p13"></script>
   </head>
   <body class="landing-site commercial-page automations-page">
     <div class="site-shell">
@@ -43,32 +45,25 @@
             <small>Automatización e integración</small>
           </span>
         </a>
-        <nav class="topbar-actions" aria-label="Navegación principal">
+        <button class="topbar-menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menú principal">
+          <i class="topbar-menu-open" data-lucide="menu" aria-hidden="true"></i>
+          <i class="topbar-menu-close" data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <nav class="topbar-actions" id="primary-navigation" aria-label="Navegación principal">
+          <a href="../index.html" class="ghost-link">Inicio</a>
           <a href="../servicios/index.html" class="ghost-link">Servicios</a>
           <a href="../demos/index.html" class="ghost-link">Demos</a>
           <a href="index.html" class="ghost-link" aria-current="page">Automatizaciones</a>
-          <details class="nav-dropdown">
-            <summary>
-              <i data-lucide="sparkles" aria-hidden="true"></i>
-              Explorar
-              <i data-lucide="chevron-down" aria-hidden="true"></i>
-            </summary>
-            <div class="dropdown-menu compact-menu">
-              <a href="#simulador">Simular un flujo</a>
-              <a href="#tecnologias">Tecnologías</a>
-              <a href="../demos/index.html">Demos por rubro</a>
-              <a href="../contacto/index.html">Contacto</a>
-            </div>
-          </details>
+          <a href="../nosotros/index.html" class="ghost-link">Nosotros</a>
           <a href="../contacto/index.html?necesidad=automatizacion" class="primary-link">
             <i data-lucide="message-circle" aria-hidden="true"></i>
-            Consultar
+            Conversemos
           </a>
         </nav>
       </header>
 
       <main>
-        <section class="commercial-hero section-band">
+        <section class="commercial-hero commercial-media-hero automations-media-hero section-band">
           <div class="commercial-hero-copy">
             <p class="eyebrow">Automatizaciones SC</p>
             <h1>Automatizaciones que avanzan con reglas, control y trazabilidad.</h1>
@@ -95,62 +90,128 @@
           </aside>
         </section>
 
-        <section class="section-band automation-planner-section" id="simulador">
-          <div class="section-heading">
+        <section class="section-band n8n-lab-section" id="simulador">
+          <div class="section-heading n8n-lab-heading">
             <div>
-              <p class="eyebrow">Explorador de procesos</p>
-              <h2>Elegí un objetivo y mirá cómo se conecta el recorrido.</h2>
+              <p class="eyebrow">Laboratorio interactivo</p>
+              <h2>Ejecutá un workflow estilo n8n y mirá qué ocurre en cada nodo.</h2>
             </div>
-            <p>El flujo es ilustrativo y ayuda a definir disparadores, reglas, responsables y resultado esperado.</p>
+            <p>
+              Esta simulación pública no se conecta con sistemas reales. Permite probar validaciones, una aprobación
+              humana, un error controlado y el reintento sin duplicar acciones.
+            </p>
           </div>
-          <div class="automation-planner-layout">
-            <div class="automation-goals" role="group" aria-label="Objetivos de automatización">
-              <button class="active" type="button" data-automation-goal="agenda">
-                <i data-lucide="calendar-check-2" aria-hidden="true"></i><span><strong>Agenda y atención</strong><small>Turnos, reservas y avisos</small></span>
-              </button>
-              <button type="button" data-automation-goal="ventas">
-                <i data-lucide="badge-dollar-sign" aria-hidden="true"></i><span><strong>Ventas y seguimiento</strong><small>Leads, tareas y cotizaciones</small></span>
-              </button>
-              <button type="button" data-automation-goal="stock">
-                <i data-lucide="boxes" aria-hidden="true"></i><span><strong>Stock y logística</strong><small>Compras, alertas y entregas</small></span>
-              </button>
-              <button type="button" data-automation-goal="reportes">
-                <i data-lucide="file-chart-column" aria-hidden="true"></i><span><strong>Reportes y control</strong><small>Dashboard, PDF y email</small></span>
-              </button>
-            </div>
 
-            <article class="automation-planner" data-automation-planner aria-live="polite">
-              <div class="planner-heading">
-                <span class="service-icon"><i data-lucide="calendar-check-2" data-planner-icon aria-hidden="true"></i></span>
-                <div><p class="eyebrow" data-planner-eyebrow>Agenda y atención</p><h3 data-planner-title>De la solicitud al turno confirmado</h3></div>
+          <div class="n8n-lab" data-n8n-lab>
+            <aside class="n8n-lab-sidebar" aria-label="Workflows disponibles">
+              <div class="n8n-lab-brand">
+                <span><i data-lucide="workflow" aria-hidden="true"></i></span>
+                <div><strong>n8n · Demo SC</strong><small>Orquestación simulada</small></div>
               </div>
-              <p data-planner-copy>
-                Un flujo coordinado para recibir solicitudes, validar disponibilidad, confirmar y actuar ante ausencias o cambios.
-              </p>
-              <ol class="planner-steps" data-planner-steps>
-                <li><span>01</span>Formulario o WhatsApp</li>
-                <li><span>02</span>Validación de datos</li>
-                <li><span>03</span>Asignación de agenda</li>
-                <li><span>04</span>Recordatorio</li>
-                <li><span>05</span>Confirmación</li>
-                <li><span>06</span>Tablero y alerta</li>
-              </ol>
-              <div class="hero-actions">
-                <a href="../rubros/medica/index.html" class="secondary-link" data-planner-demo>
-                  <i data-lucide="layout-dashboard" aria-hidden="true"></i><span>Ver demo médica</span>
-                </a>
-                <a
-                  href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20analizar%20una%20automatizaci%C3%B3n%20de%20agenda%20y%20atenci%C3%B3n."
-                  class="primary-link"
-                  target="_blank"
-                  rel="noopener"
-                  data-planner-contact
-                >
-                  <i data-lucide="message-circle" aria-hidden="true"></i>Consultar este flujo
-                </a>
+              <p class="n8n-control-label">Elegí un proceso</p>
+              <div class="n8n-flow-picker" role="group" aria-label="Elegir workflow">
+                <button class="active" type="button" data-n8n-flow="agenda" aria-pressed="true">
+                  <i data-lucide="calendar-check-2" aria-hidden="true"></i><span><strong>Turno confirmado</strong><small>Agenda y avisos</small></span>
+                </button>
+                <button type="button" data-n8n-flow="ventas" aria-pressed="false">
+                  <i data-lucide="badge-dollar-sign" aria-hidden="true"></i><span><strong>Lead atendido</strong><small>Ventas y seguimiento</small></span>
+                </button>
+                <button type="button" data-n8n-flow="stock" aria-pressed="false">
+                  <i data-lucide="boxes" aria-hidden="true"></i><span><strong>Stock repuesto</strong><small>Compras y logística</small></span>
+                </button>
+                <button type="button" data-n8n-flow="cobranzas" aria-pressed="false">
+                  <i data-lucide="circle-dollar-sign" aria-hidden="true"></i><span><strong>Cobranza gestionada</strong><small>Vencimientos y avisos</small></span>
+                </button>
+                <button type="button" data-n8n-flow="reservas" aria-pressed="false">
+                  <i data-lucide="utensils" aria-hidden="true"></i><span><strong>Reserva confirmada</strong><small>Mesas y capacidad</small></span>
+                </button>
+                <button type="button" data-n8n-flow="reportes" aria-pressed="false">
+                  <i data-lucide="file-chart-column" aria-hidden="true"></i><span><strong>Reporte distribuido</strong><small>Indicadores y PDF</small></span>
+                </button>
               </div>
-            </article>
+              <fieldset class="n8n-scenario-picker">
+                <legend>Escenario</legend>
+                <label><input type="radio" name="n8n-scenario" value="success" checked /> Recorrido normal</label>
+                <label><input type="radio" name="n8n-scenario" value="failure" /> Error temporal</label>
+              </fieldset>
+              <div class="n8n-sidebar-actions">
+                <button class="primary-link" type="button" data-n8n-run>
+                  <i data-lucide="play" aria-hidden="true"></i>Ejecutar workflow
+                </button>
+                <button class="secondary-link" type="button" data-n8n-reset>
+                  <i data-lucide="rotate-ccw" aria-hidden="true"></i>Restablecer simulación
+                </button>
+              </div>
+            </aside>
+
+            <section class="n8n-workbench" aria-label="Canvas del workflow">
+              <header class="n8n-workbench-head">
+                <div>
+                  <p class="eyebrow" data-n8n-eyebrow>Agenda y atención</p>
+                  <h3 data-n8n-title>De la solicitud al turno confirmado</h3>
+                  <p data-n8n-description>Recibe una solicitud, valida disponibilidad y confirma sin perder trazabilidad.</p>
+                </div>
+                <div class="n8n-run-meta">
+                  <span class="n8n-overall-status is-idle" data-n8n-status aria-live="polite">Listo para ejecutar</span>
+                  <small data-n8n-run-id>Sin ejecución</small>
+                </div>
+              </header>
+              <div class="n8n-canvas" aria-label="Nodos del workflow">
+                <ol class="n8n-node-list" data-n8n-nodes></ol>
+              </div>
+              <footer class="n8n-execution-bar">
+                <p data-n8n-note>Seleccioná un nodo para inspeccionar su entrada, acción y salida.</p>
+                <div>
+                  <button class="secondary-link" type="button" data-n8n-retry disabled>
+                    <i data-lucide="refresh-cw" aria-hidden="true"></i>Reintentar
+                  </button>
+                  <button class="primary-link" type="button" data-n8n-approve disabled>
+                    <i data-lucide="user-check" aria-hidden="true"></i>Aprobar paso
+                  </button>
+                </div>
+              </footer>
+            </section>
+
+            <aside class="n8n-inspector" aria-label="Inspector del nodo">
+              <header>
+                <span data-n8n-inspector-icon><i data-lucide="webhook" aria-hidden="true"></i></span>
+                <div><p class="eyebrow">Inspector</p><h3 data-n8n-inspector-title>Solicitud recibida</h3></div>
+              </header>
+              <dl class="n8n-inspector-data">
+                <div><dt>Entrada</dt><dd data-n8n-input>Datos del formulario o WhatsApp</dd></div>
+                <div><dt>Acción</dt><dd data-n8n-action>Normaliza la solicitud y asigna un identificador único</dd></div>
+                <div><dt>Salida</dt><dd data-n8n-output>Solicitud lista para validar</dd></div>
+              </dl>
+              <section class="n8n-result is-preview" data-n8n-result aria-labelledby="n8n-result-title">
+                <div class="n8n-result-head">
+                  <strong id="n8n-result-title">Resultado del flujo</strong>
+                  <span data-n8n-result-badge>Vista previa</span>
+                </div>
+                <h4 data-n8n-result-title>Turno listo para confirmar</h4>
+                <p data-n8n-result-summary>La solicitud queda validada, asignada y trazada hasta la confirmación.</p>
+                <div class="n8n-result-metrics" data-n8n-result-metrics></div>
+                <dl class="n8n-result-details" data-n8n-result-details></dl>
+                <footer><span>Datos ficticios</span><small data-n8n-result-run>Se generará al completar el flujo</small></footer>
+              </section>
+              <div class="n8n-payload">
+                <div><strong>Payload de ejemplo</strong><span>JSON ficticio</span></div>
+                <pre data-n8n-payload>{
+  "solicitud": "TUR-2048",
+  "canal": "web",
+  "estado": "recibida"
+}</pre>
+              </div>
+              <div class="n8n-log">
+                <div><strong>Bitácora</strong><span data-n8n-log-count>0 eventos</span></div>
+                <ol data-n8n-log aria-live="polite"><li>Esperando la primera ejecución.</li></ol>
+              </div>
+            </aside>
           </div>
+          <p class="n8n-disclaimer">
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            Demo conceptual con datos ficticios. Un proyecto real define credenciales, permisos, tiempos de espera,
+            idempotencia, alertas y responsables antes de conectarse a n8n.
+          </p>
         </section>
 
         <section class="section-band automation-capabilities" id="tecnologias">
@@ -220,14 +281,12 @@
       </main>
 
       <footer class="site-footer">
-        <span>Soluciones Conectadas</span>
-        <div class="footer-links">
-          <a href="../servicios/index.html">Servicios</a>
-          <a href="../demos/index.html">Demos</a>
-          <a href="index.html">Automatizaciones</a>
-          <a href="../contacto/index.html">Contacto</a>
-          <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
-        </div>
+        <div class="site-footer-grid" aria-hidden="true"></div><span class="site-footer-line site-footer-line-primary" aria-hidden="true"></span><span class="site-footer-line site-footer-line-secondary" aria-hidden="true"></span>
+        <div class="site-footer-inner"><div class="site-footer-main">
+          <div class="site-footer-brand"><a class="site-footer-brand-link" href="../index.html" aria-label="Ir al inicio de Soluciones Conectadas"><span class="site-footer-logo"><img src="../assets/img/sc-symbol.png" alt="" /></span><span><strong>Soluciones Conectadas</strong><small>Automatización e integración para empresas</small></span></a><p>Convertimos procesos dispersos en sistemas, automatizaciones y reportes que ayudan a trabajar con más claridad.</p><div class="site-footer-proof" aria-label="Características de las demos"><span><i data-lucide="shield-check" aria-hidden="true"></i>Datos ficticios</span><span><i data-lucide="panels-top-left" aria-hidden="true"></i>14 demos navegables</span></div></div>
+          <div class="site-footer-column"><strong>Explorar</strong><nav class="site-footer-nav" aria-label="Navegación del pie"><a href="../index.html">Inicio</a><a href="../servicios/index.html">Servicios</a><a href="../demos/index.html">Demos</a><a href="../automatizaciones/index.html">Automatizaciones</a><a href="../nosotros/index.html">Nosotros</a><a href="../contacto/index.html">Contacto</a></nav></div>
+          <div class="site-footer-contact-panel"><strong>Conversemos</strong><p>Contanos qué tarea, demora o falta de información querés resolver.</p><a class="site-footer-cta" href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20conversar%20sobre%20un%20proceso%20de%20mi%20empresa." target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Hablar por WhatsApp</a><div class="site-footer-contact-links"><a href="mailto:contacto.solucionesconectadas@gmail.com"><i data-lucide="mail" aria-hidden="true"></i>contacto.solucionesconectadas@gmail.com</a><a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener"><i data-lucide="instagram" aria-hidden="true"></i>@sc.soluciones.ar</a></div></div>
+        </div><div class="site-footer-bottom"><p>© 2026 Soluciones Conectadas.</p><p>Sistemas, automatizaciones, integraciones y reportería para operaciones reales.</p></div></div>
       </footer>
     </div>
   </body>

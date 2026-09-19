@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-La landing incluye una sección comercial para explicar capacidades de automatización e integración. La Fase 5, ampliada en Fase 7, agrega a las doce demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
+La página comercial incluye un laboratorio interactivo estilo n8n para explicar capacidades de automatización e integración. La Fase 5, ampliada en Fases 7 y 8, agrega además a las catorce demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
 
 ## Capacidades presentadas
 
@@ -54,9 +54,34 @@ Cada rubro presenta dos workflows configurados en `assets/js/workflow-demo.js` y
 
 La implementación reproduce conceptos de ejecución y observabilidad, pero no importa ni ejecuta definiciones reales de n8n o Node-RED y no incrusta Grafana.
 
+## Fase 8 - nuevos procesos demostrativos
+
+- Gestión PyME: venta, cobro y conciliación; stock crítico y reposición.
+- Turnos y agenda: solicitud, confirmación y recordatorio; hueco y lista de espera.
+- Gastronomía: pedido, cocina y entrega; reserva, disponibilidad y confirmación.
+
+Las recomendaciones visibles se calculan con reglas estáticas y datos ficticios. No se presentan como IA autónoma ni ejecutan cambios fuera del navegador.
+
+## Fase 9 - laboratorio comercial interactivo
+
+`automatizaciones/index.html` incorpora seis recorridos en `assets/js/n8n-lab.js`:
+
+- Agenda: solicitud, validación, disponibilidad, aprobación, confirmación y registro.
+- Ventas: lead, clasificación, asignación, aprobación, próximo paso y conversión.
+- Stock: mínimo, demanda, proveedores, aprobación, orden y entrega.
+- Cobranzas: vencimientos, conciliación, prioridad, aprobación, avisos y seguimiento.
+- Reservas: solicitud, comensales, disponibilidad, aprobación, confirmación y ocupación.
+- Reportes: programación, consolidación, validación, aprobación, PDF y distribución registrada.
+
+Cada nodo se puede inspeccionar y muestra entrada, acción, salida y un payload ficticio. Cada proceso define además un resultado esperado con métricas e identificadores propios; su estado cambia a procesamiento, aprobación pendiente, no generado o resultado generado según la ejecución. El escenario normal se detiene en aprobación humana; el escenario de error falla en el tercer nodo y reanuda desde allí con un segundo intento. La bitácora vive solo en memoria y no realiza solicitudes externas.
+
+El laboratorio no incrusta una instancia de n8n ni importa JSON ejecutable. Antes de una conexión real se deben resolver autenticación, permisos, persistencia, secretos, claves de idempotencia, timeouts, reintentos y monitoreo.
+
+Validación de la ampliación: 7 de 7 pruebas focalizadas y 90 de 90 pruebas de regresión aprobadas en Edge, con revisión visual en escritorio y móvil.
+
 ## Pendientes
 
 - Definir si los workflows reales se implementarán con n8n, Node-RED o backend propio según criticidad.
-- Agregar capturas o diagramas propios de flujos n8n y Node-RED.
+- Preparar exportaciones JSON de referencia únicamente cuando exista una instancia n8n de desarrollo aislada.
 - Documentar variables y credenciales cuando exista una integración real, sin guardar secretos.
 - Definir persistencia, autenticación e idempotencia antes de conectar cualquier flujo de demo a sistemas reales.

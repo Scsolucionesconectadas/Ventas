@@ -641,6 +641,14 @@
 
   function getDemo(demoSlug) {
     const configs = {
+      "gestion-pyme": createDemo("Gestión PyME", "direccion.pyme@demo.local", [166, 97, 48, 4], [
+        createFlow("Venta, cobro y conciliación", "Movimiento registrado", "Cliente, importe y medio de pago", "Actualizar saldo y caja", "Administración revisa diferencias", "PDF de gestión diaria", "Movimiento y decisión archivados"),
+        createFlow("Stock crítico y reposición", "Producto debajo del mínimo", "Rotación, margen y caja proyectada", "Preparar compra sugerida", "Responsable aprueba cantidad", "Stock y margen proyectados", "Reposición vinculada al producto"),
+      ]),
+      turnos: createDemo("Turnos y agenda", "recepcion.turnos@demo.local", [184, 96, 42, 3], [
+        createFlow("Solicitud, confirmación y recordatorio", "Turno solicitado", "Servicio, duración y profesional", "Proponer horario compatible", "Recepción valida excepciones", "Agenda y confirmaciones", "Turno y respuesta registrados"),
+        createFlow("Hueco y lista de espera", "Horario liberado", "Duración, profesional y preferencias", "Buscar coincidencias compatibles", "Recepción confirma reemplazo", "Capacidad recuperada", "Cambio asociado a la agenda"),
+      ]),
       medica: createDemo("Área médica", "direccion.medica@demo.local", [128, 96, 42, 4], [
         createFlow("Confirmación y recordatorio de turnos", "Nuevo turno solicitado", "Paciente, agenda y cobertura", "Preparar recordatorio multicanal", "Recepción revisa excepciones", "PDF de asistencia y agenda", "Resultado asociado a la ficha"),
         createFlow("Autorización de prácticas", "Práctica indicada", "Plan, orden y documentación", "Consultar cobertura demo", "Administración valida observaciones", "Resumen de autorizaciones", "Respuesta registrada en historia"),
@@ -659,7 +667,7 @@
       ]),
       gastronomia: createDemo("Gastronomía", "operaciones.gastro@demo.local", [218, 97, 32, 4], [
         createFlow("Pedido, cocina y entrega", "Comanda confirmada", "Mesa, productos y disponibilidad", "Enviar a estación de cocina", "Encargado valida excepción", "Tiempos y ventas por turno", "Pedido cerrado en caja"),
-        createFlow("Cierre de caja", "Fin de turno", "Ventas, medios de pago y anulaciones", "Conciliar movimientos", "Responsable aprueba diferencia", "PDF de cierre", "Cierre archivado"),
+        createFlow("Reserva, disponibilidad y confirmación", "Solicitud de reserva", "Horario, personas, sector y capacidad", "Sugerir mesa o alternativa", "Recepción confirma excepción", "Ocupación y lista de espera", "Reserva asociada al turno"),
       ]),
       educacion: createDemo("Educación", "secretaria.instituto@demo.local", [176, 96, 44, 5], [
         createFlow("Inscripción y bienvenida", "Formulario de inscripción", "Alumno, curso y vacante", "Crear legajo y comunicación", "Secretaría valida documentación", "Listado de inscripciones", "Alumno asociado al curso"),

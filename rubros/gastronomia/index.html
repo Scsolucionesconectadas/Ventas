@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Demo de gestión gastronómica | Soluciones Conectadas</title>
-    <meta name="description" content="Demo funcional para restaurantes y bares con mesas, pedidos, menú digital, caja, stock, automatizaciones y reportes de cierre." />
+    <meta name="description" content="Demo funcional para restaurantes y bares con disponibilidad de mesas, reservas, lista de espera, pedidos, caja, stock y automatizaciones." />
     <link rel="canonical" href="https://scsolucionesconectadas.github.io/Ventas/rubros/gastronomia/" />
     <link rel="icon" type="image/png" href="../../assets/img/sc-favicon.png" />
     <meta name="theme-color" content="#22333f" />
@@ -12,26 +12,28 @@
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="Soluciones Conectadas" />
     <meta property="og:title" content="Demo de gestión gastronómica | Soluciones Conectadas" />
-    <meta property="og:description" content="Mesas, pedidos, menú digital, caja, stock y reportes en una demo navegable." />
+    <meta property="og:description" content="Disponibilidad, reservas, mesas, pedidos, caja y stock en una demo navegable." />
     <meta property="og:url" content="https://scsolucionesconectadas.github.io/Ventas/rubros/gastronomia/" />
     <meta property="og:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/gastronomy-demo.webp" />
     <meta property="og:image:alt" content="Servicio gastronómico gestionado desde una solución digital" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Demo de gestión gastronómica | Soluciones Conectadas" />
-    <meta name="twitter:description" content="Explora la operación gastronómica con datos ficticios y flujos funcionales." />
+    <meta name="twitter:description" content="Explorá reservas y operación gastronómica con datos ficticios y flujos funcionales." />
     <meta name="twitter:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/gastronomy-demo.webp" />
-    <link rel="stylesheet" href="../../assets/css/base.css?v=20260908-ui2" />
+    <link rel="stylesheet" href="../../assets/css/base.css?v=20260913-p14" />
     <script defer src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.min.js"></script>
-    <script defer src="../../assets/js/pdf-report.js?v=20260908-ui2"></script>
-    <script defer src="../../assets/js/industry-demo-data.js?v=20260908-ui2"></script>
-    <script defer src="../../assets/js/industry-demo.js?v=20260908-ui2"></script>
-    <script defer src="../../assets/js/workflow-demo.js?v=20260908-ui2"></script>
-    <script defer src="../../assets/js/demo-experience.js?v=20260905-p3"></script>
-    <script defer src="../../assets/js/motion.js?v=20260905-p2"></script>
-    <script defer src="../../assets/js/analytics.js?v=20260906-p6"></script>
-    <script defer src="../../assets/js/ui-enhancements.js?v=20260908-ui2"></script>
+    <script defer src="../../assets/js/pdf-report.js?v=20260913-p13"></script>
+    <script defer src="../../assets/js/industry-demo-data.js?v=20260913-p13"></script>
+    <script defer src="../../assets/js/industry-demo.js?v=20260913-p14"></script>
+    <script defer src="../../assets/js/gastronomy-reservations.js?v=20260913-p13"></script>
+    <script defer src="../../assets/js/workflow-demo.js?v=20260913-p13"></script>
+    <script defer src="../../assets/js/demo-experience.js?v=20260913-p13"></script>
+    <script defer src="../../assets/js/reporting-experience.js?v=20260913-p14"></script>
+    <script defer src="../../assets/js/motion.js?v=20260913-p14"></script>
+    <script defer src="../../assets/js/analytics.js?v=20260913-p13"></script>
+    <script defer src="../../assets/js/ui-enhancements.js?v=20260913-p13"></script>
   </head>
   <body class="medical-app industry-demo-app" data-demo-slug="gastronomia">
     <div class="app-layout">
@@ -42,6 +44,28 @@
         <section class="industry-hero" id="demoHero" aria-label="Resumen comercial de la demo"><div class="industry-hero-content"><p class="eyebrow" id="demoHeroEyebrow"></p><h2 id="demoHeroTitle"></h2><p id="demoHeroDescription"></p><div class="hero-workflow" id="heroWorkflow" role="group" aria-label="Flujo resumido"></div></div></section>
         <section class="metrics-grid" id="industryMetrics" aria-label="Métricas operativas"></section><div class="view-tabs" id="demoTabs" role="tablist" aria-label="Vistas de la demo"></div>
         <section class="view-panel active" id="view-overview"><div class="dashboard-grid"><article class="module-panel"><div class="module-head"><div><h2 id="overviewListTitle"></h2><p id="overviewListSubtitle"></p></div><button class="icon-button" type="button" data-view="operacion" aria-label="Abrir operación"><i data-lucide="external-link" aria-hidden="true"></i></button></div><div class="record-list" id="primaryList"></div></article><article class="module-panel"><div class="module-head"><div><h2 id="detailTitle"></h2><p id="detailSubtitle"></p></div></div><div id="selectedRecord"></div></article></div></section>
+        <section class="view-panel" id="view-reservas">
+          <div class="reservation-workspace">
+            <article class="module-panel">
+              <div class="module-head"><div><p class="eyebrow">Disponibilidad explicable</p><h2>Buscar una mesa compatible</h2><p>Compara horario, cantidad de personas, sector y capacidad antes de sugerir una opción.</p></div><span class="tag info">Simulado</span></div>
+              <form id="restaurantReservationForm" class="field-grid">
+                <label class="form-field"><span>Nombre y apellido *</span><input name="guest" type="text" placeholder="Ej.: Martina López" required /></label>
+                <label class="form-field"><span>Fecha *</span><input name="date" type="date" required /></label>
+                <label class="form-field"><span>Horario *</span><select name="time" required><option value="">Seleccionar</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option><option>23:00</option></select></label>
+                <label class="form-field"><span>Personas *</span><input name="party" type="number" min="1" max="12" value="2" required /></label>
+                <label class="form-field full"><span>Sector preferido *</span><select name="area" required><option value="any">Primera opción disponible</option><option value="salon">Salón</option><option value="terraza">Terraza</option><option value="barra">Barra</option></select></label>
+                <label class="form-field full"><span>Observaciones</span><textarea name="notes" placeholder="Accesibilidad, celebración, silla para bebé o preferencia"></textarea></label>
+                <div class="form-field full"><button class="submit-button" type="submit"><i data-lucide="search" aria-hidden="true"></i>Buscar mesa</button></div>
+              </form>
+              <div class="reservation-suggestion" id="reservationSuggestion" aria-live="polite"><i data-lucide="sparkles" aria-hidden="true"></i><div><strong>Completá la solicitud</strong><p>La demo explicará por qué una mesa es compatible o propondrá alternativas.</p></div></div>
+            </article>
+            <article class="module-panel">
+              <div class="module-head"><div><p class="eyebrow">Agenda de recepción</p><h2>Reservas del turno</h2><p>Confirmaciones, lista de espera, ingreso y liberación de mesas.</p></div><span class="tag ok" id="reservationCount">3 activas</span></div>
+              <div class="reservation-list" id="restaurantReservationList" aria-live="polite"></div>
+              <p class="demo-data-note"><i data-lucide="shield-check" aria-hidden="true"></i>Todo lo que ocurre en esta vista usa datos ficticios y no reserva mesas reales.</p>
+            </article>
+          </div>
+        </section>
         <section class="view-panel" id="view-operacion"><div class="dashboard-grid"><article class="module-panel"><div class="module-head"><div><h2 id="formTitle"></h2><p id="formSubtitle"></p></div></div><form id="demoQuickForm" class="field-grid"><div id="formFields" class="form-field full field-grid nested-fields"></div><div class="form-field full"><button class="submit-button" type="submit"><i data-lucide="plus-circle" aria-hidden="true"></i><span id="demoFormSubmitLabel"></span></button></div></form></article><article class="module-panel"><div class="module-head"><div><h2 id="listAfterTitle"></h2><p id="listAfterSubtitle"></p></div></div><div class="record-list" id="recordsList"></div></article></div></section>
         <section class="view-panel" id="view-crm"><div class="wide-grid"><article class="module-panel"><div class="module-head"><div><h2 id="pipelineTitle"></h2><p id="pipelineSubtitle"></p></div></div><div class="kanban-board" id="pipelineBoard"></div></article><article class="module-panel"><div class="module-head"><div><h2 id="taskTitle"></h2><p id="taskSubtitle"></p></div></div><div class="task-list" id="taskList"></div></article></div></section>
         <section class="view-panel" id="view-recursos"><article class="module-panel"><div class="module-head"><div><h2 id="resourcesTitle"></h2><p id="resourcesSubtitle"></p></div></div><div class="catalog-grid" id="resourceGrid"></div></article></section>

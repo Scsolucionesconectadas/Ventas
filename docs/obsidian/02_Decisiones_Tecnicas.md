@@ -1,5 +1,52 @@
 # Decisiones Técnicas
 
+## 2026-09-19 - Footer como cierre comercial único
+
+**Decisión:**
+Retirar de la portada la banda “Presentación comercial” ubicada inmediatamente antes del footer y conservar este último como cierre único del recorrido.
+
+**Motivo:**
+La banda repetía logo, WhatsApp, email e Instagram que ya están disponibles en la navegación, la página Contacto y el footer compartido. Su eliminación reduce ruido visual y evita dos llamadas comerciales consecutivas.
+
+**Impacto:**
+La portada termina con una transición directa desde el último bloque de contenido al footer. No se pierden canales de contacto ni rutas de navegación.
+
+**Alternativas consideradas:**
+- Mantener ambas llamadas comerciales.
+- Reducir la banda a un CTA compacto.
+- Eliminar el footer y conservar la banda exclusiva de la portada.
+
+**Archivos relacionados:**
+- `index.html`
+- `README.md`
+- `docs/obsidian/10_UI_UX_Diseno.md`
+
+## 2026-09-13 - Chart.js bajo demanda para reportería interactiva
+
+**Decisión:**
+Incorporar Chart.js `4.5.1` desde una URL CDN fijada y cargarlo únicamente cuando el centro de análisis de una demo entra en pantalla. Mantener GSAP para microinteracciones y no incorporar Lenis, Swiper, Tailwind, shadcn ni Base UI.
+
+**Motivo:**
+Las catorce demos ya comparten datos y reportería, pero los mini gráficos no permitían comparar ni explorar. Chart.js agrega una visualización de datos concreta sin migrar el sitio estático a React ni crear un proceso de build. Las demás bibliotecas revisadas en Click atienden navegación suave, carruseles o componentes React que no mejoran este flujo operativo.
+
+**Impacto:**
+Cada reporte permite elegir métrica y período, comparar con el período anterior y leer una recomendación específica del rubro. El canvas recibe nombre accesible, respeta movimiento reducido y conserva métricas, resumen y vista simplificada ante error o demora del CDN.
+
+**Alternativas consideradas:**
+- Mantener solamente barras CSS sin interacción.
+- Dibujar gráficos propios en canvas o SVG.
+- Incorporar el stack React completo de Click.
+- Cargar Chart.js al abrir cada página aunque el usuario no visite Reportes.
+
+**Archivos relacionados:**
+- `assets/js/reporting-experience.js`
+- `assets/js/industry-demo.js`
+- `assets/js/medical-demo.js`
+- `assets/js/motion.js`
+- `assets/css/base.css`
+- `rubros/*/index.html`
+- `scripts/reporting-experience.spec.js`
+
 ## 2026-09-08 - Capa de interfaz compartida sin dependencia de Uiverse
 
 **Decisión:**
@@ -271,6 +318,7 @@ Afecta la landing, las seis demos, el motor común de rubros, la demo médica, e
 - `assets/css/base.css`
 - `assets/js/industry-demo-data.js`
 - `assets/js/industry-demo.js`
+
 - `assets/js/medical-demo.js`
 - `rubros/medica/index.html`
 
@@ -521,3 +569,186 @@ Alquiler comercial propone `ARS 500.000`, compra de vivienda `USD 80.000` y lote
 - `assets/js/commercial-pages.js`
 - `assets/js/industry-demo.js`
 - `assets/js/industry-demo-data.js`
+
+## 2026-09-12 - Organizar las demos por problemas antes que por rubros
+
+**Decisión:**
+El catálogo presenta primero cuatro situaciones concretas y conserva después las demos por tipo de operación. Se agregan Gestión PyME y Turnos porque cubren necesidades transversales no representadas por una industria específica.
+
+**Motivo:**
+Una persona identifica antes un problema de caja, agenda, reservas o stock que una arquitectura de módulos. La orientación por necesidad hace más clara la conversación comercial y evita agregar rubros sin una diferencia funcional real.
+
+**Impacto:**
+`demos/index.html` suma hero fotográfico, rutas numeradas y filtros por grupos. El catálogo pasa de 12 a 14 demos y la home destaca las experiencias con mayor cobertura transversal.
+
+**Alternativas consideradas:**
+- Mantener un catálogo ordenado solo por industria.
+- Crear una demo separada para cada tipo de comercio.
+- Convertir todo el sitio al stack Next.js usado por Click.
+
+**Archivos relacionados:**
+- `demos/index.html`
+- `index.html`
+- `assets/js/demo-catalog.js`
+- `assets/js/app.js`
+- `assets/css/base.css`
+
+## 2026-09-12 - Profundizar Gastronomía en lugar de duplicar Restaurante
+
+**Decisión:**
+La disponibilidad de mesas, reservas y lista de espera se incorpora dentro de Gastronomía. La lógica es local, explicable y se detiene al alcanzar el estado final.
+
+**Motivo:**
+Una nueva demo de restaurante repetiría pedidos, caja, menú y stock. Ampliar Gastronomía mantiene una propuesta única y permite mostrar un recorrido completo desde la reserva hasta la atención.
+
+**Impacto:**
+La nueva vista busca la mesa de menor capacidad compatible, explica la elección, propone alternativas cuando no hay lugar y permite conservar la solicitud en espera. Todo funciona con datos ficticios en memoria.
+
+**Alternativas consideradas:**
+- Crear un rubro adicional llamado Restaurantes.
+- Mantener las reservas como un registro genérico de pedido.
+- Simular una recomendación sin exponer la evidencia.
+
+**Archivos relacionados:**
+- `rubros/gastronomia/index.html`
+- `assets/js/gastronomy-reservations.js`
+- `assets/js/industry-demo-data.js`
+- `assets/js/workflow-demo.js`
+
+## 2026-09-12 - Adaptar el lenguaje visual de Click sin copiar su identidad ni su stack
+
+**Decisión:**
+Trasladar a SC los principios que funcionan en Click: portadas fotográficas de alto contraste, títulos directos, bloques numerados, microinteracciones breves y una navegación comercial consistente. La implementación permanece en HTML, CSS y JavaScript estático propio.
+
+**Motivo:**
+La calidad percibida proviene de la jerarquía y del recorrido, no de migrar a Next.js ni de copiar componentes. Mantener el stack actual conserva GitHub Pages simple y reduce riesgo sobre las demos existentes.
+
+**Impacto:**
+Se crea `nosotros/index.html`, se unifican las cinco áreas comerciales principales más Automatizaciones y se asignan acentos por rubro a las catorce demos.
+
+**Alternativas consideradas:**
+- Migrar SC a Next.js, Tailwind y los componentes de Click.
+- Copiar animaciones y componentes completos.
+- Rediseñar cada demo por separado.
+
+**Archivos relacionados:**
+- `nosotros/index.html`
+- `assets/css/base.css`
+- `assets/js/motion.js`
+
+## 2026-09-12 - Simular conceptos de n8n sin incrustar ni conectar una instancia real
+
+**Decisión:**
+Implementar un laboratorio local con tres workflows, inspector de nodos, payload ficticio, aprobación humana, error temporal, reintento y bitácora.
+
+**Motivo:**
+Permite explicar automatizaciones durante una reunión sin credenciales, backend, datos reales ni dependencia de disponibilidad externa.
+
+**Impacto:**
+El laboratorio aclara su carácter conceptual y no ejecuta definiciones reales de n8n. Una integración futura deberá definir autenticación, idempotencia, tiempos de espera, permisos y persistencia.
+
+**Alternativas consideradas:**
+- Incrustar el editor real de n8n.
+- Mostrar una captura estática.
+- Conectar la demo pública a una instancia con credenciales.
+
+**Archivos relacionados:**
+- `automatizaciones/index.html`
+- `assets/js/n8n-lab.js`
+- `assets/css/base.css`
+## 2026-09-13 - Barra comercial sin migrar el stack estático
+
+**Decisión:**
+Unificar las seis páginas comerciales con una barra oscura translúcida, navegación directa, un solo CTA y menú móvil controlado por JavaScript local.
+
+**Motivo:**
+La interfaz anterior acumulaba botones y un desplegable redundante; además, el CTA de Nosotros podía comprimirse y cortar su texto. La referencia de Click mostró una jerarquía más clara, pero no justificó migrar SC a React o agregar un proceso de build.
+
+**Impacto:**
+Mejora lectura, orientación, navegación por teclado y uso móvil. El controlador compartido agrega estado al hacer scroll y cierre por enlace, clic exterior o `Escape`.
+
+**Alternativas consideradas:**
+- Migrar a Next.js, Tailwind, shadcn y Base UI como Click: descartado por complejidad y falta de beneficio para el despliegue estático actual.
+- Incorporar Lenis, ScrollTrigger y Swiper: postergado hasta existir una necesidad concreta de scroll dirigido o carruseles.
+- Mantener la barra clara con botones independientes: descartado por densidad visual y duplicación del menú Explorar.
+
+**Archivos relacionados:**
+- `assets/css/base.css`
+- `assets/js/site-navigation.js`
+- `index.html`
+- `servicios/index.html`
+- `demos/index.html`
+- `automatizaciones/index.html`
+- `nosotros/index.html`
+- `contacto/index.html`
+- `scripts/phase9.spec.js`
+
+## 2026-09-13 - Resultados operativos por workflow
+
+**Decisión:**
+Ampliar el laboratorio de tres a seis procesos y modelar un resultado específico para cada uno, visible como expectativa antes de ejecutar y como salida confirmada al finalizar.
+
+**Motivo:**
+Una secuencia de nodos sola explica la mecánica, pero no deja claro qué obtiene el negocio. Métricas, identificadores y estados concretos permiten presentar valor operativo sin fingir conexiones reales.
+
+**Impacto:**
+Agenda, ventas, stock, cobranzas, reservas y reportes comparten la misma máquina de estados y muestran vista previa, procesamiento, aprobación pendiente, error o resultado generado.
+
+**Alternativas consideradas:**
+- Crear una página independiente por flujo: descartado por repetición y mayor mantenimiento.
+- Conectar una instancia pública de n8n: descartado hasta definir autenticación, secretos, persistencia y límites.
+- Mostrar resultados estáticos sin ejecución: descartado porque reduce el valor demostrativo.
+
+**Archivos relacionados:**
+- `automatizaciones/index.html`
+- `assets/js/n8n-lab.js`
+- `assets/css/base.css`
+- `scripts/phase9.spec.js`
+
+## 2026-09-13 - Presentación humana de Soluciones Conectadas
+
+**Decisión:**
+Incorporar en Nosotros una sección personal con la fotografía profesional provista por el responsable de SC, seguida por tres criterios de trabajo y una declaración breve.
+
+**Motivo:**
+La referencia de Click demuestra que mostrar quién está detrás del servicio mejora confianza y hace más comprensible la forma de trabajo. SC necesitaba esa señal humana sin copiar el lenguaje visual ni los datos personales de otra marca.
+
+**Impacto:**
+La página gana una fotografía propia y un relato en primera persona. Hasta recibir nombre y título exactos, la interfaz identifica la función como dirección de proyectos y evita inventar información profesional.
+
+**Alternativas consideradas:**
+- Mantener únicamente una presentación institucional: descartado por resultar distante.
+- Usar el retrato como fondo del hero: descartado porque reduce inspección de la imagen y competiría con el método visual.
+- Copiar la composición de Click de forma literal: descartado para conservar identidad SC.
+
+**Archivos relacionados:**
+- `nosotros/index.html`
+- `assets/img/sc-profile.webp`
+- `assets/css/base.css`
+- `assets/js/motion.js`
+- `scripts/phase9.spec.js`
+
+## 2026-09-13 - Servicios demostrables y contacto revisable
+
+**Decisión:**
+Reorganizar las siete capacidades técnicas en cinco recorridos comerciales, acompañarlos con capturas reales de las demos y agregar al formulario un resumen local previo al envío.
+
+**Motivo:**
+La lista anterior era precisa pero repetitiva y no mostraba suficiente evidencia del producto. En Contacto, un resumen visible reduce errores y ayuda a ordenar la consulta sin pedir información adicional.
+
+**Impacto:**
+Servicios comunica gestión, automatización e integración, atención, datos y reportes, y diagnóstico sin eliminar capacidades. Contacto conserva FormSubmit y no agrega persistencia, backend ni transmisión automática.
+
+**Alternativas consideradas:**
+- Crear una página independiente por cada servicio: descartado por fragmentar el recorrido y aumentar mantenimiento.
+- Usar fotografías genéricas en Servicios: descartado porque las capturas propias demuestran mejor el trabajo disponible.
+- Generar el resumen de Contacto mediante un servicio externo: descartado porque no aporta valor y ampliaría la exposición de datos.
+
+**Archivos relacionados:**
+- `servicios/index.html`
+- `contacto/index.html`
+- `assets/css/base.css`
+- `assets/js/commercial-pages.js`
+- `assets/js/motion.js`
+- `assets/img/service-*-preview.webp`
+- `scripts/phase9.spec.js`

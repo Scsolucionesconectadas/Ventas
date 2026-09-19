@@ -23,13 +23,14 @@
     <meta name="twitter:title" content="Solicitar una demo | Soluciones Conectadas" />
     <meta name="twitter:description" content="Contanos qué proceso querés mejorar y preparemos una demostración aplicada." />
     <meta name="twitter:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/landing-hero.webp" />
-    <link rel="stylesheet" href="../assets/css/base.css?v=20260908-ui2" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260913-p15" />
     <script defer src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-    <script defer src="../assets/js/commercial-pages.js?v=20260908-ui2"></script>
-    <script defer src="../assets/js/motion.js?v=20260905-p2"></script>
-    <script defer src="../assets/js/analytics.js?v=20260906-p6"></script>
-    <script defer src="../assets/js/ui-enhancements.js?v=20260908-ui2"></script>
+    <script defer src="../assets/js/site-navigation.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/commercial-pages.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/motion.js?v=20260913-p15"></script>
+    <script defer src="../assets/js/analytics.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/ui-enhancements.js?v=20260913-p13"></script>
   </head>
   <body class="landing-site commercial-page contact-page">
     <div class="site-shell">
@@ -43,37 +44,25 @@
             <small>Conversemos sobre tu proceso</small>
           </span>
         </a>
-        <nav class="topbar-actions" aria-label="Navegación principal">
+        <button class="topbar-menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menú principal">
+          <i class="topbar-menu-open" data-lucide="menu" aria-hidden="true"></i>
+          <i class="topbar-menu-close" data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <nav class="topbar-actions" id="primary-navigation" aria-label="Navegación principal">
+          <a href="../index.html" class="ghost-link">Inicio</a>
           <a href="../servicios/index.html" class="ghost-link">Servicios</a>
           <a href="../demos/index.html" class="ghost-link">Demos</a>
           <a href="../automatizaciones/index.html" class="ghost-link">Automatizaciones</a>
-          <details class="nav-dropdown">
-            <summary>
-              <i data-lucide="sparkles" aria-hidden="true"></i>
-              Explorar
-              <i data-lucide="chevron-down" aria-hidden="true"></i>
-            </summary>
-            <div class="dropdown-menu compact-menu">
-              <a href="../index.html#diagnostico">Diagnóstico express</a>
-              <a href="../servicios/index.html">Todos los servicios</a>
-              <a href="../demos/index.html">Demos por rubro</a>
-              <a href="../automatizaciones/index.html">Flujos automáticos</a>
-            </div>
-          </details>
-          <a
-            href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20coordinar%20una%20demo."
-            class="primary-link"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="../nosotros/index.html" class="ghost-link">Nosotros</a>
+          <a href="index.html" class="primary-link" aria-current="page">
             <i data-lucide="message-circle" aria-hidden="true"></i>
-            WhatsApp
+            Conversemos
           </a>
         </nav>
       </header>
 
       <main>
-        <section class="commercial-hero section-band contact-hero">
+        <section class="commercial-hero commercial-media-hero contact-media-hero section-band contact-hero">
           <div class="commercial-hero-copy">
             <p class="eyebrow">Contacto</p>
             <h1>Contanos qué proceso querés mejorar.</h1>
@@ -93,6 +82,14 @@
         </section>
 
         <section class="section-band contact-workspace" aria-labelledby="contact-form-title">
+          <div class="contact-workspace-heading">
+            <div>
+              <p class="eyebrow">Brief inicial</p>
+              <h2>Con una situación concreta alcanza para empezar.</h2>
+            </div>
+            <p>Mientras completás el formulario, ordenamos los datos principales para que puedas revisar exactamente qué información vas a enviar.</p>
+          </div>
+
           <form
             class="contact-form-panel"
             action="https://formsubmit.co/contacto.solucionesconectadas@gmail.com"
@@ -211,7 +208,33 @@
             </button>
           </form>
 
-          <aside class="contact-options" aria-label="Canales de contacto alternativos">
+          <div class="contact-side-stack">
+            <section class="contact-live-brief" aria-labelledby="contact-preview-title">
+              <header>
+                <div>
+                  <p class="eyebrow">Resumen en vivo</p>
+                  <h2 id="contact-preview-title">Tu consulta, ordenada.</h2>
+                </div>
+                <span data-contact-preview-progress role="status" aria-live="polite">0 de 7 datos listos</span>
+              </header>
+              <p class="contact-live-intro">Este resumen se actualiza en tu navegador y te ayuda a revisar el punto de partida antes de enviar.</p>
+              <dl class="contact-preview-data">
+                <div><dt>Contacto</dt><dd data-contact-preview-name>Sin completar</dd></div>
+                <div><dt>Organización</dt><dd data-contact-preview-company>Sin completar</dd></div>
+                <div><dt>Rubro</dt><dd data-contact-preview-sector>Sin seleccionar</dd></div>
+                <div><dt>Necesidad</dt><dd data-contact-preview-need>Sin seleccionar</dd></div>
+              </dl>
+              <div class="contact-preview-message">
+                <span>Situación a resolver</span>
+                <p data-contact-preview-message>Contanos qué tarea se demora, se repite o no se puede ver con claridad.</p>
+              </div>
+              <footer>
+                <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+                <span>La información solo se envía cuando confirmás el formulario.</span>
+              </footer>
+            </section>
+
+            <aside class="contact-options" aria-label="Canales de contacto alternativos">
             <div class="contact-options-heading">
               <p class="eyebrow">Contacto directo</p>
               <h2>Elegí el canal más cómodo.</h2>
@@ -240,19 +263,18 @@
               <i data-lucide="shield-check" aria-hidden="true"></i>
               <p><strong>Datos bajo control.</strong> No compartimos la información enviada ni la usamos para campañas de terceros.</p>
             </div>
-          </aside>
+            </aside>
+          </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <span>Soluciones Conectadas</span>
-        <div class="footer-links">
-          <a href="../servicios/index.html">Servicios</a>
-          <a href="../demos/index.html">Demos</a>
-          <a href="../automatizaciones/index.html">Automatizaciones</a>
-          <a href="index.html">Contacto</a>
-          <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
-        </div>
+        <div class="site-footer-grid" aria-hidden="true"></div><span class="site-footer-line site-footer-line-primary" aria-hidden="true"></span><span class="site-footer-line site-footer-line-secondary" aria-hidden="true"></span>
+        <div class="site-footer-inner"><div class="site-footer-main">
+          <div class="site-footer-brand"><a class="site-footer-brand-link" href="../index.html" aria-label="Ir al inicio de Soluciones Conectadas"><span class="site-footer-logo"><img src="../assets/img/sc-symbol.png" alt="" /></span><span><strong>Soluciones Conectadas</strong><small>Automatización e integración para empresas</small></span></a><p>Convertimos procesos dispersos en sistemas, automatizaciones y reportes que ayudan a trabajar con más claridad.</p><div class="site-footer-proof" aria-label="Características de las demos"><span><i data-lucide="shield-check" aria-hidden="true"></i>Datos ficticios</span><span><i data-lucide="panels-top-left" aria-hidden="true"></i>14 demos navegables</span></div></div>
+          <div class="site-footer-column"><strong>Explorar</strong><nav class="site-footer-nav" aria-label="Navegación del pie"><a href="../index.html">Inicio</a><a href="../servicios/index.html">Servicios</a><a href="../demos/index.html">Demos</a><a href="../automatizaciones/index.html">Automatizaciones</a><a href="../nosotros/index.html">Nosotros</a><a href="../contacto/index.html">Contacto</a></nav></div>
+          <div class="site-footer-contact-panel"><strong>Conversemos</strong><p>Contanos qué tarea, demora o falta de información querés resolver.</p><a class="site-footer-cta" href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20conversar%20sobre%20un%20proceso%20de%20mi%20empresa." target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Hablar por WhatsApp</a><div class="site-footer-contact-links"><a href="mailto:contacto.solucionesconectadas@gmail.com"><i data-lucide="mail" aria-hidden="true"></i>contacto.solucionesconectadas@gmail.com</a><a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener"><i data-lucide="instagram" aria-hidden="true"></i>@sc.soluciones.ar</a></div></div>
+        </div><div class="site-footer-bottom"><p>© 2026 Soluciones Conectadas.</p><p>Sistemas, automatizaciones, integraciones y reportería para operaciones reales.</p></div></div>
       </footer>
     </div>
   </body>

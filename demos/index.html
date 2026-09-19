@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Demos por rubro | Soluciones Conectadas</title>
+    <title>Demos para resolver problemas de negocio | Soluciones Conectadas</title>
     <meta
       name="description"
-      content="Catálogo de demos funcionales por rubro de Soluciones Conectadas: sistemas, automatizaciones, reportes, chatbots e integraciones."
+      content="Probá demos funcionales para ordenar gestión, turnos, reservas, ventas, stock, servicios profesionales y operaciones."
     />
     <link rel="canonical" href="https://scsolucionesconectadas.github.io/Ventas/demos/" />
     <link rel="icon" type="image/png" href="../assets/img/sc-favicon.png" />
@@ -14,23 +14,24 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="Soluciones Conectadas" />
-    <meta property="og:title" content="Demos funcionales por rubro | Soluciones Conectadas" />
-    <meta property="og:description" content="Explorá sistemas de gestión, automatizaciones y reportes aplicados a doce industrias." />
+    <meta property="og:title" content="Demos para resolver problemas de negocio | Soluciones Conectadas" />
+    <meta property="og:description" content="Explorá catorce experiencias navegables organizadas por lo que tu negocio necesita resolver." />
     <meta property="og:url" content="https://scsolucionesconectadas.github.io/Ventas/demos/" />
     <meta property="og:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/landing-hero.webp" />
     <meta property="og:image:alt" content="Equipo planificando procesos y soluciones digitales" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Demos funcionales por rubro | Soluciones Conectadas" />
-    <meta name="twitter:description" content="Doce experiencias navegables con datos ficticios para visualizar una solución antes de contratar." />
+    <meta name="twitter:title" content="Demos para resolver problemas de negocio | Soluciones Conectadas" />
+    <meta name="twitter:description" content="Catorce experiencias navegables con datos ficticios para visualizar una solución antes de contratar." />
     <meta name="twitter:image" content="https://scsolucionesconectadas.github.io/Ventas/assets/img/landing-hero.webp" />
-    <link rel="stylesheet" href="../assets/css/base.css?v=20260908-ui2" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260913-p15" />
     <script defer src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-    <script defer src="../assets/js/demo-catalog.js?v=20260908-ui2"></script>
-    <script defer src="../assets/js/app.js?v=20260908-ui2"></script>
-    <script defer src="../assets/js/motion.js?v=20260905-p2"></script>
-    <script defer src="../assets/js/analytics.js?v=20260906-p6"></script>
-    <script defer src="../assets/js/ui-enhancements.js?v=20260908-ui2"></script>
+    <script defer src="../assets/js/site-navigation.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/demo-catalog.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/app.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/motion.js?v=20260913-p15"></script>
+    <script defer src="../assets/js/analytics.js?v=20260913-p13"></script>
+    <script defer src="../assets/js/ui-enhancements.js?v=20260913-p13"></script>
   </head>
   <body class="landing-site demos-page">
     <div class="site-shell">
@@ -44,92 +45,116 @@
             <small>Catálogo de demos</small>
           </span>
         </a>
-        <nav class="topbar-actions" aria-label="Navegación principal">
+        <button class="topbar-menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menú principal">
+          <i class="topbar-menu-open" data-lucide="menu" aria-hidden="true"></i>
+          <i class="topbar-menu-close" data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <nav class="topbar-actions" id="primary-navigation" aria-label="Navegación principal">
+          <a href="../index.html" class="ghost-link">Inicio</a>
           <a href="../servicios/index.html" class="ghost-link">Servicios</a>
           <a href="index.html" class="ghost-link" aria-current="page">Demos</a>
           <a href="../automatizaciones/index.html" class="ghost-link">Automatizaciones</a>
-          <details class="nav-dropdown">
-            <summary>
-              <i data-lucide="sparkles" aria-hidden="true"></i>
-              Explorar
-              <i data-lucide="chevron-down" aria-hidden="true"></i>
-            </summary>
-            <div class="dropdown-menu compact-menu">
-              <a href="../index.html#diagnostico">Diagnóstico express</a>
-              <a href="../servicios/index.html">Todos los servicios</a>
-              <a href="../automatizaciones/index.html">Flujos automáticos</a>
-              <a href="../contacto/index.html">Contacto</a>
-            </div>
-          </details>
-          <a
-            href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20ver%20una%20demo%20por%20rubro."
-            class="primary-link"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="../nosotros/index.html" class="ghost-link">Nosotros</a>
+          <a href="../contacto/index.html" class="primary-link">
             <i data-lucide="message-circle" aria-hidden="true"></i>
-            Pedir demo
+            Conversemos
           </a>
         </nav>
       </header>
 
       <main>
-        <section class="section-band demos-hero">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Demos comerciales</p>
-              <h1>Demos navegables para presentar soluciones reales en cada rubro.</h1>
-            </div>
+        <section class="demos-solution-hero">
+          <div class="demos-solution-hero-inner">
+            <p class="eyebrow">Soluciones que se pueden probar</p>
+            <h1>Elegí el problema. Probá cómo resolverlo.</h1>
             <p>
-              Cada demo combina pantallas operativas, datos ficticios, reportes ejecutivos, automatizaciones,
-              asistentes y argumentos comerciales listos para presentar a clientes.
+              No mostramos pantallas aisladas: cada demo conecta una necesidad concreta con datos, decisiones,
+              automatizaciones y próximos pasos visibles.
             </p>
+            <div class="demos-hero-actions">
+              <a href="#necesidades" class="primary-link">
+                <i data-lucide="route" aria-hidden="true"></i>
+                Encontrar mi solución
+              </a>
+              <a href="#catalogo" class="secondary-link light-link">
+                <i data-lucide="layout-grid" aria-hidden="true"></i>
+                Ver las 14 demos
+              </a>
+            </div>
+            <div class="solution-proof-row" aria-label="Capacidades incluidas">
+              <span><i data-lucide="mouse-pointer-click" aria-hidden="true"></i>Navegables</span>
+              <span><i data-lucide="brain-circuit" aria-hidden="true"></i>Decisiones explicables</span>
+              <span><i data-lucide="workflow" aria-hidden="true"></i>Procesos completos</span>
+              <span><i data-lucide="shield-check" aria-hidden="true"></i>Datos ficticios</span>
+            </div>
           </div>
-          <div class="demos-hero-actions">
-            <a href="../index.html" class="secondary-link">
-              <i data-lucide="arrow-left" aria-hidden="true"></i>
-              Volver a la landing
+        </section>
+
+        <section class="section-band solution-map" id="necesidades">
+          <div class="section-heading solution-map-heading">
+            <div>
+              <p class="eyebrow">Empezá por una situación real</p>
+              <h2>¿Qué necesitás ordenar primero?</h2>
+            </div>
+            <p>Estas rutas reúnen los casos más frecuentes y llevan directo a una experiencia funcional.</p>
+          </div>
+          <div class="solution-gates">
+            <a class="solution-gate tone-cyan" href="../rubros/gestion-pyme/index.html">
+              <span class="solution-gate-top"><b>01</b><i data-lucide="store" aria-hidden="true"></i></span>
+              <strong>No sé cuánto vendí, cobré o debo pagar</strong>
+              <p>Unificá ventas, caja, gastos, clientes y stock liviano.</p>
+              <span class="solution-gate-link">Abrir Gestión PyME<i data-lucide="arrow-right" aria-hidden="true"></i></span>
             </a>
-            <a
-              href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20priorizar%20una%20demo%20nueva."
-              class="primary-link"
-              target="_blank"
-              rel="noopener"
-            >
-              <i data-lucide="sparkles" aria-hidden="true"></i>
-              Priorizar rubro
+            <a class="solution-gate tone-green" href="../rubros/turnos/index.html">
+              <span class="solution-gate-top"><b>02</b><i data-lucide="calendar-check-2" aria-hidden="true"></i></span>
+              <strong>Los turnos se pisan o quedan espacios vacíos</strong>
+              <p>Coordiná disponibilidad, equipo, confirmaciones y lista de espera.</p>
+              <span class="solution-gate-link">Abrir Turnos y agenda<i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a class="solution-gate tone-amber" href="../rubros/gastronomia/index.html#reservas">
+              <span class="solution-gate-top"><b>03</b><i data-lucide="utensils" aria-hidden="true"></i></span>
+              <strong>Las reservas llegan por mensajes y se superponen</strong>
+              <p>Validá capacidad, sugerí horarios y administrá la espera.</p>
+              <span class="solution-gate-link">Probar reservas gastronómicas<i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a class="solution-gate tone-blue" href="../rubros/materiales/index.html">
+              <span class="solution-gate-top"><b>04</b><i data-lucide="package-search" aria-hidden="true"></i></span>
+              <strong>Vendo sin saber qué stock o margen me queda</strong>
+              <p>Conectá presupuestos, reservas, compras, entregas y rentabilidad.</p>
+              <span class="solution-gate-link">Abrir operación y stock<i data-lucide="arrow-right" aria-hidden="true"></i></span>
             </a>
           </div>
         </section>
 
-        <section class="section-band compact">
+        <section class="section-band compact" id="catalogo">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Rubros disponibles</p>
-              <h2>Catálogo completo de demos SC.</h2>
+              <p class="eyebrow">Catálogo completo</p>
+              <h2>También podés explorar por tipo de operación.</h2>
             </div>
-            <div class="filter-row" role="group" aria-label="Filtro de demos">
+            <div class="filter-row" role="group" aria-label="Filtrar demos por necesidad">
               <button class="chip-button active" type="button" data-filter="todos">Todos</button>
-              <button class="chip-button" type="button" data-filter="listo">Listos</button>
-              <button class="chip-button" type="button" data-filter="roadmap">En planificación</button>
+              <button class="chip-button" type="button" data-filter="gestion">Gestión y ventas</button>
+              <button class="chip-button" type="button" data-filter="agenda">Turnos y reservas</button>
+              <button class="chip-button" type="button" data-filter="operacion">Operación y stock</button>
+              <button class="chip-button" type="button" data-filter="profesionales">Servicios profesionales</button>
             </div>
           </div>
 
           <div class="industry-grid demos-catalog-grid" id="industryGrid" data-demo-catalog data-root-prefix="../"></div>
           <div class="empty-state industry-empty" id="industryEmpty" hidden>
-            No hay demos en este filtro por ahora. Podemos priorizar un rubro nuevo para la próxima iteración.
+            No encontramos una demo para esta necesidad. Probá otra categoría o contanos el proceso que querés ordenar.
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <span>Soluciones Conectadas</span>
-        <div class="footer-links">
-          <a href="../servicios/index.html">Servicios</a>
-          <a href="../automatizaciones/index.html">Automatizaciones</a>
-          <a href="../contacto/index.html">Contacto</a>
-          <a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener">Instagram</a>
-        </div>
+        <div class="site-footer-grid" aria-hidden="true"></div><span class="site-footer-line site-footer-line-primary" aria-hidden="true"></span><span class="site-footer-line site-footer-line-secondary" aria-hidden="true"></span>
+        <div class="site-footer-inner"><div class="site-footer-main">
+          <div class="site-footer-brand"><a class="site-footer-brand-link" href="../index.html" aria-label="Ir al inicio de Soluciones Conectadas"><span class="site-footer-logo"><img src="../assets/img/sc-symbol.png" alt="" /></span><span><strong>Soluciones Conectadas</strong><small>Automatización e integración para empresas</small></span></a><p>Convertimos procesos dispersos en sistemas, automatizaciones y reportes que ayudan a trabajar con más claridad.</p><div class="site-footer-proof" aria-label="Características de las demos"><span><i data-lucide="shield-check" aria-hidden="true"></i>Datos ficticios</span><span><i data-lucide="panels-top-left" aria-hidden="true"></i>14 demos navegables</span></div></div>
+          <div class="site-footer-column"><strong>Explorar</strong><nav class="site-footer-nav" aria-label="Navegación del pie"><a href="../index.html">Inicio</a><a href="../servicios/index.html">Servicios</a><a href="../demos/index.html">Demos</a><a href="../automatizaciones/index.html">Automatizaciones</a><a href="../nosotros/index.html">Nosotros</a><a href="../contacto/index.html">Contacto</a></nav></div>
+          <div class="site-footer-contact-panel"><strong>Conversemos</strong><p>Contanos qué tarea, demora o falta de información querés resolver.</p><a class="site-footer-cta" href="https://wa.me/5493442472233?text=Hola%20SC%2C%20quiero%20conversar%20sobre%20un%20proceso%20de%20mi%20empresa." target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Hablar por WhatsApp</a><div class="site-footer-contact-links"><a href="mailto:contacto.solucionesconectadas@gmail.com"><i data-lucide="mail" aria-hidden="true"></i>contacto.solucionesconectadas@gmail.com</a><a href="https://www.instagram.com/sc.soluciones.ar/" target="_blank" rel="noopener"><i data-lucide="instagram" aria-hidden="true"></i>@sc.soluciones.ar</a></div></div>
+        </div><div class="site-footer-bottom"><p>© 2026 Soluciones Conectadas.</p><p>Sistemas, automatizaciones, integraciones y reportería para operaciones reales.</p></div></div>
       </footer>
     </div>
   </body>

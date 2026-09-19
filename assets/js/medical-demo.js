@@ -861,8 +861,16 @@ function renderMedicalReports() {
   if (panels) {
     panels.innerHTML = medicalReports.panels
       .map(
-        (panel) => `
-          <article class="report-card">
+        (panel, index) => `
+          <article
+            class="report-card"
+            data-report-metric="${index}"
+            data-report-label="${escapeHtml(panel.label)}"
+            data-report-value="${escapeHtml(panel.value)}"
+            data-report-trend="${escapeHtml(panel.trend)}"
+            data-report-detail="${escapeHtml(panel.detail)}"
+            data-report-series="${escapeHtml(panel.series.join(","))}"
+          >
             <div class="report-card-head">
               <span><i data-lucide="${escapeHtml(panel.icon)}" aria-hidden="true"></i> ${escapeHtml(panel.label)}</span>
               <small>${escapeHtml(panel.trend)}</small>
@@ -896,6 +904,7 @@ function renderMedicalReports() {
   }
 
   renderMedicalReportLog();
+  document.dispatchEvent(new CustomEvent("sc:reports-rendered", { detail: { slug: "medica" } }));
 }
 
 function renderMedicalReportLog() {
