@@ -10,11 +10,11 @@ const demos = [
 test.use({ channel: "msedge", acceptDownloads: true, reducedMotion: "reduce" });
 
 test.describe("Fase 7 - nuevos rubros", () => {
-  test("el catálogo presenta catorce demos y los accesos son válidos", async ({ page }) => {
+  test("el catálogo presenta quince demos y los accesos son válidos", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(`${baseUrl}/demos/`, { waitUntil: "networkidle" });
 
-    await expect(page.locator(".industry-card")).toHaveCount(14);
+    await expect(page.locator(".industry-card")).toHaveCount(15);
     for (const demo of demos) {
       const card = page.locator(`.industry-card:has(a[href='../rubros/${demo.slug}/index.html'])`);
       await expect(card).toBeVisible();

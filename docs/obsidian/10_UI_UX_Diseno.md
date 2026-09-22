@@ -10,6 +10,15 @@
 - Motion: animaciones CSS, GSAP `3.15.0` por CDN, dropdowns, hover states, live pulse, feedback de toast, spotlight, modal de servicios y transiciones entre módulos.
 - El motion principal usa GSAP y deja un fallback CSS para escenarios sin CDN; el contenido crítico se restaura a visible al finalizar.
 
+## Administración y facturación
+
+- La decimoquinta demo usa una fotografía propia y optimizada de un equipo administrativo, sin logos ni información legible de terceros.
+- El panel prioriza cuatro señales accionables: pendiente de facturar, cobranza vencida, aprobaciones abiertas y documentación completa.
+- Los módulos se nombran según tareas reales del backoffice: Facturación, Aprobaciones, Documentos, Reportes, Asistente y Automatizaciones.
+- Los casos muestran la causa de un bloqueo o alerta y el próximo control; el estado terminal `Conciliada` elimina la acción de avance.
+- La leyenda `Documentos no fiscales` permanece visible junto con las señales de datos ficticios para evitar confundir la simulación con una integración real.
+- El acento violeta se comparte con la familia de gestión, mientras rojo, ámbar y verde quedan reservados para prioridad, advertencia y oportunidad.
+
 ## Criterios aplicados
 
 - La primera pantalla de `index.html` es una landing de marca con H1 "Soluciones Conectadas", fondo visual, acción a demos y CTA directo a WhatsApp.
@@ -42,14 +51,14 @@
 - El formulario mantiene etiquetas visibles, campos obligatorios, ayudas de contexto, consentimiento y alternativas de contacto.
 - La página de confirmación conserva marca SC y permite volver a demos o continuar por WhatsApp.
 - Axe Core `4.10.3` no detectó infracciones WCAG A/AA en las cinco páginas comerciales auditadas.
-- Las catorce demos incorporan una barra común con estado de demo pública, funciones simuladas y seis herramientas operativas.
+- Las quince demos incorporan una barra común con estado de demo pública, funciones simuladas y seis herramientas operativas.
 - El modo presentación oculta sidebar, cabecera y controles secundarios, mantiene el contenido a ancho útil y ofrece una salida fija accesible.
 - El recorrido guiado es manual, muestra progreso y resalta el contexto, el flujo, los KPI, los módulos, la operación, los reportes y el asistente según disponibilidad.
 - La búsqueda global indexa módulos y registros ya hidratados, tolera consultas con o sin acentos y conduce a la vista correspondiente.
 - El centro de actividad registra eventos iniciales y acciones informadas por los `toast`, sin simular envíos externos reales.
 - Los estados de carga, éxito, error y vacío incluyen feedback visual, reintento y limpieza de filtros.
 - Los diálogos administran foco, cierran con fondo o `Escape` y devuelven el foco al disparador; en móvil las acciones pasan a iconos con nombre accesible y tooltip.
-- Axe Core `4.10.3` no detectó infracciones serias o críticas en la capa compartida de las catorce demos.
+- Axe Core `4.10.3` no detectó infracciones serias o críticas en la capa compartida de las quince demos.
 - La Fase 4 agrega catorce vistas avanzadas con jerarquía compacta: encabezado, cuatro KPI, comandos, tabla principal y prioridades laterales.
 - Las altas ficticias y vistas previas de email usan un modal compartido con foco inicial, cierre por fondo o `Escape` y retorno al disparador.
 - Las tablas mantienen ancho estable y scroll interno en móvil, evitando que el documento completo genere desborde horizontal.
@@ -63,7 +72,7 @@
 - La programación usa controles nativos para frecuencia, hora, destinatario y PDF; el CTA ocupa una fila completa para evitar recortes en paneles angostos.
 - En móvil, el flujo se transforma en una secuencia vertical, métricas y formularios conservan ancho útil, y la tabla usa scroll interno sin desbordar el documento.
 - La vista previa de email administra foco, cierra con `Escape` o fondo y aclara que no se realiza ningún envío real.
-- Axe Core `4.10.3` no detectó infracciones serias o críticas en Automatizaciones de las catorce demos.
+- Axe Core `4.10.3` no detectó infracciones serias o críticas en Automatizaciones de las quince demos.
 - La Fase 6 agrega una presentación comercial de ocho pantallas con imagen real en portada, jerarquía de alto contraste, controles por iconos, notas del expositor y progreso estable.
 - La presentación admite flechas, `Home`, `End`, barra espaciadora, gestos táctiles, pantalla completa e impresión horizontal a PDF.
 - En móvil, cada diapositiva permite altura natural, las grillas pasan a una columna y el email ajusta su texto sin desbordar la tarjeta.
@@ -74,7 +83,7 @@
 - Las fotografías nuevas mantienen encuadre horizontal, luz clara y diversidad visual; su conversión WebP reduce el peso conjunto de 6,6 MB a unos 433 KB.
 - Las capturas de Fase 7 verifican el catálogo a `1440x1000` y el hero de Constructoras a `390x844` sin recortes ni desbordes.
 - Las tarjetas de servicios reservan `52px` a la derecha del texto para que el botón `+` mantenga al menos `10px` de aire visual en desktop, tablet y móvil.
-- El resumen de impacto prioriza información comercial verificable: catorce demos navegables, siete o más módulos por experiencia, dos procesos automáticos por rubro y una visión integral de gestión, automatización y reportes.
+- El resumen de impacto prioriza información comercial verificable: quince demos navegables, siete o más módulos por experiencia, dos procesos automáticos por rubro y una visión integral de gestión, automatización y reportes.
 - El indicador de reducción manual usa la redacción inequívoca “Hasta 60% menos” y conserva la aclaración visible de que se trata de un rango ilustrativo sujeto a diagnóstico.
 - El hero del catálogo distribuye título y descripción en columnas proporcionadas; en tablet y móvil vuelve a una sola columna sin desborde.
 - Las tarjetas del catálogo usan columna flexible para mantener “Ver módulos” y “Abrir demo” alineados aunque títulos y descripciones ocupen distinta cantidad de líneas.
@@ -121,7 +130,7 @@
 - Servicios, Automatizaciones, Nosotros y Contacto usan portadas de altura estable con imagen local y superposición sólida; el primer viewport mantiene visible el comienzo de la sección siguiente.
 - `Nosotros` presenta el método en cuatro pasos y separa criterios, escenarios de aplicación y contacto en bandas completas, sin anidar tarjetas.
 - El laboratorio n8n usa un canvas con dimensiones estables, nodos seleccionables, inspector, payload y bitácora; el estado se comunica con texto, color e iconografía.
-- Las catorce demos reciben acentos por familia de rubro mediante variables CSS, manteniendo componentes y comportamiento comunes.
+- Las quince demos reciben acentos por familia de rubro mediante variables CSS, manteniendo componentes y comportamiento comunes.
 - La animación de entrada se limita al encabezado y primer bloque; las tarjetas secundarias se revelan al entrar en pantalla y `prefers-reduced-motion` desactiva la transición.
 - Las capturas de referencia verifican Nosotros en `1440x940`, Contacto en `390x844`, el laboratorio completado y Gestión PyME en `1280x900`.
 
@@ -161,7 +170,7 @@
 
 ## Fase 11 - reportería interactiva y lectura ejecutiva
 
-- Los catorce demos comparten un centro de análisis generado por `reporting-experience.js`, sin duplicar HTML ni comportamiento por rubro.
+- Las quince demos comparten un centro de análisis generado por `reporting-experience.js`, sin duplicar HTML ni comportamiento por rubro.
 - Cada tarjeta de métrica incluye una acción “Analizar”; el estado seleccionado combina borde, texto y color y se anuncia con `aria-pressed`.
 - Los períodos de 7, 30 y 90 días usan un control segmentado estable; la comparación usa un checkbox nativo presentado como switch.
 - Chart.js `4.5.1` dibuja una serie actual y una comparación opcional. La transición dura `560 ms` y queda desactivada con `prefers-reduced-motion`.
@@ -181,7 +190,7 @@
 
 - Inicio, Servicios, Demos, Automatizaciones, Nosotros y Contacto cierran con una banda oscura de identidad SC, separada del contenido por una línea cian y una grilla tecnológica sutil.
 - En Inicio, el footer reemplaza a la antigua banda “Presentación comercial” como cierre único para evitar repetir logo, CTA y canales de contacto en bloques consecutivos.
-- La zona de marca incluye una descripción breve y dos señales verificables: datos ficticios y catorce demos navegables.
+- La zona de marca incluye una descripción breve y dos señales verificables: datos ficticios y quince demos navegables.
 - La navegación repite los seis destinos principales para evitar callejones sin salida al terminar una página.
 - El bloque de contacto prioriza un único CTA de WhatsApp y mantiene email e Instagram como accesos secundarios legibles.
 - En escritorio usa tres columnas sin tarjetas; a `1040 px` pasa a dos y a `720 px` se reorganiza en una sola columna con CTA de ancho completo.

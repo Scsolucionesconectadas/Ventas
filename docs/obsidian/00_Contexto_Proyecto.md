@@ -6,7 +6,7 @@ Crear una landing principal profesional de Soluciones Conectadas y demos comerci
 
 ## Estado actual
 
-El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y catorce demos funcionales para presentaciones: Gestión PyME, Turnos y agenda, área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores, logística/transporte, talleres y servicios técnicos, estudios contables, y constructoras/obras. El catálogo se organiza primero por problemas frecuentes y luego por tipo de operación. Gestión PyME, Turnos y Gastronomía incorporan recomendaciones explicables basadas únicamente en datos ficticios. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
+El repositorio tiene una landing principal responsive de SC, páginas comerciales separadas para servicios, automatizaciones, demos y contacto, y quince demos funcionales para presentaciones: Administración y facturación, Gestión PyME, Turnos y agenda, área médica, hotelería, inmobiliarias, venta de materiales, gastronomía, educación, gomerías, agrimensores, logística/transporte, talleres y servicios técnicos, estudios contables, y constructoras/obras. El catálogo se organiza primero por problemas frecuentes y luego por tipo de operación. Administración y facturación, Gestión PyME, Turnos y Gastronomía incorporan recomendaciones explicables basadas únicamente en datos ficticios. El contacto usa FormSubmit, además de WhatsApp, email e Instagram. Las demos no conectan servicios externos ni realizan envíos reales.
 
 ## Stack técnico
 
@@ -21,6 +21,7 @@ El repositorio tiene una landing principal responsive de SC, páginas comerciale
 
 - Landing principal institucional: `index.html`.
 - Catálogo separado de demos: `demos/index.html`.
+- Demo administración y facturación: `rubros/administracion-facturacion/index.html`.
 - Servicios detallados: `servicios/index.html`.
 - Automatizaciones y explorador de flujos: `automatizaciones/index.html`.
 - Contacto y confirmación: `contacto/index.html` y `contacto/gracias.html`.
@@ -98,7 +99,7 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - El recorrido comercial pasa a ser manual y controlable; las acciones antiguas de “Iniciar demo guiada” abren la nueva experiencia.
 - La Fase 4 se implementa como una extensión compartida cargada solo por las tres demos prioritarias, sin duplicar sus motores principales ni afectar los otros rubros.
 - En móvil, los accesos avanzados se concentran en las pestañas para evitar duplicar una navegación lateral extensa.
-- La Fase 5 usa un único módulo configurable para las catorce demos y representa n8n, Node-RED y Grafana sin afirmar conexiones reales.
+- La Fase 5 usa un único módulo configurable para las quince demos y representa n8n, Node-RED y Grafana sin afirmar conexiones reales.
 - Todo flujo simulado se detiene antes de la entrega hasta recibir aprobación humana y registra intentos, salida y destinatario ficticio.
 - La Fase 6 usa metadatos estáticos por página para que el contenido sea visible sin depender de JavaScript.
 - Cloudflare Web Analytics queda preparado pero desactivado por defecto; sin token no carga el beacon ni realiza solicitudes.
@@ -116,10 +117,11 @@ Luego abrir `http://127.0.0.1:4173/index.html`. También puede abrirse `index.ht
 - La estética del catálogo toma del proyecto Click la contundencia visual, la fotografía humana y el recorrido por necesidades, sin migrar el stack estático ni copiar su identidad.
 - Inicio, Servicios, Demos, Automatizaciones, Nosotros y Contacto comparten portadas visuales, navegación y una jerarquía comercial propia de SC.
 - El laboratorio comercial estilo n8n ejecuta seis workflows ficticios de agenda, ventas, stock, cobranzas, reservas y reportes; incluye resultados específicos, inspector de nodos, payload, aprobación, falla, reintento y bitácora sin conectarse a servicios reales.
-- Las catorce demos reciben acentos por familia de rubro y una secuencia de motion más breve, con revelado progresivo al entrar en pantalla.
+- Las quince demos reciben acentos por familia de rubro y una secuencia de motion más breve, con revelado progresivo al entrar en pantalla.
 - La barra comercial adopta navegación directa, fondo oscuro translúcido, un único CTA y menú móvil accesible sin incorporar dependencias nuevas ni cambiar el stack estático.
 - La página Nosotros incorpora el retrato profesional provisto por el responsable de SC y una presentación personal centrada en procesos, tecnología aplicable y acompañamiento directo.
 - Servicios agrupa las siete capacidades en cinco recorridos comerciales con capturas reales de las demos, y Contacto incorpora un resumen previo que se actualiza solo en el navegador sin modificar FormSubmit.
-- Las catorce demos incorporan un centro de análisis con selección de métricas, períodos de 7, 30 y 90 días, comparación, lectura ejecutiva y recomendación específica del rubro. Chart.js se carga solo al visualizar el reporte y conserva una vista simplificada si el CDN no responde.
+- Las quince demos incorporan un centro de análisis con selección de métricas, períodos de 7, 30 y 90 días, comparación, lectura ejecutiva y recomendación específica del rubro. Chart.js se carga solo al visualizar el reporte y conserva una vista simplificada si el CDN no responde.
+- Administración y facturación cubre el backoffice interno desde el servicio realizado hasta la cobranza conciliada y desde la factura de proveedor hasta el pago archivado, siempre con documentos demo no fiscales.
 - Inicio, Servicios, Demos, Automatizaciones, Nosotros y Contacto comparten un footer comercial SC con identidad, navegación, señales de confianza y contacto directo; conserva lectura, foco y ancho correcto en escritorio y móvil.
 - La portada usa el footer como cierre comercial único; la banda redundante de presentación y contacto se retiró antes de la publicación final.

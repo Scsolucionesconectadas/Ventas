@@ -124,6 +124,7 @@ function bindServiceModal() {
       outcome: "Resultado esperado: menos planillas sueltas y más control diario.",
       page: "servicios/index.html#sistemas",
       demos: [
+        ["Administración y facturación", "rubros/administracion-facturacion/index.html"],
         ["Gestión PyME", "rubros/gestion-pyme/index.html"],
         ["Turnos y agenda", "rubros/turnos/index.html"],
         ["Área médica", "rubros/medica/index.html"],
@@ -192,6 +193,7 @@ function bindServiceModal() {
       outcome: "Resultado esperado: dirección y operación mirando la misma información.",
       page: "servicios/index.html#dashboards",
       demos: [
+        ["Administración y facturación", "rubros/administracion-facturacion/index.html"],
         ["Logística", "rubros/logistica/index.html"],
         ["Venta de materiales", "rubros/materiales/index.html"],
         ["Gomerías", "rubros/gomerias/index.html"],

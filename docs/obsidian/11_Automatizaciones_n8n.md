@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-La página comercial incluye un laboratorio interactivo estilo n8n para explicar capacidades de automatización e integración. La Fase 5, ampliada en Fases 7 y 8, agrega además a las catorce demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
+La página comercial incluye un laboratorio interactivo estilo n8n para explicar capacidades de automatización e integración. La Fase 5, ampliada en Fases 7 y 8, agrega además a las quince demos un simulador visual de workflows con n8n/Node-RED, estados, fallas, reintentos, aprobación humana, reportería tipo Grafana, PDF, email y bitácora. No hay workflows ni conexiones externas reales implementadas dentro del repositorio.
 
 ## Capacidades presentadas
 
@@ -18,6 +18,7 @@ La página comercial incluye un laboratorio interactivo estilo n8n para explicar
 - Talleres: turno, diagnóstico, orden de trabajo, reserva de repuestos, aprobación de presupuesto e historial del vehículo.
 - Estudios contables: agenda de vencimientos, solicitud documental, presentación, acuse, honorarios y legajo.
 - Constructoras: medición, certificado, curva de avance, compra, incidencia, evidencia y bitácora de obra.
+- Administración y facturación: servicio realizado, validación documental, factura demo, cobranza y conciliación; además recibe facturas de proveedor, controla duplicados, orden/remito, aprobación, vencimiento, pago y archivo.
 
 ## Criterios de diseño para workflows futuros
 

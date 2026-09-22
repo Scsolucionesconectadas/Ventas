@@ -21,14 +21,14 @@ async function expectNoSeriousA11yViolations(page) {
 }
 
 test.describe("Fase 8 - soluciones orientadas a problemas", () => {
-  test("el catálogo presenta rutas claras, catorce demos y filtros funcionales", async ({ page }) => {
+  test("el catálogo presenta rutas claras, quince demos y filtros funcionales", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(`${baseUrl}/demos/`, { waitUntil: "networkidle" });
 
     await expect(page.getByRole("heading", { name: "Elegí el problema. Probá cómo resolverlo." })).toBeVisible();
     await expect(page.locator(".solution-gate")).toHaveCount(4);
-    await expect(page.locator(".industry-card")).toHaveCount(14);
-    await expect(page.locator(".industry-card-outcome")).toHaveCount(14);
+    await expect(page.locator(".industry-card")).toHaveCount(15);
+    await expect(page.locator(".industry-card-outcome")).toHaveCount(15);
 
     const managementCard = page.locator(".industry-card").filter({ hasText: "Gestión PyME" });
     const appointmentsCard = page.locator(".industry-card").filter({ hasText: "Turnos y agenda" });
@@ -48,6 +48,7 @@ test.describe("Fase 8 - soluciones orientadas a problemas", () => {
   });
 
   for (const demo of [
+    { slug: "administracion-facturacion", heading: "Facturas, documentos y aprobaciones bajo control", tab: "Facturación", stages: ["Borrador", "En validación", "Aprobada", "Emitida", "Cobrada", "Conciliada"] },
     { slug: "gestion-pyme", heading: "Ventas, caja y clientes en una sola gestión", tab: "Movimientos", stages: ["Pendiente", "Cobro parcial", "Cobrado", "Conciliado"] },
     { slug: "turnos", heading: "Agenda, equipo y recordatorios sin superposiciones", tab: "Turnos", stages: ["Solicitado", "Confirmado", "En atención", "Finalizado"] },
   ]) {
@@ -128,7 +129,7 @@ test.describe("Fase 8 - soluciones orientadas a problemas", () => {
     test.setTimeout(90000);
     await page.setViewportSize({ width: 390, height: 844 });
 
-    for (const route of ["/demos/", "/rubros/gestion-pyme/", "/rubros/turnos/", "/rubros/gastronomia/#reservas"]) {
+    for (const route of ["/demos/", "/rubros/administracion-facturacion/", "/rubros/gestion-pyme/", "/rubros/turnos/", "/rubros/gastronomia/#reservas"]) {
       await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle" });
       await expectNoHorizontalOverflow(page);
       await expectNoSeriousA11yViolations(page);

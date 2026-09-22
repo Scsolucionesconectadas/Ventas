@@ -2,6 +2,7 @@ const { test, expect } = require("playwright/test");
 
 const baseUrl = "http://127.0.0.1:4173";
 const demoSlugs = [
+  "administracion-facturacion",
   "gestion-pyme",
   "turnos",
   "medica",
@@ -200,7 +201,7 @@ test.describe("Fase 9 - identidad comercial y laboratorio n8n", () => {
     }
   });
 
-  test("las catorce demos reciben identidad por rubro sin perder estructura", async ({ page }) => {
+  test("las quince demos reciben identidad por rubro sin perder estructura", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
 
     for (const slug of demoSlugs) {
@@ -298,7 +299,7 @@ test.describe("Fase 9 - identidad comercial y laboratorio n8n", () => {
       await expect(footer).toBeVisible();
       await expect(footer.getByRole("navigation", { name: "Navegación del pie" }).getByRole("link")).toHaveCount(6);
       await expect(footer.getByRole("link", { name: "Hablar por WhatsApp" })).toHaveAttribute("href", /wa\.me\/5493442472233/);
-      await expect(footer.getByText("14 demos navegables")).toBeVisible();
+      await expect(footer.getByText("15 demos navegables")).toBeVisible();
       const logo = footer.locator(".site-footer-logo img");
       await expect.poll(() => logo.evaluate((image) => image.complete && image.naturalWidth > 0)).toBeTruthy();
 

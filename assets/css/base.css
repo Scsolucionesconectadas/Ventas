@@ -8900,6 +8900,7 @@ body[data-demo-slug="gastronomia"] {
   --demo-accent-ink: #7a470e;
 }
 
+body[data-demo-slug="administracion-facturacion"],
 body[data-demo-slug="gestion-pyme"],
 body[data-demo-slug="estudios-contables"] {
   --demo-accent: #6d55b5;

@@ -8,6 +8,7 @@
 
 ## En revisión
 
+- [ ] Revisar Administración y facturación en una reunión comercial antes de publicarla.
 - [ ] Confirmar el nombre y título profesional que acompañarán la fotografía en Nosotros.
 - [ ] Revisar la nueva página Nosotros y el laboratorio n8n en una reunión comercial antes de publicar Fase 9.
 - [ ] Revisar Gestión PyME, Turnos y reservas gastronómicas en una reunión comercial antes de publicar Fase 8.
@@ -16,6 +17,7 @@
 
 ## Resueltos
 
+- [x] Crear la demo de Administración y facturación con documentos, aprobaciones, cobranzas, pagos, reportes y workflows - 2026-09-21
 - [x] Eliminar la banda comercial redundante de la portada y dejar el footer como cierre único - 2026-09-19
 - [x] Unificar el footer de las seis páginas comerciales con identidad SC, navegación y contacto responsive - 2026-09-13
 - [x] Convertir la reportería de las catorce demos en una experiencia interactiva con Chart.js, comparación, recomendaciones y fallback - 2026-09-13

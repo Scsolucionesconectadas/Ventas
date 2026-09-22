@@ -57,7 +57,7 @@ $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
 npx --yes playwright@1.55.0 test scripts/phase4.spec.js --reporter=line --workers=1
 ```
 
-Regresión Playwright de Fase 5 para las catorce demos:
+Regresión Playwright de Fase 5 para las quince demos:
 
 ```powershell
 $root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
@@ -89,7 +89,7 @@ $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
 npx --yes playwright@1.55.0 test scripts/phase8.spec.js --reporter=line --workers=1
 ```
 
-Regresión Playwright de Fase 9 para identidad comercial, laboratorio n8n y acentos de las catorce demos:
+Regresión Playwright de Fase 9 para identidad comercial, laboratorio n8n y acentos de las quince demos:
 
 ```powershell
 $root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
@@ -100,9 +100,17 @@ npx --yes playwright@1.55.0 test scripts/phase9.spec.js --reporter=line --worker
 Regresión unificada antes de publicar:
 
 ```powershell
-$root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/playwright/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/@playwright/test/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 $env:NODE_PATH = Join-Path $root.FullName 'node_modules'
-npx --yes playwright@1.55.0 test scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js scripts/phase6.spec.js scripts/phase7.spec.js scripts/phase8.spec.js scripts/phase9.spec.js scripts/reporting-experience.spec.js scripts/ui-enhancements.spec.js --reporter=line --workers=1
+node (Join-Path $root.FullName 'node_modules/playwright/cli.js') test scripts/administracion-facturacion.spec.js scripts/phase3.spec.js scripts/phase4.spec.js scripts/phase5.spec.js scripts/phase6.spec.js scripts/phase7.spec.js scripts/phase8.spec.js scripts/phase9.spec.js scripts/reporting-experience.spec.js scripts/ui-enhancements.spec.js --reporter=line --workers=1
+```
+
+Regresión específica de Administración y facturación:
+
+```powershell
+$root = Get-ChildItem "$env:LOCALAPPDATA/npm-cache/_npx" -Directory | Where-Object { $p = Join-Path $_.FullName 'node_modules/@playwright/test/package.json'; (Test-Path $p) -and ((Get-Content -LiteralPath $p -Raw | ConvertFrom-Json).version -eq '1.55.0') } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$env:NODE_PATH = Join-Path $root.FullName 'node_modules'
+node (Join-Path $root.FullName 'node_modules/playwright/cli.js') test scripts/administracion-facturacion.spec.js --reporter=line --workers=1
 ```
 
 Regresión específica del centro de análisis de reportería:

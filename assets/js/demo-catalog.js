@@ -1,5 +1,18 @@
 window.SCDemoCatalog = [
   {
+    slug: "administracion-facturacion",
+    status: "listo",
+    title: "Administración y facturación",
+    description: "Facturas emitidas y recibidas, documentos, aprobaciones, cobranzas, pagos y conciliación.",
+    image: "assets/img/administration-billing-demo.webp",
+    alt: "Equipo administrativo revisando facturas, documentos y reportes",
+    href: "rubros/administracion-facturacion/index.html",
+    modules: ["Facturación y cobranzas", "Proveedores y pagos", "Documentos y aprobaciones"],
+    groups: ["gestion", "operacion", "profesionales"],
+    outcome: "Saber qué falta facturar, aprobar, cobrar o pagar antes del cierre.",
+    spotlight: true,
+  },
+  {
     slug: "gestion-pyme",
     status: "listo",
     title: "Gestión PyME",

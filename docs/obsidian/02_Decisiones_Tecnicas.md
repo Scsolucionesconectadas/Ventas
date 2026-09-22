@@ -1,5 +1,28 @@
 # Decisiones Técnicas
 
+## 2026-09-21 - Backoffice administrativo separado de Gestión PyME y Estudios Contables
+
+**Decisión:**
+Crear la demo `Administración y facturación` como circuito interno transversal para empresas de servicios y comercios, reutilizando el motor configurable existente.
+
+**Motivo:**
+Gestión PyME explica ventas, caja y stock diarios, mientras Estudios Contables representa la agenda de un estudio externo. Faltaba mostrar el trabajo administrativo interno que conecta servicio realizado, factura, cobranza, proveedores, aprobaciones, pagos y documentación.
+
+**Impacto:**
+El catálogo suma una decimoquinta demo con seis estados cronológicos, cuatro casos trazables, reportería ejecutiva, asistente y dos workflows. Todos los comprobantes se identifican como documentos demo no fiscales y no se conectan con ARCA, bancos ni servicios reales.
+
+**Alternativas consideradas:**
+- Extender Gestión PyME hasta convertirla en un ERP generalista.
+- Agregar estas funciones a Estudios Contables.
+- Crear una experiencia independiente con foco en backoffice interno.
+
+**Archivos relacionados:**
+- `rubros/administracion-facturacion/index.html`
+- `assets/js/industry-demo-data.js`
+- `assets/js/workflow-demo.js`
+- `assets/js/demo-catalog.js`
+- `scripts/administracion-facturacion.spec.js`
+
 ## 2026-09-19 - Footer como cierre comercial único
 
 **Decisión:**

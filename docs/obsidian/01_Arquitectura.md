@@ -17,11 +17,12 @@ Sitio estático multipágina sin proceso de build. GitHub Pages sirve HTML, CSS,
 ## Demos
 
 - `rubros/medica/`: lógica propia en `assets/js/medical-demo.js`.
+- `rubros/administracion-facturacion/`: backoffice interno configurable para facturación, cobranzas, proveedores, pagos, documentos y aprobaciones.
 - Los demás rubros usan `assets/js/industry-demo.js` y `assets/js/industry-demo-data.js`.
 - `assets/js/pdf-report.js` centraliza los PDFs demostrativos con marca SC.
-- `assets/js/demo-experience.js` inyecta la barra común, modales, cajón de actividad, recorrido y modo presentación en las catorce demos.
+- `assets/js/demo-experience.js` inyecta la barra común, modales, cajón de actividad, recorrido y modo presentación en las quince demos.
 - `assets/js/priority-demo.js` extiende únicamente área médica, inmobiliarias y venta de materiales con módulos operativos avanzados definidos por configuración.
-- `assets/js/workflow-demo.js` agrega a las catorce demos el simulador de procesos, observabilidad y reportería de Fase 5.
+- `assets/js/workflow-demo.js` agrega a las quince demos el simulador de procesos, observabilidad y reportería de Fase 5.
 - `rubros/talleres/`, `rubros/estudios-contables/` y `rubros/constructoras/` reutilizan el motor común y declaran metadatos SEO estáticos propios.
 
 ## Código compartido
@@ -32,7 +33,7 @@ Sitio estático multipágina sin proceso de build. GitHub Pages sirve HTML, CSS,
 - `assets/js/site-navigation.js`: estado de la barra comercial, menú responsive, cierre por enlace, clic exterior o `Escape`, y cambio visual al desplazarse.
 - `assets/js/n8n-lab.js`: simulador comercial central con seis workflows, máquina de estados, resultados por proceso, inspector y bitácora local.
 - `assets/js/motion.js`: animación progresiva con GSAP y fallback respetando reducción de movimiento.
-- `assets/js/reporting-experience.js`: mejora progresivamente la reportería de las catorce demos, carga Chart.js `4.5.1` bajo demanda y mantiene resumen, métricas y mini gráficos como fallback.
+- `assets/js/reporting-experience.js`: mejora progresivamente la reportería de las quince demos, carga Chart.js `4.5.1` bajo demanda y mantiene resumen, métricas y mini gráficos como fallback.
 - `assets/js/demo-catalog.js`: fuente única del catálogo público.
 - `assets/js/demo-experience.js`: capa transversal de experiencia comercial sin alterar los motores de datos de cada rubro.
 - `assets/js/priority-demo.js`: configuración y comportamiento compartido de Fase 4 para KPI, tablas, prioridades, formularios, estados, PDF y email simulado.
@@ -109,7 +110,8 @@ Los nuevos rubros se incorporan como configuración en `assets/js/industry-demo-
 - `assets/js/n8n-lab.js` modela `ejecución → error/reintento → aprobación → finalización` únicamente en memoria del navegador.
 - `assets/css/base.css` asigna variables de acento mediante `data-demo-slug`; la estructura y la lógica de negocio siguen compartidas.
 - `assets/js/motion.js` limita la entrada inicial al primer viewport y usa `IntersectionObserver` para animar bloques secundarios al entrar en pantalla.
-- `scripts/phase9.spec.js` valida las páginas comerciales, ambos escenarios del laboratorio y la aplicación del sistema visual en las catorce demos.
+- `scripts/phase9.spec.js` valida las páginas comerciales, ambos escenarios del laboratorio y la aplicación del sistema visual en las quince demos.
+- `scripts/administracion-facturacion.spec.js` conserva las reglas propias del nuevo backoffice: estado terminal, asistente, workflows, PDF y accesibilidad móvil.
 
 ## Resultados del laboratorio de automatizaciones
 

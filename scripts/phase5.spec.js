@@ -2,6 +2,7 @@ const { test, expect } = require("playwright/test");
 
 const baseUrl = "http://127.0.0.1:4173";
 const demos = [
+  "administracion-facturacion",
   "gestion-pyme",
   "turnos",
   "medica",

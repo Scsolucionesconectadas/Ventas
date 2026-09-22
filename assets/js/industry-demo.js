@@ -1109,7 +1109,7 @@
     const value = normalizeText(status);
     if (value.includes("urgente") || value.includes("critico") || value.includes("bajo") || value.includes("vencido")) return "urgent";
     if (value.includes("pendiente") || value.includes("nuevo") || value.includes("revision") || value.includes("cotizado")) return "waiting";
-    if (value.includes("confirm") || value.includes("activo") || value.includes("aprobado") || value.includes("listo") || value.includes("ocupada") || value.includes("publicado") || value.includes("cursando") || value.includes("programado") || value.includes("diario") || value.includes("demo") || value.includes("simulado") || value.includes("finaliz") || value.includes("cerrado") || value.includes("entregad") || value.includes("cobrad") || value.includes("facturad") || value.includes("presentad")) return "ok";
+    if (value.includes("confirm") || value.includes("activo") || value.includes("aprobad") || value.includes("conciliad") || value.includes("listo") || value.includes("ocupada") || value.includes("publicado") || value.includes("cursando") || value.includes("programado") || value.includes("diario") || value.includes("demo") || value.includes("simulado") || value.includes("finaliz") || value.includes("cerrado") || value.includes("entregad") || value.includes("cobrad") || value.includes("facturad") || value.includes("presentad")) return "ok";
     return "";
   }
 

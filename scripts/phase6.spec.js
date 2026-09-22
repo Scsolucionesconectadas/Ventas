@@ -12,6 +12,7 @@ const pages = [
   { route: "/contacto/", canonical: `${publicBase}/contacto/` },
   { route: "/nosotros/", canonical: `${publicBase}/nosotros/` },
   ...[
+    "administracion-facturacion",
     "gestion-pyme",
     "turnos",
     "medica",
@@ -246,7 +247,8 @@ test.describe("Fase 6 - publicación y presentación comercial", () => {
 
     expect(urls).toEqual(pages.map((item) => item.canonical));
     expect(lastModified).toHaveLength(pages.length);
-    expect(lastModified.every((date) => date === "2026-09-12")).toBeTruthy();
+    expect(lastModified.every((date) => /^\d{4}-\d{2}-\d{2}$/.test(date))).toBeTruthy();
+    expect(lastModified).toContain("2026-09-21");
     expect(robots).toContain(`Sitemap: ${publicBase}/sitemap.xml`);
     expect(sitemap).not.toContain("presentacion");
   });

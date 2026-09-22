@@ -1,5 +1,36 @@
 # Bitácora de Desarrollo
 
+## 2026-09-21 - Demo de administración y facturación
+
+**Cambios realizados:**
+- Se agregó una demo de backoffice interno con facturación, cobranzas, proveedores, pagos, documentos y aprobaciones.
+- Se incorporaron cuatro casos ficticios: facturación bloqueada por conformidad, cobranza vencida, posible comprobante duplicado y cobro conciliado.
+- Se agregaron inteligencia operativa explicable, asistente administrativo, reportería interactiva, PDF demo y dos workflows con aprobación humana.
+- Se generó y optimizó una imagen WebP propia, sin marcas ni datos reales, y se amplió el catálogo a quince demos.
+- Se actualizaron SEO, sitemap, footers, servicios relacionados y pruebas compartidas.
+
+**Archivos modificados:**
+- `rubros/administracion-facturacion/index.html`
+- `assets/img/administration-billing-demo.webp`
+- `assets/js/industry-demo-data.js`
+- `assets/js/demo-catalog.js`
+- `assets/js/workflow-demo.js`
+- `assets/js/reporting-experience.js`
+- `assets/css/base.css`
+- `scripts/administracion-facturacion.spec.js`
+
+**Validaciones realizadas:**
+- `node --check` sobre JavaScript y pruebas modificadas: sin errores.
+- HTML Validate `11.14.0`: todas las plantillas aprobadas.
+- Playwright Fase 8: 6 de 6 pruebas aprobadas.
+- Playwright Fase 6 después de ajustar la validación de fechas del sitemap: 10 de 10 pruebas aprobadas.
+- Playwright específico de la demo: 3 de 3 pruebas aprobadas, incluido PDF, workflows, terminalidad, responsive y Axe.
+- Regresión Playwright unificada final: 103 de 103 pruebas aprobadas en Microsoft Edge.
+- Capturas de `1440x1000` y `390x844`: imagen visible y sin desborde horizontal.
+
+**Pendientes detectados:**
+- Revisar el discurso de la demo en una reunión comercial antes de publicarla.
+
 ## 2026-09-19 - Cierre visual y preparación de publicación
 
 **Cambios realizados:**

@@ -26,6 +26,7 @@ https://scsolucionesconectadas.github.io/Ventas/
 
 ## Rubros iniciales
 
+- Administración y facturación: facturas emitidas y recibidas, documentos, aprobaciones, cobranzas, proveedores, pagos y conciliación.
 - Gestión PyME: ventas, caja, gastos, cobranzas, clientes, productos, stock liviano y prioridades explicables.
 - Turnos y agenda: disponibilidad, profesionales, servicios, confirmaciones, recordatorios y lista de espera.
 - Área médica: turnero, chatbot, historia clínica, consultas, obras sociales, facturación, autorizaciones, profesionales, documentos, seguimiento y reportes.
@@ -43,7 +44,7 @@ https://scsolucionesconectadas.github.io/Ventas/
 
 ## Experiencia compartida de las demos
 
-Las catorce demos incluyen una barra operativa común con:
+Las quince demos incluyen una barra operativa común con:
 
 - Modo presentación sin navegación secundaria.
 - Recorrido guiado manual y controlable paso a paso.
@@ -65,13 +66,13 @@ Los gráficos actualizan su nombre accesible, respetan `prefers-reduced-motion` 
 
 ## Automatizaciones de Fase 5
 
-Las catorce demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
+Las quince demos incorporan un centro visual de automatización con dos procesos específicos por rubro. Permite alternar entre una representación de n8n y Node-RED, ejecutar un escenario controlado o una falla temporal, reintentar, aprobar manualmente y completar el recorrido `Disparador → Validación → Acción → Aprobación → Reporte → Bitácora`.
 
 La misma vista incluye indicadores filtrables tipo Grafana, comparación por período, programación diaria/semanal/mensual, vista previa editable de email, descarga de PDF con marca SC e historial de ejecuciones. Todo funciona con datos ficticios en el navegador: no conecta servicios externos ni realiza envíos reales.
 
 ## Publicación y presentación de Fase 6
 
-- Las diecinueve páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
+- Las veintiuna páginas indexables tienen título, descripción, URL canónica, Open Graph, Twitter Card y favicon.
 - La portada declara datos estructurados `Organization` y `WebSite` con información pública de SC.
 - `sitemap.xml` incluye fecha de última modificación y `robots.txt` referencia su URL pública.
 - `assets/js/analytics.js` deja preparada Cloudflare Web Analytics, desactivada hasta incorporar un token público del sitio.
@@ -80,7 +81,7 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 
 ## Soluciones orientadas a problemas de Fase 8
 
-- El catálogo comienza por situaciones concretas de gestión, turnos, reservas gastronómicas y stock, y luego permite explorar las 14 demos por tipo de operación.
+- El catálogo comienza por situaciones concretas de administración, gestión, turnos, reservas gastronómicas y stock, y luego permite explorar las 15 demos por tipo de operación.
 
 ## Identidad comercial y laboratorio de Fase 9
 
@@ -88,7 +89,7 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 - Las seis páginas comparten un footer SC con marca, navegación completa, datos ficticios, acceso a WhatsApp, email e Instagram; se reorganiza en una columna sin desbordes en móvil.
 - La portada termina directamente en ese footer compartido; se eliminó la banda comercial repetida que mostraba por segunda vez logo, WhatsApp y datos de contacto.
 - El laboratorio comercial ejecuta seis workflows ficticios para agenda, ventas, stock, cobranzas, reservas y reportes; permite inspeccionar nodos, anticipar el resultado, aprobar un paso, provocar un error temporal y reintentar sin conexiones reales.
-- Las catorce demos mantienen la misma arquitectura pero reciben acentos visuales por familia de rubro.
+- Las quince demos mantienen la misma arquitectura pero reciben acentos visuales por familia de rubro.
 - Gestión PyME y Turnos y agenda cubren necesidades transversales que no estaban representadas por una industria específica.
 - Gastronomía amplía su alcance sin duplicar demo: busca mesas por capacidad y sector, propone alternativas, administra lista de espera y detiene el avance al finalizar.
 - Las tres experiencias incorporan prioridades explicables: cada recomendación muestra la evidencia ficticia que la origina y enlaza con la vista donde se resuelve.
@@ -109,6 +110,9 @@ La misma vista incluye indicadores filtrables tipo Grafana, comparación por per
 ├── contacto/
 │   ├── gracias.html
 │   └── index.html
+├── rubros/
+│   └── administracion-facturacion/
+│       └── index.html
 ├── presentacion/
 │   └── index.html
 ├── index.html
@@ -204,15 +208,15 @@ Luego abrir `http://127.0.0.1:4173/index.html`.
 - Las pestañas incluyen semántica ARIA, selección anunciada y navegación con flechas, `Home` y `End`.
 - Los modales conservan el foco, cierran con `Escape` y lo devuelven al control que los abrió.
 - Las páginas comerciales y el formulario fueron auditados con Axe Core sobre reglas WCAG A/AA.
-- La capa compartida de las catorce demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
+- La capa compartida de las quince demos cuenta con regresión Playwright sobre búsqueda, actividad, estados, presentación, recorrido y reinicio.
 - Las tres demos prioritarias cuentan con regresión Playwright de navegación profunda, altas ficticias, estados, búsqueda, PDF, email simulado, teclado, responsive y accesibilidad.
-- Las catorce demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
+- Las quince demos cuentan con regresión Playwright de Fase 5 sobre ejecución exitosa, falla, reintento, aprobación humana, filtros, programación, email simulado, PDF, teclado, responsive y accesibilidad.
 - La Fase 6 cuenta con regresión Playwright para SEO, datos estructurados, sitemap, analítica inactiva, presentación, impresión, responsive y accesibilidad.
 - La Fase 8 valida el catálogo por problemas, las demos de gestión y turnos, la reserva gastronómica, los estados terminales, el responsive y la accesibilidad.
-- La Fase 9 valida la identidad comercial, la ruta Nosotros, ambos escenarios del laboratorio n8n y los acentos de las catorce demos.
+- La Fase 9 valida la identidad comercial, la ruta Nosotros, ambos escenarios del laboratorio n8n y los acentos de las quince demos.
 - La Fase 10 valida la barra comercial compartida, el menú móvil, el cierre con `Escape`, el CTA sin recortes y la ausencia de desbordes.
 - La ampliación del laboratorio valida seis procesos, resultados específicos por flujo y estados de vista previa, procesamiento, aprobación, error y finalización.
-- La reportería interactiva cuenta con una regresión propia sobre las catorce demos, actualización de métricas, comparación, fallback, responsive y accesibilidad.
+- La reportería interactiva cuenta con una regresión propia sobre las quince demos, actualización de métricas, comparación, fallback, responsive y accesibilidad.
 - La regresión unificada actual ejecuta 97 pruebas Playwright sin fallas.
 - La revisión responsive usa `390x844`, `768x1024`, `1366x768` y `1920x1080`.
 

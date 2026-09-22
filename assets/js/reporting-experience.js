@@ -8,6 +8,7 @@
   let scheduled = false;
 
   const recommendations = {
+    "administracion-facturacion": "Cruzar vencimientos, documentación, aprobaciones y conciliación antes de emitir, cobrar o programar un pago.",
     "gestion-pyme": "Cruzar esta señal con caja, cobranzas y stock comprometido antes de decidir la próxima acción.",
     turnos: "Revisar horarios con mayor demanda y activar confirmaciones sobre los turnos con riesgo de ausencia.",
     medica: "Cruzar agenda, admisión y coberturas pendientes para anticipar demoras de atención.",

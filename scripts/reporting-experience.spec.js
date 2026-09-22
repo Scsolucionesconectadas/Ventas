@@ -2,6 +2,7 @@ const { test, expect } = require("playwright/test");
 
 const baseUrl = "http://127.0.0.1:4173";
 const demoSlugs = [
+  "administracion-facturacion",
   "gestion-pyme",
   "turnos",
   "medica",
@@ -29,7 +30,7 @@ async function openReports(page, slug) {
 }
 
 test.describe("Reportería interactiva de las demos", () => {
-  test("las catorce demos ofrecen análisis, períodos y recomendación por rubro", async ({ page }) => {
+  test("las quince demos ofrecen análisis, períodos y recomendación por rubro", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
 
     for (const slug of demoSlugs) {

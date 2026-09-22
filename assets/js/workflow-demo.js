@@ -641,6 +641,10 @@
 
   function getDemo(demoSlug) {
     const configs = {
+      "administracion-facturacion": createDemo("Administración y facturación", "direccion.administrativa@demo.local", [212, 96, 71, 5], [
+        createFlow("Servicio, factura y cobranza", "Servicio marcado como realizado", "Cliente, condición y documentos requeridos", "Preparar factura demo y vencimiento", "Administración valida emisión", "Estado de facturación y cobranza", "Comprobante, envío y decisión archivados"),
+        createFlow("Factura de proveedor y pago", "Comprobante recibido", "Duplicado, orden, remito e importe", "Preparar aprobación y vencimiento", "Responsable autoriza el pago", "Cuentas a pagar y excepciones", "Factura, aprobación y pago vinculados"),
+      ]),
       "gestion-pyme": createDemo("Gestión PyME", "direccion.pyme@demo.local", [166, 97, 48, 4], [
         createFlow("Venta, cobro y conciliación", "Movimiento registrado", "Cliente, importe y medio de pago", "Actualizar saldo y caja", "Administración revisa diferencias", "PDF de gestión diaria", "Movimiento y decisión archivados"),
         createFlow("Stock crítico y reposición", "Producto debajo del mínimo", "Rotación, margen y caja proyectada", "Preparar compra sugerida", "Responsable aprueba cantidad", "Stock y margen proyectados", "Reposición vinculada al producto"),

@@ -2,6 +2,7 @@ const { test, expect } = require("playwright/test");
 
 const baseUrl = "http://127.0.0.1:4173";
 const demos = [
+  "administracion-facturacion",
   "gestion-pyme",
   "turnos",
   "medica",
@@ -19,6 +20,7 @@ const demos = [
 ];
 
 const industryProgressions = {
+  "administracion-facturacion": ["Borrador", "En validación", "Aprobada", "Emitida", "Cobrada", "Conciliada"],
   "gestion-pyme": ["Pendiente", "Cobro parcial", "Cobrado", "Conciliado"],
   turnos: ["Solicitado", "Confirmado", "En atención", "Finalizado"],
   hoteleria: ["Nueva", "Confirmada", "En estadía", "Finalizada"],

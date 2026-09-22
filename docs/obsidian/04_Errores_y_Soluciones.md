@@ -1,5 +1,23 @@
 # Errores y Soluciones
 
+## 2026-09-21 - Playwright carga dos instalaciones desde la caché de npx
+
+**Síntoma:**
+La ejecución mostraba `Playwright Test did not expect test.use() to be called here` y finalizaba sin descubrir pruebas.
+
+**Causa:**
+`npx playwright@1.55.0` inició el CLI desde una carpeta de caché, mientras `NODE_PATH` resolvió `playwright/test` desde otra instalación de la misma versión. Playwright interpretó ambos módulos como instancias diferentes.
+
+**Solución aplicada:**
+Seleccionar una caché que contenga `@playwright/test` `1.55.0`, usar esa misma ruta en `NODE_PATH` y ejecutar directamente su `node_modules/playwright/cli.js`.
+
+**Cómo evitarlo:**
+Usar el comando unificado documentado en `06_Comandos_Runbook.md` y no combinar un CLI de `npx` recién creado con un `NODE_PATH` de otra caché.
+
+**Archivos relacionados:**
+- `docs/obsidian/06_Comandos_Runbook.md`
+- `scripts/administracion-facturacion.spec.js`
+
 ## 2026-09-06 - Pestaña dinámica ausente en la navegación con End
 
 **Síntoma:**
